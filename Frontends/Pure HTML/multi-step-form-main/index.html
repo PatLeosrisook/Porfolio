@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./CSS/index.css"/>
+  <title>Frontend Mentor | Multi-step form</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar start -->
+  <main id="desktop_main">
+    <header id="desktop_header">
+      <div>
+        <p class="step_number">Step</p>
+        <p class="step_desc">Your info</p>
+      </div>
+      <div>
+        <p class="step_number">Step</p>
+        <p class="step_desc">Select plan</p>
+      </div>
+      <div>
+        <p class="step_number">Step</p>
+        <p class="step_desc">Add-ons</p>
+      </div>
+      <div>
+        <p class="step_number">Step</p>
+        <p class="step_desc">Summary</p>
+      </div>
+    </header>
+    <section id="Form_container">
+      <div class="form_container">
+        <div class="title">
+          <h2>Personal info</h2>
+          <p>Please provide your name, email address, and phone number.</p>
+        </div>
+        <form>
+          <div class="peronal_form">
+            <div class="form_group peronal name">
+                <label></label>
+                <input type="text" placeholder="e.g. Stephen King" name="name" />
+            </div>
+            <div class="form_group peronal email">
+                <label></label>
+                <input type="email" placeholder="e.g. stephenking@lorem.com" name="email" />
+            </div>
+            <div class="form_group peronal number">
+                <label></label>
+                <input type="number" placeholder="e.g. +1 234 567 890" name="phone" />
+            </div>
+          </div>
+          <div class="plan">
+            <div class="form_group checkbox">
+              <img src="" alt=""/>
+              <div class="input_wrap">
+                <label for="">Arcade</label>
+                <p class="price">$9/mo</p>
+                <input type="checkbox" class="custom_box" name=""/>
+              </div>
+            </div>
+            <div class="form_group checkbox">
+              <img src="" alt=""/>
+              <div class="input_wrap">
+                <label for="">Advanced</label>
+                <p class="price">$12/mo</p>
+                <input type="checkbox" class="custom_box" name=""/>
+              </div>
+            </div>
+            <div class="form_group checkbox">
+              <img src="" alt=""/>
+              <div class="input_wrap">
+                <label for="">Pro</label>
+                <p class="price">$15/mo</p>
+                <input type="checkbox" class="custom_box" name=""/>
+              </div>
+            </div>
+            <div class="cycle">
+              <p class="monthly cycleText">Monthly</p>
+              <!-- toggle button -->
+              <p class="yearly cycleText">Yearly</p>
+            </div>
+          </div>
+          <div class="addons">
+            <div class="form_group addons_checkbox">
+              <label name="">Online service</label>
+              <p>+$1/mo</p>
+              <input type="checkbox" name="online"/>
+            </div>
+            <div class="form_group addons_checkbox">
+              <label name="">Larger storage</label>
+              <p>+$2/mo</p>
+              <input type="checkbox" name="online"/>
+            </div>
+            <div class="form_group addons_checkbox">
+              <label name="">Customizable Profile</label>
+              <p>+$2/mo</p>
+              <input type="checkbox" name="online"/>
+            </div>
+          </div>
+          <div class="finishing">
+            <div class="overview">
+              <div class="plan_cycle">
+                <div class="plan_wrap">
+                  <p>Arcade (<span id="bill_cycle"></span>)</p>
+                  <p class="change_plan">change</p>
+                </div>
+                <p id="overview_price">$9/mo</p>
+              </div>
+              <div id="divider_line"></div>
+              <div class="addons_overview">
+                <div class="overview_addons ">
+                  
+                </div>
+                <div class="overview_addons ">
+
+                </div>
+              </div>
+              <div class="total">
+                <p>Total (per <span id="total_cycle">month</span>)</p>
+                <p id="total"></p>
+              </div>
+            </div>
+          </div>
+          <div class="final_page">
+            <img src="" alt="" />
+            <h4>Thank you!</h4>
+            <p>Thanks for confirming your subscription! We hope you have fun 
+              using our platform. If you ever need support, please feel free 
+              to email us at support@loremgaming.com.</p>
+          </div>
+        </form>               
+      </div>  
+      <section id="form_nav">
+        <p>Go back</p>
+        <button id="nav_btn">Next step</button>
+      </section>
+    </section> 
+  </main>
+  <main id="mobile_main">
+    <header id="mobile_header">
+      <div class="step_no current">1</div>
+      <div class="step_no">2</div>
+      <div class="step_no">3</div>
+      <div class="step_no">4</div>
+      <!-- <img src="./assets/images/bg-sidebar-mobile.svg" alt="header element" class="header_element orange_element" /> -->
+      <!-- <img src="" alt="header element" class="header_element pink_element" /> -->
+    </header>
+    <section id="Form">
+      <div class="form_container">
+        <div class="title">
+          <h2>Personal info</h2>
+          <p>Please provide your name, email address, and phone number.</p>
+        </div>
+        <form>
+          <div class="peronal_form">
+            <div class="form_group peronal name">
+                <label>Name</label>
+                <input type="text" placeholder="e.g. Stephen King" name="name" />
+            </div>
+            <div class="form_group peronal email">
+                <label>Email</label>
+                <input type="email" placeholder="e.g. stephenking@lorem.com" name="email" />
+            </div>
+            <div class="form_group peronal number">
+                <label>Phone number</label>
+                <input type="number" placeholder="e.g. +1 234 567 890" name="phone" />
+            </div>
+          </div>
+          <div class="plan">
+            <div class="form_group checkbox">
+              <img src="" alt=""/>
+              <div class="input_wrap">
+                <label for="">Arcade</label>
+                <p class="price">$9/mo</p>
+                <input type="checkbox" class="custom_box" name=""/>
+              </div>
+            </div>
+            <div class="form_group checkbox">
+              <img src="" alt=""/>
+              <div class="input_wrap">
+                <label for="">Advanced</label>
+                <p class="price">$12/mo</p>
+                <input type="checkbox" class="custom_box" name=""/>
+              </div>
+            </div>
+            <div class="form_group checkbox">
+              <img src="" alt=""/>
+              <div class="input_wrap">
+                <label for="">Pro</label>
+                <p class="price">$15/mo</p>
+                <input type="checkbox" class="custom_box" name=""/>
+              </div>
+            </div>
+            <div class="cycle">
+              <p class="monthly cycleText">Monthly</p>
+              <!-- toggle button -->
+              <p class="yearly cycleText">Yearly</p>
+            </div>
+          </div>
+          <div class="addons">
+            <div class="form_group addons_checkbox">
+              <label name="">Online service</label>
+              <p>+$1/mo</p>
+              <input type="checkbox" name="online"/>
+            </div>
+            <div class="form_group addons_checkbox">
+              <label name="">Larger storage</label>
+              <p>+$2/mo</p>
+              <input type="checkbox" name="online"/>
+            </div>
+            <div class="form_group addons_checkbox">
+              <label name="">Customizable Profile</label>
+              <p>+$2/mo</p>
+              <input type="checkbox" name="online"/>
+            </div>
+          </div>
+          <div class="finishing">
+            <div class="overview">
+              <div class="plan_cycle">
+                <div class="plan_wrap">
+                  <p>Arcade (<span id="bill_cycle"></span>)</p>
+                  <p class="change_plan">change</p>
+                </div>
+                <p id="overview_price">$9/mo</p>
+              </div>
+              <div id="divider_line"></div>
+              <div class="addons_overview">
+                <div class="overview_addons ">
+                  
+                </div>
+                <div class="overview_addons ">
+
+                </div>
+              </div>
+              <div class="total">
+                <p>Total (per <span id="total_cycle">month</span>)</p>
+                <p id="total"></p>
+              </div>
+            </div>
+          </div>
+          <div class="final_page">
+            <img src="" alt="" />
+            <h4>Thank you!</h4>
+            <p>Thanks for confirming your subscription! We hope you have fun 
+              using our platform. If you ever need support, please feel free 
+              to email us at support@loremgaming.com.</p>
+          </div>
+        </form>               
+      </div>  
+      <section id="form_nav">
+        <p>Go back</p>
+        <button id="nav_btn">Next step</button>
+      </section>
+    </section>
+  </main>
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+</body>
+</html>
