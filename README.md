@@ -19,3 +19,4 @@ If you want to send me feedback about any of my projects, interested in hire me 
   |
   <a style="font-size:35px;" href="mailto:kalyadaleosrisook@gmail.com">My email</a>
 </p>
+<p><em>Side note: If you don't see any projects list on here, that means the projects have not been merged to this branch. Please see the other branch (beta). Thank you!</em></p>
