@@ -18,94 +18,110 @@
 
   <!-- Sidebar start -->
   <main id="desktop_main">
-    <header id="desktop_header">
-      <div>
-        <p class="step_number">Step</p>
-        <p class="step_desc">Your info</p>
-      </div>
-      <div>
-        <p class="step_number">Step</p>
-        <p class="step_desc">Select plan</p>
-      </div>
-      <div>
-        <p class="step_number">Step</p>
-        <p class="step_desc">Add-ons</p>
-      </div>
-      <div>
-        <p class="step_number">Step</p>
-        <p class="step_desc">Summary</p>
-      </div>
-    </header>
-    <section id="Form_container">
-      <div class="form_container">
-        <div class="title">
-          <h2>Personal info</h2>
-          <p>Please provide your name, email address, and phone number.</p>
+    <section id="container">
+      <header id="desktop_header">
+        <div>
+          <p class="step_number">Step</p>
+          <p class="step_desc">Your info</p>
         </div>
-        <form>
-          <div class="peronal_form">
-            <div class="form_group peronal name">
-                <label></label>
-                <input type="text" placeholder="e.g. Stephen King" name="name" />
-            </div>
-            <div class="form_group peronal email">
-                <label></label>
-                <input type="email" placeholder="e.g. stephenking@lorem.com" name="email" />
-            </div>
-            <div class="form_group peronal number">
-                <label></label>
-                <input type="number" placeholder="e.g. +1 234 567 890" name="phone" />
-            </div>
+        <div>
+          <p class="step_number">Step</p>
+          <p class="step_desc">Select plan</p>
+        </div>
+        <div>
+          <p class="step_number">Step</p>
+          <p class="step_desc">Add-ons</p>
+        </div>
+        <div>
+          <p class="step_number">Step</p>
+          <p class="step_desc">Summary</p>
+        </div>
+      </header>
+      <section id="Form">
+        <div class="form_container">
+          <div class="title">
+            <h2>Personal info</h2>
+            <p>Please provide your name, email address, and phone number.</p>
           </div>
-          <div class="plan">
-            <div class="form_group checkbox">
-              <img src="" alt=""/>
-              <div class="input_wrap">
-                <label for="">Arcade</label>
-                <p class="price">$9/mo</p>
-                <input type="checkbox" class="custom_box" name=""/>
+          <form>
+            <div class="personal_form">
+              <div class="form_group personal name">
+                  <label>Name</label>
+                  <input type="text" placeholder="e.g. Stephen King" name="name" />
+              </div>
+              <div class="form_group personal email">
+                  <label>Email Address</label>
+                  <input type="email" placeholder="e.g. stephenking@lorem.com" name="email" />
+              </div>
+              <div class="form_group personal number">
+                  <label>Phone Number</label>
+                  <input type="text" placeholder="e.g. +1 234 567 890" name="phone" />
               </div>
             </div>
-            <div class="form_group checkbox">
-              <img src="" alt=""/>
-              <div class="input_wrap">
-                <label for="">Advanced</label>
-                <p class="price">$12/mo</p>
-                <input type="checkbox" class="custom_box" name=""/>
+            <div class="plan">
+              <div class="form_group checkbox">
+                <img src="./assets/images/icon-arcade.svg" alt=""/>
+                <div class="input_wrap">
+                  <label for="">Arcade</label>
+                  <p class="price">$9/mo</p>
+                  <input type="checkbox" class="custom_box" name=""/>
+                </div>
+              </div>
+              <div class="form_group checkbox">
+                <img src="./assets/images/icon-advanced.svg" alt=""/>
+                <div class="input_wrap">
+                  <label for="">Advanced</label>
+                  <p class="price">$12/mo</p>
+                  <input type="checkbox" class="custom_box" name=""/>
+                </div>
+              </div>
+              <div class="form_group checkbox">
+                <img src="./assets/images/icon-pro.svg" alt=""/>
+                <div class="input_wrap">
+                  <label for="">Pro</label>
+                  <p class="price">$15/mo</p>
+                  <input type="checkbox" class="custom_box" name=""/>
+                </div>
+              </div>
+              <div class="cycle">
+                <p class="monthly cycleText">Monthly</p>
+                <!-- toggle button -->
+                <p class="yearly cycleText">Yearly</p>
               </div>
             </div>
-            <div class="form_group checkbox">
-              <img src="" alt=""/>
-              <div class="input_wrap">
-                <label for="">Pro</label>
-                <p class="price">$15/mo</p>
-                <input type="checkbox" class="custom_box" name=""/>
+            <div class="addons">
+            <div class="form_group addons_checkbox">
+              <div class="desktop_plan_label">
+                <input type="checkbox" name="online"/>
+                <div class="input_wrap">
+                  <label name="">Online service</label>
+                  <p>Access to multiplayer games</p>
+                </div>
               </div>
+              <p class="addon_price">+$1/mo</p>
             </div>
-            <div class="cycle">
-              <p class="monthly cycleText">Monthly</p>
-              <!-- toggle button -->
-              <p class="yearly cycleText">Yearly</p>
+            <div class="form_group addons_checkbox">
+              <div class="desktop_plan_label">
+                <input type="checkbox" name="online"/>
+                <div class="input_wrap">
+                  <label name="">Larger storage</label>
+                  <p>Extra 1TB of cloud save</p>
+                </div>
+              </div>
+              <p class="addon_price">+$2/mo</p>
+            </div>
+            <div class="form_group addons_checkbox">
+              <div class="desktop_plan_label">
+                <input type="checkbox" name="online"/>
+                <div class="input_wrap">
+                  <label name="">Customizable Profile</label>
+                  <p>Custom theme on your profile</p>
+                </div>
+              </div>
+              <p class="addon_price">+$2/mo</p>
             </div>
           </div>
-          <div class="addons">
-            <div class="form_group addons_checkbox">
-              <label name="">Online service</label>
-              <p>+$1/mo</p>
-              <input type="checkbox" name="online"/>
-            </div>
-            <div class="form_group addons_checkbox">
-              <label name="">Larger storage</label>
-              <p>+$2/mo</p>
-              <input type="checkbox" name="online"/>
-            </div>
-            <div class="form_group addons_checkbox">
-              <label name="">Customizable Profile</label>
-              <p>+$2/mo</p>
-              <input type="checkbox" name="online"/>
-            </div>
-          </div>
-          <div class="finishing">
+            <div class="finishing">
             <div class="overview">
               <div class="plan_cycle">
                 <div class="plan_wrap">
@@ -117,32 +133,35 @@
               <div id="divider_line"></div>
               <div class="addons_overview">
                 <div class="overview_addons ">
-                  
+                  <p>Online serivce</p>
+                  <p>+$1/mo</p>
                 </div>
                 <div class="overview_addons ">
-
+                  <p>Larger storage</p>
+                  <p>+$2/mo</p>
                 </div>
               </div>
-              <div class="total">
-                <p>Total (per <span id="total_cycle">month</span>)</p>
-                <p id="total"></p>
-              </div>
+            </div>
+            <div class="total">
+              <p>Total (per <span id="total_cycle">month</span>)</p>
+              <p id="total"></p>
             </div>
           </div>
-          <div class="final_page">
-            <img src="" alt="" />
-            <h4>Thank you!</h4>
-            <p>Thanks for confirming your subscription! We hope you have fun 
-              using our platform. If you ever need support, please feel free 
-              to email us at support@loremgaming.com.</p>
-          </div>
-        </form>               
-      </div>  
-      <section id="form_nav">
-        <p>Go back</p>
-        <button id="nav_btn">Next step</button>
+            <div class="final_page">
+              <img src="" alt="" />
+              <h4>Thank you!</h4>
+              <p>Thanks for confirming your subscription! We hope you have fun
+                using our platform. If you ever need support, please feel free
+                to email us at support@loremgaming.com.</p>
+            </div>
+          </form>
+        </div>
+        <section id="form_nav">
+          <p>Go back</p>
+          <button id="nav_btn">Next step</button>
+        </section>
       </section>
-    </section> 
+    </section>
   </main>
   <main id="mobile_main">
     <header id="mobile_header">
@@ -207,18 +226,27 @@
           </div>
           <div class="addons">
             <div class="form_group addons_checkbox">
-              <label name="">Online service</label>
-              <p>+$1/mo</p>
+              <div class="input_wrap">
+                <label name="">Online service</label>
+                <p>Access to multiplayer games</p>
+              </div>
+              <p class="addon_price">+$1/mo</p>
               <input type="checkbox" name="online"/>
             </div>
             <div class="form_group addons_checkbox">
-              <label name="">Larger storage</label>
-              <p>+$2/mo</p>
+              <div class="input_wrap">
+                <label name="">Larger storage</label>
+                <p>Extra 1TB of cloud save</p>
+              </div>
+              <p class="addon_price">+$2/mo</p>
               <input type="checkbox" name="online"/>
             </div>
             <div class="form_group addons_checkbox">
-              <label name="">Customizable Profile</label>
-              <p>+$2/mo</p>
+              <div class="input_wrap">
+                <label name="">Customizable Profile</label>
+                <p>Custom theme on your profile</p>
+              </div>
+              <p class="addon_price">+$2/mo</p>
               <input type="checkbox" name="online"/>
             </div>
           </div>
@@ -234,20 +262,22 @@
               <div id="divider_line"></div>
               <div class="addons_overview">
                 <div class="overview_addons ">
-                  
+                  <p>Online serivce</p>
+                  <p>+$1/mo</p>
                 </div>
                 <div class="overview_addons ">
-
+                  <p>Larger storage</p>
+                  <p>+$2/mo</p>
                 </div>
               </div>
-              <div class="total">
-                <p>Total (per <span id="total_cycle">month</span>)</p>
-                <p id="total"></p>
-              </div>
+            </div>
+            <div class="total">
+              <p>Total (per <span id="total_cycle">month</span>)</p>
+              <p id="total"></p>
             </div>
           </div>
           <div class="final_page">
-            <img src="" alt="" />
+            <img src="./assets/images/icon-thank-you.svg" alt="" />
             <h4>Thank you!</h4>
             <p>Thanks for confirming your subscription! We hope you have fun 
               using our platform. If you ever need support, please feel free 
