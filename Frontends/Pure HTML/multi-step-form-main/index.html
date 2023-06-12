@@ -7,7 +7,9 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="./CSS/index.css"/>
   <title>Frontend Mentor | Multi-step form</title>
-
+  <!-- Toggle button -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/shaheenhyderk/slideon@1.0.2/slideon.css"/>
+  <script src="https://cdn.jsdelivr.net/gh/shaheenhyderk/slideon@1.0.2/slideon.js"></script>
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution { font-size: 11px; text-align: center; }
@@ -20,76 +22,102 @@
   <main id="desktop_main">
     <section id="container">
       <header id="desktop_header">
-        <div>
-          <p class="step_number">Step</p>
-          <p class="step_desc">Your info</p>
+        <div class="steps">
+          <div class="step_no current">1</div>
+          <div class="step_desc">
+            <p class="step_number">Step 1</p>
+            <p class="step_desc">Your info</p>
+          </div>
         </div>
-        <div>
-          <p class="step_number">Step</p>
-          <p class="step_desc">Select plan</p>
+
+        <div class="steps">
+          <div class="step_no">2</div>
+          <div class="step_desc">
+            <p class="step_number">Step 2</p>
+            <p class="step_desc">Select plan</p>
+          </div>
         </div>
-        <div>
-          <p class="step_number">Step</p>
-          <p class="step_desc">Add-ons</p>
+
+        <div class="steps">
+          <div class="step_no">3</div>
+          <div class="step_desc">
+            <p class="step_number">Step 3</p>
+            <p class="step_desc">Add-ons</p>
+          </div>
         </div>
-        <div>
-          <p class="step_number">Step</p>
-          <p class="step_desc">Summary</p>
+
+        <div class="steps">
+          <div class="step_no">4</div>
+          <div class="step_desc">
+            <p class="step_number">Step 4</p>
+            <p class="step_desc">Summary</p>
+          </div>
         </div>
       </header>
       <section id="Form">
         <div class="form_container">
-          <div class="title">
-            <h2>Personal info</h2>
-            <p>Please provide your name, email address, and phone number.</p>
-          </div>
           <form>
             <div class="personal_form">
+              <div class="form_title">
+                <p>Personal info</p>
+                <p>Please provide your name, email address, and phone number.</p>
+              </div>
               <div class="form_group personal name">
-                  <label>Name</label>
-                  <input type="text" placeholder="e.g. Stephen King" name="name" />
+                  <label for="name">Name</label>
+                  <input type="text" id="name" placeholder="e.g. Stephen King" name="name" />
               </div>
               <div class="form_group personal email">
-                  <label>Email Address</label>
-                  <input type="email" placeholder="e.g. stephenking@lorem.com" name="email" />
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" placeholder="e.g. stephenking@lorem.com" name="email" />
               </div>
               <div class="form_group personal number">
-                  <label>Phone Number</label>
-                  <input type="text" placeholder="e.g. +1 234 567 890" name="phone" />
+                  <label for="phone">Phone Number</label>
+                  <input type="text" id='phone' name="phone" placeholder="e.g. +1 234 567 890" name="phone" required />
               </div>
             </div>
             <div class="plan">
-              <div class="form_group checkbox">
-                <img src="./assets/images/icon-arcade.svg" alt=""/>
-                <div class="input_wrap">
-                  <label for="">Arcade</label>
-                  <p class="price">$9/mo</p>
-                  <input type="checkbox" class="custom_box" name=""/>
-                </div>
+              <div class="form_title">
+                <p>Select your plan</p>
+                <p>You have the option of monthly or yearly billing.</p>
               </div>
-              <div class="form_group checkbox">
-                <img src="./assets/images/icon-advanced.svg" alt=""/>
-                <div class="input_wrap">
-                  <label for="">Advanced</label>
-                  <p class="price">$12/mo</p>
-                  <input type="checkbox" class="custom_box" name=""/>
+              <div class="input_container">
+                <div class="form_group checkbox c-1 checked_plan">
+                  <img src="./assets/images/icon-arcade.svg" alt=""/>
+                  <div class="input_wrap">
+                    <label for="">Arcade</label>
+                    <p class="price">$9/mo</p>
+                    <input type="checkbox" class="custom_box" name=""/>
+                  </div>
                 </div>
-              </div>
-              <div class="form_group checkbox">
-                <img src="./assets/images/icon-pro.svg" alt=""/>
-                <div class="input_wrap">
-                  <label for="">Pro</label>
-                  <p class="price">$15/mo</p>
-                  <input type="checkbox" class="custom_box" name=""/>
+                <div class="form_group checkbox c-2">
+                  <img src="./assets/images/icon-advanced.svg" alt=""/>
+                  <div class="input_wrap">
+                    <label for="">Advanced</label>
+                    <p class="price">$12/mo</p>
+                    <input type="checkbox" class="custom_box" name=""/>
+                  </div>
                 </div>
-              </div>
-              <div class="cycle">
-                <p class="monthly cycleText">Monthly</p>
-                <!-- toggle button -->
-                <p class="yearly cycleText">Yearly</p>
+                <div class="form_group checkbox c-3">
+                  <img src="./assets/images/icon-pro.svg" alt=""/>
+                  <div class="input_wrap">
+                    <label for="">Pro</label>
+                    <p class="price">$15/mo</p>
+                    <input type="checkbox" class="custom_box" name=""/>
+                  </div>
+                </div>
+                <div class="cycle">
+                  <p class="monthly cycleText">Monthly</p>
+                  <!-- toggle button -->
+                  <input type="checkbox" class="slideon slideon-auto"/>
+                   <p class="yearly cycleText">Yearly</p>
+                </div>
               </div>
             </div>
             <div class="addons">
+              <div class="form_title">
+                <p>Pick add-ons</p>
+                <p>Add-ons help enhance your gaming experience.</p>
+              </div>
             <div class="form_group addons_checkbox">
               <div class="desktop_plan_label">
                 <input type="checkbox" name="online"/>
@@ -120,35 +148,39 @@
               </div>
               <p class="addon_price">+$2/mo</p>
             </div>
-          </div>
+            </div>
             <div class="finishing">
-            <div class="overview">
-              <div class="plan_cycle">
-                <div class="plan_wrap">
-                  <p>Arcade (<span id="bill_cycle"></span>)</p>
-                  <p class="change_plan">change</p>
-                </div>
-                <p id="overview_price">$9/mo</p>
+              <div class="form_title">
+                <p>Finishing up</p>
+                <p>Double-check everything looks OK before confirming.</p>
               </div>
-              <div id="divider_line"></div>
-              <div class="addons_overview">
-                <div class="overview_addons ">
-                  <p>Online serivce</p>
-                  <p>+$1/mo</p>
+              <div class="overview">
+                <div class="plan_cycle">
+                  <div class="plan_wrap">
+                    <p>Arcade (<span id="bill_cycle"></span>)</p>
+                    <p class="change_plan">change</p>
+                  </div>
+                  <p id="overview_price">$9/mo</p>
                 </div>
-                <div class="overview_addons ">
-                  <p>Larger storage</p>
-                  <p>+$2/mo</p>
+                <div id="divider_line"></div>
+                <div class="addons_overview">
+                  <div class="overview_addons ">
+                    <p>Online serivce</p>
+                    <p>+$1/mo</p>
+                  </div>
+                  <div class="overview_addons ">
+                    <p>Larger storage</p>
+                    <p>+$2/mo</p>
+                  </div>
                 </div>
+              </div>
+              <div class="total">
+                <p>Total (per <span id="total_cycle">month</span>)</p>
+                <p id="total">+$12/mo</p>
               </div>
             </div>
-            <div class="total">
-              <p>Total (per <span id="total_cycle">month</span>)</p>
-              <p id="total"></p>
-            </div>
-          </div>
             <div class="final_page">
-              <img src="" alt="" />
+              <img src="./assets/images/icon-thank-you.svg" alt="" />
               <h4>Thank you!</h4>
               <p>Thanks for confirming your subscription! We hope you have fun
                 using our platform. If you ever need support, please feel free
@@ -296,5 +328,6 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div>
+<script src="./index.js"></script>
 </body>
 </html>

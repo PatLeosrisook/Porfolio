@@ -25,6 +25,26 @@ html, body {
 body{
     background-color: $background;
 }
+// Overriding toggle button styling 
+.slideon input:checked~.slideon-slider {
+    background-color: #022959 !important;
+}
+.slideon-slider {
+    background-color: #022959 !important;
+    height: 20px !important;
+    width: 38px !important;
+    &::before {
+        height: 18px !important;
+        width: 18px !important;
+    }
+}
+.checked_plan {
+    background-color: #F8F9FF !important;
+    border-color: $primay !important;
+}
+.show_btn {
+    visibility: visible !important;
+}
 #desktop_main {
     display: none;
 
@@ -35,6 +55,22 @@ body{
     width:100%;
 
 }
+.step_no {
+    @include flex();
+    height:30px;
+    width:30px;
+    border-radius: 100%;
+    border: 2px solid white;
+    color: white;
+}
+.current {
+    background-color: #BEE2FD;
+    border: none;
+    color:$secondary-black;
+}
+.error {
+    border: 1px solid red !important;
+}
 #mobile_header {
     @include flex(row, center,center);
     width:100%;
@@ -42,19 +78,8 @@ body{
     background: url(../assets/images/bg-sidebar-mobile.svg);
     background-size: cover;
     gap:9px;
-    .step_no {
-        @include flex();
-        height:30px;
-        width:30px;
-        border-radius: 100%;
-        border: 2px solid white;
-        color: white;
-    }
-    .current {
-        background-color: #BEE2FD;
-        border: none;
-        color:$secondary-black;
-    }
+   
+   
 }
 #Form{
     width:100%;
@@ -76,6 +101,7 @@ body{
         transform: translateX(-1949px);
         height: fit-content;
         width:fit-content;
+        transition: transform ease 0.4s;
     }
     form > div {
         @include flex(column, flex-start, center);
@@ -91,6 +117,10 @@ body{
             width:295px;
             height:40px;
             border-radius: 10px;
+            &:focus {
+                outline:none;
+                border-color: $primay;
+            }
         }
     }
     .title {
@@ -117,10 +147,46 @@ body{
         border: 1px solid #D6D9E6;
         padding: 0 14px;
         height:81px;
+        cursor: pointer;
         input {
             order:1;
+            // display: none;
+            /* Add if not using autoprefixer */
+            -webkit-appearance: none;
+            appearance: none;
+            /* For iOS < 15 to remove gradient background */
+            background-color: #fff;
+            /* Not removed via appearance */
+            margin: 0;
 
+            font: inherit;
+            color: currentColor;
+            width:20px;
+            height:20px;
+            border: 1px solid #D6D9E6;
+            border-radius: 4px;
+            transform: translateY(-0);
+
+            display:grid;
+            place-content: center;
+            &::before {
+                content: url(../assets/images/icon-checkmark.svg);
+                width: 20px;
+                height: 20px;
+                transform: scale(0) translateX(4px);
+                transition: 120ms transform ease-in-out;
+                box-shadow: inset 1em 1em var(--form-control-color);
+            }
+            &:checked {
+                background-color: $primay;
+                border:none;
+                &::before {
+                    transform: scale(1) translateX(4px);
+
+                }
+            }
         }
+       
         .input_wrap {
             order:2;
             label{
@@ -253,18 +319,55 @@ body{
         width:100vw;
 
     }
-    
+    #section_title {
+        @include flex(row, center,flex-start);
+        width:2250px;
+        list-style: none;
+        gap:130px;
+        padding:0;
+    }
+    .form_title{
+        p{
+            &:first-child {
+                font-weight: 700;
+                font-size:32px;
+                margin:0;
+            }
+            &:nth-child(2) {
+                color: #9699AA;
+                font-size:16px;
+            }
+            margin-bottom: 0;
+        }
+    }
     #mobile_main {
         display:none;
     }
     #desktop_header {
-        background:url(../assets/images/bg-sidebar-desktop.svg);
+        @include flex(column, flex-start,flex-start);
+        background: url(../assets/images/bg-sidebar-desktop.svg);
         background-size: cover;
         background-repeat: no-repeat;
-        background-position-y: -193px;
+        background-position-y: -15px;
         border-radius: 20px;
-        height:100%;
-        width:40%;
+        height: 100%;
+        padding-top: 60px;
+        width: 33%;
+        gap: 30px;
+        .steps {
+            @include flex(row, center,flex-start);
+            gap: 26px;
+            position: relative;
+            left: 15%;
+            .step_number {
+                color: #ABBCFF;
+                font-size: 12px;
+            }
+            p {
+                margin:0;
+                 color: white;
+            }
+        }
     }
     #desktop_main {
         @include flex();
@@ -272,15 +375,15 @@ body{
         height: 100%;
         #container {
             @include flex(row, center,space-between);
-            width:91%;
+            width:938px;
             background-color: white;
-            height: 60%;
+            height: 652px;
             padding:20px;
 
         }
     }
     #Form {
-        width:60%;
+        width:62%;
         height: fit-content;
         .form_container {
             position:static;
@@ -291,7 +394,8 @@ body{
         }
         form{
             height:60%;
-            transform: translateX(-2015px);
+            transform: translateX(0px);
+            gap:321px;
             .form_group {
                 width:100%;
                 input[type="text"],input[type="email"] {
@@ -305,11 +409,15 @@ body{
         form > div {
             width: 490px;
         }
-        .plan {
+        .input_container {
             display:grid;
             grid-template-columns: auto auto auto;
             grid-template-rows: auto auto;
-            width: fit-content;
+            width:  100%;
+            row-gap:20px;
+            position:relative;
+            top:40px;
+            padding-bottom: 70px;
             height: fit-content;
             .checkbox {
                 @include flex(column, flex-start,center);
@@ -318,6 +426,11 @@ body{
                 border-radius: 20px;
                 padding: 20px;
                 width: 149px;
+                .price {
+                    color:#9699AA;
+                    font-size:14px;
+                }
+                cursor: pointer;
                 img {
                     width:30px;
                     height:auto;
@@ -334,6 +447,11 @@ body{
                     grid-column: 3;
                     grid-row: 1;
                 }
+                input[type="checkbox"] {
+                    &:checked .checkbox {
+                        border-color: #483EFF;
+                    }
+                }
             }
             .cycle {
                 grid-row: 2;
@@ -348,10 +466,57 @@ body{
             @include flex(row, center,center);
             gap:5px;
         }
+        .total {
+            @include flex(row, center,space-between);
+            width:100%;
+            #total {
+                color:$primay;
+
+                font-weight: bold;
+            }
+        }
+        .final_page {
+            img {
+                width:80px;
+                height:auto;
+            }
+            h4{
+                margin-top:20px;
+            }
+            p {
+                font-size: 16px;
+                line-height: 25px;
+                width: 68%;
+                margin:0;
+                font-weight: 400;
+            }
+        }
+        .finishing {
+            .form_title {
+                margin-bottom: 70px;;
+            }
+        }
     }
     #form_nav {
         height:fit-content;
         padding:0 19px;
+        // margin-top:80px;
+        p {
+            color:#9699AA;
+            font-size:16px;
+            font-weight: 600;
+            visibility: hidden;
+        }
+        p {
+
+            cursor: pointer;
+        }
+        #nav_btn {
+            cursor: pointer;
+            &:hover {
+                background-color: $primay;
+            }
+        }
     }
     
 }
