@@ -419,6 +419,7 @@ body{
             top:40px;
             padding-bottom: 70px;
             height: fit-content;
+            
             .checkbox {
                 @include flex(column, flex-start,center);
                 border:1px solid #D6D9E6;
@@ -429,6 +430,9 @@ body{
                 .price {
                     color:#9699AA;
                     font-size:14px;
+                }
+                &:hover {
+                    border-color: $primay
                 }
                 cursor: pointer;
                 img {
@@ -461,10 +465,17 @@ body{
         }
         .addons_checkbox {
             justify-content: space-between;
+            &:hover {
+                border-color: $primay;
+            }
+            
         }
         .desktop_plan_label {
             @include flex(row, center,center);
             gap:5px;
+            input:checked .addons_checkbox{
+                border-color:$primay;
+            }
         }
         .total {
             @include flex(row, center,space-between);

@@ -474,6 +474,9 @@ body {
     color: #9699AA;
     font-size: 14px;
   }
+  #Form .input_container .checkbox:hover {
+    border-color: #483EFF;
+  }
   #Form .input_container .checkbox img {
     width: 30px;
     height: auto;
@@ -501,12 +504,18 @@ body {
   #Form .addons_checkbox {
     justify-content: space-between;
   }
+  #Form .addons_checkbox:hover {
+    border-color: #483EFF;
+  }
   #Form .desktop_plan_label {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 5px;
+  }
+  #Form .desktop_plan_label input:checked .addons_checkbox {
+    border-color: #483EFF;
   }
   #Form .total {
     display: flex;
