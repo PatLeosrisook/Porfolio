@@ -469,6 +469,9 @@ body {
   #Form form > div {
     width: 490px;
   }
+  #Form .plan {
+    width: 490px;
+  }
   #Form .input_container {
     display: grid;
     grid-template-columns: auto auto auto;

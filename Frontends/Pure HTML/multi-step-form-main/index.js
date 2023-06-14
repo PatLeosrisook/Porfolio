@@ -55,7 +55,7 @@ button.addEventListener("click", function(){
             // Validate first  
             let inputs = document.querySelectorAll(".personal_form input")
             Array.from(inputs).forEach(input => {
-                console.log(input.value)
+                console.log(input.value.length, input)
                 if(input.value.length == 0) {
                     console.log(input, 'is empty')
                     //TODO:: add in error
