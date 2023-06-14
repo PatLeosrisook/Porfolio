@@ -74,6 +74,19 @@ body {
   border: 1px solid red !important;
 }
 
+.form_title p {
+  margin-bottom: 0;
+}
+.form_title p:first-child {
+  font-weight: 700;
+  font-size: 22px;
+  margin: 0;
+}
+.form_title p:nth-child(2) {
+  color: #9699AA;
+  font-size: 12px;
+}
+
 #mobile_header {
   display: flex;
   flex-direction: row;
@@ -107,7 +120,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 177px;
-  transform: translateX(-1949px);
+  transform: translateX(-483px);
   height: -moz-fit-content;
   height: fit-content;
   width: -moz-fit-content;
@@ -137,6 +150,9 @@ body {
   outline: none;
   border-color: #483EFF;
 }
+#Form .personal_form .form_title {
+  margin-bottom: 20px;
+}
 #Form .title {
   margin-bottom: 20px;
 }
@@ -152,6 +168,12 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+#Form .checkbox {
+  border: 1px solid #9699AA;
+  height: 60px;
+  padding-left: 13px;
+  border-radius: 8px;
 }
 #Form .addons {
   gap: 10px;
@@ -243,6 +265,7 @@ body {
 }
 #Form .plan {
   gap: 28px;
+  width: 283px;
 }
 #Form .finishing {
   height: 200px;
