@@ -125,6 +125,7 @@ addons_checkboxes.forEach(add =>{
     }
     add.addEventListener('click', function(e) {
         if(e.target.checked) {
+            console.log(e.target, e.target.parentElement, e.target.parentElement.parentElement)
             e.target.parentElement.parentElement.classList.add("checked_plan")
             let serviceName = e.target.name.replace(" ","_")
             data.addons.push({service: e.target.name, price: document.querySelector(`.${serviceName}`).textContent})

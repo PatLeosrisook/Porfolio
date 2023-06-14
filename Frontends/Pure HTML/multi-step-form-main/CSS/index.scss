@@ -112,7 +112,7 @@ body{
     form {
         @include flex(row, center,center);
         gap: 177px;
-        transform: translateX(-483px);
+        transform: translateX(-1438px);
         height: fit-content;
         width:fit-content;
         transition: transform ease 0.4s;
@@ -137,10 +137,10 @@ body{
             }
         }
     }
+    .form_title {
+        margin-bottom: 20px;
+    }
     .personal_form {
-        .form_title {
-            margin-bottom: 20px;
-        }
     }
     .title {
         margin-bottom: 20px;;
@@ -157,17 +157,21 @@ body{
 
     }
     .checkbox {
-        border:1px solid #9699AA;
+        border:1px solid #D6D9E6;
         height:60px;
         padding-left:13px;
         border-radius: 8px;
+        .price {
+            font-size:13px;
+            color:#9699AA;
+        }
     }
     .addons {
         gap:10px;
     }
     .addons_checkbox {
         border-radius: 10px;
-        justify-content: flex-start;
+        justify-content: space-between;
         gap: 15px;
         border: 1px solid #D6D9E6;
         padding: 0 14px;
@@ -211,7 +215,10 @@ body{
                 }
             }
         }
-       
+       .add_container {
+        @include flex(row, center,center);
+        gap:5px;
+       }
         .input_wrap {
             order:2;
             label{
@@ -252,9 +259,10 @@ body{
         padding:9px;
     }
     .plan {
-        gap:28px;
+        gap:16px;
         width:283px;
     }
+
     .finishing {
         height: 200px;
     }
@@ -500,7 +508,7 @@ body{
             }
             
         }
-        .desktop_plan_label {
+        .add_container{
             @include flex(row, center,center);
             gap:5px;
             input:checked .addons_checkbox{

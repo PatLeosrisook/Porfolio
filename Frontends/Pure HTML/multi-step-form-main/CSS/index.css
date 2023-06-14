@@ -120,7 +120,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 177px;
-  transform: translateX(-483px);
+  transform: translateX(-1438px);
   height: -moz-fit-content;
   height: fit-content;
   width: -moz-fit-content;
@@ -150,7 +150,7 @@ body {
   outline: none;
   border-color: #483EFF;
 }
-#Form .personal_form .form_title {
+#Form .form_title {
   margin-bottom: 20px;
 }
 #Form .title {
@@ -170,17 +170,21 @@ body {
   justify-content: center;
 }
 #Form .checkbox {
-  border: 1px solid #9699AA;
+  border: 1px solid #D6D9E6;
   height: 60px;
   padding-left: 13px;
   border-radius: 8px;
+}
+#Form .checkbox .price {
+  font-size: 13px;
+  color: #9699AA;
 }
 #Form .addons {
   gap: 10px;
 }
 #Form .addons_checkbox {
   border-radius: 10px;
-  justify-content: flex-start;
+  justify-content: space-between;
   gap: 15px;
   border: 1px solid #D6D9E6;
   padding: 0 14px;
@@ -221,6 +225,13 @@ body {
 }
 #Form .addons_checkbox input:checked::before {
   transform: scale(1) translateX(4px);
+}
+#Form .addons_checkbox .add_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 #Form .addons_checkbox .input_wrap {
   order: 2;
@@ -264,7 +275,7 @@ body {
   padding: 9px;
 }
 #Form .plan {
-  gap: 28px;
+  gap: 16px;
   width: 283px;
 }
 #Form .finishing {
@@ -533,14 +544,14 @@ body {
   #Form .addons_checkbox:hover {
     border-color: #483EFF;
   }
-  #Form .desktop_plan_label {
+  #Form .add_container {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 5px;
   }
-  #Form .desktop_plan_label input:checked .addons_checkbox {
+  #Form .add_container input:checked .addons_checkbox {
     border-color: #483EFF;
   }
   #Form .total {

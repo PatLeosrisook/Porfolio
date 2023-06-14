@@ -120,36 +120,37 @@
                 <p>Pick add-ons</p>
                 <p>Add-ons help enhance your gaming experience.</p>
               </div>
-            <div class="form_group addons_checkbox">
-              <div class="desktop_plan_label">
-                <input type="checkbox" name="Online service"/>
-                <div class="input_wrap">
-                  <label for="Online">Online service</label>
-                  <p>Access to multiplayer games</p>
+              <div class="form_group addons_checkbox">
+                <!-- class change -->
+                <div class="add_container">
+                  <input type="checkbox" name="Online service"/>
+                  <div class="input_wrap">
+                    <label for="Online">Online service</label>
+                    <p>Access to multiplayer games</p>
+                  </div>
                 </div>
+                <p class="addon_price Online_service">+$1/mo</p>
               </div>
-              <p class="addon_price Online_service">+$1/mo</p>
-            </div>
-            <div class="form_group addons_checkbox">
-              <div class="desktop_plan_label">
-                <input type="checkbox" id="Storage" name="Larger storage"/>
-                <div class="input_wrap">
-                  <label for="Storage">Larger storage</label>
-                  <p>Extra 1TB of cloud save</p>
+              <div class="form_group addons_checkbox">
+                <div class="add_container">
+                  <input type="checkbox" id="Storage" name="Larger storage"/>
+                  <div class="input_wrap">
+                    <label for="Storage">Larger storage</label>
+                    <p>Extra 1TB of cloud save</p>
+                  </div>
                 </div>
+                <p class="addon_price Larger_storage">+$2/mo</p>
               </div>
-              <p class="addon_price Larger_storage">+$2/mo</p>
-            </div>
-            <div class="form_group addons_checkbox">
-              <div class="desktop_plan_label">
-                <input type="checkbox"id="Customizable" name="Customizable profile"/>
-                <div class="input_wrap">
-                  <label for="Customizable">Customizable Profile</label>
-                  <p>Custom theme on your profile</p>
+              <div class="form_group addons_checkbox">
+                <div class="add_container">
+                  <input type="checkbox"id="Customizable" name="Customizable profile"/>
+                  <div class="input_wrap">
+                    <label for="Customizable">Customizable Profile</label>
+                    <p>Custom theme on your profile</p>
+                  </div>
                 </div>
+                <p class="addon_price Customizable_profile">+$2/mo</p>
               </div>
-              <p class="addon_price Customizable_profile">+$2/mo</p>
-            </div>
             </div>
 
             <div class="finishing">
@@ -193,7 +194,7 @@
       </section>
     </section>
   </main>
-<!--
+
   <main id="mobile_main">
     <header id="mobile_header">
       <div class="step_no current">1</div>
@@ -254,39 +255,55 @@
             </div>
             <div class="cycle">
               <p class="monthly cycleText">Monthly</p>
-              
+              <input type="checkbox" class="slideon slideon-auto"/>
               <p class="yearly cycleText">Yearly</p>
             </div>
           </div>
 
           <div class="addons">
-            <div class="form_group addons_checkbox">
-              <div class="input_wrap">
-                <label name="">Online service</label>
-                <p>Access to multiplayer games</p>
-              </div>
-              <p class="addon_price">+$1/mo</p>
-              <input type="checkbox" name="online"/>
+            <div class="form_title">
+              <p>Pick add-ons</p>
+              <p>Add-ons help enhance your gaming experience.</p>
             </div>
             <div class="form_group addons_checkbox">
-              <div class="input_wrap">
-                <label name="">Larger storage</label>
-                <p>Extra 1TB of cloud save</p>
+              <!-- class change -->
+              <div class="add_container">
+                <input type="checkbox" name="Online service"/>
+                <div class="input_wrap">
+                  <label for="Online">Online service</label>
+                  <p>Access to multiplayer games</p>
+                </div>
               </div>
-              <p class="addon_price">+$2/mo</p>
-              <input type="checkbox" name="online"/>
+              <p class="addon_price Online_service">+$1/mo</p>
             </div>
             <div class="form_group addons_checkbox">
-              <div class="input_wrap">
-                <label name="">Customizable Profile</label>
-                <p>Custom theme on your profile</p>
+              <div class="add_container">
+                <input type="checkbox" id="Storage" name="Larger storage"/>
+                <div class="input_wrap">
+                  <label for="Storage">Larger storage</label>
+                  <p>Extra 1TB of cloud save</p>
+                </div>
               </div>
-              <p class="addon_price">+$2/mo</p>
-              <input type="checkbox" name="online"/>
+              <p class="addon_price Larger_storage">+$2/mo</p>
+            </div>
+            <div class="form_group addons_checkbox">
+              <div class="add_container">
+                <input type="checkbox"id="Customizable" name="Customizable profile"/>
+                <div class="input_wrap">
+                  <label for="Customizable">Customizable Profile</label>
+                  <p>Custom theme on your profile</p>
+                </div>
+              </div>
+              <p class="addon_price Customizable_profile">+$2/mo</p>
             </div>
           </div>
+    
 
           <div class="finishing">
+            <div class="form_title">
+              <p>Finishing up</p>
+              <p>Double-check everything looks OK before confirming.</p>
+            </div>
             <div class="overview">
               <div class="plan_cycle">
                 <div class="plan_wrap">
@@ -328,7 +345,7 @@
       <button id="nav_btn">Next step</button>
     </section>
   </main>
--->
+
   
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
