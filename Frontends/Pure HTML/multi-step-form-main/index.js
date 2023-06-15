@@ -3,10 +3,9 @@ var slideon = new Slideon()
 slideon.load()
 
 
-let DesktopButton = document.querySelector('#nav_btn')
+let button = document.querySelector('#nav_btn')
 let form = document.querySelector("form")
-let MobileButton =document.querySelector(".nav_bttn")
-let currentX = 0;
+var currentX = 0;
 let backbtn = document.querySelector("#form_nav p")
 let toggleButton = document.querySelector('.slideon')
 let plans = document.querySelectorAll(".input_container .checkbox")
@@ -55,79 +54,117 @@ profile_inputs.forEach(profile => {
         console.log(data)
     })
 })
-DesktopButton.addEventListener("click", function(){
+button.addEventListener("click", function(){
     // form validation 
-    console.log('current scrren', currentX)
+    console.log('current screen ----->', currentX, currentX == Number('-480'))
     let valid = false 
     let screenLimit = 0
+    let screenOffset = 0;
+    
     if(currentScreen !== 0) {
         backbtn.classList.add("show_btn")
         console.log('wrhkafjds')
     }
     if(currentScreen == "desktop") {
-        if(currentX == 0 ) { 
-            // Validate first  
-            let inputs = document.querySelectorAll(".personal_form input")
-            Array.from(inputs).forEach(input => {
-                console.log(input.value.length, input)
-                if(input.value.length == 0) {
-                    console.log(input, 'is empty')
-                    //TODO:: add in error
-                    input.classList.add('error')
-                    valid =  false;  
-                } else {
-                    input.classList.remove('error')
-                    valid = true
-                }
-            })
-            if(valid) {
-                moveTo((490 + 321), currentX > -3000)
-            }
-    
-        } else if(currentX == "-811") {
-            valid = false // reset to false at new section
-           plans.forEach(plan => {
-                if(plan.classList.contains("checked_plan")) {
-                    valid = true
-                }
-           })
-           if(valid) {
-            moveTo((490+321), currentX > -3000)
-           }
-        } else if(currentX == -1622) {
-            let sumPrice = 0;
-            data.addons.forEach( add => {
-                sumPrice += Number(add.price.match(/[0-9]/g).join(""))
-            })
-            sumPrice += Number(data.plan.price.match(/[0-9]/g).join(""))
-            console.log(sumPrice)
-            let totalCycle = document.querySelector("#total_cycle")
-            let totalPrice = document.querySelector("#total")
-            totalCycle.textContent = data.plan.cycle
-            totalPrice.textContent = `$${sumPrice}/mo`
-            bill_cycle.textContent = data.plan.cycle
-            plan_price.textContent = data.plan.price
-            //Remove any existing child in case where there are changes
-            addons_container.childNodes.forEach(child => {
-                child.remove()         
-            })
-            data.addons.forEach(add => {
-                let item = createAddon(add.service, add.price)
-                addons_container.append(item)
-            })
-    
-            moveTo((490 +321), currentX > -3000)
-        }
-        screenLimit = -3000
+       
+        screenLimit = -4000
+        screenOffset = (490 + 321)
         
     } else {
+        screenOffset = (310 + 170)
+    }
+    console.log(screenOffset)
+    if(currentX == 0 ) { 
+        // Validate first  
+        let inputs = document.querySelectorAll(".personal_form input")
+        Array.from(inputs).forEach(input => {
+            console.log(input.value.length, input)
+            if(input.value.length == 0) {
+                console.log(input, 'is empty')
+                //TODO:: add in error
+                input.classList.add('error')
+                valid =  false;  
+            } else {
+                input.classList.remove('error')
+                valid = true
+            }
+        })
+        if(valid) {
+            moveTo(screenOffset, currentX > screenLimit)
+        }
 
+    } else if(currentX == "-811" || currentX == Number("-480")) {
+        valid = false // reset to false at new section
+        console.log("CHICK")
+       plans.forEach(plan => {
+        
+            if(plan.classList.contains("checked_plan")) {
+                valid = true
+            }
+       })
+       if(valid) {
+        console.log("moving to last", screenOffset, currentX)
+        moveTo(screenOffset, currentX > screenLimit)
+       }
+    } else if(currentX == -960) {
+        // doesn't required check as it is optional.
+        //TODO:: check if this bug happens in desktop version too
+        // if so, refactor this code. 
+        let sumPrice = 0;
+        data.addons.forEach( add => {
+            sumPrice += Number(add.price.match(/[0-9]/g).join(""))
+        })
+        sumPrice += Number(data.plan.price.match(/[0-9]/g).join(""))
+
+        let totalCycle = document.querySelector("#total_cycle")
+        let totalPrice = document.querySelector("#total")
+        totalCycle.textContent = data.plan.cycle
+        totalPrice.textContent = `$${sumPrice}/mo`
+        bill_cycle.textContent = data.plan.cycle
+        plan_price.textContent = data.plan.price
+        console.log,totalCycle.textContent, totalPrice.textContent,bill_cycle.textContent,plan_price.textContent
+        //Remove any existing child in case where there are changes
+        addons_container.childNodes.forEach(child => {
+            child.remove()         
+        })
+        data.addons.forEach(add => {
+            let item = createAddon(add.service, add.price)
+            addons_container.append(item)
+        })
+
+        moveTo(screenOffset, currentX > -4000)
+        // moveTo(screenOffset, currentX > screenLimit)
+    } else if(currentX == -1622 ) {
+        console.log("last")
+        let sumPrice = 0;
+        data.addons.forEach( add => {
+            sumPrice += Number(add.price.match(/[0-9]/g).join(""))
+        })
+        sumPrice += Number(data.plan.price.match(/[0-9]/g).join(""))
+        console.log("price---", sumPrice)
+        let totalCycle = document.querySelector("#total_cycle")
+        let totalPrice = document.querySelector("#total")
+        totalCycle.textContent = data.plan.cycle
+        totalPrice.textContent = `$${sumPrice}/mo`
+        bill_cycle.textContent = data.plan.cycle
+        plan_price.textContent = data.plan.price
+        console.log,totalCycle.textContent, totalPrice.textContent,bill_cycle.textContent,plan_price.textContent
+        //Remove any existing child in case where there are changes
+        addons_container.childNodes.forEach(child => {
+            child.remove()         
+        })
+        data.addons.forEach(add => {
+            let item = createAddon(add.service, add.price)
+            addons_container.append(item)
+        })
+
+        moveTo(screenOffset, currentX > -4000)
+    } else  {
+        moveTo(screenOffset, currentX > screenLimit)
     }
     console.log(data)
 })
-MobileButton.addEventListener("click",function() {
-    console.log("mobile button")
-})
+
 backbtn.addEventListener("click",function() {
     if(currentScreen == "desktop") {
         if(currentX < 0) {
@@ -142,7 +179,7 @@ addons_checkboxes.forEach(add =>{
     }
     add.addEventListener('click', function(e) {
         if(e.target.checked) {
-            console.log(e.target, e.target.parentElement, e.target.parentElement.parentElement)
+            //add border highlight
             e.target.parentElement.parentElement.classList.add("checked_plan")
             let serviceName = e.target.name.replace(" ","_")
             data.addons.push({service: e.target.name, price: document.querySelector(`.${serviceName}`).textContent})
@@ -162,7 +199,6 @@ addons_checkboxes.forEach(add =>{
     })
 })
 plans.forEach((plan, index) => {
-    
     if(plan.classList[plan.classList.length - 1] == 'checked_plan') {
         currentSelectedPlan = plan.classList[plan.classList.length - 2]
     } else  {
@@ -219,7 +255,6 @@ function validate() {
 function moveTo(x, constraint) {
     if(constraint ) {
         currentX -= x
-        console.log("curren",currentX)
         form.style.transform = `translateX(${currentX}px)`
     }
     

@@ -39,20 +39,36 @@ body {
   visibility: visible !important;
 }
 
-#desktop_main {
-  display: none;
-}
-
-#mobile_main {
+#main {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
 }
 
-.step_no {
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+#header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: url(../assets/images/bg-sidebar-mobile.svg);
+  background-size: cover;
+  width: 100%;
+  height: 20vh;
+}
+#header .step_no {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -63,8 +79,10 @@ body {
   border: 2px solid white;
   color: white;
 }
-
-.current {
+#header .step_desc {
+  display: none;
+}
+#header .current {
   background-color: #BEE2FD;
   border: none;
   color: #022959;
@@ -87,21 +105,9 @@ body {
   font-size: 12px;
 }
 
-#mobile_header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 30vh;
-  background: url(../assets/images/bg-sidebar-mobile.svg);
-  background-size: cover;
-  gap: 9px;
-}
-
 #Form {
   width: 100%;
-  height: 100%;
+  height: 80vh;
 }
 #Form .form_container {
   background-color: white;
@@ -120,7 +126,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 177px;
-  transform: translateX(-1438px);
+  transform: translateX(0px);
   height: -moz-fit-content;
   height: fit-content;
   width: -moz-fit-content;
@@ -174,6 +180,7 @@ body {
   height: 60px;
   padding-left: 13px;
   border-radius: 8px;
+  margin-bottom: 20px;
 }
 #Form .checkbox .price {
   font-size: 13px;
@@ -273,13 +280,28 @@ body {
   width: 100%;
   background-color: #F8F9FF;
   padding: 9px;
+  border-radius: 5px;
 }
 #Form .plan {
   gap: 16px;
   width: 283px;
 }
+#Form .plan .input_container {
+  width: 100%;
+}
 #Form .finishing {
   height: 200px;
+}
+#Form .finishing .total {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+#Form .finishing #total {
+  color: #483EFF;
+  font-weight: 700;
 }
 #Form .overview {
   display: flex;
@@ -352,7 +374,7 @@ body {
   justify-content: space-between;
   background-color: white;
   width: 100%;
-  height: 20vh;
+  height: 15vh;
   padding: 0px 10px;
 }
 
@@ -397,10 +419,7 @@ body {
     color: #9699AA;
     font-size: 16px;
   }
-  #mobile_main {
-    display: none;
-  }
-  #desktop_header {
+  #header {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -415,7 +434,7 @@ body {
     width: 33%;
     gap: 30px;
   }
-  #desktop_header .steps {
+  #header .steps {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -424,15 +443,21 @@ body {
     position: relative;
     left: 15%;
   }
-  #desktop_header .steps .step_number {
+  #header .steps .step_number {
     color: #ABBCFF;
     font-size: 12px;
   }
-  #desktop_header .steps p {
+  #header .steps p {
     margin: 0;
     color: white;
   }
-  #desktop_main {
+  #header .step_desc {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  #main {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -440,7 +465,7 @@ body {
     width: 100%;
     height: 100%;
   }
-  #desktop_main #container {
+  #main #container {
     display: flex;
     flex-direction: row;
     align-items: center;
