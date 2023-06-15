@@ -1,9 +1,11 @@
 
 var slideon = new Slideon()
 slideon.load()
-let button = document.querySelector('#nav_btn')
+
+
+let DesktopButton = document.querySelector('#nav_btn')
 let form = document.querySelector("form")
-let currentScreen = null
+let MobileButton =document.querySelector(".nav_bttn")
 let currentX = 0;
 let backbtn = document.querySelector("#form_nav p")
 let toggleButton = document.querySelector('.slideon')
@@ -15,6 +17,7 @@ let bill_cycle = document.querySelector("#bill_cycle")
 let plan_price = document.querySelector("#overview_price")
 let addons_container = document.querySelector(".addons_overview")
 var currentSelectedPlan = null
+var isLoaded = false
 let data = {
     profile : {
         name: "",
@@ -28,27 +31,38 @@ let data = {
     }, 
     addons: []
 }
+let currentScreen = null
+let hiddenScreen = null
 window.onload = function() {
+    console.log(document.querySelector("main"))
     if(window.innerWidth > 900) {
         currentScreen = "desktop"
+
+
     } else{
         currentScreen = 'mobile'
+        // button = document.querySelector(".nav_bttn")
+        // console.log(button)
     }
-    console.log(currentScreen)
+    isLoaded = true
+    console.log(currentScreen, console.log(document.querySelector("#mobile_main")))
 }
+
+
 profile_inputs.forEach(profile => {
     profile.addEventListener("change", function(e){
         data.profile[e.target.name] = e.target.value
         console.log(data)
     })
 })
-button.addEventListener("click", function(){
+DesktopButton.addEventListener("click", function(){
     // form validation 
     console.log('current scrren', currentX)
     let valid = false 
     let screenLimit = 0
     if(currentScreen !== 0) {
         backbtn.classList.add("show_btn")
+        console.log('wrhkafjds')
     }
     if(currentScreen == "desktop") {
         if(currentX == 0 ) { 
@@ -111,6 +125,9 @@ button.addEventListener("click", function(){
     }
     console.log(data)
 })
+MobileButton.addEventListener("click",function() {
+    console.log("mobile button")
+})
 backbtn.addEventListener("click",function() {
     if(currentScreen == "desktop") {
         if(currentX < 0) {
@@ -148,9 +165,7 @@ plans.forEach((plan, index) => {
     
     if(plan.classList[plan.classList.length - 1] == 'checked_plan') {
         currentSelectedPlan = plan.classList[plan.classList.length - 2]
-        console.log(plan.classList, currentSelectedPlan)
     } else  {
-        console.log(plan)
     }
     plan.addEventListener('click',function() {
         let currentlySelected =  document.querySelector(`.${currentSelectedPlan}`)
