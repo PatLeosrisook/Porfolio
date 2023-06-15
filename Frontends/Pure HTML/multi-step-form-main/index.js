@@ -54,33 +54,33 @@ profile_inputs.forEach(profile => {
         console.log(data)
     })
 })
+
 button.addEventListener("click", function(){
     // form validation 
-    console.log('current screen ----->', currentX, currentX == Number('-480'))
+    let previous = currentX
+    
+    console.log('current screen ----->', currentX, currentX == Number('-480'), "previous:", previous)
     let valid = false 
     let screenLimit = 0
     let screenOffset = 0;
     
-    if(currentScreen !== 0) {
+    if(currentX !== 0) {
         backbtn.classList.add("show_btn")
-        console.log('wrhkafjds')
+        
     }
+    screenLimit = -4000
     if(currentScreen == "desktop") {
        
-        screenLimit = -4000
         screenOffset = (490 + 321)
         
     } else {
         screenOffset = (310 + 170)
     }
-    console.log(screenOffset)
     if(currentX == 0 ) { 
         // Validate first  
         let inputs = document.querySelectorAll(".personal_form input")
         Array.from(inputs).forEach(input => {
-            console.log(input.value.length, input)
             if(input.value.length == 0) {
-                console.log(input, 'is empty')
                 //TODO:: add in error
                 input.classList.add('error')
                 valid =  false;  
@@ -91,6 +91,7 @@ button.addEventListener("click", function(){
         })
         if(valid) {
             moveTo(screenOffset, currentX > screenLimit)
+            console.log("first page to second, current is", currentX, "scrren off", screenOffset,screenLimit)
         }
 
     } else if(currentX == "-811" || currentX == Number("-480")) {
@@ -106,34 +107,6 @@ button.addEventListener("click", function(){
         console.log("moving to last", screenOffset, currentX)
         moveTo(screenOffset, currentX > screenLimit)
        }
-    } else if(currentX == -960) {
-        // doesn't required check as it is optional.
-        //TODO:: check if this bug happens in desktop version too
-        // if so, refactor this code. 
-        let sumPrice = 0;
-        data.addons.forEach( add => {
-            sumPrice += Number(add.price.match(/[0-9]/g).join(""))
-        })
-        sumPrice += Number(data.plan.price.match(/[0-9]/g).join(""))
-
-        let totalCycle = document.querySelector("#total_cycle")
-        let totalPrice = document.querySelector("#total")
-        totalCycle.textContent = data.plan.cycle
-        totalPrice.textContent = `$${sumPrice}/mo`
-        bill_cycle.textContent = data.plan.cycle
-        plan_price.textContent = data.plan.price
-        console.log,totalCycle.textContent, totalPrice.textContent,bill_cycle.textContent,plan_price.textContent
-        //Remove any existing child in case where there are changes
-        addons_container.childNodes.forEach(child => {
-            child.remove()         
-        })
-        data.addons.forEach(add => {
-            let item = createAddon(add.service, add.price)
-            addons_container.append(item)
-        })
-
-        moveTo(screenOffset, currentX > -4000)
-        // moveTo(screenOffset, currentX > screenLimit)
     } else if(currentX == -1622 ) {
         console.log("last")
         let sumPrice = 0;
@@ -162,7 +135,7 @@ button.addEventListener("click", function(){
     } else  {
         moveTo(screenOffset, currentX > screenLimit)
     }
-    console.log(data)
+    console.log(data, "previous", previous)
 })
 
 backbtn.addEventListener("click",function() {
@@ -253,11 +226,13 @@ function validate() {
     return true
 }
 function moveTo(x, constraint) {
+    console.log('constraint', constraint,x)
     if(constraint ) {
         currentX -= x
+        console.log("moving to", currentX)
         form.style.transform = `translateX(${currentX}px)`
     }
-    
+    return currentX
 }
 function createAddon(name, price) {
     let container = document.createElement('div')
