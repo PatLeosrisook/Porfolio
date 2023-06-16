@@ -2,22 +2,23 @@
 var slideon = new Slideon()
 slideon.load()
 
+var steps = document.querySelectorAll('.step_no')
+var button = document.querySelector('#nav_btn')
+var backbtn = document.querySelector("#form_nav p")
+var form = document.querySelector("form")
+var toggleButton = document.querySelector('.slideon')
+var plans = document.querySelectorAll(".input_container .checkbox")
+var profile_inputs = document.querySelectorAll('.personal input')
+var addons_checkboxes = document.querySelectorAll('.addons_checkbox input')
 
-let button = document.querySelector('#nav_btn')
-let form = document.querySelector("form")
+var bill_cycle = document.querySelector("#bill_cycle")
+var plan_price = document.querySelector("#overview_price")
+var addons_container = document.querySelector(".addons_overview")
+var changePlan = document.querySelector(".change_plan")
 var currentX = 0;
-let backbtn = document.querySelector("#form_nav p")
-let toggleButton = document.querySelector('.slideon')
-let plans = document.querySelectorAll(".input_container .checkbox")
-let profile_inputs = document.querySelectorAll('.personal input')
-let addons_checkboxes = document.querySelectorAll('.addons_checkbox input')
-
-let bill_cycle = document.querySelector("#bill_cycle")
-let plan_price = document.querySelector("#overview_price")
-let addons_container = document.querySelector(".addons_overview")
 var currentSelectedPlan = null
 var isLoaded = false
-let data = {
+var data = {
     profile : {
         name: "",
         email: "",
@@ -30,98 +31,97 @@ let data = {
     }, 
     addons: []
 }
-let currentScreen = null
-let hiddenScreen = null
+var screenOffset = 0
+var currentScreen = null
+var hiddenScreen = null
 window.onload = function() {
-    console.log(document.querySelector("main"))
+    
     if(window.innerWidth > 900) {
         currentScreen = "desktop"
-
-
     } else{
         currentScreen = 'mobile'
-        // button = document.querySelector(".nav_bttn")
-        // console.log(button)
     }
     isLoaded = true
-    console.log(currentScreen, console.log(document.querySelector("#mobile_main")))
 }
 
 
 profile_inputs.forEach(profile => {
     profile.addEventListener("change", function(e){
         data.profile[e.target.name] = e.target.value
-        console.log(data)
     })
 })
-
+changePlan.addEventListener('click',function() {
+    let currentHighlight = getHighlighPos()
+    if(currentScreen == "desktop") {
+        form.style.transform = `translateX(-811px)`
+        currentX = -811
+    } else {
+        form.style.transform = `translateX(-480px)`
+        currentX = -480
+    }
+    moveStepFrom(currentHighlight, 1)
+})
 button.addEventListener("click", function(){
     // form validation 
-    let previous = currentX
-    
-    console.log('current screen ----->', currentX, currentX == Number('-480'), "previous:", previous)
     let valid = false 
     let screenLimit = 0
-    let screenOffset = 0;
     
-    if(currentX !== 0) {
-        backbtn.classList.add("show_btn")
-        
-    }
-    screenLimit = -4000
     if(currentScreen == "desktop") {
-       
         screenOffset = (490 + 321)
-        
+        screenLimit = -3243
     } else {
         screenOffset = (310 + 170)
+        screenLimit = -1919
     }
     if(currentX == 0 ) { 
         // Validate first  
         let inputs = document.querySelectorAll(".personal_form input")
+        
         Array.from(inputs).forEach(input => {
             if(input.value.length == 0) {
                 //TODO:: add in error
                 input.classList.add('error')
+                //add in error message above input
+                document.querySelector(`.${input.name}_error`).classList.add("error_message")
                 valid =  false;  
+                
             } else {
+                document.querySelector(`.${input.name}_error`).classList.remove("error_message")
                 input.classList.remove('error')
                 valid = true
             }
         })
         if(valid) {
+            moveStepFrom(0,1)
             moveTo(screenOffset, currentX > screenLimit)
-            console.log("first page to second, current is", currentX, "scrren off", screenOffset,screenLimit)
+            backbtn.classList.add("show_btn")
         }
 
     } else if(currentX == "-811" || currentX == Number("-480")) {
         valid = false // reset to false at new section
-        console.log("CHICK")
-       plans.forEach(plan => {
-        
-            if(plan.classList.contains("checked_plan")) {
-                valid = true
-            }
-       })
-       if(valid) {
-        console.log("moving to last", screenOffset, currentX)
-        moveTo(screenOffset, currentX > screenLimit)
-       }
-    } else if(currentX == -1622 ) {
-        console.log("last")
+        //show back button
+        plans.forEach(plan => {
+            
+                if(plan.classList.contains("checked_plan")) {
+                    valid = true
+                }
+        })
+        if(valid) {
+            moveStepFrom(1,2)
+            moveTo(screenOffset, currentX > screenLimit)
+        }
+    } else if(currentX == -1622  || currentX == -960) {
         let sumPrice = 0;
         data.addons.forEach( add => {
             sumPrice += Number(add.price.match(/[0-9]/g).join(""))
         })
         sumPrice += Number(data.plan.price.match(/[0-9]/g).join(""))
-        console.log("price---", sumPrice)
         let totalCycle = document.querySelector("#total_cycle")
         let totalPrice = document.querySelector("#total")
         totalCycle.textContent = data.plan.cycle
-        totalPrice.textContent = `$${sumPrice}/mo`
+        totalPrice.textContent = (data.plan.cycle == "monthly") ? `$${sumPrice}/mo` : `$${sumPrice}/yr`
         bill_cycle.textContent = data.plan.cycle
         plan_price.textContent = data.plan.price
-        console.log,totalCycle.textContent, totalPrice.textContent,bill_cycle.textContent,plan_price.textContent
         //Remove any existing child in case where there are changes
         addons_container.childNodes.forEach(child => {
             child.remove()         
@@ -130,26 +130,39 @@ button.addEventListener("click", function(){
             let item = createAddon(add.service, add.price)
             addons_container.append(item)
         })
-
+        
+        moveStepFrom(2,3)
         moveTo(screenOffset, currentX > -4000)
     } else  {
         moveTo(screenOffset, currentX > screenLimit)
     }
-    console.log(data, "previous", previous)
 })
 
 backbtn.addEventListener("click",function() {
+    let currentHighLightPos = getHighlighPos()
+    if(currentX == -811 || currentX == -480) {
+        // page before last, remove back button
+        backbtn.classList.remove('show_btn')
+    }
     if(currentScreen == "desktop") {
-        if(currentX < 0) {
-            currentX += (490 + 321)
-            form.style.transform = `translateX(${currentX}px)`
+
+        if(currentX >  -3244  ) {
+            //only remove highlight when the page is within to form, excluding the thank you page.
+            moveStepFrom(currentHighLightPos, currentHighLightPos - 1)
+        } 
+    } else {
+
+        if(currentX > -1920) {
+            moveStepFrom(currentHighLightPos, currentHighLightPos - 1)
+    
         }
+    }
+    if(currentX < 0) {
+        currentX += screenOffset
+        form.style.transform = `translateX(${currentX}px)`
     }
 })
 addons_checkboxes.forEach(add =>{
-    if(add.checked) {
-        console.log('helow')
-    }
     add.addEventListener('click', function(e) {
         if(e.target.checked) {
             //add border highlight
@@ -164,7 +177,6 @@ addons_checkboxes.forEach(add =>{
             data.addons.forEach((add,index) => {
                 if(add.service == e.target.name) {
                     data.addons.splice(index,1)
-                    console.log(data.addons)
                 }
             })
            
@@ -191,14 +203,23 @@ plans.forEach((plan, index) => {
 })
 
 toggleButton.addEventListener("click", function(e) {
+    let addon_price =document.querySelectorAll(".addon_price")
     let prices = document.querySelectorAll('.price')
+    let discounts = document.querySelectorAll('.free_discount')
     let regex = /[0-9]/g
     if(e.target.checked) {
         data.plan.cycle = "yearly"
         prices.forEach(price => {
             let number = price.textContent.match(regex)
-            price.textContent = `$${number.join("") * 10}/mo`
+            price.textContent = `$${number.join("") * 10}/yr`
             data.plan.price = price.textContent
+        })
+        discounts.forEach(discount => {
+            discount.classList.add('visible_discount')
+        })
+        addon_price.forEach(add => {
+            let number = add.textContent.match(regex)
+            add.textContent = `+$${number.join("") * 10}/yr`
         })
     } else if(e.target.checked == false) {
         data.plan.cycle = "monthly"
@@ -207,41 +228,36 @@ toggleButton.addEventListener("click", function(e) {
             price.textContent = `$${number.join("") / 10}/mo`
             data.plan.price = price.textContent
         })
-    }
-})
-function validate() {
-    let isValid = false
-    if(currentX == 0) {
-        let inputs = document.querySelectorAll(".personal_form input")
-        Array.from(inputs).forEach(input => {
-            if(input.value.length == 0) {
-                console.log(input, 'is empty')
-                //TODO:: add in error
-                input.classList.add('error')
-                isValid = false
-                
-            }
+        discounts.forEach(discount => {
+            discount.classList.remove('visible_discount')
         })
     }
-    return true
+})
+
+
+//Functions 
+function moveStepFrom(from, to) {
+    steps[from].classList.remove("current")
+    steps[to].classList.add("current")
 }
 function moveTo(x, constraint) {
-    console.log('constraint', constraint,x)
+
     if(constraint ) {
         currentX -= x
-        console.log("moving to", currentX)
         form.style.transform = `translateX(${currentX}px)`
     }
     return currentX
 }
 function createAddon(name, price) {
+    //create outer container
     let container = document.createElement('div')
     container.classList.add("overview_addons")
-
+    //create text describing addons.
     let addOnTitle = document.createElement("p")
     let addOnTitleText = document.createTextNode = name
     addOnTitle.append(addOnTitleText)
 
+    //create price tag
     let addOnPrice = document.createElement("p")
     let addOnPriceText = document.createTextNode = price
     addOnPrice.append(addOnPriceText)
@@ -249,4 +265,14 @@ function createAddon(name, price) {
     container.append(addOnTitle)
     container.append(addOnPrice)
     return container
+}
+function getHighlighPos() {
+    //get position of the highlighted step number
+    let at = 0;
+    Array.from(steps).forEach((step, index) => {
+        if(step.classList.contains("current")) {
+            at = index
+        }
+    })
+    return at
 }

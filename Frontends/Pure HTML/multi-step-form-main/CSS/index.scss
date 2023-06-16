@@ -45,7 +45,12 @@ body{
 .show_btn {
     visibility: visible !important;
 }
-
+.visible_discount {
+    display: block !important;
+}
+.error_message{
+    visibility: visible !important;
+}
 #main {
     @include flex(column, center,space-between);
     height:100vh;
@@ -141,6 +146,17 @@ body{
             }
         }
     }
+    .input_label_wrap {
+        @include flex(row,center,space-between);
+        width: 100%;;
+        p {
+            visibility: hidden;
+            font-size:12px;
+            padding-right: 26px;
+            font-weight: bold;
+            color:red;
+        }
+    }
     .form_title {
         margin-bottom: 20px;
     }
@@ -162,13 +178,24 @@ body{
     }
     .checkbox {
         border:1px solid #D6D9E6;
-        height:60px;
-        padding-left:13px;
+        gap:10px;
+        height: 71px;
+        padding-left: 13px;
         border-radius: 8px;
-        margin-bottom: 20px;
+        margin-bottom: 9px;
         .price {
             font-size:13px;
             color:#9699AA;
+        }
+        .input_wrap {
+            width:100%;
+            input {
+                visibility: hidden;
+                position: absolute;
+            }
+            .price {
+                margin:0;
+            }
         }
     }
     .addons {
@@ -244,19 +271,7 @@ body{
             margin-left: 48px;
         }
     }
-    .checkbox {
-        gap:10px;
-        .input_wrap {
-            width:100%;
-            input {
-                visibility: hidden;
-                position: absolute;
-            }
-            .price {
-                margin:0;
-            }
-        }
-    }
+   
     .cycle {
         @include flex(row, center, space-between);
         width:100%;
@@ -271,7 +286,12 @@ body{
             width:100%;
         }
     }
-
+    .free_discount {
+        display:none;
+        margin:0;
+        font-size:12px;
+    }
+    
     .finishing {
         height: 200px;
         .total {
@@ -355,6 +375,13 @@ body{
     height:15vh;
 
     padding:0px 10px;
+    p {
+        color:#9699AA;
+        font-size:16px;
+        font-weight: 600;
+        visibility: hidden;
+        cursor: pointer;
+    }
 }
 #nav_btn, .nav_bttn {
     height: 54px;
@@ -570,16 +597,7 @@ body{
         height:fit-content;
         padding:0 19px;
         // margin-top:80px;
-        p {
-            color:#9699AA;
-            font-size:16px;
-            font-weight: 600;
-            visibility: hidden;
-        }
-        p {
-
-            cursor: pointer;
-        }
+        
         #nav_btn {
             cursor: pointer;
             &:hover {

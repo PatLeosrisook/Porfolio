@@ -39,6 +39,14 @@ body {
   visibility: visible !important;
 }
 
+.visible_discount {
+  display: block !important;
+}
+
+.error_message {
+  visibility: visible !important;
+}
+
 #main {
   display: flex;
   flex-direction: column;
@@ -156,6 +164,20 @@ body {
   outline: none;
   border-color: #483EFF;
 }
+#Form .input_label_wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+#Form .input_label_wrap p {
+  visibility: hidden;
+  font-size: 12px;
+  padding-right: 26px;
+  font-weight: bold;
+  color: red;
+}
 #Form .form_title {
   margin-bottom: 20px;
 }
@@ -177,14 +199,25 @@ body {
 }
 #Form .checkbox {
   border: 1px solid #D6D9E6;
-  height: 60px;
+  gap: 10px;
+  height: 71px;
   padding-left: 13px;
   border-radius: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 9px;
 }
 #Form .checkbox .price {
   font-size: 13px;
   color: #9699AA;
+}
+#Form .checkbox .input_wrap {
+  width: 100%;
+}
+#Form .checkbox .input_wrap input {
+  visibility: hidden;
+  position: absolute;
+}
+#Form .checkbox .input_wrap .price {
+  margin: 0;
 }
 #Form .addons {
   gap: 10px;
@@ -259,19 +292,6 @@ body {
   margin: 0;
   margin-left: 48px;
 }
-#Form .checkbox {
-  gap: 10px;
-}
-#Form .checkbox .input_wrap {
-  width: 100%;
-}
-#Form .checkbox .input_wrap input {
-  visibility: hidden;
-  position: absolute;
-}
-#Form .checkbox .input_wrap .price {
-  margin: 0;
-}
 #Form .cycle {
   display: flex;
   flex-direction: row;
@@ -288,6 +308,11 @@ body {
 }
 #Form .plan .input_container {
   width: 100%;
+}
+#Form .free_discount {
+  display: none;
+  margin: 0;
+  font-size: 12px;
 }
 #Form .finishing {
   height: 200px;
@@ -376,6 +401,13 @@ body {
   width: 100%;
   height: 15vh;
   padding: 0px 10px;
+}
+#form_nav p {
+  color: #9699AA;
+  font-size: 16px;
+  font-weight: 600;
+  visibility: hidden;
+  cursor: pointer;
 }
 
 #nav_btn, .nav_bttn {
@@ -611,15 +643,6 @@ body {
     height: -moz-fit-content;
     height: fit-content;
     padding: 0 19px;
-  }
-  #form_nav p {
-    color: #9699AA;
-    font-size: 16px;
-    font-weight: 600;
-    visibility: hidden;
-  }
-  #form_nav p {
-    cursor: pointer;
   }
   #form_nav #nav_btn {
     cursor: pointer;

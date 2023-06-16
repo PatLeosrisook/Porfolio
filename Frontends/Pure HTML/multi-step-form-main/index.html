@@ -63,15 +63,24 @@
                 <p>Please provide your name, email address, and phone number.</p>
               </div>
               <div class="form_group personal name">
-                  <label for="name">Name</label>
-                  <input type="text" id="name" placeholder="e.g. Stephen King" name="name" />
+                  <div class="input_label_wrap">
+                    <label for="name">Name</label>
+                    <p class="name_error">This field is required</p>
+                  </div>
+                  <input type="text" id="name" placeholder="e.g. Stephen King" name="name" required />
               </div>
               <div class="form_group personal email">
-                  <label for="email">Email Address</label>
+                  <div class="input_label_wrap">
+                    <label for="email">Email Address</label>
+                    <p class="email_error">This field is required</p>
+                  </div>
                   <input type="email" id="email" placeholder="e.g. stephenking@lorem.com" name="email" />
               </div>
               <div class="form_group personal number">
-                  <label for="phone">Phone Number</label>
+                  <div class="input_label_wrap">
+                    <label for="phone">Phone Number</label>
+                    <p class="phone_error">This field is required</p>
+                  </div>
                   <input type="text" id='phone' name="phone" placeholder="e.g. +1 234 567 890" name="phone" required />
               </div>
             </div>
@@ -87,6 +96,7 @@
                   <div class="input_wrap">
                     <label for="arcade">Arcade</label>
                     <p class="price">$9/mo</p>
+                    <p class="free_discount">2 months free</p>
                     <input type="checkbox" id="arcade" class="custom_box" name="Arcade"/>
                   </div>
                 </div>
@@ -95,6 +105,7 @@
                   <div class="input_wrap">
                     <label for="advanced">Advanced</label>
                     <p class="price">$12/mo</p>
+                    <p class="free_discount">2 months free</p>
                     <input type="checkbox" id="advanced" class="custom_box" name="Advance"/>
                   </div>
                 </div>
@@ -103,6 +114,7 @@
                   <div class="input_wrap">
                     <label for="pro">Pro</label>
                     <p class="price">$15/mo</p>
+                    <p class="free_discount">2 months free</p>
                     <input type="checkbox" id="pro" class="custom_box" name="{rp}"/>
                   </div>
                 </div>
