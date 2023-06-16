@@ -39,6 +39,13 @@ body {
   visibility: visible !important;
 }
 
+.final_page_btn {
+  background-color: #483EFF !important;
+}
+.final_page_btn:hover {
+  background-color: #928CFF !important;
+}
+
 .visible_discount {
   display: block !important;
 }
@@ -644,10 +651,13 @@ body {
     height: fit-content;
     padding: 0 19px;
   }
+  #form_nav p:hover {
+    color: #022959;
+  }
   #form_nav #nav_btn {
     cursor: pointer;
   }
   #form_nav #nav_btn:hover {
-    background-color: #483EFF;
+    background-color: #164A8A;
   }
 }/*# sourceMappingURL=index.css.map */

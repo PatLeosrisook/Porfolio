@@ -25,6 +25,7 @@ html, body {
 body{
     background-color: $background;
 }
+
 // Overriding toggle button styling 
 .slideon input:checked~.slideon-slider {
     background-color: #022959 !important;
@@ -44,6 +45,12 @@ body{
 }
 .show_btn {
     visibility: visible !important;
+}
+.final_page_btn {
+    background-color: $primay !important;
+    &:hover {
+        background-color: #928CFF !important;
+    }
 }
 .visible_discount {
     display: block !important;
@@ -597,11 +604,15 @@ body{
         height:fit-content;
         padding:0 19px;
         // margin-top:80px;
-        
+        p {
+            &:hover {
+                color:#022959;
+            }
+        }
         #nav_btn {
             cursor: pointer;
             &:hover {
-                background-color: $primay;
+                background-color: #164A8A;
             }
         }
     }

@@ -5,6 +5,7 @@ slideon.load()
 var steps = document.querySelectorAll('.step_no')
 var button = document.querySelector('#nav_btn')
 var backbtn = document.querySelector("#form_nav p")
+
 var form = document.querySelector("form")
 var toggleButton = document.querySelector('.slideon')
 var plans = document.querySelectorAll(".input_container .checkbox")
@@ -122,6 +123,8 @@ button.addEventListener("click", function(){
         totalPrice.textContent = (data.plan.cycle == "monthly") ? `$${sumPrice}/mo` : `$${sumPrice}/yr`
         bill_cycle.textContent = data.plan.cycle
         plan_price.textContent = data.plan.price
+        button.textContent = "Confirm"
+        button.classList.add("final_page_btn")
         //Remove any existing child in case where there are changes
         addons_container.childNodes.forEach(child => {
             child.remove()         
@@ -134,6 +137,8 @@ button.addEventListener("click", function(){
         moveStepFrom(2,3)
         moveTo(screenOffset, currentX > -4000)
     } else  {
+        document.querySelector("#form_nav").style.visibility = 'hidden'
+        backbtn.classList.remove('show_btn')
         moveTo(screenOffset, currentX > screenLimit)
     }
 })
