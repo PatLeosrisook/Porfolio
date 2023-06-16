@@ -77,21 +77,41 @@ button.addEventListener("click", function(){
     if(currentX == 0 ) { 
         // Validate first  
         let inputs = document.querySelectorAll(".personal_form input")
+        const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
         
         Array.from(inputs).forEach(input => {
-            if(input.value.length == 0) {
-                //TODO:: add in error
+            let currentError = document.querySelector(`.${input.name}_error`)
+             if(input.value.length == 0) {
+                
                 input.classList.add('error')
                 //add in error message above input
-                document.querySelector(`.${input.name}_error`).classList.add("error_message")
+                currentError.textContent = "This field is required."
+                currentError.classList.add("error_message")
                 valid =  false;  
                 
-            } else {
-                document.querySelector(`.${input.name}_error`).classList.remove("error_message")
+            } else if(input.value.length !== 0) {
+                currentError.classList.remove("error_message")
                 input.classList.remove('error')
-                valid = true
+                
+                if(input.type == "email") {
+                    if(emailRegex.test(input.value)) {
+                        console.log("correct")
+                        valid = true
+                        currentError.classList.remove("error_message")
+                    }else {
+                        console.log('incorrect')
+                        currentError.textContent = "Invalid email format."
+                        currentError.classList.add("error_message")
+                        input.classList.add("error")
+                        valid = false
+                        console.log('false here',valid)
+                
+                    }
+                }
+                
             }
         })
+        console.log("valid",valid)
         if(valid) {
             moveStepFrom(0,1)
             moveTo(screenOffset, currentX > screenLimit)
