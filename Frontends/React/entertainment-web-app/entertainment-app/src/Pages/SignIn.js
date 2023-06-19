@@ -2,6 +2,7 @@ import Input from "../Components/Input"
 export function SignIn({submitForm, handleChange,value}) {
     return(
         <div className="register_form signin">
+            <h1>Login</h1>
             <form id="SignIn" action="">
                 <Input
                     Label={"Email address"}
@@ -17,8 +18,8 @@ export function SignIn({submitForm, handleChange,value}) {
                     handleChange={handleChange}
                     value={value}
                 />
-                <button onClick={submitForm}>Login into your account</button>
-                <p>Don't have account? <span id="to_signUp">Sign Up</span></p>
+                <button className="reg_btn signIn_btn" onClick={submitForm}>Login into your account</button>
+                <p>Don't have account? <span className="reg_nav">Sign Up</span></p>
             </form>
         </div>
     )

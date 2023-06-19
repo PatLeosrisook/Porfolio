@@ -1,4 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500&display=swap');
 $primary: #10141E;
 $SemiDarkBlue :#161D2F;
 $accent-red : #FC4747;
 $grayish-blue:#5A698F;
+@mixin flex($direction:column, $align:center, $justify:center) {
+    display:  flex;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+}
+* {
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+    font-family: "Outfit";
+    font-weight: 300;
+}
+body, html {
+    width:100vw;
+    height:fit-content;
+}
+body{
+    background-color: $primary;
+}

@@ -26,7 +26,7 @@ export default function SignUp({handleChange, value,submitForm}) {
                     attribute={{id:"",class:""}}
                 />
                 <button>Create an account</button>
-                <p>Already have an account? <span id="to_Login">Login</span></p>
+                <p>Already have an account? <span className="reg_nav">Login</span></p>
             </form>
         </div>
     )

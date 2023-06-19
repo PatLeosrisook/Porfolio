@@ -1,0 +1,48 @@
+@use './Global';
+
+#Register {
+    @include Global.flex();
+    height:100vh;
+    width:100%;
+}
+.register_form {
+    color:white;
+    background-color: Global.$SemiDarkBlue;
+    min-height: fit-content;
+    height: 339px;
+    width:90%;
+    padding:22px;
+    h1 {
+        width:fit-content;
+        margin-bottom:10px;
+    }
+    .reg_btn {
+        width: 100%;
+        height:30px;
+        background-color: Global.$accent-red;
+        border:none;
+        height: 50px;
+        border-radius: 5px;
+        color:white;
+        margin-top:50px;
+        margin-bottom: 5px
+    }
+    p {
+        font-size:15px;
+        .reg_nav {
+            color: Global.$accent-red;
+        }
+    }
+}
+.form_group {
+    @include Global.flex(column , flex-start,center);
+    gap:10px;
+    input{
+        width: 100%;
+        border:none;
+        height:30px;
+        background-color: transparent;
+        border-bottom: 1px solid Global.$grayish-blue;
+    }
+   
+}

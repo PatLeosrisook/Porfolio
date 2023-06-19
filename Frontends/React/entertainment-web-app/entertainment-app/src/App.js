@@ -4,6 +4,7 @@ import Home from './Pages/Home';
 import Registrations from './Pages/Registrations';
 //Collections of css files. 
 import './CSS/Register.css'
+import './CSS/Global.css'
 function App() {
   return (
     <div className="App">
