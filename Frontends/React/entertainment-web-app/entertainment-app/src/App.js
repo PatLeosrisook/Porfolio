@@ -5,10 +5,12 @@ import Registrations from './Pages/Registrations';
 //Collections of css files. 
 import './CSS/Register.css'
 import './CSS/Global.css'
+import Nav from './Components/Nav';
 function App() {
   return (
     <div className="App">
-     <Registrations/>
+    <Nav/>
+    <Home/>
     </div>
   );
 }

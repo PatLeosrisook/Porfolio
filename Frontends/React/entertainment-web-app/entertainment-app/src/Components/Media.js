@@ -1,18 +1,19 @@
 import BookMark from '../assets/icon-bookmark-full.svg'
-export default function Media({Title, Rating, Type, Year, Image}) {
+import Sample from '../assets/thumbnails/beyond-earth/regular/medium.jpg'
+export default function Media({Title, Rating, Type, Year, Image, Caption, Category}) {
     return(
-        <article>
+        <article className='Medias'>
             <div class="image_wrap">
                 <div className="Bookmark">
                     <img src={BookMark} alt="bookmark"/>
                 </div>
-                <img src={Image} alt="movie image" />
+                <img src={Sample} alt="movie image" className="thumbnail" />
             </div>
             <div className="Movie_detail">
-                <div className="subdetails">
-                    <p>{Year}</p>
-                    <p>{Type}</p>
-                    <p>{Rating}</p>
+                <div className="sub_caption">
+                    <p>{Caption.year}</p>
+                    {Category}
+                    <p>{Caption.rating}</p>
                 </div>
                 <p>{Title}</p>
             </div>

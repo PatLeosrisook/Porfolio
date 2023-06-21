@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;500&display=swap");
+/*
+    This styling page contains styles that exists in all page or component that exists
+    in all pages (Like nav) 
+*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Outfit";
+  font-weight: 300;
+}
+
+body, html {
+  width: 100vw;
+  height: -moz-fit-content;
+  height: fit-content;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+body {
+  background-color: #10141E;
+}
+
+#Header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 10vh;
+  padding: 0 10px;
+  background-color: #161D2F;
+}
+#Header #Nav ul {
+  padding: 0;
+}
+#Header #Nav .link {
+  display: inline-block;
+  margin-right: 10px;
+}
+#Header #UserProfile {
+  background: url(../assets/image-avatar.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 100%;
+  height: 40px;
+  width: 40px;
+}
+
+#SearchBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+#SearchBar input {
+  border-bottom: none;
+  margin: 0;
+  height: 50px;
+}
+#SearchBar .form_group {
+  width: 80%;
+}
+#SearchBar img {
+  width: 20px;
+  height: auto;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#container .scroller {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100vw;
+  gap: 50px;
+  width: 100vw;
+  padding: 0 10px;
+  overflow-x: scroll;
+}
+
+#Trending_container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 74px;
+}
+#Trending_container h2 {
+  color: white;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding-left: 10px;
+}
+
+.cate-icon {
+  margin-right: 5px;
+}
+
+.Bookmark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 11px;
+  left: 84%;
+  z-index: 1;
+  width: 36px;
+  height: 36px;
+  background-color: #161D2F;
+  opacity: 0.5;
+  border-radius: 100%;
+}
+.Bookmark img {
+  width: 15px;
+  height: auto;
+}
+
+.sub_type, .sub_caption {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.sub_caption {
+  color: white;
+  opacity: 0.75;
+}
+
+.TrendingMedia {
+  border-radius: 8px;
+  position: relative;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.TrendingMedia .thumbnail {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+.TrendingMedia .img_wrap {
+  width: 94vw;
+  height: 179px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.TrendingMedia .Captions {
+  color: white;
+  position: absolute;
+  z-index: 1;
+  top: 55%;
+  left: 30px;
+}
+.TrendingMedia .Captions .Trending_title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+#FY_container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  color: white;
+}
+#FY_container h2 {
+  padding-left: 10px;
+}
+#FY_container .scroller {
+  flex-wrap: wrap;
+}
+#FY_container .image_wrap {
+  position: relative;
+  width: 94vw;
+  border-radius: 10px;
+  overflow: hidden;
+}
+#FY_container .Bookmark img {
+  width: 13px;
+  height: auto;
+}
+#FY_container .thumbnail {
+  width: 100%;
+  height: auto;
+}
+#FY_container .Movie_detail {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+#FY_container .sub_caption {
+  align-items: flex-start;
+}
+@media (min-width: 375px) {
+  #FY_container .image_wrap {
+    width: 172px;
+  }
+  #FY_container .scroller {
+    -moz-column-gap: 10px;
+         column-gap: 10px;
+  }
+}/*# sourceMappingURL=Home.css.map */

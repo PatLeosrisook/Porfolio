@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500&display=swap');
 $primary: #10141E;
 $SemiDarkBlue :#161D2F;
@@ -9,6 +10,10 @@ $grayish-blue:#5A698F;
     align-items: $align;
     justify-content: $justify;
 }
+/*
+    This styling page contains styles that exists in all page or component that exists
+    in all pages (Like nav) 
+*/
 * {
     box-sizing: border-box;
     margin:0;
@@ -19,7 +24,51 @@ $grayish-blue:#5A698F;
 body, html {
     width:100vw;
     height:fit-content;
+    overflow-x:hidden;
+    overflow-y: scroll;
 }
 body{
     background-color: $primary;
+}
+#Header {
+    @include flex(row, center,space-between);
+    width:100%;
+    height:10vh;
+    padding: 0 10px; ;
+    background-color: $SemiDarkBlue;
+    #Nav {
+        ul {
+            padding:0 ;
+        }
+        .link {
+            display:inline-block;
+            margin-right:10px;
+        }
+    }
+    #UserProfile {
+        background: url(../assets/image-avatar.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 100%;
+        height:40px;
+        width:40px;
+    }
+}
+#SearchBar {
+    @include flex(row,center,center);
+    width:100%;
+    input {
+        border-bottom:none;
+        
+        margin:0;
+        height:50px;
+    }
+    .form_group {
+        width:80%;
+    }
+    img {
+        width:20px;
+        height: auto;
+        // order:1;
+    }
 }

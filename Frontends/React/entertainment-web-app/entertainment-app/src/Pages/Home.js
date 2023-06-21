@@ -1,11 +1,18 @@
 import axios from "axios";
 import Media from "../Components/Media";
+import TrendingMedia from '../Components/TrendingMedia'
 import {useState , useEffect} from 'react'
+import SearchBar from "../Components/searchBar";
+import data from '../assets/data.json'
+import MovieIcon from '../assets/icon-category-movie.svg'
+import '../CSS/Home.css'
 export default function Home() {
     const [mediaList, setMediaList] = useState([])
     const [TvList, setTVList] = useState([])
+    const [trendingList, setTrendingList] = useState([])
     let renderData = []
     let renderTV = []
+    let renderTrending = []
     if(mediaList !== null) {
 
         console.log("not render", mediaList)
@@ -80,13 +87,82 @@ export default function Home() {
               ])
         })
     };
+    function renderMedias() {
+        //TODO:: console.log run first before you even filter the data
+        renderTrending = new Promise((resolve) => {
+            setTimeout(() => {
+              const trendingData = data.filter((d) => d.isTrending == true);
+              console.log("Trending data:", trendingData);
+              resolve(trendingData);
+            }, 1000);
+          });
+          
+          renderTrending.then((trendingData) => {
+            console.log("Data from Promise:", trendingData);
+            // renderTrending = trendingData.map(data => {
+            //     return <TrendingMedia
+            //         Image={data.thumbnail.trending.small}
+            //         Title={data.title}
+            //     />
+            // })
+            setTrendingList(trendingData)
+          });
+          
+        
+        // console.log("trending" ,renderTrending)
+    }
 
     useEffect(() => {
-        
+        //Load data once page load
+        renderMedias()
+        console.log(trendingList)
     },)
     return(
-        <section>
-
+        <section id="Home">
+            <section id="container">
+                <SearchBar/>
+                <section id="Trending_container">
+                    <h2>Trending</h2>
+                    <div class="scroller">
+                        {trendingList.map(list => {
+                            return <TrendingMedia
+                                Image={"." + list.thumbnail.trending.small}
+                                altText={`image of ${list.title}`}
+                                Title={list.title}
+                                Caption={{
+                                    year: list.year,
+                                    cate: "Movie",
+                                    rating: list.rating
+                                }}
+                            />
+                        })}
+                    </div>
+                </section>
+                <section id="FY_container">
+                    <h2>Recommend for you</h2>
+                    <div className="scroller">
+                        {trendingList.map(list => {
+                                return <Media
+                                    Image={"." + list.thumbnail.trending.small}
+                                    altText={`image of ${list.title}`}
+                                    Title={list.title}
+                                    Caption={{
+                                        year: list.year,
+                                        cate: "Movie",
+                                        rating: list.rating
+                                    }}
+                                    Category={
+                                    <p class="cate">
+                                        <span className="cate-icon">
+                                            <img src={MovieIcon} alt="" />
+                                        </span>Movie
+                                    </p>
+                                    }
+                                />
+                            })}
+                    </div>
+                </section>
+            </section>
         </section>
     )
 }

@@ -1,0 +1,130 @@
+@use "./Global";
+
+#container {
+    @include Global.flex();
+    .scroller {
+        @include Global.flex(row,center,flex-start);
+        width: 100vw;
+        gap:50px;
+        width: 100vw;
+        padding:0 10px;
+        overflow-x:scroll;
+    }
+}
+#Trending_container {
+    @include Global.flex(column,flex-start,center);
+    margin-bottom: 74px;;
+    h2 {
+        color:white;
+        width:fit-content;
+        padding-left:10px;
+    }
+    
+}
+.cate-icon {
+    margin-right:5px;
+}
+.Bookmark {
+    @include Global.flex();
+    position:absolute;
+    top: 11px;
+    left: 84%;
+    z-index:1;
+    width:36px;
+    height:36px;
+    background-color: Global.$SemiDarkBlue;
+    opacity:0.5;
+    border-radius: 100%;
+    img {
+        width:15px;
+        height:auto;
+    }
+}
+.sub_type, .sub_caption {
+    @include Global.flex(row, center,center);
+    gap:5px;
+}
+.sub_caption{
+    color:white;
+    opacity: 0.75;
+}
+.TrendingMedia {
+    // overflow:hidden;
+    border-radius: 8px;
+    position:relative;
+    width:fit-content;
+    height:fit-content;
+    .thumbnail {
+        position:relative;
+        z-index: 0;
+        width:100%;
+        height:100%;
+    }
+    .img_wrap {
+        width: 94vw;
+        height: 179px;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+   
+    .Captions {
+        color:white;
+        position:absolute;
+        z-index:1;
+        top: 55%;
+        left: 30px;
+        .Trending_title {
+            font-size:20px;
+            font-weight: 500
+        }
+        
+    }
+}
+#FY_container {
+    @include Global.flex(column, flex-start, center);
+    gap:20px;
+    h2 {
+        padding-left:10px;
+    }
+    color:white;
+    .scroller {
+        flex-wrap:wrap;
+    }
+    .image_wrap {
+        position:relative;
+        width:94vw;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .Bookmark {
+        img {
+            width:13px;
+            height: auto;
+        }
+    }
+    .thumbnail {
+        width:100%;
+        height: auto;
+    }
+    .Movie_detail {
+        @include Global.flex(column, flex-start, center);
+    }
+    .sub_caption {
+        align-items: flex-start;
+    }
+    .Medias {
+
+    }
+}
+
+@media(min-width: 375px) {
+    #FY_container {
+        .image_wrap {
+
+            width: 172px;;
+        }
+        .scroller {
+            column-gap:10px
+        }
+    }
+}

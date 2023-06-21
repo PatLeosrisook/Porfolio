@@ -4,12 +4,16 @@
     @include Global.flex();
     height:100vh;
     width:100%;
+    img  {
+        position: relative;
+        top: -15%;
+    }
 }
 .register_form {
     color:white;
     background-color: Global.$SemiDarkBlue;
     min-height: fit-content;
-    height: 339px;
+    height: 309px;
     width:90%;
     padding:22px;
     h1 {
@@ -24,7 +28,7 @@
         height: 50px;
         border-radius: 5px;
         color:white;
-        margin-top:50px;
+        margin-top:20px;
         margin-bottom: 5px
     }
     p {
@@ -36,13 +40,28 @@
 }
 .form_group {
     @include Global.flex(column , flex-start,center);
-    gap:10px;
+    gap:20px;
     input{
         width: 100%;
         border:none;
         height:30px;
         background-color: transparent;
         border-bottom: 1px solid Global.$grayish-blue;
+        color:white;
+        margin-bottom: 30px;
+        &:focus {
+            outline: none;
+            border-bottom:1px solid white;
+        }
+        &::placeholder {
+            opacity:0.9;
+            font-size:18px;
+        }
+    }
+    label {
+        position:relative;
+        top:20px;
+        opacity:0.5;
     }
    
 }

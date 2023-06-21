@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;500&display=swap");
+/*
+    This styling page contains styles that exists in all page or component that exists
+    in all pages (Like nav) 
+*/
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,10 +15,38 @@ body, html {
   width: 100vw;
   height: -moz-fit-content;
   height: fit-content;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 body {
   background-color: #10141E;
+}
+
+#Header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 10vh;
+  padding: 0 10px;
+  background-color: #161D2F;
+}
+#Header #Nav ul {
+  padding: 0;
+}
+#Header #Nav .link {
+  display: inline-block;
+  margin-right: 10px;
+}
+#Header #UserProfile {
+  background: url(../assets/image-avatar.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 100%;
+  height: 40px;
+  width: 40px;
 }
 
 #Register {
@@ -25,13 +57,17 @@ body {
   height: 100vh;
   width: 100%;
 }
+#Register img {
+  position: relative;
+  top: -15%;
+}
 
 .register_form {
   color: white;
   background-color: #161D2F;
   min-height: -moz-fit-content;
   min-height: fit-content;
-  height: 339px;
+  height: 309px;
   width: 90%;
   padding: 22px;
 }
@@ -48,7 +84,7 @@ body {
   height: 50px;
   border-radius: 5px;
   color: white;
-  margin-top: 50px;
+  margin-top: 20px;
   margin-bottom: 5px;
 }
 .register_form p {
@@ -63,7 +99,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  gap: 10px;
+  gap: 20px;
 }
 .form_group input {
   width: 100%;
@@ -71,4 +107,23 @@ body {
   height: 30px;
   background-color: transparent;
   border-bottom: 1px solid #5A698F;
+  color: white;
+  margin-bottom: 30px;
+}
+.form_group input:focus {
+  outline: none;
+  border-bottom: 1px solid white;
+}
+.form_group input::-moz-placeholder {
+  opacity: 0.9;
+  font-size: 18px;
+}
+.form_group input::placeholder {
+  opacity: 0.9;
+  font-size: 18px;
+}
+.form_group label {
+  position: relative;
+  top: 20px;
+  opacity: 0.5;
 }/*# sourceMappingURL=Register.css.map */
