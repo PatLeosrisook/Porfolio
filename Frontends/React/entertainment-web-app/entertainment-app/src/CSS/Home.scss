@@ -1,14 +1,17 @@
 @use "./Global";
 
-#container {
+#Trending_container {
     @include Global.flex();
     .scroller {
+        width:100vw;
+        overflow-x:scroll;
+    }
+    .media_wrapper {
         @include Global.flex(row,center,flex-start);
         width: 100vw;
         gap:50px;
-        width: 100vw;
+        width: fit-content;
         padding:0 10px;
-        overflow-x:scroll;
     }
 }
 #Trending_container {
@@ -41,7 +44,7 @@
     }
 }
 .sub_type, .sub_caption {
-    @include Global.flex(row, center,center);
+    @include Global.flex(row, center,flex-start);
     gap:5px;
 }
 .sub_caption{
@@ -57,8 +60,8 @@
     .thumbnail {
         position:relative;
         z-index: 0;
-        width:100%;
-        height:100%;
+        width: 500px;
+    height: auto;
     }
     .img_wrap {
         width: 94vw;
@@ -82,6 +85,13 @@
 }
 #FY_container {
     @include Global.flex(column, flex-start, center);
+    .scroller{
+        @include Global.flex(row,center,flex-start);
+        width: 100vw;
+        gap:50px;
+        width: fit-content;
+        padding:0 10px;
+    }   
     gap:20px;
     h2 {
         padding-left:10px;
@@ -118,6 +128,14 @@
 }
 
 @media(min-width: 375px) {
+    .Bookmark {
+        left: 76%;
+    }
+    .TrendingMedia {
+        .Bookmark {
+            left:300px;
+        }
+    }
     #FY_container {
         .image_wrap {
 
@@ -125,6 +143,118 @@
         }
         .scroller {
             column-gap:10px
+        }
+    }
+}
+@media(min-width:700px) {
+    .TrendingMedia{
+        .img_wrap {
+            width:470px;
+        }
+        .Bookmark {
+            left: 412px;
+        }
+    }
+    #FY_container {
+    }
+    .Medias {
+        .image_wrap {
+            width: 241px;
+        }
+        .Bookmark{
+            left:80%;
+        }
+        .Title{
+            font-size:18px;
+            font-weight: 700;
+            text-align: left;
+        }
+        .sub_caption {
+            font-weight: ligther;
+            font-size:13px;
+    
+        }
+
+    }
+}
+@media(min-width:1024px) {
+    #Home {
+        width: 80vw;
+        height: 100vh;
+    }
+    #container {
+        width:100%;
+        height:100%;
+    }
+    #FY_container,#Trending_container {
+        width:100%;
+    }
+    #FY_container {
+        .image_wrap{
+            width:271px;
+        }
+        .scroller {
+            column-gap: 22px;
+        }
+    }
+    
+}
+@media(min-width:1440px) {
+    #Trending_container {
+    }
+    
+    #FY_container {
+        .image_wrap {
+            width: 296px
+        }
+        .scroller {
+            column-gap: 17px;
+        }
+    }
+    #container {
+        justify-content: flex-start;
+        padding-top:20px;
+    }
+
+}
+@media(min-width: 1500px) {
+
+    #Home {
+        width:100vw;
+        height:100vh;
+        padding-left: 150px;
+    }
+    .TrendingMedia{
+        width: 477px;
+        height: 464px;
+        overflow:hidden;
+        &:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left:0;
+            background: linear-gradient(#00000000,#000)
+        }
+        .img_wrap {
+            width: 100%;
+            height: 100%;
+        }
+        .Bookmark{
+            left: 87%
+        }
+        .Captions {
+            top: 76%; 
+        }
+    }
+    #FY_container {
+        
+        .scroller {
+            padding-left:65px;
+            column-gap: 54px;
+        }
+        .image_wrap {
+            width:280px
         }
     }
 }

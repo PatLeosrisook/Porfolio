@@ -30,6 +30,10 @@ body, html {
 body{
     background-color: $primary;
 }
+.App {
+    height:100vh;
+
+}
 #Header {
     @include flex(row, center,space-between);
     width:100%;
@@ -70,5 +74,85 @@ body{
         width:20px;
         height: auto;
         // order:1;
+    }
+}
+@media(min-width: 375px) {
+    #SearchBar{
+        gap:10px;
+    }
+    .Medias {
+        .Title {
+            word-wrap: break-word;
+            width: 163px;
+            text-align: left;
+        }
+    }
+}
+@media(min-width:700px) {
+    #Header {
+        
+        #Nav {
+            .Links {
+                @include flex(row, center,center);
+                gap:20px;
+            }
+            .link {
+                margin-right:0px;
+            }
+            img {
+                width: 24px;
+            }
+        }
+    }
+    #SearchBar {
+        justify-content: flex-start;
+        padding-left:20px;
+        input {
+            height: 68px
+
+        }
+    }
+    #Trending_container h2, #Trending_container .scroller , #FY_container .scroller, #FY_container h2 {
+        padding-left:22px;
+    }
+    #FY_container {
+        .image_wrap {
+            width:234px
+        }
+    }
+}
+@media(min-width:1024px) {
+    .App {
+        @include flex(row, center,flex-start);
+        gap: 25px;
+        margin-left: 40px;
+    }
+    #Header {
+        @include flex(column, center, space-between);
+        padding:20px 0;
+        height:94vh;
+        width:6vw;
+        border-radius: 10px;
+        #Nav {
+            .Links {
+                flex-direction:column;
+            }
+        }
+    }
+    
+}
+@media(min-width:1440px ){
+    .Medias {
+        // flex-grow:1; 
+        .Title {
+            max-width: 200px;
+            text-align: left;
+        }
+    }
+}
+@media(min-width:1500px) {
+    #Header {
+        position:fixed; 
+        z-index: 1;
     }
 }

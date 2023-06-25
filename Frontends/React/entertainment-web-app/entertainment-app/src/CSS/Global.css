@@ -23,6 +23,10 @@ body {
   background-color: #10141E;
 }
 
+.App {
+  height: 100vh;
+}
+
 #Header {
   display: flex;
   flex-direction: row;
@@ -67,4 +71,78 @@ body {
 #SearchBar img {
   width: 20px;
   height: auto;
+}
+
+@media (min-width: 375px) {
+  #SearchBar {
+    gap: 10px;
+  }
+  .Medias .Title {
+    word-wrap: break-word;
+    width: 163px;
+    text-align: left;
+  }
+}
+@media (min-width: 700px) {
+  #Header #Nav .Links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  #Header #Nav .link {
+    margin-right: 0px;
+  }
+  #Header #Nav img {
+    width: 24px;
+  }
+  #SearchBar {
+    justify-content: flex-start;
+    padding-left: 20px;
+  }
+  #SearchBar input {
+    height: 68px;
+  }
+  #Trending_container h2, #Trending_container .scroller, #FY_container .scroller, #FY_container h2 {
+    padding-left: 22px;
+  }
+  #FY_container .image_wrap {
+    width: 234px;
+  }
+}
+@media (min-width: 1024px) {
+  .App {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 25px;
+    margin-left: 40px;
+  }
+  #Header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    height: 94vh;
+    width: 6vw;
+    border-radius: 10px;
+  }
+  #Header #Nav .Links {
+    flex-direction: column;
+  }
+}
+@media (min-width: 1440px) {
+  .Medias .Title {
+    max-width: 200px;
+    text-align: left;
+  }
+}
+@media (min-width: 1500px) {
+  #Header {
+    position: fixed;
+    z-index: 1;
+  }
 }/*# sourceMappingURL=Global.css.map */

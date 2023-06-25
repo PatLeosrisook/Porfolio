@@ -7,7 +7,7 @@ export default function Media({Title, Rating, Type, Year, Image, Caption, Catego
                 <div className="Bookmark">
                     <img src={BookMark} alt="bookmark"/>
                 </div>
-                <img src={Sample} alt="movie image" className="thumbnail" />
+                <img src={Image} alt="movie image" className="thumbnail" />
             </div>
             <div className="Movie_detail">
                 <div className="sub_caption">
@@ -15,7 +15,7 @@ export default function Media({Title, Rating, Type, Year, Image, Caption, Catego
                     {Category}
                     <p>{Caption.rating}</p>
                 </div>
-                <p>{Title}</p>
+                <p className="Title">{Title}</p>
             </div>
         </article>
     )
