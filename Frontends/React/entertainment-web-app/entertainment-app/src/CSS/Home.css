@@ -77,6 +77,11 @@ body {
   #SearchBar {
     gap: 10px;
   }
+  .Medias .Title {
+    word-wrap: break-word;
+    width: 163px;
+    text-align: left;
+  }
 }
 @media (min-width: 700px) {
   #Header #Nav .Links {
@@ -99,14 +104,12 @@ body {
   #SearchBar input {
     height: 68px;
   }
-  #Trending_container h2, #Trending_container .scroller, #FY_container .scroller, #FY_container h2 {
-    padding-left: 22px;
-  }
-  #FY_container .image_wrap {
-    width: 234px;
-  }
 }
 @media (min-width: 1024px) {
+  #Header {
+    position: fixed;
+    z-index: 1;
+  }
   .App {
     display: flex;
     flex-direction: row;
@@ -133,12 +136,6 @@ body {
   .Medias .Title {
     max-width: 200px;
     text-align: left;
-  }
-}
-@media (min-width: 1500px) {
-  #Header {
-    position: fixed;
-    z-index: 1;
   }
 }
 #Trending_container {
@@ -310,6 +307,15 @@ body {
   }
 }
 @media (min-width: 700px) {
+  #Home {
+    width: 100vw;
+  }
+  #Trending_container h2, #Trending_container .scroller, #FY_container .scroller, #FY_container h2 {
+    padding-left: 22px;
+  }
+  #FY_container .image_wrap {
+    width: 234px;
+  }
   .TrendingMedia .img_wrap {
     width: 470px;
   }
@@ -333,23 +339,27 @@ body {
   }
 }
 @media (min-width: 1024px) {
+  #FY_container, #Trending_container {
+    width: 100vw;
+  }
   #Home {
-    width: 80vw;
-    height: 100vh;
+    width: 100vw;
+    height: 90vh;
+    position: relative;
+    left: 70px;
   }
   #container {
     width: 100%;
     height: 100%;
   }
-  #FY_container, #Trending_container {
-    width: 100%;
-  }
   #FY_container .image_wrap {
     width: 271px;
   }
   #FY_container .scroller {
-    -moz-column-gap: 22px;
-         column-gap: 22px;
+    width: -moz-fit-content;
+    width: fit-content;
+    -moz-column-gap: 71px;
+         column-gap: 71px;
   }
 }
 @media (min-width: 1440px) {
@@ -357,8 +367,8 @@ body {
     width: 296px;
   }
   #FY_container .scroller {
-    -moz-column-gap: 17px;
-         column-gap: 17px;
+    -moz-column-gap: 98px;
+         column-gap: 98px;
   }
   #container {
     justify-content: flex-start;
@@ -369,7 +379,7 @@ body {
   #Home {
     width: 100vw;
     height: 100vh;
-    padding-left: 150px;
+    left: 106px;
   }
   .TrendingMedia {
     width: 477px;
@@ -396,8 +406,8 @@ body {
   }
   #FY_container .scroller {
     padding-left: 65px;
-    -moz-column-gap: 54px;
-         column-gap: 54px;
+    -moz-column-gap: 39px;
+         column-gap: 39px;
   }
   #FY_container .image_wrap {
     width: 280px;

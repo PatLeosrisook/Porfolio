@@ -77,6 +77,11 @@ body {
   #SearchBar {
     gap: 10px;
   }
+  .Medias .Title {
+    word-wrap: break-word;
+    width: 163px;
+    text-align: left;
+  }
 }
 @media (min-width: 700px) {
   #Header #Nav .Links {

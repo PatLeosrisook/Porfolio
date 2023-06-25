@@ -104,14 +104,12 @@ body {
   #SearchBar input {
     height: 68px;
   }
-  #Trending_container h2, #Trending_container .scroller, #FY_container .scroller, #FY_container h2 {
-    padding-left: 22px;
-  }
-  #FY_container .image_wrap {
-    width: 234px;
-  }
 }
 @media (min-width: 1024px) {
+  #Header {
+    position: fixed;
+    z-index: 1;
+  }
   .App {
     display: flex;
     flex-direction: row;
@@ -138,11 +136,5 @@ body {
   .Medias .Title {
     max-width: 200px;
     text-align: left;
-  }
-}
-@media (min-width: 1500px) {
-  #Header {
-    position: fixed;
-    z-index: 1;
   }
 }/*# sourceMappingURL=Global.css.map */

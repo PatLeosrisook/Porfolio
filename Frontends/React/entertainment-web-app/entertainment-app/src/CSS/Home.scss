@@ -147,6 +147,19 @@
     }
 }
 @media(min-width:700px) {
+    #Home {
+        width:100vw;
+
+    }
+    #Trending_container h2, #Trending_container .scroller , #FY_container .scroller, #FY_container h2 {
+        padding-left:22px;
+    }
+    
+    #FY_container {
+        .image_wrap {
+            width:234px
+        }
+    }
     .TrendingMedia{
         .img_wrap {
             width:470px;
@@ -155,8 +168,7 @@
             left: 412px;
         }
     }
-    #FY_container {
-    }
+    
     .Medias {
         .image_wrap {
             width: 241px;
@@ -178,23 +190,27 @@
     }
 }
 @media(min-width:1024px) {
+    #FY_container,#Trending_container {
+        width:100vw;
+    }
     #Home {
-        width: 80vw;
-        height: 100vh;
+        width: 100vw;
+        height: 90vh;
+        position:relative;
+        left: 70px;
     }
     #container {
         width:100%;
         height:100%;
     }
-    #FY_container,#Trending_container {
-        width:100%;
-    }
     #FY_container {
+        // width: 100%;;
         .image_wrap{
             width:271px;
         }
         .scroller {
-            column-gap: 22px;
+            width: fit-content;
+            column-gap: 71px;
         }
     }
     
@@ -208,7 +224,7 @@
             width: 296px
         }
         .scroller {
-            column-gap: 17px;
+            column-gap: 98px;
         }
     }
     #container {
@@ -222,7 +238,8 @@
     #Home {
         width:100vw;
         height:100vh;
-        padding-left: 150px;
+        // padding-left: 150px;
+        left:106px;
     }
     .TrendingMedia{
         width: 477px;
@@ -251,7 +268,7 @@
         
         .scroller {
             padding-left:65px;
-            column-gap: 54px;
+            column-gap: 39px;
         }
         .image_wrap {
             width:280px

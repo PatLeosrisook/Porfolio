@@ -1,4 +1,4 @@
-import BookMark from '../assets/icon-bookmark-full.svg'
+import BookMark from '../assets/icon-bookmark-empty.svg'
 import Sample from '../assets/thumbnails/beyond-earth/regular/medium.jpg'
 export default function Media({Title, Rating, Type, Year, Image, Caption, Category}) {
     return(
