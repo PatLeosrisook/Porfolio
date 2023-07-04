@@ -1,15 +1,18 @@
 import axios from "axios";
 import Media from "../Components/Media";
+import MediaComponent from "../Components/MediaComponents";
 import TrendingMedia from '../Components/TrendingMedia'
-import {useState , useEffect} from 'react'
+import {useState , useEffect, useMemo} from 'react'
 import SearchBar from "../Components/searchBar";
 import data from '../assets/data.json'
 import MovieIcon from '../assets/icon-category-movie.svg'
 import '../CSS/Home.css'
-export default function Home() {
+export default function Home({addtoBookmark, removeBookmark}) {
     const [mediaList, setMediaList] = useState([])
     const [recommendList, setRecommendList] = useState([])
     const [trendingList, setTrendingList] = useState([])
+    let memorizedMediaList = useMemo(() => mediaList, [mediaList])
+    let memorizedRecommended = useMemo(() => recommendList, [recommendList])
     const API_KEY = process.env.REACT_APP_API_KEY
     let renderData = []
     let renderTV = []
@@ -43,6 +46,7 @@ export default function Home() {
                 setMediaList(prev =>  [
                     ...prev, 
                     {
+                        id:result["id"],
                         Title: result[ (result["media_type"] == "movie") ? "original_title" : "original_name"],
                         Image: `https://image.tmdb.org/t/p/w200/${result["poster_path"]}`,
                         Year: result[(result["media_type"] == "movie") ? "release_date": "first_air_date"].split("-")[0],
@@ -71,10 +75,12 @@ export default function Home() {
                 setRecommendList(prev => [
                     ...prev, 
                     {
+                        id:result["id"],
                         Title: result["original_title"],
                         Image: `https://image.tmdb.org/t/p/w200/${result["poster_path"]}`,
-                        Year: result["release_date"],
-                        Type: "Movie"
+                        Year: result["release_date"].split("-")[[0]],
+                        Type: "Movie",
+                        Overview: (result["overview"].length > 0) ? result["overview"] : ""
                     }
                 ])
             })
@@ -92,10 +98,12 @@ export default function Home() {
                 setRecommendList(prev => [
                     ...prev, 
                     {
+                        id:result["id"],
                         Title: result["name"],
                         Image: `https://image.tmdb.org/t/p/w200/${result["poster_path"]}`,
-                        Year: result["first_air_date"],
-                        Type: "TV Show"
+                        Year: result["first_air_date"].split("-")[0],
+                        Type: "TV Show",
+                        Overview: (result["overview"].length > 0) ? result["overview"] : ""
                     }
                 ])
             })
@@ -103,30 +111,6 @@ export default function Home() {
         
     };
     
-    function renderTVItem() {
-        // const url = 'https://api.themoviedb.org/3/tv/popular?language=en-US&page=1';
-        // const options = {
-        //     method: 'GET',
-        //     headers: {
-        //         accept: 'application/json',
-                
-        //     }
-        // }
-        // axios(url, options)
-        // .then(res =>{
-        //     console.log(res)
-        //     return res.data
-        // }).then(data => {
-        //     console.log('data',data.results[0], typeof mediaList)
-        //       setTVList(prev => [
-        //         ...prev, 
-        //         {
-        //             Title: data.results[0]["name"],
-        //             Image: `https://image.tmdb.org/t/p/w200/${data.results[0]["poster_path"]}`
-        //         }    
-        //       ])
-        // })
-    };
 
     function getData(url, param, operations) {
 
@@ -166,13 +150,13 @@ export default function Home() {
     return(
         <section id="Home">
             <section id="container">
-                <SearchBar/>
                 <section id="Trending_container">
                     <h2>Trending</h2>
                     <div class="scroller">
                         <div class="media_wrapper">
-                            {mediaList.map(list => {
+                            {memorizedMediaList.map(list => {
                                 return <TrendingMedia
+                                    Id={list.id}
                                     Image={list.Image}
                                     altText={`image of ${list.title}`}
                                     Title={list.Title}
@@ -189,16 +173,14 @@ export default function Home() {
                 <section id="FY_container">
                     <h2>Recommend for you</h2>
                     <div className="scroller">
-                        {recommendList.map(list => {
-                                return <Media
+                        {memorizedRecommended.map(list => {
+                                return <MediaComponent
+                                    Id={list.id}
                                     Image={list.Image}
-                                    altText={`image of ${list.Title}`}
                                     Title={list.Title}
-                                    Caption={{
-                                        year: list.year,
-                                        cate: "Movie",
-                                        rating: list.rating
-                                    }}
+                                    Year={list.year}
+                                    Type={list.Type}
+                                    Overview={list.Overview}
                                     Category={
                                     <p class="cate">
                                         <span className="cate-icon">
@@ -207,6 +189,8 @@ export default function Home() {
                                         {list.Type}
                                     </p>
                                     }
+                                    addtoBookmark={addtoBookmark}
+                                    removeBookmark={removeBookmark}
                                 />
                             })}
                     </div>

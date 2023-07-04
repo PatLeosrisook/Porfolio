@@ -1,0 +1,12 @@
+@use "./Global";
+#Bookmark_section {
+    @include Global.flex();
+    height:fit-content;
+    width:100vw;
+    section {
+        @include Global.flex(row, center, flex-start);
+        flex-wrap: wrap;
+        width:100%;
+        height:fit-content;
+    }   
+}

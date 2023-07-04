@@ -37,7 +37,7 @@ body{
 #Header {
     @include flex(row, center,space-between);
     width:100%;
-    height:10vh;
+    height:16vh;
     padding: 0 10px; ;
     background-color: $SemiDarkBlue;
     #Nav {
@@ -76,6 +76,88 @@ body{
         // order:1;
     }
 }
+#ContentContainer {
+    @include flex(column, center,flex-start);
+    height: fit-content;
+    width:100vw;
+    gap:30px;
+}
+#Content {
+    @include flex();
+    width:100vw;
+    height:fit-content;
+    
+}
+.Medias_Component {
+    color:white;
+    @include flex();
+    height:fit-content;
+    width:90vw;
+    .Image {
+        width:100%;
+        height:200px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 10px;
+
+    }
+    .cate{
+        font-size: 12px;
+        font-weight: 700;
+    }
+    .Overview {
+        font-size:12px;
+        text-align: left;
+        height:80px;
+        position:relative;
+        overflow: hidden;
+        &::before {
+            content: "";
+            position: absolute;
+            background: linear-gradient(0deg, #10141e, transparent);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .Title {
+        font-size: 18px;
+        // font-weight: 700;
+        text-align: left;
+        font-size:18px
+    }
+    .utiles {
+        @include flex(row, center, space-between);
+        width:100%;
+    }
+    .Bookmark {
+        position: static;
+        background-color: transparent;
+    }
+    .detail {
+        @include flex(column, flex-start,center);
+        position:relative;
+        margin-bottom: 20px;
+        &::after {
+            content: "expand";
+            position: absolute;
+            top:100px;
+            left:80%;
+        }
+    }
+    .sub_detail {
+       
+    }
+    .Watch_btn {
+        border:none; 
+        background-color: transparent;
+        border-bottom: 1.5px solid $accent-red;
+        color:white;
+        // width:100px;
+        font-size:18px;
+    }
+}
 @media(min-width: 375px) {
     #SearchBar{
         gap:10px;
@@ -90,7 +172,7 @@ body{
 }
 @media(min-width:700px) {
     #Header {
-        
+        height:10vh;
         #Nav {
             .Links {
                 @include flex(row, center,center);
@@ -112,12 +194,48 @@ body{
 
         }
     }
-   
+    #Content {
+        margin-left: 16px;
+    }
+ 
+   .Medias_Component {
+    width: 30vw;
+    gap:20px;
+    .Overview {
+        font-size: 14px;
+    }
+
+   }
+
+}
+@media(min-width:800px) {
+    #Content {
+        margin-left:60px;
+    }
 }
 @media(min-width:1024px) {
+    #ContentContainer {
+        @include flex(row, center, flex-start);
+    }
+    .Medias_Component {
+        flex-direction: row;
+        width: 41vw; 
+        .Image {
+            width:50%;
+            max-width: 200px;
+            height: 280px;
+        }
+        .media_content {
+            width:50%
+        }
+    }
+    #Content {
+        margin-left:46px;
+    }
     #Header {
         position:fixed; 
         z-index: 1;
+        height: 90vh;
     }
     .App {
         @include flex(row, center,flex-start);
@@ -146,7 +264,26 @@ body{
             text-align: left;
         }
     }
+    .Medias_Component {
+        width: 27vw; 
+        // .Image {
+        //     width: 32%;
+        // }
+    }
+    #Content {
+        margin-left:110px;
+    }
 }
 @media(min-width:1500px) {
-    
+   #Content {
+    margin-left:130px;
+   }
+}
+@media(min-width:1900px) {
+    #Header{
+        width: 3vw;
+    }
+    .Medias_Component {
+        width:17vw;
+    }
 }

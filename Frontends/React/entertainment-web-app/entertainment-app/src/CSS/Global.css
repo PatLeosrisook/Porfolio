@@ -33,7 +33,7 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 10vh;
+  height: 16vh;
   padding: 0 10px;
   background-color: #161D2F;
 }
@@ -73,6 +73,102 @@ body {
   height: auto;
 }
 
+#ContentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 100vw;
+  gap: 30px;
+}
+
+#Content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.Medias_Component {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 90vw;
+}
+.Medias_Component .Image {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+}
+.Medias_Component .cate {
+  font-size: 12px;
+  font-weight: 700;
+}
+.Medias_Component .Overview {
+  font-size: 12px;
+  text-align: left;
+  height: 80px;
+  position: relative;
+  overflow: hidden;
+}
+.Medias_Component .Overview::before {
+  content: "";
+  position: absolute;
+  background: linear-gradient(0deg, #10141e, transparent);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.Medias_Component .Title {
+  font-size: 18px;
+  text-align: left;
+  font-size: 18px;
+}
+.Medias_Component .utiles {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.Medias_Component .Bookmark {
+  position: static;
+  background-color: transparent;
+}
+.Medias_Component .detail {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+.Medias_Component .detail::after {
+  content: "expand";
+  position: absolute;
+  top: 100px;
+  left: 80%;
+}
+.Medias_Component .Watch_btn {
+  border: none;
+  background-color: transparent;
+  border-bottom: 1.5px solid #FC4747;
+  color: white;
+  font-size: 18px;
+}
+
 @media (min-width: 375px) {
   #SearchBar {
     gap: 10px;
@@ -84,6 +180,9 @@ body {
   }
 }
 @media (min-width: 700px) {
+  #Header {
+    height: 10vh;
+  }
   #Header #Nav .Links {
     display: flex;
     flex-direction: row;
@@ -104,11 +203,48 @@ body {
   #SearchBar input {
     height: 68px;
   }
+  #Content {
+    margin-left: 16px;
+  }
+  .Medias_Component {
+    width: 30vw;
+    gap: 20px;
+  }
+  .Medias_Component .Overview {
+    font-size: 14px;
+  }
+}
+@media (min-width: 800px) {
+  #Content {
+    margin-left: 60px;
+  }
 }
 @media (min-width: 1024px) {
+  #ContentContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .Medias_Component {
+    flex-direction: row;
+    width: 41vw;
+  }
+  .Medias_Component .Image {
+    width: 50%;
+    max-width: 200px;
+    height: 280px;
+  }
+  .Medias_Component .media_content {
+    width: 50%;
+  }
+  #Content {
+    margin-left: 46px;
+  }
   #Header {
     position: fixed;
     z-index: 1;
+    height: 90vh;
   }
   .App {
     display: flex;
@@ -136,5 +272,24 @@ body {
   .Medias .Title {
     max-width: 200px;
     text-align: left;
+  }
+  .Medias_Component {
+    width: 27vw;
+  }
+  #Content {
+    margin-left: 110px;
+  }
+}
+@media (min-width: 1500px) {
+  #Content {
+    margin-left: 130px;
+  }
+}
+@media (min-width: 1900px) {
+  #Header {
+    width: 3vw;
+  }
+  .Medias_Component {
+    width: 17vw;
   }
 }/*# sourceMappingURL=Global.css.map */

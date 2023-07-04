@@ -1,0 +1,65 @@
+@use "./Global";
+.MediaPage {
+    // @include Global.flex(column, flex-start,flex-start);
+    height:100vh;
+    width:100vw;
+    .scroller {
+        @include Global.flex(row,center,center);
+        flex-wrap: wrap;
+        row-gap:34px;
+        padding: 10px 0;
+    }
+    h1 {
+        font-size:30px;
+        color:white;
+        width:fit-content;
+        margin-bottom: 20px;
+        margin-left:20px;
+    }
+    .Medias .image_wrap {
+        height: 190px;
+    }
+}
+@media(min-width:375px) {
+    .MediaPage {
+        .scroller {
+            column-gap: 10px;
+        }
+        .Medias .image_wrap {
+            width:42vw;
+        }
+    }
+}
+@media(min-width: 700px) {
+    .MediaPage {
+        .Medias .image_wrap {
+            width:236px;
+            height:164px;
+            margin-bottom: 12px;
+        }
+        .scroller {
+            justify-content: flex-start;
+            padding:20px;
+        }
+    }
+}
+@media(min-width:1024px) {
+    .MediaPage {
+        height: 90vh;
+        // margin-left:130px;
+        width:100vw;
+        .scroller {
+            column-gap: 32px;
+        }
+        .image_wrap {
+
+        }
+    }
+}
+@media(min-width:1440px) {
+    .MediaPage {
+        .scroller {
+            column-gap: 64px;
+        }
+    }
+}
