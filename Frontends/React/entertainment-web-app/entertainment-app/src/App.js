@@ -12,7 +12,7 @@ import { createContext, useEffect, useMemo, useState } from 'react';
 import {Routes, Route} from 'react-router-dom'
 import Bookmark from './Pages/BookedMark';
 import SearchBar from './Components/searchBar';
-import BookmarkContext from './Components/BookmarkContext';
+import BookmarkContextProvider from './Components/BookmarkContext';
 function App() {
   
   const API_KEY = process.env.REACT_APP_API_KEY
@@ -34,6 +34,8 @@ function App() {
       ...prev, 
       Detail
     ])
+    localStorage.setItem("Updatedbookmarked", JSON.stringify(Detail))
+
   }
   function removeFromBookmark(id) {
     
@@ -77,14 +79,16 @@ function App() {
         })
     })
   }
-
+  //TODO:: use localstorage
+  
   useEffect(() => {
-    console.log(Bookmarked)
-  })
+    console.log("app", Bookmarked)
+    
+    localStorage.setItem("bookmarked", JSON.stringify(Bookmarked))
+  },[Bookmarked])
   return (
     <div className="App">
-    
-      <BookmarkContext.Provider value={{Bookmarked}} >
+
         <Routes>
             <Route path="" element={<Nav/>}>
               <Route path="/Home" element={<Home addtoBookmark={addToBookmark} removeBookmark={removeFromBookmark} />} />
@@ -93,7 +97,7 @@ function App() {
               <Route path="/Bookmark" element={<Bookmark removeBookmark={removeFromBookmark} list={Bookmarked} />} />
             </Route>
         </Routes>
-      </BookmarkContext.Provider>
+      
   
     </div>
   );

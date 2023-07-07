@@ -1,4 +1,12 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 const BookmarkContext = createContext()
-export default BookmarkContext;
+function BookmarkContextProvider({children}) {
+    const {bookmark, setBookmark} = useState([])
+    return(
+        <BookmarkContext.Provider value={{bookmark}}>
+            {children}
+        </BookmarkContext.Provider>
+    )
+}
+export default BookmarkContextProvider;

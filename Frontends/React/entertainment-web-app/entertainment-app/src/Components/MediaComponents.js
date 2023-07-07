@@ -7,14 +7,11 @@ export default function MediaComponent({Id, Title, Image, Year, Caption, Categor
         backgroundImage: `url(${Image})`
     }
     function handleClick(e) {
-        console.log("add")
         setToggleBookmark(!bookmarked)
         
     }
     useEffect(() => {
-        console.log("bookmarked ?" ,bookmarked)
         if(bookmarked) {
-            console.log("bookamrekd")
             addtoBookmark({
             id:Id,
             Title: Title, 
@@ -25,7 +22,7 @@ export default function MediaComponent({Id, Title, Image, Year, Caption, Categor
             Overview:Overview
         })
         } else {
-            console.log("unbooked",Id)
+
             removeBookmark(Id)
         }
     },[bookmarked])
