@@ -266,9 +266,14 @@
         // padding-left: 150px;
         // left:106px;
     }
+    #Trending_container {
+        .scroller {
+            padding-left:-3px !important;
+        }
+    }
     .TrendingMedia{
-        width: 477px;
-        height: 464px;
+        width: 253px;
+        height: 353px;
         overflow:hidden;
         &:before {
             content: "";
@@ -287,6 +292,11 @@
         }
         .Captions {
             top: 76%; 
+            left: 10px;
+            .Trending_title {
+                text-align: left;
+                font-size:16px;
+            }
         }
     }
     .Medias {
@@ -295,7 +305,9 @@
         }
     }
     #FY_container {
-        
+        h2 {
+            padding-left:0px;
+        }
         .scroller {
             padding-left:0px;
             column-gap: 39px;
@@ -304,7 +316,7 @@
     }
 }
 @media(min-width:1650px) {
-
+    
 }
 @media(min-width:1700px) {
     #FY_container{

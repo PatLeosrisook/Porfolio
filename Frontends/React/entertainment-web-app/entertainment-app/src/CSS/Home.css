@@ -169,6 +169,28 @@ body {
   font-size: 18px;
 }
 
+#SearchResults {
+  height: 100vh;
+  width: 100vw;
+  color: white;
+}
+#SearchResults .Results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.EmptyImage {
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: #222a3f;
+}
+.EmptyImage .Image {
+  height: 0;
+}
+
 @media (min-width: 375px) {
   #SearchBar {
     gap: 10px;
@@ -203,6 +225,13 @@ body {
   #SearchBar input {
     height: 68px;
   }
+  #SearchResults .Results {
+    flex-direction: row;
+    justify-content: flex-start;
+    row-gap: 20px;
+    -moz-column-gap: 40px;
+         column-gap: 40px;
+  }
   #Content {
     margin-left: 16px;
   }
@@ -220,6 +249,12 @@ body {
   }
 }
 @media (min-width: 1024px) {
+  #Content {
+    height: 100vh;
+    justify-content: flex-start;
+    margin-left: 86px;
+    padding-top: 60px;
+  }
   #ContentContainer {
     display: flex;
     flex-direction: row;
@@ -237,9 +272,6 @@ body {
   }
   .Medias_Component .media_content {
     width: 50%;
-  }
-  #Content {
-    margin-left: 46px;
   }
   #Header {
     position: fixed;
@@ -550,9 +582,12 @@ body {
   #Home {
     width: 100vw;
   }
+  #Trending_container .scroller {
+    padding-left: -3px !important;
+  }
   .TrendingMedia {
-    width: 477px;
-    height: 464px;
+    width: 253px;
+    height: 353px;
     overflow: hidden;
   }
   .TrendingMedia:before {
@@ -572,9 +607,17 @@ body {
   }
   .TrendingMedia .Captions {
     top: 76%;
+    left: 10px;
+  }
+  .TrendingMedia .Captions .Trending_title {
+    text-align: left;
+    font-size: 16px;
   }
   .Medias .image_wrap {
     width: 280px;
+  }
+  #FY_container h2 {
+    padding-left: 0px;
   }
   #FY_container .scroller {
     padding-left: 0px;
