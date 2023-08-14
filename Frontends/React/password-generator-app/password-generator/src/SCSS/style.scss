@@ -1,0 +1,29 @@
+
+$dark-gray:#24232C;
+$gray :#817D92;
+$Almost-white:#E6E5EA;
+$Very-dark-gray:#18171F;
+$Neon-Green:#A4FFAF;
+$Red:#F64A4A;
+$Orange:#FB7C58;
+$Yellow:#F8CD65;
+@mixin flex($dir: column, $align: center, $just:center) {
+    display: flex;
+    flex-direction: $dir;
+    align-items: $align;
+    justify-content: $just;
+}
+.App {
+    background-color: $Very-dark-gray;
+    @include flex();
+    width:100vw;
+    height: 100vh;
+    color:white;
+    #Generator {
+        @include flex();
+        .conditions {
+            list-style: none;
+            padding:0;
+        }
+    }
+}
