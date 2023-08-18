@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap');
 $dark-gray:#34323f;
 $gray :#817D92;
 $Almost-white:#E6E5EA;
@@ -15,6 +15,7 @@ $Yellow:#F8CD65;
 }
 *{
     box-sizing: border-box;
+    font-family:  "JetBrains Mono";
 }
 body, html {
     padding:0;
@@ -38,8 +39,22 @@ body, html {
         .conditions {
             list-style: none;
             padding:0;
+            input {
+                border:none;
+                border-radius: 0;
+                appearance: none;
+                border: 1px solid white;
+                width: 15px;
+                height: 15px;
+                &:checked {
+                    border: 0;
+                    background-color: $Neon-Green;
+                }
+            }
             .condition {
-                @include flex(row , center,center);
+                @include flex(row , center,flex-start);
+                font-size: 15px;;
+                margin: 0;
             }
         }
     }
@@ -50,6 +65,7 @@ body, html {
     width:80vw;
     padding: 30px 0px;
     .password {
+        @include flex(row, center,space-around);
         margin-bottom: 20px;;
     }
     .indicators , .password{
@@ -61,13 +77,61 @@ body, html {
         @include flex();
         width: 100%;
         height: 100%;
+        gap:20px;
     }
     .Strength, .Strength_bar {
         @include flex(row, center, center);
 
     }
     .Strength{
-        width: 70%;
+        background-color: $Very-dark-gray;
+        width: 82%;
         justify-content: space-between;
+        padding: 0 20px;
     }
+    .pass_length {
+        @include flex();
+        width: 100%;
+        height:100%;
+        .length_header {
+            @include flex(row, center, space-between);
+            width: 100%;;
+        }
+        input[type='range'] {
+            appearance: none;
+            background-color: $Very-dark-gray;
+            width: 100%;
+            &::-webkit-slider-thumb {
+                appearance: none;
+                background-color: white;
+                width:20px;
+                height: 20px;
+                border-radius: 100%;;
+                
+            }
+            
+            
+        }
+    }
+    #Generate_btn {
+        border:none;
+        background-color: $Neon-Green;
+        width:90%;
+        height:50px;
+    }
+}
+.css-eg0mwd-MuiSlider-thumb {
+    border: 0;
+    background-color: white;
+    transition: border 0.4s ease;
+}
+.css-1gv0vcd-MuiSlider-track {
+    color:$Neon-Green
+}
+.css-eg0mwd-MuiSlider-thumb:hover, .css-eg0mwd-MuiSlider-thumb.Mui-focusVisible {
+    
+    box-shadow: none;
+    border: 3px solid white;
+    background: $Very-dark-gray;
+    transition: border 0.4s ease;
 }
