@@ -12,11 +12,24 @@ export default function Generator() {
     const [length, setLength] = useState(0)
     const [randomPassword, setRandomPassword] = useState("dfjadklsfj")
     let randomizer = () => {
+        console.log("Randomizing....", length)
         let password = ""
         //ascii code for characters? 
-        
-        for(let i = 0 ; i < length; i ++) {
+        let arrayOfSelection = [[97,122] , [65, 90], [[33,47],[58,64],[94,95], [124,126]]]
+        for(let i = 0 ; i < 1; i ++) {
+            // let randomSelection = Math.floor(Math.random() * arrayOfSelection.length - 1)
+            let randomSelection = 2
+            let randomChar = null
+            if(typeof arrayOfSelection[randomSelection][0] !== Number ){
+                //then this have a sub array.
+                randomSelection = Math.floor(Math.random() * arrayOfSelection[2].length - 1)
+                randomChar = Math.floor(Math.random() * (randomSelection[1] - randomSelection[0])  + randomSelection[0])
+                console.log(arrayOfSelection[randomSelection], randomSelection, arrayOfSelection, String.fromCharCode(randomChar), randomChar)
+            } else {
 
+            }
+             randomChar = Math.floor(Math.random() * (randomSelection[1] - randomSelection[0]) + randomSelection[0] )
+            
         }
         
     }
@@ -107,7 +120,7 @@ export default function Generator() {
                             </div>
                         </div>
                     </section>
-                    <button onClick={randomizer} id="Generate_btn">Generate <span>icon</span></button>
+                    <button onMouseUp={randomizer} id="Generate_btn">Generate <span>icon</span></button>
                 </section>
             </section>
         </section>
