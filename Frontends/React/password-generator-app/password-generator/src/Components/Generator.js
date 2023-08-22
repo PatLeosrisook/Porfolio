@@ -1,4 +1,4 @@
-import { faCopy } from "@fortawesome/free-solid-svg-icons"
+ import { faCopy } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useState } from "react"
 import Slider, { SliderThumb, SliderValueLabelProps } from '@mui/material/Slider';
@@ -22,13 +22,14 @@ export default function Generator() {
             let randomChar = null
             if(typeof arrayOfSelection[randomSelection][0] !== Number ){
                 //then this have a sub array.
-                randomSelection = Math.floor(Math.random() * arrayOfSelection[2].length - 1)
-                randomChar = Math.floor(Math.random() * (randomSelection[1] - randomSelection[0])  + randomSelection[0])
-                console.log(arrayOfSelection[randomSelection], randomSelection, arrayOfSelection, String.fromCharCode(randomChar), randomChar)
+                //BUG:: There are chance you'll get negative.
+                randomSelection = Math.floor(Math.random() * ((Math.max(arrayOfSelection[2].length - 1, 0) - 0) + 0)) //selecting random sub array
+                randomChar = Math.floor(Math.random() * (arrayOfSelection[randomSelection][1] - arrayOfSelection[randomSelection][0])  + arrayOfSelection[randomSelection][0]) // selecting random ascii number between 2 nums in the sub
+                console.log("array[randomSe]:",arrayOfSelection[randomSelection], "\n", "random selection:", randomSelection,'\n', "arrayOfselection",  arrayOfSelection, '\n', "string ascii", String.fromCharCode(randomChar),'\n', 'random char:', randomChar)
             } else {
 
+                randomChar = Math.floor(Math.random() * (randomSelection[1] - randomSelection[0]) + randomSelection[0] )
             }
-             randomChar = Math.floor(Math.random() * (randomSelection[1] - randomSelection[0]) + randomSelection[0] )
             
         }
         
