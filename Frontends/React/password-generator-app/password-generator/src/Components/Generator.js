@@ -16,23 +16,28 @@ export default function Generator() {
         let password = ""
         //ascii code for characters? 
         let arrayOfSelection = [[97,122] , [65, 90], [[33,47],[58,64],[94,95], [124,126]]]
-        for(let i = 0 ; i < 1; i ++) {
-            // let randomSelection = Math.floor(Math.random() * arrayOfSelection.length - 1)
-            let randomSelection = 2
+        for(let i = 0 ; i < length; i ++) {
+            let randomSelection = Math.floor(Math.random() * ((arrayOfSelection.length ) - 0) + 0)
+            // let randomSelection = 2
+            console.log(arrayOfSelection[randomSelection], randomSelection,typeof arrayOfSelection[randomSelection][0])
             let randomChar = null
-            if(typeof arrayOfSelection[randomSelection][0] !== Number ){
+            if(typeof arrayOfSelection[randomSelection][0] !== 'number'){
                 //then this have a sub array.
-                //BUG:: There are chance you'll get negative.
+                
                 randomSelection = Math.floor(Math.random() * ((Math.max(arrayOfSelection[2].length - 1, 0) - 0) + 0)) //selecting random sub array
-                randomChar = Math.floor(Math.random() * (arrayOfSelection[randomSelection][1] - arrayOfSelection[randomSelection][0])  + arrayOfSelection[randomSelection][0]) // selecting random ascii number between 2 nums in the sub
-                console.log("array[randomSe]:",arrayOfSelection[randomSelection], "\n", "random selection:", randomSelection,'\n', "arrayOfselection",  arrayOfSelection, '\n', "string ascii", String.fromCharCode(randomChar),'\n', 'random char:', randomChar)
+                randomChar = Math.floor(Math.random() * (arrayOfSelection[2][randomSelection][1] - arrayOfSelection[2][randomSelection][0])  + arrayOfSelection[2][randomSelection][0]) // selecting random ascii number between 2 nums in the sub
+                // console.log("array[randomSe]:",arrayOfSelection[2][randomSelection], "\n", "random selection:", randomSelection,'\n', "arrayOfselection",  arrayOfSelection, '\n', "string ascii", String.fromCharCode(randomChar),'\n', 'random char:', randomChar)
+                password += String.fromCharCode(randomChar)
             } else {
 
-                randomChar = Math.floor(Math.random() * (randomSelection[1] - randomSelection[0]) + randomSelection[0] )
+                randomChar = Math.floor(Math.random() * (arrayOfSelection[randomSelection][1] - arrayOfSelection[randomSelection][0]) + arrayOfSelection[randomSelection][0] )
+                password += String.fromCharCode(randomChar)
+                console.log("normal character\n", "random char:", randomChar, "or", String.fromCharCode(randomChar), "\n", "random selection:", randomSelection)
             }
             
         }
-        
+        console.log("passs:", password)
+        setRandomPassword(password)
     }
     let handleChange = (e) => {
         let condition = e.target.name
