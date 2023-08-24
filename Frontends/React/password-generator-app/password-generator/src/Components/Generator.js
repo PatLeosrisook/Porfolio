@@ -15,7 +15,34 @@ export default function Generator() {
         console.log("Randomizing....", length)
         let password = ""
         //ascii code for characters? 
-        let arrayOfSelection = [[97,122] , [65, 90], [[33,47],[58,64],[94,95], [124,126]]]
+        let arrayOfSelection = [[97,122]]
+        if(condition.includeLower) {
+            console.log("have lower")
+
+        }  else {
+            
+        }
+        if(condition.includeUpper) {
+            console.log("have upper")
+            arrayOfSelection.push([65,90])
+            
+        } else {
+            console.log("don't have upper")
+        } 
+        if(condition.includeNumber) {
+            console.log("have number")
+            arrayOfSelection.push([48,57])
+            
+        } else {
+            console.log("don't have number")
+        } 
+        if(condition.includeSymbol) {
+            console.log("have symbol")
+            arrayOfSelection.push([[33,47],[58,64],[94,95], [124,126]])
+
+        } else {
+            console.log("don't have sybol")
+        }
         for(let i = 0 ; i < length; i ++) {
             let randomSelection = Math.floor(Math.random() * ((arrayOfSelection.length ) - 0) + 0)
             // let randomSelection = 2
@@ -36,7 +63,6 @@ export default function Generator() {
             }
             
         }
-        console.log("passs:", password)
         setRandomPassword(password)
     }
     let handleChange = (e) => {
