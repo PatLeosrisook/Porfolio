@@ -2,6 +2,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useEffect, useState } from "react"
 import Slider, { SliderThumb, SliderValueLabelProps } from '@mui/material/Slider';
+import zxcbvn from 'zxcvbn'
 export default function Generator() {
     const [condition, setCondition] = useState({
         includeUpper:  { 
@@ -24,37 +25,32 @@ export default function Generator() {
     const [length, setLength] = useState(0)
     const [randomPassword, setRandomPassword] = useState("dfjadklsfj")
     const[arrayOfSelection, setArrayOfSelection] = useState([])
+    const [strength, setStrength] = useState("Weak")
+    const [strengthScore, setStrengthScore] = useState(0)
     let removeItem = (itemToRemove, items) => {
         console.log("reemoving", arrayOfSelection)
-        let indexOfRemoval = arrayOfSelection.filter((item, index) => {
-            console.log("removing items from", arrayOfSelection, 'and item to remove is ', itemToRemove)
-            if(JSON.stringify(item) == JSON.stringify(itemToRemove)){
-                console.log(item, itemToRemove)
-                return index
-            }
-        })
-        arrayOfSelection.splice(indexOfRemoval, 1)
+        // let indexOfRemoval = arrayOfSelection.filter((item, index) => {
+        //     console.log("removing items from", arrayOfSelection, 'and item to remove is ', itemToRemove)
+        //     if(JSON.stringify(item) == JSON.stringify(itemToRemove)){
+        //         console.log(item, itemToRemove, 'removing at', index)
+        //         return index
+        //     }
+        // })
+        let removedArray = arrayOfSelection.filter(x => JSON.stringify(x) !== JSON.stringify(itemToRemove))
+
+        setArrayOfSelection(removedArray)
         
-        console.log('removed?', indexOfRemoval, itemToRemove, arrayOfSelection)
+        console.log('removed?', itemToRemove, arrayOfSelection, removedArray)
     }
     let randomizer = () => {
-        console.log("Randomizing....", length, 'currentOb', condition, arrayOfSelection)
-        let password = ""
-        //ascii code for characters? 
-        // let arrayOfSelection = [[97,122]]
-        
+        let password = ""        
         for(let i = 0 ; i < length; i ++) {
             let randomSelection = Math.max(Math.floor(Math.random() * arrayOfSelection.length ), 0)
-            
-            // console.log("Selectin:", randomSelection )
             let randomChar = null
             if(typeof arrayOfSelection[randomSelection][0] !== 'number'){
-                
-                //then this have a sub array.
-                console.log("symbol array encountered")
+                //then this have a sub array
                 let randomSub = Math.floor(Math.random() * arrayOfSelection[randomSelection].length ) //selecting random sub array
                 randomChar = Math.floor(Math.random() * (arrayOfSelection[randomSelection][randomSub][1] - arrayOfSelection[randomSelection][randomSub][0])  + arrayOfSelection[randomSelection][randomSub][0]) // selecting random ascii number between 2 nums in the sub
-                console.log(arrayOfSelection[randomSelection][randomSub], randomSub, "random char", randomChar, ":", String.fromCharCode(randomChar))
                 password += String.fromCharCode(randomChar)
             } else {
 
@@ -63,7 +59,25 @@ export default function Generator() {
             }
             
         }
+        let passStrength = zxcbvn(password)
+        if(passStrength.score < 2) {
+
+            setStrength("Too Weak!");
+
+        } else if(passStrength.score > 1 && passStrength.score < 3) {
+            
+            setStrength("Weak");
+        } else if(passStrength.score >= 3 && passStrength.score < 4) {
+
+            setStrength("Medium");
+        } else {
+            setStrength("Strong")
+
+        }
+        setStrengthScore(passStrength.score)
+        console.log(passStrength)
         setRandomPassword(password)
+        handleStrengthBar(passStrength.score)
     }
     let handleChange = (e) => {
         let conditionName = e.target.name;
@@ -108,6 +122,42 @@ export default function Generator() {
             range
         ])
     }
+    let handleStrengthBar = (score) => {
+        let bars = document.getElementsByClassName("Bar")
+        for(let i = 0; i < bars.length; i ++) {
+            let lastEle = bars[i].classList[bars[i].classList.length - 1]
+            console.log(i, score)
+            if(i <= score) {
+                //add class to each bar
+                bars[i].classList.add(`bar_fill`)
+                let colour = 1;
+                if(i < 2) {
+                    colour = 1
+                } else if(i == 2) {
+                    colour =2
+                    
+                } else if( i == 3) {
+                    colour = 3
+                    
+                } else {
+                    colour = 4
+                }
+                if(lastEle !== `stength_${score}` &&( lastEle !== "bar_fill" && lastEle !== 'Bar' )) {
+                    // change of colour? 
+                    bars[i].classList.remove(lastEle)
+                } 
+                bars[i].classList.add(`strength_${score}`)
+                console.log("colour", colour)
+            } else {
+                
+                console.log(lastEle, i , score)
+                if(bars[i].classList[bars[i].classList.length - 1] !== "Bar") {
+                    bars[i].classList.remove('bar_fill')
+                    bars[i].classList.remove(lastEle)
+                }
+            }
+        }
+    }
     useEffect(()=> {
         let subArray = null
         if(condition.includeLower.is ) {
@@ -145,7 +195,8 @@ export default function Generator() {
             }
 
         } 
-    },[condition])
+        
+    },[condition, strength])
     return(
         <section id="Generator">
             <h1>Password generator</h1>
@@ -190,7 +241,7 @@ export default function Generator() {
                     <section className="Strength">
                         <h3>Strength</h3>
                         <div className="Strength_bar">
-                            <p>..</p>
+                            <p>{strength}</p>
                             <div className="Bars">
                                 <div className="Bar"></div>
                                 <div className="Bar"></div>

@@ -23,7 +23,7 @@ body, html {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   color: white;
 }
 .App #Generator {
@@ -34,7 +34,8 @@ body, html {
 }
 .App #Generator .conditions {
   list-style: none;
-  padding: 0;
+  padding: 0 20px;
+  width: 100%;
 }
 .App #Generator .conditions input {
   border: none;
@@ -59,7 +60,24 @@ body, html {
   margin: 0;
 }
 
+.Bars .bar_fill {
+  border: none !important;
+}
+.Bars .strength_1, .Bars .strength_0 {
+  background-color: #F64A4A;
+}
+.Bars .strength_2 {
+  background-color: #FB7C58;
+}
+.Bars .strength_3 {
+  background-color: #F8CD65;
+}
+.Bars .strength_4 {
+  background-color: #A4FFAF;
+}
+
 #Gen_panel {
+  max-width: 614px;
   width: 80vw;
   padding: 30px 0px;
 }
@@ -80,21 +98,40 @@ body, html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  justify-content: flex-start;
   width: 100%;
-  height: 100%;
+  height: 81%;
   gap: 20px;
 }
-#Gen_panel .Strength, #Gen_panel .Strength_bar {
+#Gen_panel .Strength, #Gen_panel .Strength_bar, #Gen_panel .Bars {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
+#Gen_panel .Strength h3, #Gen_panel .Strength_bar h3 {
+  font-size: 12px;
+  margin: 0;
+}
 #Gen_panel .Strength {
   background-color: #18171F;
-  width: 82%;
+  width: 92%;
+  height: 70px;
   justify-content: space-between;
   padding: 0 20px;
+}
+#Gen_panel .Strength .Strength_bar {
+  gap: 10px;
+  height: 40px;
+}
+#Gen_panel .Strength .Bars {
+  gap: 5px;
+  height: 100%;
+}
+#Gen_panel .Strength .Bars .Bar {
+  height: 100%;
+  width: 13px;
+  border: 1px solid white;
 }
 #Gen_panel .pass_length {
   display: flex;
@@ -102,7 +139,8 @@ body, html {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%;
+  height: 10%;
+  padding: 0 20px;
 }
 #Gen_panel .pass_length .length_header {
   display: flex;
