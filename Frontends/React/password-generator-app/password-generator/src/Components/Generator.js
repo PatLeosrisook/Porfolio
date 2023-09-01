@@ -141,13 +141,30 @@ export default function Generator() {
                 } 
                 console.log(i, score)
                 bars[i].classList.add(`strength_${score}`)
-            } else {
+            } 
+            if  (i > score) {
                 
                 console.log(lastEle, i , score)
                 if(bars[i].classList[bars[i].classList.length - 1] !== "Bar") {
                     bars[i].classList.remove('bar_fill')
                     bars[i].classList.remove(lastEle)
                 }
+                let filled = document.querySelectorAll("bar_fill")
+                let changeColour = ''
+                if(filled.length == 1) {
+                    changeColour = 'strength_1'
+                } else if(filled.length == 2) {
+                    changeColour = 'strength_2'
+                } else if(filled.length == 3) {
+                    changeColour = 'strength_3'
+                } else {
+                    changeColour = 'strength_4'
+                    bars[i].classList.add('strength_4')
+
+                }
+                filled.forEach(fill => {
+                    fill.classList.add(changeColour)
+                })
             }
         }
     }
