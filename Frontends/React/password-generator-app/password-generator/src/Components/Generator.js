@@ -64,10 +64,10 @@ export default function Generator() {
 
             setStrength("Too Weak!");
 
-        } else if(passStrength.score > 1 && passStrength.score < 3) {
+        } else if(passStrength.score > 1 && passStrength.score < 2) {
             
             setStrength("Weak");
-        } else if(passStrength.score >= 3 && passStrength.score < 4) {
+        } else if(passStrength.score >= 2 && passStrength.score < 4) {
 
             setStrength("Medium");
         } else {
@@ -124,30 +124,23 @@ export default function Generator() {
     }
     let handleStrengthBar = (score) => {
         let bars = document.getElementsByClassName("Bar")
+        console.log("curreentsocre", score)
         for(let i = 0; i < bars.length; i ++) {
             let lastEle = bars[i].classList[bars[i].classList.length - 1]
-            console.log(i, score)
-            if(i <= score) {
+            if(score <= 1) {
+                
+                bars[0].classList.add(`bar_fill`)
+                bars[0].classList.add(`strength_${score}`)
+            } else if(i  <= score ) {
                 //add class to each bar
                 bars[i].classList.add(`bar_fill`)
-                let colour = 1;
-                if(i < 2) {
-                    colour = 1
-                } else if(i == 2) {
-                    colour =2
-                    
-                } else if( i == 3) {
-                    colour = 3
-                    
-                } else {
-                    colour = 4
-                }
+                
                 if(lastEle !== `stength_${score}` &&( lastEle !== "bar_fill" && lastEle !== 'Bar' )) {
                     // change of colour? 
                     bars[i].classList.remove(lastEle)
                 } 
+                console.log(i, score)
                 bars[i].classList.add(`strength_${score}`)
-                console.log("colour", colour)
             } else {
                 
                 console.log(lastEle, i , score)
