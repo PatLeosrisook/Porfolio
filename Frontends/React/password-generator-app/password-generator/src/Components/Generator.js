@@ -64,10 +64,10 @@ export default function Generator() {
 
             setStrength("Too Weak!");
 
-        } else if(passStrength.score > 1 && passStrength.score < 2) {
+        } else if(passStrength.score > 1 && passStrength.score <= 2) {
             
             setStrength("Weak");
-        } else if(passStrength.score >= 2 && passStrength.score < 4) {
+        } else if(passStrength.score > 2 && passStrength.score < 4) {
 
             setStrength("Medium");
         } else {
@@ -75,7 +75,6 @@ export default function Generator() {
 
         }
         setStrengthScore(passStrength.score)
-        console.log(passStrength)
         setRandomPassword(password)
         handleStrengthBar(passStrength.score)
     }
@@ -124,47 +123,20 @@ export default function Generator() {
     }
     let handleStrengthBar = (score) => {
         let bars = document.getElementsByClassName("Bar")
-        console.log("curreentsocre", score)
         for(let i = 0; i < bars.length; i ++) {
-            let lastEle = bars[i].classList[bars[i].classList.length - 1]
-            if(score <= 1) {
-                
-                bars[0].classList.add(`bar_fill`)
-                bars[0].classList.add(`strength_${score}`)
-            } else if(i  <= score ) {
-                //add class to each bar
+            if(i + 1<= score || i == 0) {
+                //remove any existing one
+                if(bars[i].classList.length > 1) {
+                    bars[i].className = "Bar"
+                }
+                //then add new colour here
                 bars[i].classList.add(`bar_fill`)
-                
-                if(lastEle !== `stength_${score}` &&( lastEle !== "bar_fill" && lastEle !== 'Bar' )) {
-                    // change of colour? 
-                    bars[i].classList.remove(lastEle)
-                } 
-                console.log(i, score)
                 bars[i].classList.add(`strength_${score}`)
-            } 
-            if  (i > score) {
-                
-                console.log(lastEle, i , score)
-                if(bars[i].classList[bars[i].classList.length - 1] !== "Bar") {
-                    bars[i].classList.remove('bar_fill')
-                    bars[i].classList.remove(lastEle)
+            } else {
+                //reset the rest if there's any highlighted bar
+                if(bars[i].classList.length > 1) {
+                    bars[i].className = "Bar"
                 }
-                let filled = document.querySelectorAll("bar_fill")
-                let changeColour = ''
-                if(filled.length == 1) {
-                    changeColour = 'strength_1'
-                } else if(filled.length == 2) {
-                    changeColour = 'strength_2'
-                } else if(filled.length == 3) {
-                    changeColour = 'strength_3'
-                } else {
-                    changeColour = 'strength_4'
-                    bars[i].classList.add('strength_4')
-
-                }
-                filled.forEach(fill => {
-                    fill.classList.add(changeColour)
-                })
             }
         }
     }
@@ -197,7 +169,6 @@ export default function Generator() {
         } else {
         } 
         if(condition.includeSymbol.is) {
-            console.log("have symbol")
             subArray = [[33,47],[58,64],[94,95], [124,126]]
             let exists = arrayOfSelection.some(arr => JSON.stringify(arr) === JSON.stringify(subArray))
             if(exists == false) {
@@ -206,7 +177,14 @@ export default function Generator() {
 
         } 
         
-    },[condition, strength])
+        //adjust font size 
+        let passFont = document.querySelector(".password p")
+        if(passFont.clientWidth >= 400) {
+            passFont.style.fontSize = "16px"
+        } else {
+            passFont.style.fontSize= "32px"
+        }
+    },[condition, strength, randomPassword])
     return(
         <section id="Generator">
             <h1>Password generator</h1>

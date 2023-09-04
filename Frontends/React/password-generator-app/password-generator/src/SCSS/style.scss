@@ -68,16 +68,16 @@ body, html {
         border: none !important;
     }
     .strength_1, .strength_0 {
-        background-color: $Red;
+        background-color: $Red !important;
     }
     .strength_2 {
-        background-color: $Orange;
+        background-color: $Orange !important;
     }
     .strength_3 {
-        background-color: $Yellow;
+        background-color: $Yellow !important;
     }
     .strength_4 {
-        background-color: $Neon-Green;
+        background-color: $Neon-Green !important;
     }
 }
 #Gen_panel {
@@ -86,8 +86,16 @@ body, html {
     width:80vw;
     padding: 30px 0px;
     .password {
-        @include flex(row, center,space-around);
+        @include flex(row, center,space-between);
         margin-bottom: 20px;;
+        padding: 30px !important;
+        p {
+            max-width: 400px;
+            word-wrap: break-word;
+        }
+        svg {
+            font-size:30px;
+        }
     }
     .indicators , .password{
         background-color: $dark-gray;
@@ -179,4 +187,15 @@ body, html {
     border: 3px solid white;
     background: $Very-dark-gray;
     transition: border 0.4s ease;
+}
+@media (min-width: 1024px) {
+    #Gen_panel {
+        .password {
+            p  {
+                
+                font-size: 32px;
+                margin:0;
+            }
+        }
+    }
 }

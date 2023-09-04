@@ -64,16 +64,16 @@ body, html {
   border: none !important;
 }
 .Bars .strength_1, .Bars .strength_0 {
-  background-color: #F64A4A;
+  background-color: #F64A4A !important;
 }
 .Bars .strength_2 {
-  background-color: #FB7C58;
+  background-color: #FB7C58 !important;
 }
 .Bars .strength_3 {
-  background-color: #F8CD65;
+  background-color: #F8CD65 !important;
 }
 .Bars .strength_4 {
-  background-color: #A4FFAF;
+  background-color: #A4FFAF !important;
 }
 
 #Gen_panel {
@@ -85,8 +85,16 @@ body, html {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-bottom: 20px;
+  padding: 30px !important;
+}
+#Gen_panel .password p {
+  max-width: 400px;
+  word-wrap: break-word;
+}
+#Gen_panel .password svg {
+  font-size: 30px;
 }
 #Gen_panel .indicators, #Gen_panel .password {
   background-color: #34323f;
@@ -186,4 +194,11 @@ body, html {
   border: 3px solid white;
   background: #18171F;
   transition: border 0.4s ease;
+}
+
+@media (min-width: 1024px) {
+  #Gen_panel .password p {
+    font-size: 32px;
+    margin: 0;
+  }
 }/*# sourceMappingURL=style.css.map */
