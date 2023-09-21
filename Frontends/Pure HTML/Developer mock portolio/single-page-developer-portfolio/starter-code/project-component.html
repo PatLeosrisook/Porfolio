@@ -1,17 +1,27 @@
-<template id="project-template">
-    <style>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Custom Component Example</title>
+</head>
+<body>
 
-    </style>
-    <div class="project-component">
-        <img src="" /> 
-        <div>
-            <h3><slot name="Title">Default title</slot></h3>
+    <template id="project-template">
+        <style>
+
+        </style>
+        <div class="project-component">
+            <img src="" /> 
             <div>
-                <slot name="techs">
-                    <p></p>
-                    <p></p>
-                </slot>
+                <h3><slot name="Title">Default title</slot></h3>
+                <div>
+                    <slot name="techs">
+                        <p></p>
+                        <p></p>
+                    </slot>
+                </div>
             </div>
         </div>
-    </div>
-</template>
+    </template>
+<script src="./index.js"></script>
+</body>
+</html>

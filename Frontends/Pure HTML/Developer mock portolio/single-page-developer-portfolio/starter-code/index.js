@@ -1,12 +1,15 @@
 class CustomComponent extends HTMLElement{
     constructor() {
         super();
-        const template = document.querySelector("#project-template");
-        const shadowRoot = this.attachShadow({mode: 'open'})
-        shadowRoot.appendChild(template.cloneNode(true))
-        this.imageElement = shadowRoot.querySelector("img")
-        this.headingElement = shadowRoot.querySelector("h3")
-        this.techElement = shadowRoot.querySelector("div")
+        document.addEventListener('DOMContentLoaded', () => {
+            const template = document.querySelector("template");
+            const content = document.importNode(template.content, true)
+            const shadowRoot = this.attachShadow({mode: 'open'})
+            shadowRoot.appendChild(content)
+            this.imageElement = shadowRoot.querySelector("img")
+            this.headingElement = shadowRoot.querySelector("h3")
+            this.techElement = shadowRoot.querySelector("div")
+        })
     }
     setImageUrl(url) {
         this.imageElement.src = url 
@@ -29,3 +32,4 @@ class CustomComponent extends HTMLElement{
         
     }
 }
+customElements.define("project-component", CustomComponent)

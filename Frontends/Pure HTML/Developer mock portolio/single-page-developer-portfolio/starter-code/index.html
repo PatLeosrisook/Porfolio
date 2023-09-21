@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
+  <linkl rel="import" href="./project-component.html" />
   <title>Frontend Mentor | Single-page developer portfolio</title>
+  
 </head>
 <body>
 <header>
@@ -71,46 +72,23 @@
       </article>
     </section>
   </section>
+
   <section id="Projects">
     <section class="Project_header">
       <h2>Project</h2>
       <button class="contact_btn">Contact me</button>
     </section>
     <section id="Project_container">
-      
+      <project-component ImageUrl="./assets/images/thumbnail-project-1-small.webp">
+        <span slot="Title">Project1</span>
+      </project-component>
     </section>
   </section>
   <section id="Contact">
 
   </section>
 </main>
-  adamkeyes
-
-  Nice to meet you! I'm Adam Keyes.
-
  
-
-  Contact me
-
-  HTML
-  4 Years Experience
-
-  CSS
-  4 Years Experience
-
-  JavaScript
-  4 Years Experience
-
-  Accessibility
-  4 Years Experience
-
-  React
-  3 Years Experience
-
-  Sass
-  3 Years Experience
-
-  Projects
 
   Contact me
 
@@ -156,6 +134,6 @@
   Send message
 
   adamkeyes
-
+  <script src="./index.js"></script>
 </body>
 </html>
