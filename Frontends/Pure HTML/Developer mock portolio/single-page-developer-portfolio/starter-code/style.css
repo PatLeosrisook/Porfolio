@@ -96,4 +96,46 @@ header {
 #Hero .skills h3 {
   font-size: 32px;
   margin: 0;
+}
+
+#Projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+#Projects .Project_header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 80vw;
+}
+#Projects #Project_container, #Projects .project {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#Projects img {
+  width: 90%;
+}
+#Projects .project .content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+}
+#Projects .project h3 {
+  text-transform: uppercase;
+}
+#Projects .project ul {
+  list-style: none;
+}
+#Projects .project ul li {
+  display: inline;
 }/*# sourceMappingURL=style.css.map */

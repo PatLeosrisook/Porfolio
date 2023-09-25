@@ -86,3 +86,34 @@ header {
         }
     }
 }
+#Projects { 
+    @include flex();
+    width: 100%;
+    height: fit-content;
+    .Project_header {
+        @include flex(row , center ,space-between);
+        width:80vw;
+
+    }
+    #Project_container, .project {
+        @include flex();
+    }
+    img {
+        width: 90%;
+    }
+    .project {
+        .content {
+            @include flex(column, flex-start, center);
+            width: 100%;
+        }
+        h3 {
+            text-transform: uppercase;
+        }
+        ul {
+            list-style: none;
+            li {
+                display:  inline;
+            }
+        }
+    }
+}
