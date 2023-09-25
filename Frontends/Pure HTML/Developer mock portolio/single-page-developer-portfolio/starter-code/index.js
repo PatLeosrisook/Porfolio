@@ -1,23 +1,31 @@
 class CustomComponent extends HTMLElement{
     constructor() {
         super();
-        document.addEventListener('DOMContentLoaded', () => {
-            const template = document.querySelector("template");
-            const content = template.content
-            const shadowRoot = this.attachShadow({mode: 'open'})
-            shadowRoot.appendChild(content)
-            this.imageElement = shadowRoot.querySelector("img")
-            this.headingElement = shadowRoot.querySelector("h3")
-            this.techElement = shadowRoot.querySelector("div")
-        })
-            // Fetch the template HTML from template.html
+        
+        const template = document.querySelector("template");
+        const content = document.importNode(template.content, true);
+        const shadowRoot = this.attachShadow({mode: 'open'})
+        this.imageElement = shadowRoot.querySelector("img")
+        this.headingElement = shadowRoot.querySelector("h3")
+        this.techElement = shadowRoot.querySelector("div")
+        let url = this.getAttribute('imageUrl')
+        document.querySelector(".project_img").setAttribute('src' , url)
+        // Fetch the template HTML from template.html
+        shadowRoot.appendChild(content)
         
     }
-    setImageUrl(url) {
-        this.imageElement.src = url 
+  // Define a property to set the image source
+    set imageUrl(url) {
+        if (this.imageElement) {
+        this.imageElement.setAttribute('src', url) ;
+        document.querySelector("img").setAttribute('src', url)
+        }
     }
-    getImageUrl() {
-        return this.imageElement.src
+
+    // Define a getter for the image source
+    get imageUrl() {
+        return this.imageElement ? this.imageElement.src : '';
+    
     }
 
     setTitle(title) {

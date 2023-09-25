@@ -6,6 +6,7 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <!-- <link rel="import" href="./project-component.html" /> -->
+  <link rel="stylesheet" href="./style.css" />
   <title>Frontend Mentor | Single-page developer portfolio</title>
   
 </head>
@@ -14,8 +15,8 @@
     <style>
 
     </style>
-    <div class="project-component">
-        <img src="" /> 
+    <div class="project-component-wrap">
+        <img class="project_img" src="" alt="image" /> 
         <div>
             <h3><slot name="Title">Default title</slot></h3>
             <div>
@@ -27,28 +28,29 @@
         </div>
     </div>
 </template>
+
 <header>
-  <img src="" alt="" />
+  <p class="logo">adamkeyes</p>
   <nav>
-    <ul id="Links">
+    <ul class="socials" id="Links">
       <li class="Link">
         <a>
-          <img src="" alt=""/>
+          <img src="./assets/images/icon-github.svg" alt=""/>
         </a>
       </li>
       <li class="Link">
         <a>
-          <img src="" alt=""/>
+          <img src="./assets/images/icon-frontend-mentor.svg" alt=""/>
         </a>
       </li>
       <li class="Link">
         <a>
-          <img src="" alt=""/>
+          <img src="./assets/images/icon-linkedin.svg" alt=""/>
         </a>
       </li>
       <li class="Link">
         <a>
-          <img src="" alt=""/>
+          <img src="./assets/images/icon-twitter.svg" alt=""/>
         </a>
       </li>
     </ul>
@@ -56,11 +58,12 @@
 </header>
 <main>
   <section id="Hero">
+    <img src="./assets/images/image-profile-mobile.webp" alt="picture of me"/>
     <section class="headLine">
-        <h1>Nice to meet you!<br/>I'm Adam Keyes.</h1>
+        <h1>Nice to meet you!<br/>I'm <span class="underline">Adam Keyes</span>.</h1>
         <p> Based in the UK, I'm a front-end developer passionate about 
           building accessible web apps that users love.</p>
-          <button>Contact me</button>
+          <button class="btn">Contact me</button>
     </section>
     <section class="skills">
       <article class="skill">
@@ -93,64 +96,129 @@
   <section id="Projects">
     <section class="Project_header">
       <h2>Project</h2>
-      <button class="contact_btn">Contact me</button>
+      <button class="btn">Contact me</button>
     </section>
     <section id="Project_container">
-      <project-component ImageUrl="./assets/images/thumbnail-project-1-small.webp">
-        <span slot="Title">Project1</span>
-      </project-component>
+      <article class="project">
+        <img src="./assets/images/thumbnail-project-1-small.webp" alt="" />
+        <div class="content">
+          <h3>Design portfolio</h3>
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+          </ul>
+        </div>
+      </article>
+      <article class="project">
+        <img src="./assets/images/thumbnail-project-2-small.webp" alt="" />
+        <div class="content">
+          <h3>E-learning landing page</h3>
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+          </ul>
+        </div>
+      </article>
+      <article class="project">
+        <img src="./assets/images/thumbnail-project-3-small.webp" alt="" />
+        <div class="content">
+          <h3>Entertainment web app</h3>
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+        </div>
+      </article>
+      <article class="project">
+        <img src="./assets/images/thumbnail-project-4-small.webp" alt="" />
+        <div class="content">
+          <h3>Todo web app</h3>
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+        </div>
+      </article>
+      <article class="project">
+        <img src="./assets/images/thumbnail-project-5-small.webp" alt="" />
+        <div class="content">
+          <h3>Memory game</h3>
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+        </div>
+      </article>
+      <article class="project">
+        <img src="./assets/images/thumbnail-project-6-small.webp" alt="" />
+        <div class="content">
+          <h3>Art gallery showcase</h3>
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+        </div>
+      </article>
     </section>
   </section>
   <section id="Contact">
-
+    <div class="contact_wrapper">
+      <section class="form">
+        <section id="contact_title">
+          <h2>Contact</h2>
+          <p>I would love to hear about your project and how I could help. Please 
+            fill in the form, and I’ll get back to you as soon as possible.</p>
+        </section>
+        <form>
+          <div class="form_group">
+            <label for="Name">Name</label>
+            <input id="Name" name="name" placeholder="John" />
+          </div>
+          <div class="form_group">
+            <label for="Email">Name</label>
+            <input id="Email" name="email" placeholder="John@email.com" />
+          </div>
+          <div class="form_group">
+            <label for="Message">Name</label>
+            <textarea></textarea> 
+          </div>
+          <button class="btn" onclick="" >
+            Send form
+          </button>
+        </form>
+      </section>
+    </div>
+    <section id="Footer">
+      <p class="logo">adamkeyes</p>
+      <ul class="socials">
+        <li class="Link">
+          <a>
+            <img src="" alt=""/>
+          </a>
+        </li>
+        <li class="Link">
+          <a>
+            <img src="" alt=""/>
+          </a>
+        </li>
+        <li class="Link">
+          <a>
+            <img src="" alt=""/>
+          </a>
+        </li>
+        <li class="Link">
+          <a>
+            <img src="" alt=""/>
+          </a>
+        </li>
+      </ul>
+    </section>
   </section>
 </main>
- 
-
-  Contact me
-
-  Design portfolio
-  HTML CSS
-  View project
-  View code
-
-  E-learning landing page
-  HTML CSS
-  View project
-  View code
-
-  Todo web app
-  HTML CSS JavaScript
-  View project
-  View code
-
-  Entertainment web app
-  HTML CSS JavaScript
-  View project
-  View code
-
-  Memory Game
-  HTML CSS JavaScript
-  View project
-  View code
-
-  Art gallery showcase
-  HTML CSS JavaScript
-  View project
-  View code
-
-  Contact
-
-  I would love to hear about your project and how I could help. Please 
-  fill in the form, and I’ll get back to you as soon as possible.
-
-  Name
-  Email
-  Message
-
-  Send message
-
-  adamkeyes
-  <script src="./index.js"></script>
+<script src="./index.js"></script>
 </body>
 </html>
