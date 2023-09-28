@@ -41,18 +41,48 @@ header {
     border-bottom: 2px solid $Green;
     color:white;
     height:40px;
+    text-transform: uppercase;
+    letter-spacing: 2.286px;;
+    font-size: 16px;;
+}
+.bg {
+    position:absolute;
+    z-index: 0;
+}
+.r-1 {
+    left: -380px;
+}
+.r-2 {
+    top: 1042px;
+  right: -420px;
+}
+.r-3 {
+    left: -189px;
+  width: 260px;
+  height: 130px;
+  top: 340px;
+}
+main section {
+    position: relative;
+    z-index: 1;
+}
+.circle {
+    top: 300px;
+  right: -76px;
 }
 #Hero {
     @include flex();
     min-height:100vh;
+    gap:20px;
     height:fit-content;
     width:100%;
     img {
         width:130px;
         height:auto;
     }
-    .headLine {
+    .headLine , .hero_content{
         @include flex();
+
         h1 {
             font-size: 23px;;
             text-align: center;
@@ -98,21 +128,311 @@ header {
     #Project_container, .project {
         @include flex();
     }
-    img {
-        width: 90%;
+    #Project_container{
+        gap:20px;
+    }
+    .img_wrap {
+        width: 333px;
+        height: 250px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        .desktop_projectLink {
+            display:none;
+        }
     }
     .project {
+        gap:10px;
+        .links_to_project {
+            @include flex(row, center,center);
+            gap:10px;
+            .btn {
+
+                text-transform: uppercase;
+            }
+        }
         .content {
             @include flex(column, flex-start, center);
-            width: 100%;
+            width: 80%;
         }
         h3 {
             text-transform: uppercase;
+            margin:0;
         }
         ul {
+            width:100%;
+            padding:0;
             list-style: none;
             li {
                 display:  inline;
+                font-weight: 300;
+            }
+        }
+    }
+    .DP {
+        background-image: url(./assets/images/thumbnail-project-1-small.webp);
+    }
+    .EL {
+        background-image: url(./assets/images/thumbnail-project-2-small.webp);
+    }
+    .EW {
+        background-image: url(./assets/images/thumbnail-project-3-small.webp);
+    }
+    .MG {
+
+        background-image: url(./assets/images/thumbnail-project-4-small.webp);
+    }
+    .TW {
+        background-image: url(./assets/images/thumbnail-project-5-small.webp);
+    }
+    .AG {
+        background-image: url(./assets/images/thumbnail-project-6-small.webp);
+    }
+}
+#Contact {
+    background-color: $LightBlack;
+    @include flex();
+    min-height: 100vh;
+}
+.contact_wrapper {
+    @include flex();
+    height:70vh;
+    width:90%;
+    #contact_title {
+        @include flex();
+        h2 {
+            font-size:40px;
+            margin:0;
+        }
+        p {
+            font-size: 14px;;
+            text-align: center;
+            color: $Grey;
+            margin:0;
+
+        }
+    }
+    form {
+        @include flex(column, flex-start, center);
+        width: 90%;
+        .btn {
+            align-self: flex-end;
+        }
+    }
+    .form_group {
+        // @include flex();
+        width:100%;
+        input , textarea{
+            width: 100%;
+            background-color: transparent;
+            border:none;
+            border-bottom: 1px solid white;
+            &::placeholder {
+                color: $Grey;
+            }
+        }
+        input {
+            height:50px;
+        }
+    }
+    border-bottom: 1px solid white;
+    
+}
+#Footer {
+    @include flex();
+    height:15vh;
+    width: 100%;;
+}
+@media(min-width: 768px) {
+    .r-3 {
+        left: -153px;
+        width: 348px;
+        height: 157px;
+        top: 650px;
+    
+    }
+    h2 {
+        font-size: 72px !important;
+    }
+    #Hero {
+        gap: 93px;
+        .headLine {
+            img {
+                width: 342px;
+                order:2;
+                position: absolute;
+                top: -382px;
+                left: 507px;
+            }
+            .hero_content {
+                width: 70%;
+                position: relative;
+                left: -100px;
+              
+            }
+            @include flex(row, center, center);
+            p {
+                text-align: left;
+            }
+            h1 {
+                margin:0;
+                font-size:72px;
+                text-align: left;
+            }
+        }
+        .skills {
+            // @include flex(row, center, flex-start);
+            // flex-wrap:wrap;
+            // gap: 140px;
+            // row-gap: 65px;
+            padding-top:50px;
+            width:95%;
+            display:grid ;
+            grid-template-columns: 50% 50%;
+            grid-template-rows: 25% 25% 25%;
+            border-bottom: none;
+            row-gap: 62px;
+            .skill {
+                align-items: start;
+                padding-left:20px;
+                h3 {
+                    font-size: 48px;
+
+                }
+            }
+        }
+    }
+    #Projects {
+        .Project_header {
+            width: 90vw;
+            h2 {
+                font-size: 72px;
+            }
+        }
+        #Project_container {
+            @include flex(row, center,center);
+            flex-wrap: wrap;
+            .project{
+                width:48%;
+            }
+        }
+        margin-bottom: 50px;;
+    }
+    #Contact {
+        form {
+            gap:20px;
+            width:445px;
+            input {
+                height:43px;
+                &::placeholder {
+                    font-size: 16px;;
+                }
+            }
+            textarea {
+                height: 107px;
+            }
+        }
+    }
+    #contact_title {
+        p {
+            line-height: 28px;;
+            font-size:18px;
+            width: 345px;
+        }
+    }
+    #Footer, header {
+        @include flex(row ,center, space-between);
+        padding: 0 20px;
+        .logo {
+            font-size: 32px;
+        }
+    }
+}
+
+@media(min-width: 1280px) {
+    #Hero, #Projects, #Contact, header{
+        padding: 0 100px;
+        
+    }
+    .circle {
+        top: 666px;
+        right: 379px;
+        z-index: 2;
+    }
+    .r-1 {
+        left: 33px;
+        top: 301px;
+        width: 291px;
+        height: 100px;
+    }
+    h2 {
+        font-size:88px !important;
+    }
+    body {
+    }
+    #Hero {
+        .headLine {
+            img {
+                position: relative;
+                top: 0;
+                left:0;
+            }
+            p {
+                width: 80%;
+                font-size:18px;
+
+            }
+            .hero_content {
+                width: 75%;
+                left: 0;
+            }
+        }
+        .hero_content {
+            align-items: flex-start;
+        }
+        .skills {
+            grid-template-columns: 25% 25% 25%;
+            grid-template-rows: 50% 50%;
+            column-gap: 182px;;
+        }
+    }
+    section {
+        padding: 0 50px;
+    }
+    #Contact {
+        // padding:0;
+        .contact_wrapper {
+            @include flex(row,center ,space-between );
+            #contact_title {
+                p {
+                    font-size: 18px;
+                    text-align: left;
+                }
+            }
+        }
+    }
+    #Projects {
+        #Project_container {
+            .links_to_project {
+                display: none;
+            }
+        }
+        .img_wrap {
+            width: 483px;
+            height: 356px;
+            .desktop_projectLink {
+                @include flex();
+                width:100%;
+                height:100%;
+                position:relative;
+                &:hover {
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        background-color: #15151551;
+                    }
+                }
             }
         }
     }

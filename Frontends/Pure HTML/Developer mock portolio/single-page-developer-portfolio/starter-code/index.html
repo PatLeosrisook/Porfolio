@@ -57,14 +57,20 @@
   </nav>
 </header>
 <main>
+  <img src="./assets/images/pattern-rings.svg" alt="background image"  class="bg ring r-1"/>
+  <img src="./assets/images/pattern-rings.svg" alt="background image"  class="bg ring r-2"/>
+  <img src="./assets/images/pattern-circle.svg" alt="background image"  class="bg circle c-1"/>
   <section id="Hero">
-    <img src="./assets/images/image-profile-mobile.webp" alt="picture of me"/>
     <section class="headLine">
+      <img src="./assets/images/image-profile-mobile.webp" alt="picture of me"/>
+      <div class="hero_content">
         <h1>Nice to meet you!<br/>I'm <span class="underline">Adam Keyes</span>.</h1>
-        <p> Based in the UK, I'm a front-end developer passionate about 
+        <p> Based in the UK, I'm a front-end developer passionate about
           building accessible web apps that users love.</p>
           <button class="btn">Contact me</button>
+      </div>
     </section>
+
     <section class="skills">
       <article class="skill">
         <h3>HTML</h3>
@@ -100,27 +106,50 @@
     </section>
     <section id="Project_container">
       <article class="project">
-        <img src="./assets/images/thumbnail-project-1-small.webp" alt="" />
+        <div class="img_wrap DP">
+          <div class="desktop_projectLink">
+            <button class="btn">View Project</button>
+            <button class="btn">View code</button>
+          </div>
+        </div>
         <div class="content">
           <h3>Design portfolio</h3>
           <ul>
             <li>HTML</li>
             <li>CSS</li>
           </ul>
+          <div class="links_to_project">
+            <button class="btn">View Project</button>
+            <button class="btn">View code</button>
+          </div>
         </div>
       </article>
       <article class="project">
-        <img src="./assets/images/thumbnail-project-2-small.webp" alt="" />
+        <div class="img_wrap EL">
+          <div class="desktop_projectLink">
+            <button class="btn">View Project</button>
+            <button class="btn">View code</button>
+          </div>
+        </div>
         <div class="content">
           <h3>E-learning landing page</h3>
           <ul>
             <li>HTML</li>
             <li>CSS</li>
           </ul>
+          <div class="links_to_project">
+            <button class="btn">View Project</button>
+            <button class="btn">View code</button>
+          </div>
         </div>
       </article>
       <article class="project">
-        <img src="./assets/images/thumbnail-project-3-small.webp" alt="" />
+        <div class="img_wrap EW">
+          <div class="desktop_projectLink">
+            <button class="btn">View Project</button>
+            <button class="btn">View code</button>
+          </div>
+        </div>
         <div class="content">
           <h3>Entertainment web app</h3>
           <ul>
@@ -128,10 +157,19 @@
             <li>CSS</li>
             <li>JavaScript</li>
           </ul>
+          <div class="links_to_project">
+            <button class="btn">View Project</button>
+            <button class="btn">View code</button>
+          </div>
         </div>
       </article>
       <article class="project">
-        <img src="./assets/images/thumbnail-project-4-small.webp" alt="" />
+        <div class="img_wrap TW">
+          <div class="desktop_projectLink">
+            <button class="btn">View Project</button>
+            <button class="btn">View code</button>
+          </div>
+        </div>
         <div class="content">
           <h3>Todo web app</h3>
           <ul>
@@ -139,10 +177,19 @@
             <li>CSS</li>
             <li>JavaScript</li>
           </ul>
+          <div class="links_to_project">
+            <button class="btn">View Project</button>
+            <button class="btn">View code</button>
+          </div>
         </div>
       </article>
       <article class="project">
-        <img src="./assets/images/thumbnail-project-5-small.webp" alt="" />
+        <div class="img_wrap MG">
+          <div class="desktop_projectLink">
+            <button class="btn">View Project</button>
+            <button class="btn">View code</button>
+          </div>
+        </div>
         <div class="content">
           <h3>Memory game</h3>
           <ul>
@@ -150,10 +197,19 @@
             <li>CSS</li>
             <li>JavaScript</li>
           </ul>
+          <div class="links_to_project">
+            <button class="btn">View Project</button>
+            <button class="btn">View code</button>
+          </div>
         </div>
       </article>
       <article class="project">
-        <img src="./assets/images/thumbnail-project-6-small.webp" alt="" />
+        <div class="img_wrap AG">
+          <div class="desktop_projectLink">
+            <button class="btn">View Project</button>
+            <button class="btn">View code</button>
+          </div>
+        </div>
         <div class="content">
           <h3>Art gallery showcase</h3>
           <ul>
@@ -161,58 +217,61 @@
             <li>CSS</li>
             <li>JavaScript</li>
           </ul>
+          <div class="links_to_project">
+            <button class="btn">View Project</button>
+            <button class="btn">View code</button>
+          </div>
         </div>
       </article>
     </section>
   </section>
+
+  
   <section id="Contact">
+    <img src="./assets/images/pattern-rings.svg" alt="background image"  class="bg ring r-3"/>
     <div class="contact_wrapper">
-      <section class="form">
-        <section id="contact_title">
-          <h2>Contact</h2>
-          <p>I would love to hear about your project and how I could help. Please 
-            fill in the form, and I’ll get back to you as soon as possible.</p>
-        </section>
-        <form>
-          <div class="form_group">
-            <label for="Name">Name</label>
-            <input id="Name" name="name" placeholder="John" />
-          </div>
-          <div class="form_group">
-            <label for="Email">Name</label>
-            <input id="Email" name="email" placeholder="John@email.com" />
-          </div>
-          <div class="form_group">
-            <label for="Message">Name</label>
-            <textarea></textarea> 
-          </div>
-          <button class="btn" onclick="" >
-            Send form
-          </button>
-        </form>
+      <section id="contact_title">
+        <h2>Contact</h2>
+        <p>I would love to hear about your project and how I could help. Please 
+          fill in the form, and I’ll get back to you as soon as possible.</p>
       </section>
+      
+      <form>
+        <div class="form_group">
+          <input id="Name" name="name" placeholder="Name" />
+        </div>
+        <div class="form_group">
+          <input id="Email" name="email" placeholder="Email" />
+        </div>
+        <div class="form_group">
+          <textarea placeholder="Message"></textarea> 
+        </div>
+        <button class="btn" onclick="" >
+          Send form
+        </button>
+      </form>
     </div>
     <section id="Footer">
       <p class="logo">adamkeyes</p>
       <ul class="socials">
         <li class="Link">
           <a>
-            <img src="" alt=""/>
+            <img src="./assets/images/icon-github.svg" alt=""/>
           </a>
         </li>
         <li class="Link">
           <a>
-            <img src="" alt=""/>
+            <img src="./assets/images/icon-frontend-mentor.svg" alt=""/>
           </a>
         </li>
         <li class="Link">
           <a>
-            <img src="" alt=""/>
+            <img src="./assets/images/icon-linkedin.svg" alt=""/>
           </a>
         </li>
         <li class="Link">
           <a>
-            <img src="" alt=""/>
+            <img src="./assets/images/icon-twitter.svg" alt=""/>
           </a>
         </li>
       </ul>

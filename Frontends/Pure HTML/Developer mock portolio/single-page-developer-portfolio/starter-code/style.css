@@ -38,6 +38,40 @@ header {
   border-bottom: 2px solid #4EE1A0;
   color: white;
   height: 40px;
+  text-transform: uppercase;
+  letter-spacing: 2.286px;
+  font-size: 16px;
+}
+
+.bg {
+  position: absolute;
+  z-index: 0;
+}
+
+.r-1 {
+  left: -380px;
+}
+
+.r-2 {
+  top: 1042px;
+  right: -420px;
+}
+
+.r-3 {
+  left: -189px;
+  width: 260px;
+  height: 130px;
+  top: 340px;
+}
+
+main section {
+  position: relative;
+  z-index: 1;
+}
+
+.circle {
+  top: 300px;
+  right: -76px;
 }
 
 #Hero {
@@ -46,6 +80,7 @@ header {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  gap: 20px;
   height: -moz-fit-content;
   height: fit-content;
   width: 100%;
@@ -54,21 +89,21 @@ header {
   width: 130px;
   height: auto;
 }
-#Hero .headLine {
+#Hero .headLine, #Hero .hero_content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-#Hero .headLine h1 {
+#Hero .headLine h1, #Hero .hero_content h1 {
   font-size: 23px;
   text-align: center;
 }
-#Hero .headLine h1 .underline {
+#Hero .headLine h1 .underline, #Hero .hero_content h1 .underline {
   text-decoration: underline;
   text-decoration-color: #4EE1A0;
 }
-#Hero .headLine p {
+#Hero .headLine p, #Hero .hero_content p {
   text-align: center;
   font-weight: 500;
   margin: 0;
@@ -120,22 +155,322 @@ header {
   align-items: center;
   justify-content: center;
 }
-#Projects img {
-  width: 90%;
+#Projects #Project_container {
+  gap: 20px;
+}
+#Projects .img_wrap {
+  width: 333px;
+  height: 250px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+#Projects .img_wrap .desktop_projectLink {
+  display: none;
+}
+#Projects .project {
+  gap: 10px;
+}
+#Projects .project .links_to_project {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+#Projects .project .links_to_project .btn {
+  text-transform: uppercase;
 }
 #Projects .project .content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  width: 100%;
+  width: 80%;
 }
 #Projects .project h3 {
   text-transform: uppercase;
+  margin: 0;
 }
 #Projects .project ul {
+  width: 100%;
+  padding: 0;
   list-style: none;
 }
 #Projects .project ul li {
   display: inline;
+  font-weight: 300;
+}
+#Projects .DP {
+  background-image: url(./assets/images/thumbnail-project-1-small.webp);
+}
+#Projects .EL {
+  background-image: url(./assets/images/thumbnail-project-2-small.webp);
+}
+#Projects .EW {
+  background-image: url(./assets/images/thumbnail-project-3-small.webp);
+}
+#Projects .MG {
+  background-image: url(./assets/images/thumbnail-project-4-small.webp);
+}
+#Projects .TW {
+  background-image: url(./assets/images/thumbnail-project-5-small.webp);
+}
+#Projects .AG {
+  background-image: url(./assets/images/thumbnail-project-6-small.webp);
+}
+
+#Contact {
+  background-color: #242424;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.contact_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  width: 90%;
+  border-bottom: 1px solid white;
+}
+.contact_wrapper #contact_title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.contact_wrapper #contact_title h2 {
+  font-size: 40px;
+  margin: 0;
+}
+.contact_wrapper #contact_title p {
+  font-size: 14px;
+  text-align: center;
+  color: #D9D9D9;
+  margin: 0;
+}
+.contact_wrapper form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 90%;
+}
+.contact_wrapper form .btn {
+  align-self: flex-end;
+}
+.contact_wrapper .form_group {
+  width: 100%;
+}
+.contact_wrapper .form_group input, .contact_wrapper .form_group textarea {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid white;
+}
+.contact_wrapper .form_group input::-moz-placeholder, .contact_wrapper .form_group textarea::-moz-placeholder {
+  color: #D9D9D9;
+}
+.contact_wrapper .form_group input::placeholder, .contact_wrapper .form_group textarea::placeholder {
+  color: #D9D9D9;
+}
+.contact_wrapper .form_group input {
+  height: 50px;
+}
+
+#Footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 15vh;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .r-3 {
+    left: -153px;
+    width: 348px;
+    height: 157px;
+    top: 650px;
+  }
+  h2 {
+    font-size: 72px !important;
+  }
+  #Hero {
+    gap: 93px;
+  }
+  #Hero .headLine {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  #Hero .headLine img {
+    width: 342px;
+    order: 2;
+    position: absolute;
+    top: -382px;
+    left: 507px;
+  }
+  #Hero .headLine .hero_content {
+    width: 70%;
+    position: relative;
+    left: -100px;
+  }
+  #Hero .headLine p {
+    text-align: left;
+  }
+  #Hero .headLine h1 {
+    margin: 0;
+    font-size: 72px;
+    text-align: left;
+  }
+  #Hero .skills {
+    padding-top: 50px;
+    width: 95%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 25% 25% 25%;
+    border-bottom: none;
+    row-gap: 62px;
+  }
+  #Hero .skills .skill {
+    align-items: start;
+    padding-left: 20px;
+  }
+  #Hero .skills .skill h3 {
+    font-size: 48px;
+  }
+  #Projects {
+    margin-bottom: 50px;
+  }
+  #Projects .Project_header {
+    width: 90vw;
+  }
+  #Projects .Project_header h2 {
+    font-size: 72px;
+  }
+  #Projects #Project_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  #Projects #Project_container .project {
+    width: 48%;
+  }
+  #Contact form {
+    gap: 20px;
+    width: 445px;
+  }
+  #Contact form input {
+    height: 43px;
+  }
+  #Contact form input::-moz-placeholder {
+    font-size: 16px;
+  }
+  #Contact form input::placeholder {
+    font-size: 16px;
+  }
+  #Contact form textarea {
+    height: 107px;
+  }
+  #contact_title p {
+    line-height: 28px;
+    font-size: 18px;
+    width: 345px;
+  }
+  #Footer, header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+  #Footer .logo, header .logo {
+    font-size: 32px;
+  }
+}
+@media (min-width: 1280px) {
+  #Hero, #Projects, #Contact, header {
+    padding: 0 100px;
+  }
+  .circle {
+    top: 666px;
+    right: 379px;
+    z-index: 2;
+  }
+  .r-1 {
+    left: 33px;
+    top: 301px;
+    width: 291px;
+    height: 100px;
+  }
+  h2 {
+    font-size: 88px !important;
+  }
+  #Hero .headLine img {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  #Hero .headLine p {
+    width: 80%;
+    font-size: 18px;
+  }
+  #Hero .headLine .hero_content {
+    width: 75%;
+    left: 0;
+  }
+  #Hero .hero_content {
+    align-items: flex-start;
+  }
+  #Hero .skills {
+    grid-template-columns: 25% 25% 25%;
+    grid-template-rows: 50% 50%;
+    -moz-column-gap: 182px;
+         column-gap: 182px;
+  }
+  section {
+    padding: 0 50px;
+  }
+  #Contact .contact_wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #Contact .contact_wrapper #contact_title p {
+    font-size: 18px;
+    text-align: left;
+  }
+  #Projects #Project_container .links_to_project {
+    display: none;
+  }
+  #Projects .img_wrap {
+    width: 483px;
+    height: 356px;
+  }
+  #Projects .img_wrap .desktop_projectLink {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  #Projects .img_wrap .desktop_projectLink:hover::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(21, 21, 21, 0.3176470588);
+  }
 }/*# sourceMappingURL=style.css.map */
