@@ -365,6 +365,9 @@ main section {
   #Projects #Project_container .project {
     width: 48%;
   }
+  #Contact .contact_wrapper {
+    height: 81vh;
+  }
   #Contact form {
     gap: 20px;
     width: 445px;
@@ -450,12 +453,29 @@ main section {
     font-size: 18px;
     text-align: left;
   }
+  #Projects #Project_container {
+    justify-content: space-between;
+    padding: 0;
+  }
   #Projects #Project_container .links_to_project {
     display: none;
   }
+  #Projects #Project_container .project .content {
+    width: 100%;
+  }
+  #Projects #Project_container .project .content h3 {
+    font-size: 24px;
+  }
+  #Projects #Project_container .project .content ul {
+    font-size: 18px;
+  }
+  #Projects #Project_container .project .content ul li {
+    margin-right: 10px;
+  }
   #Projects .img_wrap {
-    width: 483px;
-    height: 356px;
+    width: 531px;
+    height: 393px;
+    position: relative;
   }
   #Projects .img_wrap .desktop_projectLink {
     display: flex;
@@ -465,12 +485,52 @@ main section {
     width: 100%;
     height: 100%;
     position: relative;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity ease 0.5s;
   }
-  #Projects .img_wrap .desktop_projectLink:hover::after {
+  #Projects .img_wrap::after {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(21, 21, 21, 0.3176470588);
+    background-color: #000;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: opacity ease 0.4s;
+  }
+  #Projects .img_wrap:hover .desktop_projectLink {
+    opacity: 1;
+    transition: opacity ease 0.5s;
+  }
+  #Projects .img_wrap:hover::after {
+    opacity: 0.75;
+    transition: opacity ease 0.4s;
+  }
+}
+@media (min-width: 1440px) {
+  .r-1 {
+    left: -158px;
+    top: 333px;
+    width: 391px;
+    height: 139px;
+  }
+  .r-2 {
+    top: 150%;
+  }
+  #Hero .headLine img {
+    top: -190px;
+    left: 99px;
+    width: 537px;
+  }
+  #Projects .img_wrap {
+    width: 599px;
+    height: 439px;
+  }
+  #Projects #Project_container .project {
+    width: -moz-fit-content;
+    width: fit-content;
   }
 }/*# sourceMappingURL=style.css.map */
