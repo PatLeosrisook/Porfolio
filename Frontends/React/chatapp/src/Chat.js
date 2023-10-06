@@ -1,4 +1,12 @@
 import { ChatBubble } from "./ChatBubble"
+import styles from "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
+import {
+  MainContainer,
+  ChatContainer,
+  MessageList,
+  Message,
+  MessageInput,
+} from "@chatscope/chat-ui-kit-react";
 export function Chat() {
     let handleKeyPress = (e) => {
         console.log(e)
@@ -8,14 +16,21 @@ export function Chat() {
     }
     return(
         <section id="Chat">
-            <div id="message_area">
-
-            </div>
-            <div className="card">
-                <div className="form_group">
-                    
-                    <textarea onKeyPress={handleKeyPress} name="Message"></textarea>
-                </div>
+            <div style={{ position: "relative", height: "500px" }}>
+                <MainContainer>
+                    <ChatContainer>
+                    <MessageList>
+                        <Message
+                        model={{
+                            message: "Hello my friend",
+                            sentTime: "just now",
+                            sender: "Joe",
+                        }}
+                        />
+                    </MessageList>
+                    <MessageInput placeholder="Type message here" />
+                    </ChatContainer>
+                </MainContainer>
             </div>
         </section>
     )
