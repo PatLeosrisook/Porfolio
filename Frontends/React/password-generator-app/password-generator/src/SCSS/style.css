@@ -11,7 +11,7 @@ body, html {
   width: 100vw;
 }
 
-.root {
+#root {
   width: 100vw;
   height: 100vh;
 }
@@ -23,7 +23,8 @@ body, html {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100vh;
+  height: -moz-fit-content;
+  height: fit-content;
   color: white;
 }
 .App #Generator {
@@ -46,10 +47,17 @@ body, html {
   border: 1px solid white;
   width: 15px;
   height: 15px;
+  position: relative;
 }
 .App #Generator .conditions input:checked {
   border: 0;
   background-color: #A4FFAF;
+}
+.App #Generator .conditions input:checked::before {
+  content: url("../.././../starter-code/assets/images/icon-check.svg");
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .App #Generator .conditions .condition {
   display: flex;
@@ -57,7 +65,11 @@ body, html {
   align-items: center;
   justify-content: flex-start;
   font-size: 15px;
+  gap: 10px;
   margin: 0;
+}
+.App #Generator .conditions .condition p {
+  text-align: left;
 }
 
 .Bars .bar_fill {
@@ -90,11 +102,40 @@ body, html {
   padding: 30px !important;
 }
 #Gen_panel .password p {
-  max-width: 400px;
+  color: #E6E5EA;
+  max-width: 140px;
+  opacity: 0.25;
+  margin: 0;
+  font-size: 15px;
   word-wrap: break-word;
 }
 #Gen_panel .password svg {
-  font-size: 30px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #A4FFAF;
+}
+#Gen_panel .password .highlighted {
+  opacity: 1;
+}
+#Gen_panel .password .overflowed_pass {
+  font-size: 16px;
+  word-wrap: break-word;
+}
+#Gen_panel .password #copy_wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+#Gen_panel .password #copy_wrap p {
+  font-size: 15px;
+  color: #A4FFAF;
+  opacity: 1;
+  visibility: hidden;
+}
+#Gen_panel .password #copy_wrap .visibleText {
+  visibility: visible !important;
 }
 #Gen_panel .indicators, #Gen_panel .password {
   background-color: #34323f;
@@ -197,7 +238,11 @@ body, html {
 }
 
 @media (min-width: 1024px) {
+  .App {
+    height: 100vh;
+  }
   #Gen_panel .password p {
+    max-width: 400px;
     font-size: 32px;
     margin: 0;
   }

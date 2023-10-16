@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import {Chat} from './Chat'
+import {Chat} from './Components/Chat'
 import './css/style.css'
 function App() {
   return (
