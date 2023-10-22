@@ -14,6 +14,7 @@ html, body {
 body {
   background-color: #151515;
   color: white;
+  overflow-x: hidden;
 }
 
 .socials {
@@ -41,6 +42,18 @@ header {
   text-transform: uppercase;
   letter-spacing: 2.286px;
   font-size: 16px;
+  cursor: pointer;
+}
+.btn:hover {
+  color: #4EE1A0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 80%;
 }
 
 .bg {
@@ -221,11 +234,15 @@ main section {
 
 #Contact {
   background-color: #242424;
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+}
+#Contact .container {
+  width: 100vw;
 }
 
 .contact_wrapper {
@@ -234,7 +251,7 @@ main section {
   align-items: center;
   justify-content: center;
   height: 70vh;
-  width: 90%;
+  width: 100%;
   border-bottom: 1px solid white;
 }
 .contact_wrapper #contact_title {
@@ -350,7 +367,7 @@ main section {
     margin-bottom: 50px;
   }
   #Projects .Project_header {
-    width: 90vw;
+    width: 100%;
   }
   #Projects .Project_header h2 {
     font-size: 72px;
@@ -435,13 +452,16 @@ main section {
     align-items: flex-start;
   }
   #Hero .skills {
-    grid-template-columns: 25% 25% 25%;
+    justify-content: space-between;
+    width: 100%;
+    grid-template-columns: auto auto auto;
     grid-template-rows: 50% 50%;
     -moz-column-gap: 182px;
          column-gap: 182px;
   }
-  section {
-    padding: 0 50px;
+  #Hero .skills .skill {
+    width: -moz-fit-content;
+    width: fit-content;
   }
   #Contact .contact_wrapper {
     display: flex;
@@ -473,8 +493,8 @@ main section {
     margin-right: 10px;
   }
   #Projects .img_wrap {
-    width: 531px;
-    height: 393px;
+    width: 421px;
+    height: 313px;
     position: relative;
   }
   #Projects .img_wrap .desktop_projectLink {
@@ -526,11 +546,56 @@ main section {
     width: 537px;
   }
   #Projects .img_wrap {
-    width: 599px;
-    height: 439px;
+    width: 468px;
+    height: 358px;
   }
   #Projects #Project_container .project {
     width: -moz-fit-content;
     width: fit-content;
+  }
+}
+@media (min-width: 1500px) {
+  #Contact form {
+    width: 588px;
+  }
+  #Projects #Project_container {
+    gap: 0;
+  }
+  #Projects .img_wrap {
+    width: 334px;
+    height: 267px;
+  }
+}
+@media (min-width: 1700px) {
+  #Projects .img_wrap {
+    width: 395px;
+    height: 293px;
+  }
+}
+@media (min-width: 1900px) {
+  #Projects #Project_container {
+    width: 94%;
+  }
+  #Projects .img_wrap {
+    width: 407px;
+    height: 308px;
+  }
+}
+@media (min-width: 2200px) {
+  #Projects {
+    margin-top: 50px;
+  }
+  #Projects .Project_header {
+    width: 91%;
+  }
+  #Projects .Project_header h2 {
+    margin: 0;
+  }
+  #Projects #Project_container {
+    width: 90%;
+  }
+  #Projects .img_wrap {
+    width: 438px;
+    height: 343px;
   }
 }/*# sourceMappingURL=style.css.map */
