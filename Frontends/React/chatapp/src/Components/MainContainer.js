@@ -1,6 +1,9 @@
+import { MainContainer } from "@chatscope/chat-ui-kit-react";
 
 export function MainChat() {
     return (
-        <Mainc
+        <MainContainer>
+            
+        </MainContainer>
     )
 }
