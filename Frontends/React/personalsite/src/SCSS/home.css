@@ -23,6 +23,19 @@ body {
   width: 100%;
 }
 
+header {
+  width: 100vw;
+  height: 10vh;
+  position: absolute;
+  top: 0;
+}
+header .Links {
+  display: none;
+  list-style: none;
+  padding: 0;
+  gap: 5px;
+}
+
 #cursive {
   position: relative;
   z-index: 1;
