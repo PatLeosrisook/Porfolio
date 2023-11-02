@@ -24,7 +24,7 @@ body, html {
     width: 100vw;
     ;
 }
-.root {
+#root {
     width:100vw;
     height:100vh;
 }
@@ -32,7 +32,7 @@ body, html {
     background-color: $Very-dark-gray;
     @include flex();
     width:100%;
-    height: 100vh;
+    height: fit-content;
     color:white;
     #Generator {
         @include flex();
@@ -47,15 +47,28 @@ body, html {
                 border: 1px solid white;
                 width: 15px;
                 height: 15px;
+                position:relative;
                 &:checked {
                     border: 0;
                     background-color: $Neon-Green;
+
+                    &::before {
+                        content: url('../.././../starter-code/assets/images/icon-check.svg');
+                        position: absolute;
+                        top: 0;
+                        left:0;
+                    }
                 }
+                
             }
             .condition {
                 @include flex(row , center,flex-start);
                 font-size: 15px;;
+                gap:10px;
                 margin: 0;
+                p {
+                    text-align: left;
+                }
             }
         }
     }
@@ -90,11 +103,37 @@ body, html {
         margin-bottom: 20px;;
         padding: 30px !important;
         p {
-            max-width: 400px;
+            color:$Almost-white;
+            max-width: 140px;
+            opacity: 0.25;
+            margin:0;
+            font-size: 15px;
             word-wrap: break-word;
         }
         svg {
-            font-size:30px;
+            font-size:20px;
+            cursor: pointer;
+            color:$Neon-Green
+        }
+        .highlighted {
+            opacity: 1;
+        }
+        .overflowed_pass {
+            font-size: 16px;
+            word-wrap: break-word;
+        }
+        #copy_wrap {
+            @include flex(row, center,center);
+            gap:5px;
+            p {
+                font-size:15px;
+                color:$Neon-Green;
+                opacity: 1;
+                visibility: hidden;
+            }
+            .visibleText {
+                visibility: visible !important;
+            }
         }
     }
     .indicators , .password{
@@ -189,10 +228,13 @@ body, html {
     transition: border 0.4s ease;
 }
 @media (min-width: 1024px) {
+    .App {
+        height: 100vh;
+    }
     #Gen_panel {
         .password {
             p  {
-                
+                max-width: 400px;
                 font-size: 32px;
                 margin:0;
             }

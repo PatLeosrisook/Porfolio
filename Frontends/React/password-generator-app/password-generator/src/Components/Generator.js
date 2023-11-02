@@ -43,6 +43,8 @@ export default function Generator() {
         console.log('removed?', itemToRemove, arrayOfSelection, removedArray)
     }
     let randomizer = () => {
+        let passObject = document.querySelector(".password p")
+        passObject.classList.add("highlighted")
         let password = ""        
         for(let i = 0 ; i < length; i ++) {
             let randomSelection = Math.max(Math.floor(Math.random() * arrayOfSelection.length ), 0)
@@ -140,6 +142,20 @@ export default function Generator() {
             }
         }
     }
+    let handleCopy = () => {
+        let copied = document.querySelector("#copy_wrap p")
+        let copyText = document.querySelector(".password p")
+        copied.classList.add('visibleText')
+        
+        const copy = async () => {
+            try {
+                await navigator.clipboard.writeText(JSON.stringify(copyText.textContent))
+            }catch(e) {
+                console.log("Failed to copy",e, copyText.textContent)
+            }
+        }
+        copy()
+    }
     useEffect(()=> {
         let subArray = null
         if(condition.includeLower.is ) {
@@ -179,10 +195,11 @@ export default function Generator() {
         
         //adjust font size 
         let passFont = document.querySelector(".password p")
-        if(passFont.clientWidth >= 400) {
-            passFont.style.fontSize = "16px"
+        let passContainer = document.querySelector(".password")
+        if(passFont.clientWidth >= passContainer.clientWidth / 2) {
+            passFont.classList.add("overflowed_pass")
         } else {
-            passFont.style.fontSize= "32px"
+            passFont.classList.remove("overflowed_pass")
         }
     },[condition, strength, randomPassword])
     return(
@@ -191,7 +208,10 @@ export default function Generator() {
             <section id="Gen_panel">
                 <section className="password">
                     <p>{randomPassword}</p>
-                    <FontAwesomeIcon icon={faCopy} />
+                    <div id="copy_wrap">
+                        <p>Copied!</p>
+                        <FontAwesomeIcon onClick={handleCopy} icon={faCopy} />
+                    </div>
                 </section>
                 <section className="indicators">
                     <section className="pass_length">
