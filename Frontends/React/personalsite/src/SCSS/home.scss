@@ -1,0 +1,11 @@
+@mixin flex($dir: column, $justify: center, $align:center) {
+    display:flex;
+    flex-direction: $dir;
+    justify-content: $justify;
+    align-items: $align;
+}
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
