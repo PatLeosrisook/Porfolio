@@ -2,7 +2,7 @@ export function AnimatedCurstive() {
     return(
         <>
             <svg
-        id="Layer_2"
+        id="cursive"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 2116.5 1054.5"
       >

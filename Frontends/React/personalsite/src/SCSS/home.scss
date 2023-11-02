@@ -1,11 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Meow+Script&family=Montserrat:wght@300;400;500;600;700;900&display=swap');
 @mixin flex($dir: column, $justify: center, $align:center) {
     display:flex;
     flex-direction: $dir;
     justify-content: $justify;
     align-items: $align;
 }
+$Primary:#050550;
+$Accent :#FF007C;
+$Primary-Tint-2:#2727EC;
+$Primary-Tint-1: #090990;
+$Accent-Tint-1:#FFB5D9;
 *{
     padding:0;
     margin:0;
     box-sizing: border-box;
+}
+html, body{
+    height:100vh;
+    width:100vw;
+}
+body {
+ background-color: $Primary;   
+}
+#Home section {
+    @include flex();
+    height:100vh;
+    width:100%;
+}
+#Hero {
+    
+}
+#cursive {
+    position:relative;
+    z-index: 1;
+}
+#Bg-text {
+    color:$Primary-Tint-1;
+    font-family: Montserrat;
+    font-weight: 900;
+    text-transform: uppercase;
+    position:absolute;
+    top:27%;
+    font-size:5rem;
+    z-index: 0;
 }
