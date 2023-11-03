@@ -1,8 +1,8 @@
-
+import Logo from '../assets/Logo.svg'
 export function Nav() {
     return(
         <header>
-            <img src="" id="logo" />
+            <img src={Logo} id="logo" />
             <div className="icon-wrap">
                 <img src="" id="hamburger"/>
             </div>

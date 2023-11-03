@@ -28,6 +28,7 @@ body {
     width:100%;
 }
 header {
+    @include flex(row, center,space-between);
     width:100vw;
     height:10vh;
     position:absolute;
@@ -46,6 +47,10 @@ header {
 #cursive {
     position:relative;
     z-index: 1;
+    path, line {
+
+        stroke:$Accent
+    }
 }
 #Bg-text {
     color:$Primary-Tint-1;

@@ -24,6 +24,10 @@ body {
 }
 
 header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: space-between;
   width: 100vw;
   height: 10vh;
   position: absolute;
@@ -39,6 +43,9 @@ header .Links {
 #cursive {
   position: relative;
   z-index: 1;
+}
+#cursive path, #cursive line {
+  stroke: #FF007C;
 }
 
 #Bg-text {
