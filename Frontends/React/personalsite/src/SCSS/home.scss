@@ -13,6 +13,7 @@ $Accent-Tint-1:#FFB5D9;
 *{
     padding:0;
     margin:0;
+    font-family: Montserrat;
     box-sizing: border-box;
 }
 html, body{
@@ -22,13 +23,22 @@ html, body{
 body {
  background-color: $Primary;   
 }
+.BG-text {
+    text-transform: uppercase;
+    color:$Primary-Tint-1;
+    position:absolute;
+    font-weight: 900;
+    z-index: 0;
+}
 #Home section {
     @include flex();
     height:100vh;
     width:100%;
+    scroll-snap-type: y mandatory;
+    scroll-snap-align: start;
 }
 header {
-    @include flex(row, center,space-between);
+    @include flex(row, space-between,center);
     width:100vw;
     height:10vh;
     position:absolute;
@@ -40,6 +50,15 @@ header {
         // @include flex(row, center,center);
         gap:5px;    
     }
+    #logo {
+        width:24px;
+        height:fit-content;
+    }
+    nav {
+        display:none;
+    }
+  
+    padding:0 10%;
 }
 #Hero {
     
@@ -58,7 +77,91 @@ header {
     font-weight: 900;
     text-transform: uppercase;
     position:absolute;
-    top:27%;
-    font-size:5rem;
+    top:17%;
+    font-size:7rem;
     z-index: 0;
+}
+#About, #Contact {
+    color:white;
+    position:relative;
+}
+
+#About {
+    .BG-text {
+        font-size:5rem;
+
+    }
+    .paragraphs {
+        max-width: 90%;
+        position:relative;
+        z-index: 1;
+        p {
+            width:100%;
+            text-align: left;
+            margin-bottom:10px;
+        }
+    }
+    .highlight {
+        color:$Accent-Tint-1;
+        font-weight: bold;
+    }
+}
+
+#Contact {
+    .BG-text {
+        transform: rotate(90deg);
+        font-size:6rem;
+        left:-76%;
+    }
+    form {
+        @include flex(column, center, flex-start);
+        gap:20px;
+        width: 80%;
+        position:relative;
+        z-index: 1;
+    }
+    .formGroup {
+        @include flex(column, center, flex-start);
+        gap:20px;
+        width:100%;
+        input, textarea {
+            height: 40px;
+            width: inherit;
+            background-color: transparent;
+            border:none;
+            border-bottom: 1px solid $Primary-Tint-2;
+            color:white;
+            &:focus-visible {
+                outline: none;
+            }
+        }
+    }
+    #Submit {
+        background-color: $Accent;
+        border:none;
+        height:40px;
+        width:100px;
+        font-weight: 700;
+        color:white;
+    }
+}
+@media(min-width: 375px) {
+    #Bg-text {
+        font-size: 9rem;
+        top: 17%;
+    }
+    #About {
+        .paragraphs {
+            p {
+                line-height: 23px;;
+            }
+        }
+    }
+    #Contact {
+        .BG-text {
+            font-size: 8rem;
+            left: -88%;
+            top: 299px;
+        }
+    }
 }

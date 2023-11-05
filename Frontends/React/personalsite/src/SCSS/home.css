@@ -2,6 +2,7 @@
 * {
   padding: 0;
   margin: 0;
+  font-family: Montserrat;
   box-sizing: border-box;
 }
 
@@ -14,6 +15,14 @@ body {
   background-color: #050550;
 }
 
+.BG-text {
+  text-transform: uppercase;
+  color: #090990;
+  position: absolute;
+  font-weight: 900;
+  z-index: 0;
+}
+
 #Home section {
   display: flex;
   flex-direction: column;
@@ -21,23 +30,34 @@ body {
   align-items: center;
   height: 100vh;
   width: 100%;
+  scroll-snap-type: y mandatory;
+  scroll-snap-align: start;
 }
 
 header {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: space-between;
+  justify-content: space-between;
+  align-items: center;
   width: 100vw;
   height: 10vh;
   position: absolute;
   top: 0;
+  padding: 0 10%;
 }
 header .Links {
   display: none;
   list-style: none;
   padding: 0;
   gap: 5px;
+}
+header #logo {
+  width: 24px;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+header nav {
+  display: none;
 }
 
 #cursive {
@@ -54,7 +74,88 @@ header .Links {
   font-weight: 900;
   text-transform: uppercase;
   position: absolute;
-  top: 27%;
-  font-size: 5rem;
+  top: 17%;
+  font-size: 7rem;
   z-index: 0;
+}
+
+#About, #Contact {
+  color: white;
+  position: relative;
+}
+
+#About .BG-text {
+  font-size: 5rem;
+}
+#About .paragraphs {
+  max-width: 90%;
+  position: relative;
+  z-index: 1;
+}
+#About .paragraphs p {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 10px;
+}
+#About .highlight {
+  color: #FFB5D9;
+  font-weight: bold;
+}
+
+#Contact .BG-text {
+  transform: rotate(90deg);
+  font-size: 6rem;
+  left: -76%;
+}
+#Contact form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  width: 80%;
+  position: relative;
+  z-index: 1;
+}
+#Contact .formGroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+}
+#Contact .formGroup input, #Contact .formGroup textarea {
+  height: 40px;
+  width: inherit;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #2727EC;
+  color: white;
+}
+#Contact .formGroup input:focus-visible, #Contact .formGroup textarea:focus-visible {
+  outline: none;
+}
+#Contact #Submit {
+  background-color: #FF007C;
+  border: none;
+  height: 40px;
+  width: 100px;
+  font-weight: 700;
+  color: white;
+}
+
+@media (min-width: 375px) {
+  #Bg-text {
+    font-size: 9rem;
+    top: 17%;
+  }
+  #About .paragraphs p {
+    line-height: 23px;
+  }
+  #Contact .BG-text {
+    font-size: 8rem;
+    left: -88%;
+    top: 299px;
+  }
 }/*# sourceMappingURL=home.css.map */
