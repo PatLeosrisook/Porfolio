@@ -146,6 +146,7 @@ header {
     }
 }
 @media(min-width: 375px) {
+   
     #Bg-text {
         font-size: 9rem;
         top: 17%;
@@ -162,6 +163,29 @@ header {
             font-size: 8rem;
             left: -88%;
             top: 299px;
+        }
+    }
+}
+@media(min-width: 428px) {
+    header{
+
+        #logo {
+            width:36px;
+        }
+    }
+    #Hero {
+        #cursive{
+
+            width: 585px;
+            top: -67px;   
+        }
+        #Bg-text {
+            font-size:10rem;
+        }
+    }
+    #Contact {
+        .BG-text {
+            left : -78%;
         }
     }
 }

@@ -11,7 +11,7 @@ export function Nav() {
     useEffect(() => {
         let currentWidth = window.innerWidth
         if(currentWidth < 700) {
-            setMenuSize(24)
+            setMenuSize(30)
         } else if(currentWidth>= 700 && currentWidth < 1024) {
             setMenuSize(40)
         } else {
