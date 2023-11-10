@@ -9,6 +9,7 @@ $Primary:#050550;
 $Accent :#FF007C;
 $Primary-Tint-2:#2727EC;
 $Primary-Tint-1: #090990;
+$Primary-Dark:#00003F;
 $Accent-Tint-1:#FFB5D9;
 *{
     padding:0;
@@ -29,6 +30,33 @@ body {
     position:absolute;
     font-weight: 900;
     z-index: 0;
+}
+.bg-element {
+    position:fixed;
+    z-index: 0;
+}
+
+.HCP {
+    left: 20px;
+    top: 50px;
+    width: 120px;
+}
+.HCY {
+    top: 70%;
+    left: -87px;
+    width: 160px;
+}
+.HLP {
+    top: 450px;
+    right: -90px;
+}
+.HLY {  
+    width: 120px;
+    top: 60px;
+    right: 20px;
+}
+.SQ {
+    top:350px;
 }
 #Home section {
     @include flex();
@@ -61,7 +89,9 @@ header {
     padding:0 10%;
 }
 #Hero {
-    
+ img {
+    width: 294px;
+ } 
 }
 #cursive {
     position:relative;
@@ -80,6 +110,13 @@ header {
     top:17%;
     font-size:7rem;
     z-index: 0;
+}
+#Bg-name {
+    font-weight: 900;
+    color: $Primary-Dark;
+    font-size:3rem;
+    position: absolute;
+    top:10px;
 }
 #About, #Contact {
     color:white;
@@ -108,6 +145,17 @@ header {
 }
 
 #Contact {
+    #contact_title {
+        @include flex();
+        h1 {
+            font-size:3rem;
+        }
+        p {
+            font-weight: 500;
+            color:$Primary-Tint-2
+        }
+        margin-bottom:20px;
+    }
     .BG-text {
         transform: rotate(90deg);
         font-size:6rem;

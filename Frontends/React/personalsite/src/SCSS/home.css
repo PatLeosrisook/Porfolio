@@ -23,6 +23,38 @@ body {
   z-index: 0;
 }
 
+.bg-element {
+  position: fixed;
+  z-index: 0;
+}
+
+.HCP {
+  left: 20px;
+  top: 50px;
+  width: 120px;
+}
+
+.HCY {
+  top: 70%;
+  left: -87px;
+  width: 160px;
+}
+
+.HLP {
+  top: 450px;
+  right: -90px;
+}
+
+.HLY {
+  width: 120px;
+  top: 60px;
+  right: 20px;
+}
+
+.SQ {
+  top: 350px;
+}
+
 #Home section {
   display: flex;
   flex-direction: column;
@@ -60,6 +92,10 @@ header nav {
   display: none;
 }
 
+#Hero img {
+  width: 294px;
+}
+
 #cursive {
   position: relative;
   z-index: 1;
@@ -77,6 +113,14 @@ header nav {
   top: 17%;
   font-size: 7rem;
   z-index: 0;
+}
+
+#Bg-name {
+  font-weight: 900;
+  color: #00003F;
+  font-size: 3rem;
+  position: absolute;
+  top: 10px;
 }
 
 #About, #Contact {
@@ -102,6 +146,20 @@ header nav {
   font-weight: bold;
 }
 
+#Contact #contact_title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+#Contact #contact_title h1 {
+  font-size: 3rem;
+}
+#Contact #contact_title p {
+  font-weight: 500;
+  color: #2727EC;
+}
 #Contact .BG-text {
   transform: rotate(90deg);
   font-size: 6rem;

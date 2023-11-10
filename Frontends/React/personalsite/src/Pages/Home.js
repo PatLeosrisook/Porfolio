@@ -1,11 +1,23 @@
 import { AnimatedCurstive } from '../Components/AnimatedCursive'
 import '../SCSS/home.css'
+import Title from '../assets/Hero_title.svg'
+import HalfLinePurple from '../assets/Half_LineC_purple.svg'
+import HalfLineYellow from '../assets/Half_LineC_yellow.svg'
+import HalfCirclePurple from '../assets/Half_C_purple.svg'
+import HalfCircleYellow from '../assets/Half_C_yellow.svg'
+import Square from '../assets/Blue_square.svg'
 export function Home() {
     return (
         <section id="Home">
+            <img className="bg-element HCP" src={HalfCirclePurple} alt="background element"/>
+            <img className="bg-element HCY" src={HalfCircleYellow} alt="background element"/>
+            <img className="bg-element HLP" src={HalfLinePurple} alt="background element"/>
+            <img className="bg-element HLY" src={HalfLineYellow} alt="background element"/>
+            <img className="bg-element SQ" src={Square} alt="background element"/>
+            
             <section id="Hero">
-                <AnimatedCurstive/>
-                <p id="Bg-text">Dev<br/>elo<br/>per</p>
+                <img src={Title} alt="Image of Developer text"/>
+                <p id="Bg-name">Kalyada <br/> Leosrisook</p>
             </section>
             <section id="About">
                 <div className="paragraphs">
@@ -18,10 +30,10 @@ export function Home() {
                 <p className="BG-text" id="About-bg">About</p>
             </section>
             <section id="Contact">
-                
-                <p className="BG-text">
-                    Contact
-                </p>
+                <div id="contact_title">
+                    <h1>Let's connect!</h1>
+                    <p>I'll make sure to respond in 2 days!</p>
+                </div>
                 <form>
                     <div className="formGroup">
                         <label for="name">Name</label>
