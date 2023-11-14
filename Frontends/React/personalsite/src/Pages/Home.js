@@ -1,33 +1,28 @@
 import { AnimatedCurstive } from '../Components/AnimatedCursive'
 import '../SCSS/home.css'
 import Title from '../assets/Hero_title.svg'
-import HalfLinePurple from '../assets/Half_LineC_purple.svg'
-import HalfLineYellow from '../assets/Half_LineC_yellow.svg'
-import HalfCirclePurple from '../assets/Half_C_purple.svg'
-import HalfCircleYellow from '../assets/Half_C_yellow.svg'
+// import HalfLinePurple from '../assets/Half_LineC_purple.svg'
+// import HalfLineYellow from '../assets/Half_LineC_yellow.svg'
+// import HalfCirclePurple from '../assets/Half_C_purple.svg'
+// import HalfCircleYellow from '../assets/Half_C_yellow.svg'
 import Square from '../assets/Blue_square.svg'
+import {HalfCirclePurple, HalfCircleYellow, HalfDonutPurple, HalfDonutYellow} from '../Components/BgElement.js'
 export function Home() {
     return (
         <section id="Home">
-            <img className="bg-element HCP" src={HalfCirclePurple} alt="background element"/>
-            <img className="bg-element HCY" src={HalfCircleYellow} alt="background element"/>
-            <img className="bg-element HLP" src={HalfLinePurple} alt="background element"/>
-            <img className="bg-element HLY" src={HalfLineYellow} alt="background element"/>
-            <img className="bg-element SQ" src={Square} alt="background element"/>
-            
+            <HalfCirclePurple/>
+            <HalfCircleYellow/>
+            <HalfDonutPurple/>
+            <HalfDonutYellow/>
             <section id="Hero">
-                <img src={Title} alt="Image of Developer text"/>
-                <p id="Bg-name">Kalyada <br/> Leosrisook</p>
+                <div id="wrapper">
+                    <h1>Hello.</h1>
+                    <p>Full Stack developer</p>
+                    <p id="Name">Kalyada leosrisook</p>
+                </div>
             </section>
             <section id="About">
-                <div className="paragraphs">
-                    <p>I'm Pat, a 25-year-old computer science graduate from the University of Birmingham, UK. Currently, I'm working in IT at BSG Group. I'm passionate about technology, creativity, and continuous learning.</p>
-                    <p><span className="highlight">Professional summary</span> I'm dedicated to using technology to solve real-world problems and passionate about fostering creativity through art and literature.</p>
-                    <p><span className="highlight">Experience</span> In my current role at BSG Group, I ensure the smooth operation of our IT infrastructure. I have a deep understanding of IT management.</p>
-                    <p><span className="highlight">Skills</span> Proficient in software development, web design, and data analysis. Expertise in Java, Python, HTML, CSS, and JavaScript.</p>
-                    <p><span className="highlight">Interests</span> I'm an artist who enjoys drawing, an avid reader, and a web development enthusiast. My aim is to bridge technology and creativity.</p>
-                </div>
-                <p className="BG-text" id="About-bg">About</p>
+             
             </section>
             <section id="Contact">
                 <div id="contact_title">

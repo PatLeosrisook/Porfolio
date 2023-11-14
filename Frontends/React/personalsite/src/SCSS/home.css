@@ -28,6 +28,26 @@ body {
   z-index: 0;
 }
 
+.donut-container {
+  position: relative;
+  width: 200px;
+  height: 100px;
+  border-radius: 100px 100px 0 0; /* Apply border-radius for a semi-circle */
+  background-color: rgb(119, 18, 18); /* Set the background color of the donut */
+  overflow: hidden; /* Hide the overflow to create the hollow center */
+}
+
+.donut-hole {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: #050550; /* Set the background color of the center hole */
+  border-radius: 50%; /* Create a circular hole in the center */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the hole within the container */
+}
+
 .HCP {
   left: 20px;
   top: 50px;
@@ -92,8 +112,34 @@ header nav {
   display: none;
 }
 
-#Hero img {
-  width: 294px;
+#Hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+#Hero #wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#Hero #wrapper h1 {
+  font-size: 6rem;
+  font-weight: 200;
+  color: #2727EC;
+}
+#Hero #wrapper p {
+  color: #FF6D90;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+#Hero #wrapper #Name {
+  color: #00002B;
+  font-weight: 900;
+  position: absolute;
+  top: 90%;
 }
 
 #cursive {
@@ -101,7 +147,7 @@ header nav {
   z-index: 1;
 }
 #cursive path, #cursive line {
-  stroke: #FF007C;
+  stroke: #FF6D90;
 }
 
 #Bg-text {
@@ -195,7 +241,7 @@ header nav {
   outline: none;
 }
 #Contact #Submit {
-  background-color: #FF007C;
+  background-color: #FF6D90;
   border: none;
   height: 40px;
   width: 100px;
@@ -204,6 +250,15 @@ header nav {
 }
 
 @media (min-width: 375px) {
+  #Hero #wrapper h1 {
+    font-size: 7rem;
+  }
+  #Hero #wrapper p {
+    font-size: 1.7rem;
+  }
+  #Hero #Name {
+    font-weight: 900;
+  }
   #Bg-text {
     font-size: 9rem;
     top: 17%;
@@ -230,5 +285,13 @@ header nav {
   }
   #Contact .BG-text {
     left: -78%;
+  }
+}
+@media (min-width: 768px) {
+  #Hero #wrapper h1 {
+    font-size: 12rem;
+  }
+  #Hero #wrapper p {
+    font-size: 3rem;
   }
 }/*# sourceMappingURL=home.css.map */

@@ -6,11 +6,12 @@
     align-items: $align;
 }
 $Primary:#050550;
-$Accent :#FF007C;
+$Accent :#FF6D90;
 $Primary-Tint-2:#2727EC;
 $Primary-Tint-1: #090990;
 $Primary-Dark:#00003F;
 $Accent-Tint-1:#FFB5D9;
+$Shadow:#00002B;
 *{
     padding:0;
     margin:0;
@@ -35,7 +36,25 @@ body {
     position:fixed;
     z-index: 0;
 }
+.donut-container {
+    position: relative;
+    width: 200px;
+    height: 100px;
+    border-radius: 100px 100px 0 0; /* Apply border-radius for a semi-circle */
+    background-color: rgb(119, 18, 18); /* Set the background color of the donut */
+    overflow: hidden; /* Hide the overflow to create the hollow center */
+  }
 
+  .donut-hole {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: $Primary; /* Set the background color of the center hole */
+    border-radius: 50%; /* Create a circular hole in the center */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the hole within the container */
+  }
 .HCP {
     left: 20px;
     top: 50px;
@@ -89,9 +108,28 @@ header {
     padding:0 10%;
 }
 #Hero {
- img {
-    width: 294px;
- } 
+    @include flex();
+    position: relative;
+ #wrapper {
+    @include flex();
+    h1 {
+        font-size: 6rem;
+        font-weight: 200;
+        color:$Primary-Tint-2;
+    }
+    p {
+        color:$Accent;
+        font-size:1.5rem;
+        font-weight: 700;
+    }
+    #Name {
+        color:$Shadow;
+        font-weight: 900;
+        position: absolute;
+        top: 90%;
+    }
+
+ }
 }
 #cursive {
     position:relative;
@@ -194,7 +232,19 @@ header {
     }
 }
 @media(min-width: 375px) {
-   
+    #Hero {
+        #wrapper {
+            h1 {
+                font-size: 7rem;
+            }
+            p {
+                font-size:1.7rem;
+            }
+        }
+        #Name {
+            font-weight: 900;
+        }
+    }
     #Bg-text {
         font-size: 9rem;
         top: 17%;
@@ -235,5 +285,18 @@ header {
         .BG-text {
             left : -78%;
         }
+    }
+}
+@media(min-width: 768px) {
+    #Hero {
+        #wrapper {
+            h1 {
+                font-size: 12rem; 
+            }
+            p {
+                font-size: 3rem;
+            }
+        }
+
     }
 }
