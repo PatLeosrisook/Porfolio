@@ -1,15 +1,28 @@
 import { AnimatedCurstive } from '../Components/AnimatedCursive'
 import '../SCSS/home.css'
 import Title from '../assets/Hero_title.svg'
-// import HalfLinePurple from '../assets/Half_LineC_purple.svg'
-// import HalfLineYellow from '../assets/Half_LineC_yellow.svg'
-// import HalfCirclePurple from '../assets/Half_C_purple.svg'
-// import HalfCircleYellow from '../assets/Half_C_yellow.svg'
+// import {useSpring, animated, to} from '@react-spring/web'
 import Square from '../assets/Blue_square.svg'
 import {HalfCirclePurple, HalfCircleYellow, HalfDonutPurple, HalfDonutYellow} from '../Components/BgElement.js'
 export function Home() {
+    // const [spring, api ] = useSpring(() => {
+    //     from: {
+    //         rotation: 0;
+    //     }
+    // })
+    // const handleClick = () => {
+    //     api.start({
+    //       from: {
+    //         rotation: 0,
+    //       },
+    //       to: {
+    //         rotation: 100,
+    //       },
+    //     })
+    //   }
     return (
         <section id="Home">
+           
             <HalfCirclePurple/>
             <HalfCircleYellow/>
             <HalfDonutPurple/>

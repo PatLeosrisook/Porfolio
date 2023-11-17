@@ -90,12 +90,17 @@ header {
     height:10vh;
     position:absolute;
     top:0;
+    z-index: 200;
     .Links {
         display:none;
         list-style: none;
         padding:0;
         // @include flex(row, center,center);
         gap:5px;    
+    }
+    #burger {
+        background: transparent;
+        border: none;
     }
     #logo {
         width:24px;

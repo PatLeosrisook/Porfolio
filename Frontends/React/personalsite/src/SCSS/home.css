@@ -95,6 +95,7 @@ header {
   height: 10vh;
   position: absolute;
   top: 0;
+  z-index: 200;
   padding: 0 10%;
 }
 header .Links {
@@ -102,6 +103,10 @@ header .Links {
   list-style: none;
   padding: 0;
   gap: 5px;
+}
+header #burger {
+  background: transparent;
+  border: none;
 }
 header #logo {
   width: 24px;
