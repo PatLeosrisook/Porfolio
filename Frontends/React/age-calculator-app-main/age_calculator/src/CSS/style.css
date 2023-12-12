@@ -1,0 +1,139 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Poppins;
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  background-color: #F0F0F0;
+}
+
+#Cal {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  padding-top: 30px;
+}
+
+.Wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 80vw;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+#Inputs {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  height: 15vh;
+  width: 100vw;
+  gap: 10px;
+}
+#Inputs .form_group {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+#Inputs .form_group .error {
+  color: red;
+  font-size: 9px;
+  margin: 0;
+  width: 60px;
+}
+#Inputs .form_group input {
+  background-color: transparent;
+  border: 1px solid #DCDCDC;
+  height: 34px;
+  width: 67.67px;
+  border-radius: 5px;
+}
+#Inputs .form_group input:focus-visible {
+  outline: none;
+}
+
+#Divider {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: 10vh;
+}
+#Divider hr {
+  margin: 0;
+  width: 40%;
+}
+#Divider .icon-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #854DFF;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  border: none;
+}
+#Divider .icon-wrapper img {
+  width: 30px;
+}
+
+#Display p {
+  margin: 0;
+  font-size: 46px;
+  font-weight: 800;
+}
+#Display .highlight {
+  color: #854DFF;
+}
+
+@media (min-width: 375px) {
+  #Inputs {
+    gap: 22px;
+  }
+  #Inputs .form_group input {
+    height: 45px;
+    width: 79.67px;
+  }
+  #Inputs .form_group .error {
+    width: 70px;
+    font-size: 11px;
+  }
+}
+@media (min-width: 768px) {
+  .App {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #Display p {
+    font-size: 64px;
+  }
+  #Cal {
+    height: 60%;
+    width: 80%;
+    border-radius: 30px;
+    border-bottom-right-radius: 167px;
+  }
+  #Inputs .form_group input {
+    height: 60px;
+    width: 124.67px;
+  }
+}/*# sourceMappingURL=style.css.map */
