@@ -132,8 +132,43 @@ html, body {
     border-radius: 30px;
     border-bottom-right-radius: 167px;
   }
+  #Divider {
+    height: 2vh;
+  }
+  #Divider hr {
+    width: 70%;
+  }
+  #Divider hr:nth-child(3) {
+    display: none;
+  }
   #Inputs .form_group input {
     height: 60px;
     width: 124.67px;
+    font-size: 24px;
+  }
+  #Inputs .form_group .error {
+    width: -moz-fit-content;
+    width: fit-content;
+    font-size: 0.8rem;
+  }
+}
+@media (min-width: 1024px) {
+  #Cal {
+    max-width: 800px;
+  }
+  #Inputs .form_group input {
+    height: 75px;
+    width: 190px;
+  }
+  #Divider {
+    width: 700px;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  #Divider .icon-wrapper:hover {
+    background-color: #151515 !important;
+  }
+  #Display p {
+    font-size: 84px;
   }
 }/*# sourceMappingURL=style.css.map */

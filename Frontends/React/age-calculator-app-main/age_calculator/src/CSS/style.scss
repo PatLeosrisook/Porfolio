@@ -58,6 +58,7 @@ html, body {
     }
 }
 #Divider {
+    
     hr {
         margin:0;
         width: 40%;
@@ -78,6 +79,7 @@ html, body {
     }
 }
 #Display {
+    
     p {
         margin:0;
         font-size:46px;
@@ -111,6 +113,7 @@ html, body {
         @include flex();
     }
     #Display {
+
         p {
             font-size: 64px;
         }
@@ -121,12 +124,54 @@ html, body {
         border-radius:30px;
         border-bottom-right-radius: 167px;
     }
+    #Divider {
+        height: 2vh;
+        hr {
+            width: 70%;
+            &:nth-child(3) {
+                display: none;
+            }
+        }
+    }
     #Inputs {
         .form_group {
             input {
                 height: 60px;
                 width: 124.67px;           
+                font-size:24px;
             }
+            .error {
+                width: fit-content;
+                font-size: 0.8rem;
+            }
+        }
+    }
+}
+
+@media(min-width:1024px) {
+    #Cal {
+        max-width: 800px;
+    }
+    #Inputs {
+        .form_group {
+            input {
+                height: 75px;
+                width: 190px;
+            }
+        }
+    }
+    #Divider {
+        width: 700px;
+        height: fit-content;
+        .icon-wrapper {
+            &:hover{
+                background-color: #151515 !important;
+            }
+        }
+    }
+    #Display {
+        p {
+            font-size: 84px;
         }
     }
 }
