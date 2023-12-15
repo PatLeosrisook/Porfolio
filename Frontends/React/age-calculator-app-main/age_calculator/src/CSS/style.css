@@ -50,7 +50,11 @@ html, body {
   flex-direction: column;
   justify-content: center;
 }
+#Inputs .form_group .visible {
+  visibility: visible !important;
+}
 #Inputs .form_group .error {
+  visibility: hidden;
   color: red;
   font-size: 9px;
   margin: 0;

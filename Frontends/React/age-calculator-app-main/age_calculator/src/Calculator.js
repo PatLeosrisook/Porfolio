@@ -24,28 +24,62 @@ export function Calculator() {
         console.log("date:", date.day, date.month, date.year)
     })
     let calculate = () => {
-        let {day,month, year} = date
-        const currentDate = new Date();
-        let currentDay = currentDate.getDate() 
-        let currentMonth = currentDate.getMonth() + 1 //indexed 0
-        let currentYear = currentDate.getFullYear() 
-        console.log(`${currentDay}/ ${currentMonth}/${currentYear}`)
-        let offsetYear = currentYear - year
-        let offsetMonth = currentMonth - month
-        let offsetDay = 0
-        if(currentDate < day) {
-            offsetDay = day + currentDate
-            console.log("current less day:" , offsetDay)
-        } else {
-            offsetDay = currentDate.getDate() - day
-            console.log("current more day:" , offsetDay, currentDate.getDate(), day)
+        if(validity()) {
+
+            let {day,month, year} = date
+            const currentDate = new Date();
+            let currentDay = currentDate.getDate() 
+            let currentMonth = currentDate.getMonth() + 1 //indexed 0
+            let currentYear = currentDate.getFullYear() 
+            console.log(`${currentDay}/ ${currentMonth}/${currentYear}`)
+            let offsetYear = currentYear - year
+            let offsetMonth = currentMonth - month
+            let offsetDay = 0
+            if(currentDate < day) {
+                offsetDay = day + currentDate
+                console.log("current less day:" , offsetDay)
+            } else {
+                offsetDay = currentDate.getDate() - day
+                console.log("current more day:" , offsetDay, currentDate.getDate(), day)
+            }
+            console.log(`calculated : ${offsetDay}/${offsetMonth}/${offsetYear}`)
+            setOffset({
+                offsetYear,
+                offsetMonth,
+                offsetDay
+            })
         }
-        console.log(`calculated : ${offsetDay}/${offsetMonth}/${offsetYear}`, offsetDay)
-        setOffset({
-            offsetYear,
-            offsetMonth,
-            offsetDay
-        })
+    }
+    let validity = () => {
+        let dateInput = document.querySelector(".date_error")
+        let monthInput = document.querySelector(".month_error")
+        let yearInput = document.querySelector(".year_error")
+        let thisYear = new Date().getFullYear()
+        let isValid = false;
+        const {day, month, year} = date
+        if(day === "" || day > 31) {
+            dateInput.classList.add("visible")
+            isValid = false;
+        } else {
+            dateInput.classList.remove("visible")
+            isValid = true
+        }
+        if(month === "" || month > 12) {
+            monthInput.classList.add("visible")
+            isValid = false;
+        } else {
+            monthInput.classList.remove("visible")
+            isValid = true
+        }
+        if(year === "" || year > thisYear) {
+            yearInput.classList.add("visible")
+            isValid = false;
+        } else {
+            yearInput.classList.remove("visible")
+            isValid = true
+        }
+
+        return isValid
     }
     return(
         <section id="Cal">
@@ -54,17 +88,17 @@ export function Calculator() {
                     <div className="form_group">
                         <label for="">Day</label>
                         <input onChange={e => handleChange(e, "day")} value={date.day} name="day" type='number' id="day"/>
-                        <p className="error">Must be a valid day.</p>
+                        <p className="error date_error">Must be a valid day.</p>
                     </div>
                     <div className="form_group">
                         <label for="">Month</label>
                         <input onChange={e => handleChange(e, "month")} value={date.month} type='number' name="month" id="month"/>
-                        <p className="error">Must be a valid month.</p>
+                        <p className="error month_error">Must be a valid month.</p>
                     </div>
                     <div className="form_group">
                         <label for="">Year</label>
                         <input onChange={e => handleChange(e, "year")} value={date.year} name="year" type='number' id="year"/>
-                        <p className="error">Must be in the past. </p>
+                        <p className="error year_error">Must be in the past. </p>
                     </div>
                 </section>
                 <section id="Divider">
@@ -75,9 +109,9 @@ export function Calculator() {
                     <hr/>
                 </section>
                 <section id="Display">
-                    <p className="display year"><span className="highlight">{(offsetDate.offsetYear == '') ? "--" : offsetDate.offsetYear}</span> years</p>
-                    <p className="display month"><span className="highlight">{(offsetDate.offsetMonth == '') ? "--" : offsetDate.offsetMonth}</span> months</p>
-                    <p className="display day"><span className="highlight">{(offsetDate.offsetDay == '') ? "--" : offsetDate.offsetDay}</span> days</p>
+                    <p className="display year"><span className="highlight">{(offsetDate.offsetYear === '') ? "--" : offsetDate.offsetYear}</span> years</p>
+                    <p className="display month"><span className="highlight">{(offsetDate.offsetMonth === '') ? "--" : offsetDate.offsetMonth}</span> months</p>
+                    <p className="display day"><span className="highlight">{(offsetDate.offsetDay === '') ? "--" : offsetDate.offsetDay}</span> days</p>
                 </section>
             </div>
         </section>
