@@ -42,6 +42,9 @@ html, body {
         .visible {
             visibility: visible !important;
         }
+        .error_line {
+            border: 1px solid red;
+        }
         .error {
             visibility: hidden ;
             color:red ;
@@ -55,8 +58,12 @@ html, body {
             height: 34px;
             width: 67.67px;
             border-radius: 5px;
+            &:hover {
+                cursor: pointer;
+            }
             &:focus-visible {
                 outline: none;
+                border: 1px solid $Primary;
             }
         }
     }
@@ -168,8 +175,11 @@ html, body {
         width: 700px;
         height: fit-content;
         .icon-wrapper {
+            transition: background-color ease 0.4s;
             &:hover{
                 background-color: #151515 !important;
+                transition: background-color ease 0.4s;
+                cursor: pointer;
             }
         }
     }

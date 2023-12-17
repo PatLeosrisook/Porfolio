@@ -21,7 +21,6 @@ export function Calculator() {
         })
     }
     useEffect(() => {
-        console.log("date:", date.day, date.month, date.year)
     })
     let calculate = () => {
         if(validity()) {
@@ -39,7 +38,7 @@ export function Calculator() {
                 offsetDay = day + currentDate
                 console.log("current less day:" , offsetDay)
             } else {
-                offsetDay = currentDate.getDate() - day
+                offsetDay = Math.abs(currentDate.getDate() - day)
                 console.log("current more day:" , offsetDay, currentDate.getDate(), day)
             }
             console.log(`calculated : ${offsetDay}/${offsetMonth}/${offsetYear}`)
@@ -51,31 +50,47 @@ export function Calculator() {
         }
     }
     let validity = () => {
-        let dateInput = document.querySelector(".date_error")
-        let monthInput = document.querySelector(".month_error")
-        let yearInput = document.querySelector(".year_error")
+        let dateErrorText = document.querySelector(".date_error")
+        let monthErrorText = document.querySelector(".month_error")
+        let yearErrorText = document.querySelector(".year_error")
+        let dateInput = document.querySelector("#day")
+        let monthInput = document.querySelector("#month")
+        let yearInput = document.querySelector("#year")
         let thisYear = new Date().getFullYear()
         let isValid = false;
         const {day, month, year} = date
-        if(day === "" || day > 31) {
-            dateInput.classList.add("visible")
+        if(day < 1) {
+            console.log("wrong!")
+        }
+        if(day === "" || (day > 31 || day < 1)) {
+            dateErrorText.classList.add("visible")
+            dateInput.classList.add("error_line")
             isValid = false;
         } else {
-            dateInput.classList.remove("visible")
+            dateErrorText.classList.remove("visible")
+            dateInput.classList.remove("error_line")
             isValid = true
         }
-        if(month === "" || month > 12) {
-            monthInput.classList.add("visible")
+        if(month === "" || (month > 12 || month < 1)) {
+            monthErrorText.classList.add("visible")
+            monthInput.classList.add("error_line")
             isValid = false;
         } else {
-            monthInput.classList.remove("visible")
+            monthErrorText.classList.remove("visible")
+            monthInput.classList.remove("error_line")
             isValid = true
         }
-        if(year === "" || year > thisYear) {
-            yearInput.classList.add("visible")
+        if(year === "" || (year > thisYear)) {
+            yearInput.classList.add("error_line")
+            yearErrorText.classList.add("visible")
             isValid = false;
-        } else {
-            yearInput.classList.remove("visible")
+        } else if(year < 1900) {
+            yearErrorText.textContent = "year must be more than or equal to 1900"
+            yearErrorText.classList.add("visible")
+            isValid = false;
+        }else {
+            yearInput.classList.remove("error_line")
+            yearErrorText.classList.remove("visible")
             isValid = true
         }
 

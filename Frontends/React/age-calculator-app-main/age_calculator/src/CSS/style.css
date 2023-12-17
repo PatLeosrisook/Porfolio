@@ -53,6 +53,9 @@ html, body {
 #Inputs .form_group .visible {
   visibility: visible !important;
 }
+#Inputs .form_group .error_line {
+  border: 1px solid red;
+}
 #Inputs .form_group .error {
   visibility: hidden;
   color: red;
@@ -67,8 +70,12 @@ html, body {
   width: 67.67px;
   border-radius: 5px;
 }
+#Inputs .form_group input:hover {
+  cursor: pointer;
+}
 #Inputs .form_group input:focus-visible {
   outline: none;
+  border: 1px solid #854DFF;
 }
 
 #Divider {
@@ -169,8 +176,13 @@ html, body {
     height: -moz-fit-content;
     height: fit-content;
   }
+  #Divider .icon-wrapper {
+    transition: background-color ease 0.4s;
+  }
   #Divider .icon-wrapper:hover {
     background-color: #151515 !important;
+    transition: background-color ease 0.4s;
+    cursor: pointer;
   }
   #Display p {
     font-size: 84px;
