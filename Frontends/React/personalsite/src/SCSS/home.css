@@ -2,6 +2,7 @@
 * {
   padding: 0;
   margin: 0;
+  font-family: Montserrat;
   box-sizing: border-box;
 }
 
@@ -14,6 +15,66 @@ body {
   background-color: #050550;
 }
 
+.BG-text {
+  text-transform: uppercase;
+  color: #090990;
+  position: absolute;
+  font-weight: 900;
+  z-index: 0;
+}
+
+.bg-element {
+  position: fixed;
+  z-index: 0;
+}
+
+.donut-container {
+  position: relative;
+  width: 200px;
+  height: 100px;
+  border-radius: 100px 100px 0 0; /* Apply border-radius for a semi-circle */
+  background-color: rgb(119, 18, 18); /* Set the background color of the donut */
+  overflow: hidden; /* Hide the overflow to create the hollow center */
+}
+
+.donut-hole {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: #050550; /* Set the background color of the center hole */
+  border-radius: 50%; /* Create a circular hole in the center */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the hole within the container */
+}
+
+.HCP {
+  left: 20px;
+  top: 50px;
+  width: 120px;
+}
+
+.HCY {
+  top: 70%;
+  left: -87px;
+  width: 160px;
+}
+
+.HLP {
+  top: 450px;
+  right: -90px;
+}
+
+.HLY {
+  width: 120px;
+  top: 60px;
+  right: 20px;
+}
+
+.SQ {
+  top: 350px;
+}
+
 #Home section {
   display: flex;
   flex-direction: column;
@@ -21,17 +82,21 @@ body {
   align-items: center;
   height: 100vh;
   width: 100%;
+  scroll-snap-type: y mandatory;
+  scroll-snap-align: start;
 }
 
 header {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: space-between;
+  justify-content: space-between;
+  align-items: center;
   width: 100vw;
   height: 10vh;
   position: absolute;
   top: 0;
+  z-index: 200;
+  padding: 0 10%;
 }
 header .Links {
   display: none;
@@ -39,13 +104,55 @@ header .Links {
   padding: 0;
   gap: 5px;
 }
+header #burger {
+  background: transparent;
+  border: none;
+}
+header #logo {
+  width: 24px;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+header nav {
+  display: none;
+}
+
+#Hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+#Hero #wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#Hero #wrapper h1 {
+  font-size: 6rem;
+  font-weight: 200;
+  color: #2727EC;
+}
+#Hero #wrapper p {
+  color: #FF6D90;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+#Hero #wrapper #Name {
+  color: #00002B;
+  font-weight: 900;
+  position: absolute;
+  top: 90%;
+}
 
 #cursive {
   position: relative;
   z-index: 1;
 }
 #cursive path, #cursive line {
-  stroke: #FF007C;
+  stroke: #FF6D90;
 }
 
 #Bg-text {
@@ -54,7 +161,142 @@ header .Links {
   font-weight: 900;
   text-transform: uppercase;
   position: absolute;
-  top: 27%;
-  font-size: 5rem;
+  top: 17%;
+  font-size: 7rem;
   z-index: 0;
+}
+
+#Bg-name {
+  font-weight: 900;
+  color: #00003F;
+  font-size: 3rem;
+  position: absolute;
+  top: 10px;
+}
+
+#About, #Contact {
+  color: white;
+  position: relative;
+}
+
+#About .BG-text {
+  font-size: 5rem;
+}
+#About .paragraphs {
+  max-width: 90%;
+  position: relative;
+  z-index: 1;
+}
+#About .paragraphs p {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 10px;
+}
+#About .highlight {
+  color: #FFB5D9;
+  font-weight: bold;
+}
+
+#Contact #contact_title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+#Contact #contact_title h1 {
+  font-size: 3rem;
+}
+#Contact #contact_title p {
+  font-weight: 500;
+  color: #2727EC;
+}
+#Contact .BG-text {
+  transform: rotate(90deg);
+  font-size: 6rem;
+  left: -76%;
+}
+#Contact form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  width: 80%;
+  position: relative;
+  z-index: 1;
+}
+#Contact .formGroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+}
+#Contact .formGroup input, #Contact .formGroup textarea {
+  height: 40px;
+  width: inherit;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #2727EC;
+  color: white;
+}
+#Contact .formGroup input:focus-visible, #Contact .formGroup textarea:focus-visible {
+  outline: none;
+}
+#Contact #Submit {
+  background-color: #FF6D90;
+  border: none;
+  height: 40px;
+  width: 100px;
+  font-weight: 700;
+  color: white;
+}
+
+@media (min-width: 375px) {
+  #Hero #wrapper h1 {
+    font-size: 7rem;
+  }
+  #Hero #wrapper p {
+    font-size: 1.7rem;
+  }
+  #Hero #Name {
+    font-weight: 900;
+  }
+  #Bg-text {
+    font-size: 9rem;
+    top: 17%;
+  }
+  #About .paragraphs p {
+    line-height: 23px;
+  }
+  #Contact .BG-text {
+    font-size: 8rem;
+    left: -88%;
+    top: 299px;
+  }
+}
+@media (min-width: 428px) {
+  header #logo {
+    width: 36px;
+  }
+  #Hero #cursive {
+    width: 585px;
+    top: -67px;
+  }
+  #Hero #Bg-text {
+    font-size: 10rem;
+  }
+  #Contact .BG-text {
+    left: -78%;
+  }
+}
+@media (min-width: 768px) {
+  #Hero #wrapper h1 {
+    font-size: 12rem;
+  }
+  #Hero #wrapper p {
+    font-size: 3rem;
+  }
 }/*# sourceMappingURL=home.css.map */

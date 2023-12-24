@@ -1,0 +1,191 @@
+
+@mixin flex($dir: column, $align : center, $justify: center) {
+    display:flex;
+    align-items: $align;
+    flex-direction: $dir;
+    justify-content: $justify;
+}
+$dimmed-white : #F0F0F0;
+$Primary : #854DFF;
+html, body {
+    margin: 0;
+    padding: 0;
+}
+* {
+    box-sizing: border-box;
+    font-family: Poppins;
+}
+.App {
+    width:100vw;
+    height:100vh;
+    background-color: $dimmed-white ;
+}
+#Cal {
+    @include flex(column, center, flex-start);
+    background-color: white;
+    height: 100%;
+    width:100%;
+    padding-top: 30px;
+}
+.Wrapper{
+    @include flex();
+    width:80vw;
+    height: fit-content;
+}
+#Inputs {
+    @include flex(row, center,center);
+    height: 15vh;
+    width:100vw;
+    gap:10px;
+    .form_group {
+        @include flex(column , flex-start,center);
+        .visible {
+            visibility: visible !important;
+        }
+        .error_line {
+            border: 1px solid red;
+        }
+        .error {
+            visibility: hidden ;
+            color:red ;
+            font-size:9px ;
+            margin:0 ;
+            width: 60px ;
+        }
+        input {
+            background-color: transparent;
+            border: 1px solid #DCDCDC;
+            height: 34px;
+            width: 67.67px;
+            border-radius: 5px;
+            &:hover {
+                cursor: pointer;
+            }
+            &:focus-visible {
+                outline: none;
+                border: 1px solid $Primary;
+            }
+        }
+    }
+}
+#Divider {
+    
+    hr {
+        margin:0;
+        width: 40%;
+    }
+    @include flex(row ,center, center);
+    width:100%;
+    height:10vh;
+    .icon-wrapper {
+        @include flex();
+        background-color: $Primary;
+        height: 50px;
+        width:50px;
+        border-radius: 100%;
+        border:none;
+        img {
+            width:30px;
+        }
+    }
+}
+#Display {
+    
+    p {
+        margin:0;
+        font-size:46px;
+        font-weight: 800;
+    }
+    .highlight {
+        color:$Primary;
+
+    }
+}
+@media(min-width: 375px ) {
+    
+    #Inputs {
+        gap: 22px;
+
+        .form_group {
+            input {
+                height: 45px;
+                width: 79.67px;
+            }
+            .error {
+                width: 70px;
+                font-size: 11px;
+            }
+        }
+    }
+}
+
+@media(min-width: 768px) {
+    .App {
+        @include flex();
+    }
+    #Display {
+
+        p {
+            font-size: 64px;
+        }
+    }
+    #Cal {
+        height: 60%;
+        width: 80%;
+        border-radius:30px;
+        border-bottom-right-radius: 167px;
+    }
+    #Divider {
+        height: 2vh;
+        hr {
+            width: 70%;
+            &:nth-child(3) {
+                display: none;
+            }
+        }
+    }
+    #Inputs {
+        .form_group {
+            input {
+                height: 60px;
+                width: 124.67px;           
+                font-size:24px;
+            }
+            .error {
+                width: fit-content;
+                font-size: 0.8rem;
+            }
+        }
+    }
+}
+
+@media(min-width:1024px) {
+    #Cal {
+        max-width: 800px;
+    }
+    #Inputs {
+        .form_group {
+            input {
+                height: 75px;
+                width: 190px;
+            }
+        }
+    }
+    #Divider {
+        width: 700px;
+        height: fit-content;
+        .icon-wrapper {
+            transition: background-color ease 0.4s;
+            &:hover{
+                background-color: #151515 !important;
+                transition: background-color ease 0.4s;
+                cursor: pointer;
+            }
+        }
+    }
+    #Display {
+        p {
+            font-size: 84px;
+        }
+    }
+}
