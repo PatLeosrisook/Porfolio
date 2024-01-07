@@ -1,63 +1,54 @@
 import { AnimatedCurstive } from '../Components/AnimatedCursive'
 import '../SCSS/home.css'
-import Title from '../assets/Hero_title.svg'
-// import {useSpring, animated, to} from '@react-spring/web'
-import Square from '../assets/Blue_square.svg'
-import {HalfCirclePurple, HalfCircleYellow, HalfDonutPurple, HalfDonutYellow} from '../Components/BgElement.js'
+
 export function Home() {
-    // const [spring, api ] = useSpring(() => {
-    //     from: {
-    //         rotation: 0;
-    //     }
-    // })
-    // const handleClick = () => {
-    //     api.start({
-    //       from: {
-    //         rotation: 0,
-    //       },
-    //       to: {
-    //         rotation: 100,
-    //       },
-    //     })
-    //   }
+   
     return (
         <section id="Home">
-           
-            <HalfCirclePurple/>
-            <HalfCircleYellow/>
-            <HalfDonutPurple/>
-            <HalfDonutYellow/>
-            <section id="Hero">
-                <div id="wrapper">
-                    <h1>Hello.</h1>
-                    <p>Full Stack developer</p>
-                    <p id="Name">Kalyada leosrisook</p>
+            <section id="Landing">
+                <div id="HeadLine">
+                    <p>Hi, I'm Pat</p>
+                    <div id="Job_title">
+                        <p className="Job_text">Front</p>
+                        <p className="Job_text">End</p>
+                        <p className="Job_text">Developer</p>
+                    </div>
                 </div>
             </section>
             <section id="About">
-             
+                <div class="Section_title">
+                    <p>About me</p>
+                    <div className="underline">
+                    </div>
+                </div>
+                <div className="Paragraphs">
+                    <p>Hello there! I'm Pat, a passionate 25-year-old from the vibrant city of Bangkok, Thailand. </p>
+                    <p>I hold a Bsc (Hons) degree in computer science from the prestigious University of Birmingham, UK, and I currently thrive in the dynamic field of IT at BSG Group.</p>
+                    <p>Beyond the world of coding, you'll find me immersed in personal development books, fueling my curiosity for continuous growth. Drawing has become my latest venture as I embrace the joy of acquiring new skills. Join me on this exciting journey of exploration and development!</p>
+                </div>
             </section>
             <section id="Contact">
-                <div id="contact_title">
-                    <h1>Let's connect!</h1>
-                    <p>I'll make sure to respond in 2 days!</p>
+                <div class="Section_title">
+                        <p>Let's connect!</p>
+                        <div className="underline">
+                        </div>
                 </div>
-                <form>
-                    <div className="formGroup">
-                        <label for="name">Name</label>
-                        <input name="name" id="name" />
+                <div className="Connections">
+                    <div className="connection">
+                        <p>LinkedIn</p>
+                        <a href="https://www.linkedin.com/in/kalyada-leosrisook-314a31173/">https://www.linkedin.com/in/kalyada-leosrisook-314a31173/</a>
                     </div>
-                    <div className="formGroup">
-                        <label for="email">Email</label>
-                        <input name="email" id="email" />
+                    <div className="connection">
+                        <p>Email</p>
+                        <a href="">Kalyadaleosrisook@gmail.com</a>
                     </div>
-                    <div className="formGroup">
-                        <label for="message">Message</label>
-                        <textarea name="message"></textarea>
+                    <div className="connection">
+                        <p>Resume</p>
+                        <a href=""></a>
                     </div>
-                    <button id="Submit" type="submit">Send</button>
-                </form>
+                </div>
             </section>
+
         </section>
     )
 }

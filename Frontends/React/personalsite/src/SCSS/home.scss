@@ -5,18 +5,16 @@
     justify-content: $justify;
     align-items: $align;
 }
-$Primary:#050550;
-$Accent :#FF6D90;
-$Primary-Tint-2:#2727EC;
-$Primary-Tint-1: #090990;
-$Primary-Dark:#00003F;
-$Accent-Tint-1:#FFB5D9;
-$Shadow:#00002B;
+$Primary:#2A2A2A;
+$Primary-tint:#686868;
+$Accent :#FE95B6;
+$Accent-2:#812AD8;
 *{
     padding:0;
     margin:0;
     font-family: Montserrat;
     box-sizing: border-box;
+    color:white;
 }
 html, body{
     height:100vh;
@@ -25,64 +23,75 @@ html, body{
 body {
  background-color: $Primary;   
 }
-.BG-text {
-    text-transform: uppercase;
-    color:$Primary-Tint-1;
-    position:absolute;
-    font-weight: 900;
-    z-index: 0;
-}
-.bg-element {
-    position:fixed;
-    z-index: 0;
-}
-.donut-container {
-    position: relative;
-    width: 200px;
-    height: 100px;
-    border-radius: 100px 100px 0 0; /* Apply border-radius for a semi-circle */
-    background-color: rgb(119, 18, 18); /* Set the background color of the donut */
-    overflow: hidden; /* Hide the overflow to create the hollow center */
-  }
 
-  .donut-hole {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background-color: $Primary; /* Set the background color of the center hole */
-    border-radius: 50%; /* Create a circular hole in the center */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center the hole within the container */
-  }
-.HCP {
-    left: 20px;
-    top: 50px;
-    width: 120px;
-}
-.HCY {
-    top: 70%;
-    left: -87px;
-    width: 160px;
-}
-.HLP {
-    top: 450px;
-    right: -90px;
-}
-.HLY {  
-    width: 120px;
-    top: 60px;
-    right: 20px;
-}
-.SQ {
-    top:350px;
-}
 #Home section {
     @include flex();
     height:100vh;
     width:100%;
     scroll-snap-type: y mandatory;
     scroll-snap-align: start;
+}
+#Landing {
+   p{
+    font-size:1rem;
+    margin:0;
+   } 
+   .Job_text{
+    font-size:3rem;
+    margin:0;
+    font-weight: 900;
+    line-height: 40px;
+    text-shadow: 0px 3px 0px $Accent-2;
+   }
+   #HeadLine,#Job_title {
+    @include flex(column , center, flex-start)
+   }
+}
+.Section_title {
+    position: relative;
+    p {
+        font-size:2.3rem;
+        font-weight: 500;
+    }
+    .underline {
+        position: absolute;
+        width:100%;
+        height:15px;
+        top: 30px;
+        z-index: -1;
+        background: linear-gradient(to right, $Accent, $Accent-2)
+    }
+}
+#About {
+    .Paragraphs {
+        width: 90%;
+        @include flex(column, center ,flex-start);
+        text-align: left;
+        gap:20px;
+    }
+}
+#Contact {
+    gap:20px;
+    align-items: flex-start;
+    .Connections {
+        width:90%;
+        gap:20px;
+    }
+    .Connections,.connection {
+        @include flex(column, center, flex-start);
+    }
+    .connection {
+        p {
+            font-size:2rem;
+            font-weight: 700;
+            color: $Primary-tint
+        }
+        a {
+            text-decoration: none;
+            font-size: 14px;
+            text-align: left;
+        }
+    }
 }
 .Move_Home {
     transform:translateX(-137px)
@@ -144,196 +153,24 @@ header {
   
     padding:0 10%;
 }
-#Hero {
-    @include flex();
-    position: relative;
- #wrapper {
-    @include flex();
-    h1 {
-        font-size: 6rem;
-        font-weight: 200;
-        color:$Primary-Tint-2;
-    }
-    p {
-        color:$Accent;
-        font-size:1.5rem;
-        font-weight: 700;
-    }
-    #Name {
-        color:$Shadow;
-        font-weight: 900;
-        position: absolute;
-        top: 90%;
-    }
 
- }
-}
-#cursive {
-    position:relative;
-    z-index: 1;
-    path, line {
-
-        stroke:$Accent
-    }
-}
-#Bg-text {
-    color:$Primary-Tint-1;
-    font-family: Montserrat;
-    font-weight: 900;
-    text-transform: uppercase;
-    position:absolute;
-    top:17%;
-    font-size:7rem;
-    z-index: 0;
-}
-#Bg-name {
-    font-weight: 900;
-    color: $Primary-Dark;
-    font-size:3rem;
-    position: absolute;
-    top:10px;
-}
 #About, #Contact {
-    color:white;
-    position:relative;
+ 
 }
 
 #About {
-    .BG-text {
-        font-size:5rem;
 
-    }
-    .paragraphs {
-        max-width: 90%;
-        position:relative;
-        z-index: 1;
-        p {
-            width:100%;
-            text-align: left;
-            margin-bottom:10px;
-        }
-    }
-    .highlight {
-        color:$Accent-Tint-1;
-        font-weight: bold;
-    }
 }
 
 #Contact {
-    #contact_title {
-        @include flex();
-        h1 {
-            font-size:3rem;
-        }
-        p {
-            font-weight: 500;
-            color:$Primary-Tint-2
-        }
-        margin-bottom:20px;
-    }
-    .BG-text {
-        transform: rotate(90deg);
-        font-size:6rem;
-        left:-76%;
-    }
-    form {
-        @include flex(column, center, flex-start);
-        gap:20px;
-        width: 80%;
-        position:relative;
-        z-index: 1;
-    }
-    .formGroup {
-        @include flex(column, center, flex-start);
-        gap:20px;
-        width:100%;
-        input, textarea {
-            height: 40px;
-            width: inherit;
-            background-color: transparent;
-            border:none;
-            border-bottom: 1px solid $Primary-Tint-2;
-            color:white;
-            &:focus-visible {
-                outline: none;
-            }
-        }
-    }
-    #Submit {
-        background-color: $Accent;
-        border:none;
-        height:40px;
-        width:100px;
-        font-weight: 700;
-        color:white;
-    }
+    
 }
 @media(min-width: 375px) {
-    #Hero {
-        #wrapper {
-            h1 {
-                font-size: 7rem;
-            }
-            p {
-                font-size:1.7rem;
-            }
-        }
-        #Name {
-            font-weight: 900;
-        }
-    }
-    #Bg-text {
-        font-size: 9rem;
-        top: 17%;
-    }
-    #About {
-        .paragraphs {
-            p {
-                line-height: 23px;;
-            }
-        }
-    }
-    #Contact {
-        .BG-text {
-            font-size: 8rem;
-            left: -88%;
-            top: 299px;
-        }
-    }
+    
 }
 @media(min-width: 428px) {
-    header{
-
-        #logo {
-            width:36px;
-        }
-    }
-    #Hero {
-        #cursive{
-
-            width: 585px;
-            top: -67px;   
-        }
-        #Bg-text {
-            font-size:10rem;
-        }
-    }
-    #Contact {
-        .BG-text {
-            left : -78%;
-        }
-    }
+    
 }
 @media(min-width: 768px) {
-    #Hero {
-        #wrapper {
-            h1 {
-                font-size: 12rem; 
-            }
-            p {
-                font-size: 3rem;
-            }
-        }
-
-    }
+   
 }

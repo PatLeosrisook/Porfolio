@@ -4,6 +4,7 @@
   margin: 0;
   font-family: Montserrat;
   box-sizing: border-box;
+  color: white;
 }
 
 html, body {
@@ -12,67 +13,7 @@ html, body {
 }
 
 body {
-  background-color: #050550;
-}
-
-.BG-text {
-  text-transform: uppercase;
-  color: #090990;
-  position: absolute;
-  font-weight: 900;
-  z-index: 0;
-}
-
-.bg-element {
-  position: fixed;
-  z-index: 0;
-}
-
-.donut-container {
-  position: relative;
-  width: 200px;
-  height: 100px;
-  border-radius: 100px 100px 0 0; /* Apply border-radius for a semi-circle */
-  background-color: rgb(119, 18, 18); /* Set the background color of the donut */
-  overflow: hidden; /* Hide the overflow to create the hollow center */
-}
-
-.donut-hole {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  background-color: #050550; /* Set the background color of the center hole */
-  border-radius: 50%; /* Create a circular hole in the center */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Center the hole within the container */
-}
-
-.HCP {
-  left: 20px;
-  top: 50px;
-  width: 120px;
-}
-
-.HCY {
-  top: 70%;
-  left: -87px;
-  width: 160px;
-}
-
-.HLP {
-  top: 450px;
-  right: -90px;
-}
-
-.HLY {
-  width: 120px;
-  top: 60px;
-  right: 20px;
-}
-
-.SQ {
-  top: 350px;
+  background-color: #2A2A2A;
 }
 
 #Home section {
@@ -84,6 +25,75 @@ body {
   width: 100%;
   scroll-snap-type: y mandatory;
   scroll-snap-align: start;
+}
+
+#Landing p {
+  font-size: 1rem;
+  margin: 0;
+}
+#Landing .Job_text {
+  font-size: 3rem;
+  margin: 0;
+  font-weight: 900;
+  line-height: 40px;
+  text-shadow: 0px 3px 0px #812AD8;
+}
+#Landing #HeadLine, #Landing #Job_title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.Section_title {
+  position: relative;
+}
+.Section_title p {
+  font-size: 2.3rem;
+  font-weight: 500;
+}
+.Section_title .underline {
+  position: absolute;
+  width: 100%;
+  height: 15px;
+  top: 30px;
+  z-index: -1;
+  background: linear-gradient(to right, #FE95B6, #812AD8);
+}
+
+#About .Paragraphs {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  gap: 20px;
+}
+
+#Contact {
+  gap: 20px;
+  align-items: flex-start;
+}
+#Contact .Connections {
+  width: 90%;
+  gap: 20px;
+}
+#Contact .Connections, #Contact .connection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+#Contact .connection p {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #686868;
+}
+#Contact .connection a {
+  text-decoration: none;
+  font-size: 14px;
+  text-align: left;
 }
 
 .Move_Home {
@@ -125,7 +135,7 @@ body {
   font-size: 1.5rem;
 }
 .Links .active {
-  color: #FF6D90;
+  color: #FE95B6;
   font-weight: 600;
 }
 
@@ -155,188 +165,4 @@ header #logo {
 }
 header nav {
   display: none;
-}
-
-#Hero {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-#Hero #wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-#Hero #wrapper h1 {
-  font-size: 6rem;
-  font-weight: 200;
-  color: #2727EC;
-}
-#Hero #wrapper p {
-  color: #FF6D90;
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-#Hero #wrapper #Name {
-  color: #00002B;
-  font-weight: 900;
-  position: absolute;
-  top: 90%;
-}
-
-#cursive {
-  position: relative;
-  z-index: 1;
-}
-#cursive path, #cursive line {
-  stroke: #FF6D90;
-}
-
-#Bg-text {
-  color: #090990;
-  font-family: Montserrat;
-  font-weight: 900;
-  text-transform: uppercase;
-  position: absolute;
-  top: 17%;
-  font-size: 7rem;
-  z-index: 0;
-}
-
-#Bg-name {
-  font-weight: 900;
-  color: #00003F;
-  font-size: 3rem;
-  position: absolute;
-  top: 10px;
-}
-
-#About, #Contact {
-  color: white;
-  position: relative;
-}
-
-#About .BG-text {
-  font-size: 5rem;
-}
-#About .paragraphs {
-  max-width: 90%;
-  position: relative;
-  z-index: 1;
-}
-#About .paragraphs p {
-  width: 100%;
-  text-align: left;
-  margin-bottom: 10px;
-}
-#About .highlight {
-  color: #FFB5D9;
-  font-weight: bold;
-}
-
-#Contact #contact_title {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-}
-#Contact #contact_title h1 {
-  font-size: 3rem;
-}
-#Contact #contact_title p {
-  font-weight: 500;
-  color: #2727EC;
-}
-#Contact .BG-text {
-  transform: rotate(90deg);
-  font-size: 6rem;
-  left: -76%;
-}
-#Contact form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 20px;
-  width: 80%;
-  position: relative;
-  z-index: 1;
-}
-#Contact .formGroup {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 20px;
-  width: 100%;
-}
-#Contact .formGroup input, #Contact .formGroup textarea {
-  height: 40px;
-  width: inherit;
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid #2727EC;
-  color: white;
-}
-#Contact .formGroup input:focus-visible, #Contact .formGroup textarea:focus-visible {
-  outline: none;
-}
-#Contact #Submit {
-  background-color: #FF6D90;
-  border: none;
-  height: 40px;
-  width: 100px;
-  font-weight: 700;
-  color: white;
-}
-
-@media (min-width: 375px) {
-  #Hero #wrapper h1 {
-    font-size: 7rem;
-  }
-  #Hero #wrapper p {
-    font-size: 1.7rem;
-  }
-  #Hero #Name {
-    font-weight: 900;
-  }
-  #Bg-text {
-    font-size: 9rem;
-    top: 17%;
-  }
-  #About .paragraphs p {
-    line-height: 23px;
-  }
-  #Contact .BG-text {
-    font-size: 8rem;
-    left: -88%;
-    top: 299px;
-  }
-}
-@media (min-width: 428px) {
-  header #logo {
-    width: 36px;
-  }
-  #Hero #cursive {
-    width: 585px;
-    top: -67px;
-  }
-  #Hero #Bg-text {
-    font-size: 10rem;
-  }
-  #Contact .BG-text {
-    left: -78%;
-  }
-}
-@media (min-width: 768px) {
-  #Hero #wrapper h1 {
-    font-size: 12rem;
-  }
-  #Hero #wrapper p {
-    font-size: 3rem;
-  }
 }/*# sourceMappingURL=home.css.map */
