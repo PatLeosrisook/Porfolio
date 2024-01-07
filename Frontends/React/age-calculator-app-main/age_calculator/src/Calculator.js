@@ -58,6 +58,11 @@ export function Calculator() {
         let yearInput = document.querySelector("#year")
         let thisYear = new Date().getFullYear()
         let isValid = false;
+        let isLeapYear = false ;
+        let isNot30Day = false ; 
+        if(month == 4 || month == 6 || month == 9 || month == 2) {
+            
+        }
         const {day, month, year} = date
         if(day < 1) {
             console.log("wrong!")
