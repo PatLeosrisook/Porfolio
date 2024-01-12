@@ -34,18 +34,9 @@ export function Home() {
                         </div>
                 </div>
                 <div className="Connections">
-                    <div className="connection">
-                        <p>LinkedIn</p>
-                        <a href="https://www.linkedin.com/in/kalyada-leosrisook-314a31173/">https://www.linkedin.com/in/kalyada-leosrisook-314a31173/</a>
-                    </div>
-                    <div className="connection">
-                        <p>Email</p>
-                        <a href="">Kalyadaleosrisook@gmail.com</a>
-                    </div>
-                    <div className="connection">
-                        <p>Resume</p>
-                        <a href=""></a>
-                    </div>
+                        <a href="https://www.linkedin.com/in/kalyada-leosrisook-314a31173/">LinkedIn</a>
+                        <a href="">Email</a>
+                        <a href="">Resume</a>
                 </div>
             </section>
 

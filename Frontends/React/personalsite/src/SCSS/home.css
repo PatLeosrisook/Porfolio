@@ -85,27 +85,26 @@ body {
   justify-content: center;
   align-items: flex-start;
 }
-#Contact .connection p {
-  font-size: 2rem;
-  font-weight: 700;
-  background: linear-gradient(to left, #686868 100%, #812AD8 0%, #FE95B6 0%);
-  background-size: cover;
-  background-position-x: -200px;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: #686868;
+@keyframes gradiemt {
+  0% {
+    background-position-x: -200px;
+  }
+  100% {
+    background-position: 0;
+  }
 }
-#Contact .connection p:hover {
-  background: linear-gradient(to left, #686868 -100%, #812AD8 40%, #FE95B6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-position-x: 0;
-  transition: backgroun ease 4s, background-position ease 4s;
-}
-#Contact .connection a {
+#Contact .Connections a {
   text-decoration: none;
-  font-size: 14px;
-  text-align: left;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #686868;
+  transition: text-shadow ease-out 1s, color ease-out 1s;
+  cursor: pointer;
+}
+#Contact .Connections a:hover {
+  color: #FE95B6;
+  text-shadow: #FE95B6 0px 4px 12px;
+  transition: text-shadow ease-out 1s, color ease-out 1s;
 }
 
 .Move_Home {
