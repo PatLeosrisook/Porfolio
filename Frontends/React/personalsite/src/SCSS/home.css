@@ -186,6 +186,8 @@ header nav {
   width: -moz-fit-content;
   width: fit-content;
   gap: 10px;
+  position: relative;
+  top: 30%;
 }
 #socials #line {
   width: 100px;
@@ -209,6 +211,21 @@ header nav {
   }
 }
 @media (min-width: 768px) {
+  #Landing {
+    flex-direction: row !important;
+  }
+  #Landing #HeadLine {
+    order: 2;
+  }
+  #Landing #socials {
+    top: 0;
+    flex-direction: column;
+    order: 1;
+  }
+  #Landing #socials #line {
+    height: 100px;
+    width: 1px;
+  }
   #Landing .Job_text {
     font-size: 6rem;
     line-height: 84px;

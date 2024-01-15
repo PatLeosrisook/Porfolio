@@ -1,10 +1,10 @@
-import { AnimatedCurstive } from '../Components/AnimatedCursive'
+// import { AnimatedCurstive } from '../Components/AnimatedCursive'
 import '../SCSS/home.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
+// import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
 import { faGithub , faLinkedin} from '@fortawesome/free-brands-svg-icons'
 export function Home() {
-   
+   console.warn = () => {}
     return (
         <section id="Home">
             <section id="Landing">
