@@ -83,7 +83,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 @keyframes gradiemt {
   0% {
@@ -176,4 +176,49 @@ header #logo {
 }
 header nav {
   display: none;
+}
+
+#socials {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  gap: 10px;
+}
+#socials #line {
+  width: 100px;
+  height: 1px;
+  background-color: #686868;
+}
+
+@media (min-width: 375px) {
+  #Landing .Job_text {
+    font-size: 4rem;
+    line-height: 53px;
+  }
+  #Landing p {
+    font-size: 1.2rem;
+  }
+  #About {
+    gap: 20px;
+  }
+  #About .Paragraphs {
+    line-height: 22px;
+  }
+}
+@media (min-width: 768px) {
+  #Landing .Job_text {
+    font-size: 6rem;
+    line-height: 84px;
+  }
+  #About .Paragraphs {
+    width: 80%;
+    font-size: 1.2rem;
+    line-height: 32px;
+  }
+  #Contact .Connections {
+    flex-direction: row;
+  }
 }/*# sourceMappingURL=home.css.map */

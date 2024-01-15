@@ -1,6 +1,8 @@
 import { AnimatedCurstive } from '../Components/AnimatedCursive'
 import '../SCSS/home.css'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
+import { faGithub , faLinkedin} from '@fortawesome/free-brands-svg-icons'
 export function Home() {
    
     return (
@@ -13,6 +15,11 @@ export function Home() {
                         <p className="Job_text">End</p>
                         <p className="Job_text">Developer</p>
                     </div>
+                </div>
+                <div id="socials">
+                    <div id="line"></div>
+                    <FontAwesomeIcon icon={faGithub} />
+                    <FontAwesomeIcon icon={faLinkedin} />
                 </div>
             </section>
             <section id="About">
