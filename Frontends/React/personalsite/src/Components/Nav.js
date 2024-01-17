@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Logo from '../assets/Logo.svg'
 import { BurgerClose } from "react-burger-icons";
 import { Links } from './Links';
+import '../SCSS/home.css'
 export function Nav() {
     const [menuSize, setMenuSize] = useState(24)
     const [isWindowResized, setIsWindowResized] = useState(false)
@@ -9,17 +10,7 @@ export function Nav() {
     window.onresize = () => {
         setIsWindowResized(true)
     }
-    useEffect(() => {
-        let currentWidth = window.innerWidth
-        if(currentWidth < 700) {
-            setMenuSize(30)
-        } else if(currentWidth>= 700 && currentWidth < 1024) {
-            setMenuSize(40)
-        } else {
-            setMenuSize(50)
-        }
-        setIsWindowResized(false)
-    },[isWindowResized])
+  
     let handleClose = () => {
         setIsClosed(!isClosed)
 
@@ -39,7 +30,7 @@ export function Nav() {
     }
     useEffect(() => {
         console.log("isClosed" , isClosed)
-        handleMenu()
+        // handleMenu()
     })
     return(
         <header onClick={() => console.log("header")}>

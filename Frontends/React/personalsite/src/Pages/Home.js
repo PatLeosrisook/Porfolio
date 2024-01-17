@@ -7,6 +7,12 @@ export function Home() {
    console.warn = () => {}
     return (
         <section id="Home">
+            <div className="bg-element top">
+
+            </div>
+            <div className="bg-element bottom">
+
+            </div>
             <section id="Landing">
                 <div id="HeadLine">
                     <p>Hi, I'm Pat</p>
@@ -16,11 +22,7 @@ export function Home() {
                         <p className="Job_text">Developer</p>
                     </div>
                 </div>
-                <div id="socials">
-                    <div id="line"></div>
-                    <FontAwesomeIcon icon={faGithub} />
-                    <FontAwesomeIcon icon={faLinkedin} />
-                </div>
+                
             </section>
             <section id="About">
                 <div class="Section_title">

@@ -13,7 +13,31 @@ html, body {
 }
 
 body {
-  background-color: #2A2A2A;
+  background-color: #1f1f2c;
+}
+
+.App {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.bg-element {
+  position: absolute;
+  transform: scale(1.5) rotate(45deg);
+  background: linear-gradient(45deg, #FE95B6, #812AD8);
+  height: 130px;
+  width: 130px;
+  z-index: -1;
+}
+
+.top {
+  top: 473px;
+  right: -70px;
+}
+
+.bottom {
+  top: 70%;
+  left: -66px;
 }
 
 #Home section {
@@ -85,19 +109,11 @@ body {
   justify-content: center;
   align-items: center;
 }
-@keyframes gradiemt {
-  0% {
-    background-position-x: -200px;
-  }
-  100% {
-    background-position: 0;
-  }
-}
 #Contact .Connections a {
   text-decoration: none;
   font-size: 3rem;
   font-weight: 700;
-  color: #686868;
+  color: #36384c;
   transition: text-shadow ease-out 1s, color ease-out 1s;
   cursor: pointer;
 }
@@ -186,13 +202,14 @@ header nav {
   width: -moz-fit-content;
   width: fit-content;
   gap: 10px;
-  position: relative;
+  position: absolute;
   top: 30%;
+  left: 24vw;
 }
 #socials #line {
   width: 100px;
   height: 1px;
-  background-color: #686868;
+  background-color: #36384c;
 }
 
 @media (min-width: 375px) {
@@ -211,20 +228,35 @@ header nav {
   }
 }
 @media (min-width: 768px) {
-  #Landing {
-    flex-direction: row !important;
+  .bg-element {
+    transform: scale(2) rotate(45deg);
   }
-  #Landing #HeadLine {
-    order: 2;
+  .bottom {
+    top: 78%;
   }
-  #Landing #socials {
-    top: 0;
+  .top {
+    top: 831px;
+    right: -71px;
+  }
+  #socials {
+    top: 42vh;
+    left: 10vw;
     flex-direction: column;
     order: 1;
   }
-  #Landing #socials #line {
+  #socials svg {
+    height: 1.7rem;
+  }
+  #socials #line {
     height: 100px;
     width: 1px;
+  }
+  #Landing {
+    flex-direction: row !important;
+    gap: 60px;
+  }
+  #Landing #HeadLine {
+    order: 2;
   }
   #Landing .Job_text {
     font-size: 6rem;
@@ -234,8 +266,55 @@ header nav {
     width: 80%;
     font-size: 1.2rem;
     line-height: 32px;
+    max-width: 700px;
   }
   #Contact .Connections {
     flex-direction: row;
+  }
+}
+@media (min-width: 1024px) {
+  header #burger {
+    display: none !important;
+  }
+  header #Desktop_Links {
+    display: block;
+  }
+  header .Links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 19px;
+  }
+  header .Links a {
+    font-size: 1.2rem;
+  }
+  #Landing .Job_text {
+    font-size: 8rem;
+    line-height: 104px;
+  }
+  #Landing #socials #line {
+    height: 193px;
+  }
+  #Landing #socials svg {
+    height: 1.5rem;
+  }
+}
+@media (min-width: 1440px) {
+  .Section_title p {
+    font-size: 3rem;
+  }
+  .Section_title .underline {
+    top: 40px;
+  }
+  .bg-element {
+    transform: scale(3.5) rotate(45deg);
+  }
+  .bottom {
+    left: -69px;
+  }
+  .top {
+    top: 789px;
+    right: -67px;
   }
 }/*# sourceMappingURL=home.css.map */
