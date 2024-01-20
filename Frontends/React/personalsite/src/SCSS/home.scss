@@ -22,9 +22,11 @@ html, body{
 }
 body {
  background-color: $Primary;   
+ scroll-behavior: smooth;
 }
 .App {
     position:relative;
+    scroll-behavior: smooth;
     overflow-x: hidden;
 }
 .bg-element {

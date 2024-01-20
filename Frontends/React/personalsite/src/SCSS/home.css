@@ -14,10 +14,12 @@ html, body {
 
 body {
   background-color: #1f1f2c;
+  scroll-behavior: smooth;
 }
 
 .App {
   position: relative;
+  scroll-behavior: smooth;
   overflow-x: hidden;
 }
 

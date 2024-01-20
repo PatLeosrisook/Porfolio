@@ -3,7 +3,7 @@ import Logo from '../assets/Logo.svg'
 import { BurgerClose } from "react-burger-icons";
 import { Links } from './Links';
 import '../SCSS/home.css'
-export function Nav() {
+export function Nav({HomeRef, AboutRef,ContactRef}) {
     const [menuSize, setMenuSize] = useState(24)
     const [isWindowResized, setIsWindowResized] = useState(false)
     const [isClosed, setIsClosed] = useState(false)
@@ -48,7 +48,7 @@ export function Nav() {
             </button>
             
             <nav id="Desktop_Links">
-                <Links/>
+                <Links HomeRef={HomeRef} AboutRef={AboutRef} ContactRef={ContactRef}/>
             </nav>
         </header>
     )
