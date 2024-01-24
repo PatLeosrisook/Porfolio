@@ -8,6 +8,7 @@ import { faGithub , faLinkedin} from '@fortawesome/free-brands-svg-icons'
 // import { Menu } from './Components/Menu';
 import { useRef, createRef, useEffect, useState } from 'react';
 import {Route, Routes} from 'react-router-dom'
+import { Menu } from './Components/Menu';
 function App() {
   const[aboutRef, setAboutRef] = useState(null)
   const [homeRef, setHomeRef] = useState(null)
@@ -23,6 +24,7 @@ function App() {
   }) 
   return (
     <div className="App">
+      <Menu/>
       <Nav AboutRef={aboutRef} HomeRef={homeRef} ContactRef={contactRef} />
       <Routes>
         <Route path="/" element={<Home refFromChild={handleRef} />} />

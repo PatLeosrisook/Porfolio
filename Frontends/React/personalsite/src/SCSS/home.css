@@ -175,7 +175,7 @@ header {
   align-items: center;
   width: 100vw;
   height: 10vh;
-  position: absolute;
+  position: fixed;
   top: 0;
   z-index: 200;
   padding: 0 10%;
@@ -204,14 +204,27 @@ header nav {
   width: -moz-fit-content;
   width: fit-content;
   gap: 10px;
-  position: absolute;
-  top: 30%;
-  left: 24vw;
+  position: fixed;
+  top: 90%;
+  left: 25vw;
 }
 #socials #line {
   width: 100px;
   height: 1px;
   background-color: #36384c;
+}
+
+#Menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  background-color: #FE95B6;
+  width: 20vw;
+  height: 100vh;
+  right: 0;
+  transform: translateX(157px);
 }
 
 @media (min-width: 375px) {

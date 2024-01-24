@@ -159,7 +159,7 @@ header {
     @include flex(row, space-between,center);
     width:100vw;
     height:10vh;
-    position:absolute;
+    position:fixed;
     top:0;
     z-index: 200;
     
@@ -185,15 +185,24 @@ header {
     @include flex(row, center, center);
     width: fit-content;
     gap:10px;
-    position: absolute;
-    top: 30%;
-    left: 24vw;
+    position: fixed;
+    top: 90%;
+    left: 25vw;
     #line {
         width: 100px;
 
         height:1px;
         background-color: $Primary-tint;
     }
+}
+#Menu {
+    @include flex();
+    position: fixed;
+    background-color: $Accent;
+    width:20vw; 
+    height:100vh;
+    right: 0;;
+    transform: translateX(157px);
 }
 @media(min-width: 375px) {
    #Landing {
