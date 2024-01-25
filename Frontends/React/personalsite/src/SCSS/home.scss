@@ -29,6 +29,17 @@ body {
     scroll-behavior: smooth;
     overflow-x: hidden;
 }
+
+.moveMenu {
+    transform:translateX(0px) !important;
+    border-top-left-radius:0px  !important;
+    border-bottom-left-radius:0px  !important;
+    transition: transform cubic-bezier(.73,0,0,1.03) 0.3s, border-top-left-radius 0.2s ease 0.1s , border-bottom-left-radius 0.2s ease 0.1s !important;
+}
+.moveHeader {
+    transform: translateX(-160px) !important;
+    transition: transform ease 0.3s;
+}
 .bg-element {
     position: absolute;
     
@@ -162,7 +173,8 @@ header {
     position:fixed;
     top:0;
     z-index: 200;
-    
+    transform: translateX(0px);
+    transition: transform ease 0.3s;
     #Desktop_Links {
         display:none; 
     }
@@ -198,11 +210,15 @@ header {
 #Menu {
     @include flex();
     position: fixed;
-    background-color: $Accent;
-    width:20vw; 
+    z-index: 3;
+    background-color: $Accent-2;
+    width:34vw; 
     height:100vh;
     right: 0;;
-    transform: translateX(157px);
+    transform: translateX(182px);
+    border-top-left-radius:100%;
+    border-bottom-left-radius:100%;
+    transition: transform cubic-bezier(.73,0,0,1.03) 0.3s, border-top-left-radius 0.2s ease 0.1s , border-bottom-left-radius 0.2s ease 0.1s !important;
 }
 @media(min-width: 375px) {
    #Landing {
@@ -236,7 +252,9 @@ header {
         top: 831px;
         right: -71px;
     }
-
+    #Menu {
+        width:20vw;
+    }
     #socials{
         top: 42vh;
         left: 10vw;
@@ -277,6 +295,9 @@ header {
    }
 }
 @media(min-width:1024px) {
+    #Menu {
+        display: none;
+    }
     header  {
 
         #burger {

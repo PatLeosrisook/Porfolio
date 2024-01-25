@@ -1,7 +1,7 @@
 import '../SCSS/home.css'
 import { Link } from "react-router-dom";
 import { useEffect, useState } from 'react';
-export function Links({HomeRef, AboutRef,ContactRef}) {
+export function Links({HomeRef, AboutRef,ContactRef, handleOpenTab}) {
     const[currentPos, setPos] = useState('Home')
 
     let handleClick = (name) => {

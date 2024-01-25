@@ -3,7 +3,7 @@ import Logo from '../assets/Logo.svg'
 import { BurgerClose } from "react-burger-icons";
 import { Links } from './Links';
 import '../SCSS/home.css'
-export function Nav({HomeRef, AboutRef,ContactRef}) {
+export function Nav({HomeRef, AboutRef,ContactRef, setTab, isTabOpen}) {
     const [menuSize, setMenuSize] = useState(24)
     const [isWindowResized, setIsWindowResized] = useState(false)
     const [isClosed, setIsClosed] = useState(false)
@@ -12,7 +12,7 @@ export function Nav({HomeRef, AboutRef,ContactRef}) {
     }
   
     let handleClose = () => {
-        setIsClosed(!isClosed)
+        setTab(!isTabOpen)
 
     }
     let handleMenu = () => {
@@ -44,7 +44,7 @@ export function Nav({HomeRef, AboutRef,ContactRef}) {
                 placeItems: "center",
             }}
             >
-            <BurgerClose isClosed={isClosed} />
+            <BurgerClose isClosed={isTabOpen} />
             </button>
             
             <nav id="Desktop_Links">

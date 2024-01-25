@@ -23,6 +23,18 @@ body {
   overflow-x: hidden;
 }
 
+.moveMenu {
+  transform: translateX(0px) !important;
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+  transition: transform cubic-bezier(0.73, 0, 0, 1.03) 0.3s, border-top-left-radius 0.2s ease 0.1s, border-bottom-left-radius 0.2s ease 0.1s !important;
+}
+
+.moveHeader {
+  transform: translateX(-160px) !important;
+  transition: transform ease 0.3s;
+}
+
 .bg-element {
   position: absolute;
   transform: scale(1.5) rotate(45deg);
@@ -178,6 +190,8 @@ header {
   position: fixed;
   top: 0;
   z-index: 200;
+  transform: translateX(0px);
+  transition: transform ease 0.3s;
   padding: 0 10%;
 }
 header #Desktop_Links {
@@ -220,11 +234,15 @@ header nav {
   justify-content: center;
   align-items: center;
   position: fixed;
-  background-color: #FE95B6;
-  width: 20vw;
+  z-index: 3;
+  background-color: #812AD8;
+  width: 34vw;
   height: 100vh;
   right: 0;
-  transform: translateX(157px);
+  transform: translateX(182px);
+  border-top-left-radius: 100%;
+  border-bottom-left-radius: 100%;
+  transition: transform cubic-bezier(0.73, 0, 0, 1.03) 0.3s, border-top-left-radius 0.2s ease 0.1s, border-bottom-left-radius 0.2s ease 0.1s !important;
 }
 
 @media (min-width: 375px) {
@@ -252,6 +270,9 @@ header nav {
   .top {
     top: 831px;
     right: -71px;
+  }
+  #Menu {
+    width: 20vw;
   }
   #socials {
     top: 42vh;
@@ -288,6 +309,9 @@ header nav {
   }
 }
 @media (min-width: 1024px) {
+  #Menu {
+    display: none;
+  }
   header #burger {
     display: none !important;
   }
