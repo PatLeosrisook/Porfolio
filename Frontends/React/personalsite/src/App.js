@@ -14,6 +14,7 @@ function App() {
   const [homeRef, setHomeRef] = useState(null)
   const [contactRef, setContactRef] = useState(null)
   const [isTabOpen, setTabOpen] = useState(false)
+  const [windowSize, setWindowSize] = useState(0)
   let handleRef = (home, about, contact) => {
     setHomeRef(home)
     setAboutRef(about)
@@ -23,23 +24,31 @@ function App() {
     let app = document.querySelector("#Home")
     let Menu = document.querySelector("#Menu")
     let Header = document.querySelector("header")
-    if(isTabOpen) {
-        // app.classList.add("moveApp")
-        Menu.classList.add("moveMenu")
-        Header.classList.add("moveHeader")
-      } else {
-        Menu.classList.remove("moveMenu")
-        Header.classList.remove("moveHeader")
+    if(Menu) {
 
+      if(isTabOpen) {
+          // app.classList.add("moveApp")
+          Menu.classList.add("moveMenu")
+          Header.classList.add("moveHeader")
+        } else {
+          Menu.classList.remove("moveMenu")
+          Header.classList.remove("moveHeader")
+  
+      }
     }
-}
+  }
+  window.onresize = () => {
+
+  }
   useEffect(() => {
     handleOpenTab()
-    console.log(homeRef, aboutRef, contactRef)
+    setWindowSize(window.innerWidth)
+    console.log(windowSize)
   }) 
   return (
     <div className="App">
-      <Menu AboutRef={aboutRef} HomeRef={homeRef} ContactRef={contactRef}/>
+      {(windowSize < 1024) ? <Menu AboutRef={aboutRef} HomeRef={homeRef} ContactRef={contactRef}/>: "" } 
+      
       <Nav AboutRef={aboutRef} HomeRef={homeRef} ContactRef={contactRef} setTab={setTabOpen} isTabOpen={isTabOpen} />
       <Routes>
         <Route path="/" element={<Home refFromChild={handleRef} />} />

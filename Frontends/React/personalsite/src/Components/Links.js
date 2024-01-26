@@ -34,6 +34,7 @@ export function Links({HomeRef, AboutRef,ContactRef, handleOpenTab}) {
             
         }
         if(AboutY < 500 && AboutY > -500) {
+            console.log("add about?", About)
             About.add("active")
         } else {
             About.remove("active")
