@@ -9,6 +9,7 @@ import { faGithub , faLinkedin} from '@fortawesome/free-brands-svg-icons'
 import { useRef, createRef, useEffect, useState } from 'react';
 import {Route, Routes} from 'react-router-dom'
 import { Menu } from './Components/Menu';
+import {Work} from './Pages/Work'
 function App() {
   const[aboutRef, setAboutRef] = useState(null)
   const [homeRef, setHomeRef] = useState(null)
@@ -52,7 +53,7 @@ function App() {
       <Nav AboutRef={aboutRef} HomeRef={homeRef} ContactRef={contactRef} setTab={setTabOpen} isTabOpen={isTabOpen} />
       <Routes>
         <Route path="/" element={<Home refFromChild={handleRef} />} />
-        <Route path="/About" element={<Home/>} />
+        <Route path="/Work" element={<Work/>} />
       </Routes>
       <div id="socials">
           <div id="line"></div>

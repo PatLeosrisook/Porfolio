@@ -1,0 +1,435 @@
+@import url("https://fonts.googleapis.com/css2?family=Meow+Script&family=Montserrat:wght@300;400;500;600;700;900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Montserrat;
+  box-sizing: border-box;
+  color: white;
+}
+
+html, body {
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  background-color: #1f1f2c;
+  scroll-behavior: smooth;
+}
+
+.App {
+  position: relative;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+.moveMenu {
+  transform: translateX(0px) !important;
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+  transition: transform cubic-bezier(0.73, 0, 0, 1.03) 0.3s, border-top-left-radius 0.2s ease 0.1s, border-bottom-left-radius 0.2s ease 0.1s !important;
+}
+
+.moveHeader {
+  transform: translateX(-160px) !important;
+  transition: transform ease 0.3s;
+}
+
+.bg-element {
+  position: absolute;
+  transform: scale(1.5) rotate(45deg);
+  background: linear-gradient(45deg, #FE95B6, #812AD8);
+  height: 130px;
+  width: 130px;
+  z-index: -1;
+}
+
+.top {
+  top: 473px;
+  right: -70px;
+}
+
+.bottom {
+  top: 70%;
+  left: -66px;
+}
+
+#Home section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  scroll-snap-type: y mandatory;
+  scroll-snap-align: start;
+}
+
+#Landing p {
+  font-size: 1rem;
+  margin: 0;
+}
+#Landing .Job_text {
+  font-size: 3rem;
+  margin: 0;
+  font-weight: 900;
+  line-height: 40px;
+  text-shadow: 0px 3px 0px #812AD8;
+}
+#Landing #HeadLine, #Landing #Job_title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.Section_title {
+  position: relative;
+}
+.Section_title p {
+  font-size: 2.3rem;
+  font-weight: 500;
+}
+.Section_title .underline {
+  position: absolute;
+  width: 100%;
+  height: 15px;
+  top: 30px;
+  z-index: -1;
+  background: linear-gradient(to right, #FE95B6, #812AD8);
+}
+
+#About .Paragraphs {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  gap: 20px;
+}
+
+#Contact {
+  gap: 20px;
+  align-items: flex-start;
+}
+#Contact .Connections {
+  width: 90%;
+  gap: 20px;
+}
+#Contact .Connections, #Contact .connection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#Contact .Connections a {
+  text-decoration: none;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #36384c;
+  transition: text-shadow ease-out 1s, color ease-out 1s;
+  cursor: pointer;
+}
+#Contact .Connections a:hover {
+  color: #FE95B6;
+  text-shadow: #FE95B6 0px 4px 12px;
+  transition: text-shadow ease-out 1s, color ease-out 1s;
+}
+
+.Move_Home {
+  transform: translateX(-137px);
+}
+
+.open_menu {
+  transform: translateX(-156px) !important;
+}
+
+#Links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  height: 100vh;
+  width: 48vw;
+  background-color: #00002B;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.Links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  list-style: none;
+  padding: 0;
+}
+.Links li {
+  margin-bottom: 10px;
+}
+.Links a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+}
+.Links .active {
+  color: #FE95B6;
+  font-weight: 600;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 10vh;
+  position: fixed;
+  top: 0;
+  z-index: 200;
+  transform: translateX(0px);
+  transition: transform ease 0.3s;
+  padding: 0 10%;
+}
+header #Desktop_Links {
+  display: none;
+}
+header #burger {
+  background: transparent;
+  border: none;
+}
+header #logo {
+  width: 24px;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+header nav {
+  display: none;
+}
+
+#socials {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  gap: 10px;
+  position: fixed;
+  top: 90%;
+  left: 25vw;
+}
+#socials #line {
+  width: 100px;
+  height: 1px;
+  background-color: #36384c;
+}
+
+#Menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 3;
+  background-color: #812AD8;
+  width: 34vw;
+  height: 100vh;
+  right: 0;
+  transform: translateX(182px);
+  border-top-left-radius: 100%;
+  border-bottom-left-radius: 100%;
+  transition: transform cubic-bezier(0.73, 0, 0, 1.03) 0.3s, border-top-left-radius 0.2s ease 0.1s, border-bottom-left-radius 0.2s ease 0.1s !important;
+}
+
+@media (min-width: 375px) {
+  #Landing .Job_text {
+    font-size: 4rem;
+    line-height: 53px;
+  }
+  #Landing p {
+    font-size: 1.2rem;
+  }
+  #About {
+    gap: 20px;
+  }
+  #About .Paragraphs {
+    line-height: 22px;
+  }
+}
+@media (min-width: 768px) {
+  .bg-element {
+    transform: scale(2) rotate(45deg);
+  }
+  .bottom {
+    top: 78%;
+  }
+  .top {
+    top: 831px;
+    right: -71px;
+  }
+  #Menu {
+    width: 20vw;
+  }
+  #socials {
+    top: 42vh;
+    left: 10vw;
+    flex-direction: column;
+    order: 1;
+  }
+  #socials svg {
+    height: 1.7rem;
+  }
+  #socials #line {
+    height: 100px;
+    width: 1px;
+  }
+  #Landing {
+    flex-direction: row !important;
+    gap: 60px;
+  }
+  #Landing #HeadLine {
+    order: 2;
+  }
+  #Landing .Job_text {
+    font-size: 6rem;
+    line-height: 84px;
+  }
+  #About .Paragraphs {
+    width: 80%;
+    font-size: 1.2rem;
+    line-height: 32px;
+    max-width: 700px;
+  }
+  #Contact .Connections {
+    flex-direction: row;
+  }
+}
+@media (min-width: 1024px) {
+  #Menu {
+    display: none;
+  }
+  header #burger {
+    display: none !important;
+  }
+  header #Desktop_Links {
+    display: block;
+  }
+  header .Links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 19px;
+  }
+  header .Links a {
+    font-size: 1.2rem;
+  }
+  #Landing .Job_text {
+    font-size: 8rem;
+    line-height: 104px;
+  }
+  #Landing #socials #line {
+    height: 193px;
+  }
+  #Landing #socials svg {
+    height: 1.5rem;
+  }
+}
+@media (min-width: 1440px) {
+  .Section_title p {
+    font-size: 3rem;
+  }
+  .Section_title .underline {
+    top: 40px;
+  }
+  .bg-element {
+    transform: scale(3.5) rotate(45deg);
+  }
+  .bottom {
+    left: -69px;
+  }
+  .top {
+    top: 789px;
+    right: -67px;
+  }
+}
+#Work {
+  padding-bottom: 80px;
+}
+
+#Work_landing, #Works {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+#Work_landing h1 {
+  font-size: 5rem;
+}
+
+#Works {
+  height: -moz-fit-content;
+  height: fit-content;
+  gap: 45px;
+}
+#Works .Project {
+  width: 80%;
+}
+#Works .Project img {
+  width: 100%;
+}
+#Works .Project .Content {
+  text-align: left;
+}
+#Works .Project .image_wrap .Content {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  #Work_landing h1 {
+    font-size: 8rem;
+  }
+  #Works {
+    flex-direction: row;
+  }
+  #Works .Project {
+    width: 40%;
+  }
+}
+@media (min-width: 1280px) {
+  #Works .Project .Content {
+    display: none;
+  }
+  #Works .Project .image_wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  #Works .Project .image_wrap .Content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex !important;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+  }
+  #Works .Project .image_wrap::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(12, 12, 12, 0.77);
+  }
+}/*# sourceMappingURL=work.css.map */
