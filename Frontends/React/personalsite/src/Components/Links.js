@@ -5,18 +5,22 @@ export function Links({HomeRef, AboutRef,ContactRef, handleOpenTab}) {
     let location = useLocation()
     const {pathname} = location
     let handleClick = (name) => {
-        
-        switch(name) {
-            case "homeRef":
-                HomeRef.current.scrollIntoView()
-                break;
-            case 'aboutRef' :
-                AboutRef.current.scrollIntoView({behavior: 'smooth'})
-                break;
-            case "contactRef":
-                ContactRef.current.scrollIntoView({behavior: 'smooth'})
-                break;
+        try {
             
+            switch(name) {
+                case "homeRef":
+                    HomeRef.current.scrollIntoView({behavior: 'smooth'})
+                    break;
+                case 'aboutRef' :
+                    AboutRef.current.scrollIntoView({behavior: 'smooth'})
+                    break;
+                case "contactRef":
+                    ContactRef.current.scrollIntoView({behavior: 'smooth'})
+                    break;
+                
+            }
+        } catch(e) {
+            console.log("erro ", e.message)
         }
     }
     window.onscroll = (e) => {
@@ -36,7 +40,6 @@ export function Links({HomeRef, AboutRef,ContactRef, handleOpenTab}) {
                 
             }
             if(AboutY < 500 && AboutY > -500) {
-                console.log("add about?", About)
                 About.add("active")
             } else {
                 About.remove("active")
@@ -52,7 +55,7 @@ export function Links({HomeRef, AboutRef,ContactRef, handleOpenTab}) {
         
     }
     useEffect(() => {
-        console.log(pathname)
+        
     })
     return (
         <ul className="Links">

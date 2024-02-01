@@ -1,4 +1,5 @@
 import { Project } from "../Components/Project";
+import { InConstructionState } from "../Components/inConstructionState";
 import '../SCSS/work.css'
 import sample from '../assets/Img/Sample.png'
 export function Work() {
@@ -10,10 +11,7 @@ export function Work() {
                     <p>Collections of all my hard works</p>
                 </div>
             </section>
-            <section id="Works">
-                <Project Name={"Web dictionary"} Overview={"Placeholder text for project blah blah blah."} img={sample}/>
-                <Project Name={"Web dictionary"} Overview={"Placeholder text for project blah blah blah."} img={sample}/>
-            </section>
+            <InConstructionState/>
         </section>
     )
 }

@@ -10,12 +10,21 @@ export class Home extends React.Component {
         this.homeRef = createRef()
         this.aboutRef = createRef()
         this.contactRef = createRef()
+        this.CURRENT_DEGREE = 45
     }
     componentDidMount() {
         this.props.refFromChild(this.homeRef,this.aboutRef, this.contactRef)
     }
-  
-   render() {
+    
+    render() {
+       window.onscroll = () => {
+        let topSq = document.querySelector('.top')   
+        let bottomSq = document.querySelector('.bottom')  
+        let scroll = window.scrollY
+        //TODO:: animation
+        topSq.style.transform = `translateY(${scroll}px) scale(3.5) rotate(${((this.CURRENT_DEGREE ) + (scroll / 100))}deg) ` 
+
+       }
        return (
            <section id="Home">
                <div className="bg-element top">

@@ -392,6 +392,18 @@ header nav {
   display: none;
 }
 
+#under_construction {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+#under_construction .wrapper {
+  height: 50%;
+}
+
 @media (min-width: 768px) {
   #Work_landing h1 {
     font-size: 8rem;
@@ -408,6 +420,10 @@ header nav {
     display: none;
   }
   #Works .Project .image_wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: relative;
     width: 100%;
     height: 100%;
@@ -419,8 +435,10 @@ header nav {
     align-items: center;
     display: flex !important;
     position: absolute;
-    top: 0;
+    top: 50%;
     z-index: 2;
+    opacity: 0;
+    transition: opacity ease 0.3s;
   }
   #Works .Project .image_wrap::after {
     content: "";
@@ -431,5 +449,15 @@ header nav {
     height: 100%;
     z-index: 1;
     background-color: rgba(12, 12, 12, 0.77);
+    opacity: 0;
+    transition: opacity ease 0.3s;
+  }
+  #Works .Project .image_wrap:hover .Content {
+    opacity: 1;
+    transition: opacity ease 0.3s;
+  }
+  #Works .Project .image_wrap:hover::after {
+    opacity: 1;
+    transition: opacity ease 0.3s;
   }
 }/*# sourceMappingURL=work.css.map */
