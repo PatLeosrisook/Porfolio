@@ -17,12 +17,15 @@ $Accent-2:#812AD8;
     color:white;
 }
 html, body{
-    height:100vh;
+    height:fit-content;
     width:100vw;
 }
 body {
- background-color: $Primary;   
- scroll-behavior: smooth;
+    
+    background: linear-gradient(45deg, #1f1f2c 60%,#230d60);
+    background-size: cover; 
+    background-repeat: no-repeat;
+    scroll-behavior: smooth;
 }
 .App {
     position:relative;
@@ -56,6 +59,10 @@ body {
 .bottom {
     top: 70%;
     left: -66px;
+}
+.show_element {
+    opacity: 1 !important;
+    transition: opacity 0.4s ease !important;
 }
 #Home section {
     @include flex();
@@ -96,6 +103,12 @@ body {
     }
 }
 #About {
+    .About_wrapper{
+        @include flex();
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+    
     .Paragraphs {
         width: 90%;
         @include flex(column, center ,flex-start);
@@ -113,8 +126,17 @@ body {
     .Connections,.connection {
         @include flex(column, center , center);
     }
-    
-    
+    .underline {
+        width: 0 !important ; 
+        transition: width 0.5s ease 0.1s;
+    }
+    .expand_underline {
+        width: 100% !important;
+        transition: width 0.5s ease 0.1s;
+    }
+    p {
+        opacity: 0;
+    }
     .Connections{
         a {
             text-decoration: none;
@@ -131,6 +153,7 @@ body {
         }
        
     }
+    
 }
 .Move_Home {
     transform:translateX(-137px)

@@ -8,12 +8,15 @@
 }
 
 html, body {
-  height: 100vh;
+  height: -moz-fit-content;
+  height: fit-content;
   width: 100vw;
 }
 
 body {
-  background-color: #1f1f2c;
+  background: linear-gradient(45deg, #1f1f2c 60%, #230d60);
+  background-size: cover;
+  background-repeat: no-repeat;
   scroll-behavior: smooth;
 }
 
@@ -52,6 +55,11 @@ body {
 .bottom {
   top: 70%;
   left: -66px;
+}
+
+.show_element {
+  opacity: 1 !important;
+  transition: opacity 0.4s ease !important;
 }
 
 #Home section {
@@ -99,6 +107,14 @@ body {
   background: linear-gradient(to right, #FE95B6, #812AD8);
 }
 
+#About .About_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
 #About .Paragraphs {
   width: 90%;
   display: flex;
@@ -122,6 +138,17 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+#Contact .underline {
+  width: 0 !important;
+  transition: width 0.5s ease 0.1s;
+}
+#Contact .expand_underline {
+  width: 100% !important;
+  transition: width 0.5s ease 0.1s;
+}
+#Contact p {
+  opacity: 0;
 }
 #Contact .Connections a {
   text-decoration: none;
