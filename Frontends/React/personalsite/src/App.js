@@ -48,7 +48,7 @@ function App() {
   }
   window.onscroll = (e) => {
 
-    if(pathname == "/") {
+    if(pathname == "/" || pathname == "/About" || pathname == "/Contact") {
         let HomeY = document.querySelector("#Landing").getBoundingClientRect().y
         let AboutY = document.querySelector("#About").getBoundingClientRect().y
         let ContactY = document.querySelector("#Contact").getBoundingClientRect().y
@@ -59,7 +59,7 @@ function App() {
         let Home = document.querySelector(".Home-link").classList
         let About = document.querySelector(".About-link").classList
         let Contact = document.querySelector(".Contact-link").classList
-        // console.log(window.scrollY, HomeY, AboutY, ContactY)
+  
         if(HomeY <= 0 && HomeY > -500) {
             Home.add("active")
         } else {
@@ -83,14 +83,29 @@ function App() {
             ContactElement.childNodes[0].classList.add("show_element")
             ContactElement.childNodes[0].classList.add("animate__bounceIn")
             ContactElement.childNodes[1].classList.add("expand_underline")
-            exLinks.forEach(link => {
-              link.classList.add("animate__fadeInLeft")
-              link.classList.add("show_element")
+            exLinks.forEach((link,index) => {
+              link.classList.add("animate__zoomInLeft")
+
+              if(index >= 1) {
+                console.log("link", link)
+                  link.classList.add(`show_element--delay_${index}`)
+                  
+                } else {
+                  link.classList.add(`show_element`)
+
+              }
             })
           }  else {
-            exLinks.forEach(link => {
-              link.classList.remove("animate__fadeInLeft")
-              link.classList.remove("show_element")
+            exLinks.forEach((link, index) => {
+                link.classList.remove("animate__zoomInLeft")
+                link.classList.remove("show_element")
+                if(index >= 1) {
+                  link.classList.remove(`show_element--delay_${index}`)
+                  
+                } else {
+                  link.classList.remove(`show_element`)
+
+              }
             })
             ContactElement.childNodes[0].classList.remove("show_element")
             ContactElement.childNodes[0].classList.remove("animate__bounceIn")
@@ -109,13 +124,37 @@ function App() {
         // //TODO:: animation
         // topSq.style.transform = `translateY(${scroll}px) scale(3.5) rotate(${((CURRENT_DEGREE_TOP ) + (scroll / 100))}deg) ` 
         // bottomSq.style.transform = `translateY(${CURRENT_LOC - scroll}px) scale(3.5) rotate(${((CURRENT_DEGREE_BOTTOM ) + (scroll / 100))}deg) ` 
+    } else if(pathname == "/Work") {
+      console.log(window.scrollY)
+      var Projects = document.querySelectorAll('.Project')
+      if(window.scrollY >= 100) {
+        console.log("up")
+        if(Projects.length  > 0) {
+          Projects.forEach(project => {
+            project.classList.remove("animate__zoomOut")
+            project.classList.add("animate__zoomIn")
+            // project.classList.add("show_project")
+          })
+
+        }
+        }else {
+          console.log("down")
+          if(Projects.length  > 0) {
+            Projects.forEach(project => {
+              project.classList.remove("animate__zoomIn")
+              project.classList.add("animate__zoomOut")
+            })
+  
+          }
+  
+        }
+
+      } 
     }
-    
-}
+
   useEffect(() => {
     handleOpenTab()
     setWindowSize(window.innerWidth)
-    console.log(windowSize)
   }) 
   return (
     <div className="App">
@@ -124,6 +163,8 @@ function App() {
       <Nav AboutRef={aboutRef} HomeRef={homeRef} ContactRef={contactRef} setTab={setTabOpen} isTabOpen={isTabOpen} />
       <Routes>
         <Route path="/" element={<Home scrollYProgress={scrollYProgress} refFromChild={handleRef} />} />
+        <Route path="/About" element={<Home scrollYProgress={scrollYProgress} refFromChild={handleRef} />} />
+        <Route path="/Contact" element={<Home scrollYProgress={scrollYProgress} refFromChild={handleRef} />} />
         <Route path="/Work" element={<Work/>} />
       </Routes>
       <div id="socials">

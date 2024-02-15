@@ -1,8 +1,24 @@
 import { Project } from "../Components/Project";
+import { ProjectList } from "../Components/ProjectList";
 import { InConstructionState } from "../Components/inConstructionState";
 import '../SCSS/work.css'
 import sample from '../assets/Img/Sample.png'
+import 'animate.css';
 export function Work() {
+    let list = [
+        {
+            img: sample, 
+            Name: "Project",
+            Overview: "Test tetst teseffeiafjdkaofjewaklfjeoifjkdljfaeso;f",
+            url:""
+        },
+        {
+            img: sample, 
+            Name: "Project",
+            Overview: "Test tetst teseffeiafjdkaofjewaklfjeoifjkdljfaeso;f",
+            url:""
+        }
+    ]
     return(
         <section id="Work">
             <section id="Work_landing">
@@ -11,7 +27,7 @@ export function Work() {
                     <p>Collections of all my hard works</p>
                 </div>
             </section>
-            <InConstructionState/>
+            <ProjectList  lists={list}/>
         </section>
     )
 }

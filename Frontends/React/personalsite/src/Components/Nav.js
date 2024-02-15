@@ -29,7 +29,6 @@ export function Nav({HomeRef, AboutRef,ContactRef, setTab, isTabOpen}) {
         }
     }
     useEffect(() => {
-        console.log("isClosed" , isClosed)
         // handleMenu()
     })
     return(

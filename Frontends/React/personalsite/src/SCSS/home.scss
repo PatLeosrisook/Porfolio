@@ -63,7 +63,19 @@ body {
 .show_element {
     opacity: 1 !important;
     transition: opacity 0.4s ease !important;
+   
+   
 }
+.show_element--delay_1 {
+    opacity: 1 !important;
+    transition: opacity 0.4s ease 10s !important;
+}
+.show_element--delay_2 {
+    opacity: 1 !important;
+    transition: opacity 0.4s ease!important;
+    transition-delay: 10s !important;
+}
+
 #Home section {
     @include flex();
     height:100vh;
@@ -145,6 +157,7 @@ body {
             color: $Primary-tint;
             transition: text-shadow ease-out 1s, color ease-out 1s;
             cursor: pointer;
+            opacity: 0;
             &:hover {
                 color:$Accent; 
                 text-shadow: $Accent 0px 4px 12px;

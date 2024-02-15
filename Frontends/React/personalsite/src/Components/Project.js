@@ -1,6 +1,7 @@
-export function Project({img, Name, Overview, Url}) {
+import 'animate.css';
+export function Project({img, Name, Overview, Url, animation_delay}) {
     return (
-        <article className="Project">
+        <article className={`Project animate__animated animate__zoomOut `}>
             <div className="image_wrap">
                 <img src={img} alt=""/>
                 <div className="Content">

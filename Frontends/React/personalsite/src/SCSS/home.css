@@ -62,6 +62,17 @@ body {
   transition: opacity 0.4s ease !important;
 }
 
+.show_element--delay_1 {
+  opacity: 1 !important;
+  transition: opacity 0.4s ease 10s !important;
+}
+
+.show_element--delay_2 {
+  opacity: 1 !important;
+  transition: opacity 0.4s ease !important;
+  transition-delay: 10s !important;
+}
+
 #Home section {
   display: flex;
   flex-direction: column;
@@ -157,6 +168,7 @@ body {
   color: #36384c;
   transition: text-shadow ease-out 1s, color ease-out 1s;
   cursor: pointer;
+  opacity: 0;
 }
 #Contact .Connections a:hover {
   color: #FE95B6;
