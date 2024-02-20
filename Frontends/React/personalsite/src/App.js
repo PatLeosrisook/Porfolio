@@ -113,17 +113,6 @@ function App() {
             Contact.remove("active")
             
         }
-
-        // let topSq = document.querySelector('.top')   
-        // let bottomSq = document.querySelector('.bottom')  
-        // const CURRENT_DEGREE_TOP = 45
-        // const CURRENT_DEGREE_BOTTOM = 45
-        // const CURRENT_LOC = bottomSq.getBoundingClientRect().y
-        // let scroll = window.scrollY
-        // console.log(scroll, CURRENT_LOC, CURRENT_LOC - scroll)
-        // //TODO:: animation
-        // topSq.style.transform = `translateY(${scroll}px) scale(3.5) rotate(${((CURRENT_DEGREE_TOP ) + (scroll / 100))}deg) ` 
-        // bottomSq.style.transform = `translateY(${CURRENT_LOC - scroll}px) scale(3.5) rotate(${((CURRENT_DEGREE_BOTTOM ) + (scroll / 100))}deg) ` 
     } else if(pathname == "/Work") {
       console.log(window.scrollY)
       var Projects = document.querySelectorAll('.Project')

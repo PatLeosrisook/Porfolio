@@ -5,16 +5,17 @@
     justify-content: $justify;
     align-items: $align;
 }
-$Primary:#1f1f2c;
+$White: #F2F2F2;
+$Primary:#2A2A2A;
 $Primary-tint:#36384c;
-$Accent :#FE95B6;
-$Accent-2:#812AD8;
+$Accent :#FFDF6E;
+$Accent-2:#FF79C1;
 *{
     padding:0;
     margin:0;
     font-family: Montserrat;
     box-sizing: border-box;
-    color:white;
+    color:$Primary;
 }
 html, body{
     height:fit-content;
@@ -22,9 +23,7 @@ html, body{
 }
 body {
     
-    background: linear-gradient(45deg, #1f1f2c 60%,#230d60);
-    background-size: cover; 
-    background-repeat: no-repeat;
+   background-color: $White;
     scroll-behavior: smooth;
 }
 .App {
@@ -46,11 +45,13 @@ body {
 .bg-element {
     position: absolute;
     
-    transform: scale(1.5) rotate(45deg);
+    transform: scale(2.1);
     background: linear-gradient(45deg, $Accent, $Accent-2);
     height:130px;
     width:130px;
+    border-radius: 100%;
     z-index: -1;
+    filter: blur(15px);
 }
 .top {
     top: 473px;
@@ -58,7 +59,7 @@ body {
 }
 .bottom {
     top: 70%;
-    left: -66px;
+    left: -119px;
 }
 .show_element {
     opacity: 1 !important;
@@ -87,13 +88,14 @@ body {
    p{
     font-size:1rem;
     margin:0;
+    color: $Primary;
    } 
    .Job_text{
     font-size:3rem;
     margin:0;
     font-weight: 900;
     line-height: 40px;
-    text-shadow: 0px 3px 0px $Accent-2;
+    color: $Primary;
    }
    #HeadLine,#Job_title {
     @include flex(column , center, flex-start)
