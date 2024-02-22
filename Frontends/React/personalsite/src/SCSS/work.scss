@@ -1,4 +1,5 @@
 @use "home";
+@import "home";
 #Work {
     padding-bottom: 80px;
 }
@@ -18,6 +19,9 @@
     h1 {
         font-size:5rem;
     }
+    p {
+        font-weight: 500;
+    }
 }
 #Works {
     height: fit-content;
@@ -31,6 +35,10 @@
             text-align: left;
             font-size: 0.9rem;
             word-break: break-all;
+            h3, p {
+                color: $White !important;
+
+            }
         }
         .image_wrap {
             .Content {
@@ -66,6 +74,7 @@
     #Works {
         .Project {
             .Content {
+                
                 display: none;
                 font-size:2rem;
             }
@@ -81,6 +90,7 @@
                     top:50%;
                     z-index: 2;
                     opacity: 0;
+                    
                     transition: opacity ease 0.3s;
                 }
                 &::after {
@@ -96,13 +106,12 @@
                     transition: opacity ease 0.3s;
                 };
                 &:hover{
-                        .Content {
-                            opacity: 1;
-                            transition: opacity ease 0.3s;
-                        }
+                    .Content {
+                        opacity: 1;
+                        transition: opacity ease 0.3s;
+                    }
                     
-                    &::after {
-                        
+                    &::after { 
                         opacity: 1;
                         transition: opacity ease 0.3s;
                     }

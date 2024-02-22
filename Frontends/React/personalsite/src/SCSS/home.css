@@ -39,7 +39,7 @@ body {
 .bg-element {
   position: absolute;
   transform: scale(2.1);
-  background: linear-gradient(45deg, #FFDF6E, #FF79C1);
+  background: linear-gradient(45deg, #ffbb6e, #FF79C1);
   height: 130px;
   width: 130px;
   border-radius: 100%;
@@ -59,7 +59,7 @@ body {
 
 .show_element {
   opacity: 1 !important;
-  transition: opacity 0.4s ease !important;
+  transition: opacity ease 0.7s !important;
 }
 
 .show_element--delay_1 {
@@ -116,7 +116,7 @@ body {
   height: 15px;
   top: 30px;
   z-index: -1;
-  background: linear-gradient(to right, #FFDF6E, #FF79C1);
+  background: linear-gradient(to right, #ffbb6e, #FF79C1);
 }
 
 #About .About_wrapper {
@@ -166,15 +166,15 @@ body {
   text-decoration: none;
   font-size: 3rem;
   font-weight: 700;
-  color: #36384c;
-  transition: text-shadow ease-out 1s, color ease-out 1s;
+  color: #d1d1d1;
+  transition: text-shadow ease-out 1s, color ease-out 0.4s !important;
   cursor: pointer;
   opacity: 0;
 }
 #Contact .Connections a:hover {
-  color: #FFDF6E;
-  text-shadow: #FFDF6E 0px 4px 12px;
-  transition: text-shadow ease-out 1s, color ease-out 1s;
+  color: #ffbb6e;
+  text-shadow: #ffbb6e 0px 4px 12px;
+  transition: text-shadow ease-out 1s, color ease-out 0.4s !important;
 }
 
 .Move_Home {
@@ -212,11 +212,12 @@ body {
 }
 .Links a {
   text-decoration: none;
-  color: white;
+  color: #F2F2F2;
+  font-weight: 500;
   font-size: 1.5rem;
 }
 .Links .active {
-  color: #FFDF6E;
+  color: #ffbb6e;
   font-weight: 600;
 }
 
@@ -240,6 +241,9 @@ header #Desktop_Links {
 header #burger {
   background: transparent;
   border: none;
+}
+header #burger .burger, header #burger .burger::after, header #burger .burger::before {
+  background-color: #2A2A2A;
 }
 header #logo {
   width: 24px;
@@ -265,7 +269,7 @@ header nav {
 #socials #line {
   width: 100px;
   height: 1px;
-  background-color: #36384c;
+  background-color: #d1d1d1;
 }
 
 #Menu {
@@ -275,7 +279,7 @@ header nav {
   align-items: center;
   position: fixed;
   z-index: 3;
-  background-color: #FF79C1;
+  background-color: #2A2A2A;
   width: 34vw;
   height: 100vh;
   right: 0;
@@ -367,6 +371,7 @@ header nav {
   }
   header .Links a {
     font-size: 1.2rem;
+    color: #2A2A2A;
   }
   #Landing .Job_text {
     font-size: 8rem;

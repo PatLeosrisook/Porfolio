@@ -2,7 +2,6 @@ import '../SCSS/home.css'
 import { NavLink, useLocation } from "react-router-dom";
 import { useEffect, useState } from 'react';
 export function Links({HomeRef, AboutRef,ContactRef, handleOpenTab}) {
-    const {pathname} = useLocation()
     let handleClick = (name) => {
 
         try {  
@@ -27,10 +26,6 @@ export function Links({HomeRef, AboutRef,ContactRef, handleOpenTab}) {
             console.log("erro ", e.message)
         }
     }
-   
-    useEffect(() => {
-        
-    })
     return (
         <ul className="Links">
             <li><NavLink onClick={() => handleClick("homeRef")}  className="Home-link" to="/">Home</NavLink></li>

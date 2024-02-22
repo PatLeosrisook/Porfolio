@@ -84,28 +84,27 @@ function App() {
             ContactElement.childNodes[0].classList.add("animate__bounceIn")
             ContactElement.childNodes[1].classList.add("expand_underline")
             exLinks.forEach((link,index) => {
-              link.classList.add("animate__zoomInLeft")
+              link.classList.add("animate__fadeInLeft")
 
               if(index >= 1) {
-                console.log("link", link)
                   link.classList.add(`show_element--delay_${index}`)
                   
                 } else {
-                  link.classList.add(`show_element`)
-
-              }
+                  
+                }
+                link.classList.add(`show_element`)
             })
           }  else {
             exLinks.forEach((link, index) => {
-                link.classList.remove("animate__zoomInLeft")
+                link.classList.remove("animate__fadeInLeft")
                 link.classList.remove("show_element")
                 if(index >= 1) {
                   link.classList.remove(`show_element--delay_${index}`)
                   
                 } else {
-                  link.classList.remove(`show_element`)
-
-              }
+                  
+                }
+                link.classList.remove(`show_element`)
             })
             ContactElement.childNodes[0].classList.remove("show_element")
             ContactElement.childNodes[0].classList.remove("animate__bounceIn")

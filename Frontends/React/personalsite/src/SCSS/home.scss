@@ -7,8 +7,8 @@
 }
 $White: #F2F2F2;
 $Primary:#2A2A2A;
-$Primary-tint:#36384c;
-$Accent :#FFDF6E;
+$Primary-tint:#d1d1d1;
+$Accent :#ffbb6e;
 $Accent-2:#FF79C1;
 *{
     padding:0;
@@ -63,7 +63,7 @@ body {
 }
 .show_element {
     opacity: 1 !important;
-    transition: opacity 0.4s ease !important;
+    transition: opacity ease 0.7s!important;
    
    
 }
@@ -157,13 +157,13 @@ body {
             font-size:3rem;
             font-weight: 700;
             color: $Primary-tint;
-            transition: text-shadow ease-out 1s, color ease-out 1s;
+            transition: text-shadow ease-out 1s, color ease-out 0.4s !important;
             cursor: pointer;
             opacity: 0;
             &:hover {
                 color:$Accent; 
                 text-shadow: $Accent 0px 4px 12px;
-                transition: text-shadow ease-out 1s, color ease-out 1s;
+                transition: text-shadow ease-out 1s, color ease-out 0.4s !important;
             }
         }
        
@@ -196,7 +196,8 @@ body {
     }
     a {
         text-decoration: none;
-        color: white;
+        color: $White;
+        font-weight: 500;
         font-size: 1.5rem;
     }
     .active {
@@ -220,6 +221,9 @@ header {
     #burger {
         background: transparent;
         border: none;
+        .burger , .burger::after, .burger::before{
+            background-color: $Primary;
+        }
     }
     #logo {
         width:24px;
@@ -249,7 +253,7 @@ header {
     @include flex();
     position: fixed;
     z-index: 3;
-    background-color: $Accent-2;
+    background-color: $Primary;
     width:34vw; 
     height:100vh;
     right: 0;;
@@ -349,6 +353,7 @@ header {
             gap:19px;
             a {
                 font-size: 1.2rem;
+                color:$Primary
             }
         }
     }

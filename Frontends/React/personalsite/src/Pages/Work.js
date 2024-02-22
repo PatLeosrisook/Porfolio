@@ -1,6 +1,7 @@
 import { Project } from "../Components/Project";
 import { ProjectList } from "../Components/ProjectList";
 import { InConstructionState } from "../Components/inConstructionState";
+import {Blob} from '../Components/BackgroundBlob'
 import '../SCSS/work.css'
 import sample from '../assets/Img/Sample.png'
 import 'animate.css';
@@ -21,6 +22,7 @@ export function Work() {
     ]
     return(
         <section id="Work">
+            <Blob/>
             <section id="Work_landing">
                 <div id="Work_wrap">
                     <h1>Works</h1>
