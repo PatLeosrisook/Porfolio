@@ -1,0 +1,115 @@
+@use "home";
+#Work {
+    padding-bottom: 80px;
+}
+// :root {
+//     --animate-delay: 0.5s;
+//   }
+ #Work_landing,#Works  {
+    @include home.flex();
+    height: 100vh;
+    width: 100vw;
+}
+.show_project {
+    opacity: 1;
+    transition: opacity ease 0.3s;
+}
+#Work_landing {
+    h1 {
+        font-size:5rem;
+    }
+}
+#Works {
+    height: fit-content;
+    gap:45px;
+    .Project {
+        width: 80%;
+        img {
+            width:100%;
+        }
+        .Content {
+            text-align: left;
+            font-size: 0.9rem;
+            word-break: break-all;
+        }
+        .image_wrap {
+            .Content {
+                display: none;;
+            }
+        }
+    }
+}
+#under_construction {
+    @include home.flex();
+    width:100vw;
+    height: 100vh;
+    .wrapper {
+        
+        height:50%;
+    }
+    
+}
+@media(min-width:768px) {
+    #Work_landing {
+        h1 {
+            font-size: 8rem;;
+        }
+    }
+    #Works {
+        flex-direction: row ;
+        .Project {
+            width: 40%;
+        }
+    }
+}
+@media(min-width: 1280px) {
+    #Works {
+        .Project {
+            .Content {
+                display: none;
+                font-size:2rem;
+            }
+            .image_wrap {
+                @include home.flex();
+                position: relative;
+                width:100%;
+                height:100%;
+                .Content {
+                    @include home.flex();
+                    display: flex  !important;
+                    position: absolute;
+                    top:50%;
+                    z-index: 2;
+                    opacity: 0;
+                    transition: opacity ease 0.3s;
+                }
+                &::after {
+                    content:"";
+                    position:absolute;
+                    left:0;
+                    top:0;
+                    width:100%;
+                    height: 100%;
+                    z-index: 1;
+                    background-color: rgb(12 12 12 / 77%);;
+                    opacity: 0;
+                    transition: opacity ease 0.3s;
+                };
+                &:hover{
+                        .Content {
+                            opacity: 1;
+                            transition: opacity ease 0.3s;
+                        }
+                    
+                    &::after {
+                        
+                        opacity: 1;
+                        transition: opacity ease 0.3s;
+                    }
+                }
+            }
+            
+        }
+    }
+    
+}

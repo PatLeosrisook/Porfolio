@@ -395,4 +395,116 @@ header nav {
     top: 789px;
     right: -67px;
   }
-}/*# sourceMappingURL=home.css.map */
+}
+#Work {
+  padding-bottom: 80px;
+}
+
+#Work_landing, #Works {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.show_project {
+  opacity: 1;
+  transition: opacity ease 0.3s;
+}
+
+#Work_landing h1 {
+  font-size: 5rem;
+}
+
+#Works {
+  height: -moz-fit-content;
+  height: fit-content;
+  gap: 45px;
+}
+#Works .Project {
+  width: 80%;
+}
+#Works .Project img {
+  width: 100%;
+}
+#Works .Project .Content {
+  text-align: left;
+  font-size: 0.9rem;
+  word-break: break-all;
+}
+#Works .Project .image_wrap .Content {
+  display: none;
+}
+
+#under_construction {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+#under_construction .wrapper {
+  height: 50%;
+}
+
+@media (min-width: 768px) {
+  #Work_landing h1 {
+    font-size: 8rem;
+  }
+  #Works {
+    flex-direction: row;
+  }
+  #Works .Project {
+    width: 40%;
+  }
+}
+@media (min-width: 1280px) {
+  #Works .Project .Content {
+    display: none;
+    font-size: 2rem;
+  }
+  #Works .Project .image_wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  #Works .Project .image_wrap .Content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex !important;
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity ease 0.3s;
+  }
+  #Works .Project .image_wrap::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(12, 12, 12, 0.77);
+    opacity: 0;
+    transition: opacity ease 0.3s;
+  }
+  #Works .Project .image_wrap:hover .Content {
+    opacity: 1;
+    transition: opacity ease 0.3s;
+  }
+  #Works .Project .image_wrap:hover::after {
+    opacity: 1;
+    transition: opacity ease 0.3s;
+  }
+}/*# sourceMappingURL=work.css.map */

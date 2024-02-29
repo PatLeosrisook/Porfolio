@@ -5,8 +5,8 @@
     justify-content: $justify;
     align-items: $align;
 }
-$Primary:#2A2A2A;
-$Primary-tint:#686868;
+$Primary:#1f1f2c;
+$Primary-tint:#36384c;
 $Accent :#FE95B6;
 $Accent-2:#812AD8;
 *{
@@ -17,11 +17,63 @@ $Accent-2:#812AD8;
     color:white;
 }
 html, body{
-    height:100vh;
+    height:fit-content;
     width:100vw;
 }
 body {
- background-color: $Primary;   
+    
+    background: linear-gradient(45deg, #1f1f2c 60%,#230d60);
+    background-size: cover; 
+    background-repeat: no-repeat;
+    scroll-behavior: smooth;
+}
+.App {
+    position:relative;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+.moveMenu {
+    transform:translateX(0px) !important;
+    border-top-left-radius:0px  !important;
+    border-bottom-left-radius:0px  !important;
+    transition: transform cubic-bezier(.73,0,0,1.03) 0.3s, border-top-left-radius 0.2s ease 0.1s , border-bottom-left-radius 0.2s ease 0.1s !important;
+}
+.moveHeader {
+    transform: translateX(-160px) !important;
+    transition: transform ease 0.3s;
+}
+.bg-element {
+    position: absolute;
+    
+    transform: scale(1.5) rotate(45deg);
+    background: linear-gradient(45deg, $Accent, $Accent-2);
+    height:130px;
+    width:130px;
+    z-index: -1;
+}
+.top {
+    top: 473px;
+    right: -70px;
+}
+.bottom {
+    top: 70%;
+    left: -66px;
+}
+.show_element {
+    opacity: 1 !important;
+    transition: opacity 0.4s ease !important;
+   
+   
+}
+.show_element--delay_1 {
+    opacity: 1 !important;
+    transition: opacity 0.4s ease 10s !important;
+}
+.show_element--delay_2 {
+    opacity: 1 !important;
+    transition: opacity 0.4s ease!important;
+    transition-delay: 10s !important;
 }
 
 #Home section {
@@ -63,6 +115,12 @@ body {
     }
 }
 #About {
+    .About_wrapper{
+        @include flex();
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+    
     .Paragraphs {
         width: 90%;
         @include flex(column, center ,flex-start);
@@ -80,15 +138,17 @@ body {
     .Connections,.connection {
         @include flex(column, center , center);
     }
-    @keyframes gradiemt {
-        0% {
-            background-position-x: -200px ;
-        }
-        100% {
-            background-position: 0;
-        }
+    .underline {
+        width: 0 !important ; 
+        transition: width 0.5s ease 0.1s;
     }
-    
+    .expand_underline {
+        width: 100% !important;
+        transition: width 0.5s ease 0.1s;
+    }
+    p {
+        opacity: 0;
+    }
     .Connections{
         a {
             text-decoration: none;
@@ -97,6 +157,7 @@ body {
             color: $Primary-tint;
             transition: text-shadow ease-out 1s, color ease-out 1s;
             cursor: pointer;
+            opacity: 0;
             &:hover {
                 color:$Accent; 
                 text-shadow: $Accent 0px 4px 12px;
@@ -105,6 +166,7 @@ body {
         }
        
     }
+    
 }
 .Move_Home {
     transform:translateX(-137px)
@@ -144,10 +206,11 @@ header {
     @include flex(row, space-between,center);
     width:100vw;
     height:10vh;
-    position:absolute;
+    position:fixed;
     top:0;
     z-index: 200;
-    
+    transform: translateX(0px);
+    transition: transform ease 0.3s;
     #Desktop_Links {
         display:none; 
     }
@@ -170,14 +233,28 @@ header {
     @include flex(row, center, center);
     width: fit-content;
     gap:10px;
-    position: relative;
-    top: 30%;
+    position: fixed;
+    top: 90%;
+    left: 25vw;
     #line {
         width: 100px;
 
         height:1px;
         background-color: $Primary-tint;
     }
+}
+#Menu {
+    @include flex();
+    position: fixed;
+    z-index: 3;
+    background-color: $Accent-2;
+    width:34vw; 
+    height:100vh;
+    right: 0;;
+    transform: translateX(182px);
+    border-top-left-radius:100%;
+    border-bottom-left-radius:100%;
+    transition: transform cubic-bezier(.73,0,0,1.03) 0.3s, border-top-left-radius 0.2s ease 0.1s , border-bottom-left-radius 0.2s ease 0.1s !important;
 }
 @media(min-width: 375px) {
    #Landing {
@@ -200,21 +277,40 @@ header {
     
 }
 @media(min-width: 768px) {
-   #Landing {
-    flex-direction: row !important;
-    #HeadLine {
-        order:2;
+    .bg-element {
+        transform: scale(2) rotate(45deg) ;  
+
+    }
+    .bottom {
+        top: 78%;
+    }
+    .top {
+        top: 831px;
+        right: -71px;
+    }
+    #Menu {
+        width:20vw;
     }
     #socials{
-        top: 0;
-        // left: -20%;
+        top: 42vh;
+        left: 10vw;
         flex-direction: column;
         order:1;
+        svg {
+            height: 1.7rem;
+        }
         #line {
             height:100px;
             width:1px;
         }
     }
+   #Landing {
+       flex-direction: row !important;
+        gap:60px;   
+    #HeadLine {
+        order:2;
+    }
+    
     .Job_text {
         font-size:6rem;
         line-height: 84px;
@@ -225,6 +321,7 @@ header {
         width: 80%;
         font-size:1.2rem;
         line-height: 32px;;
+        max-width: 700px;
     }
    }
    #Contact {
@@ -232,4 +329,60 @@ header {
         flex-direction: row;
     }
    }
+}
+@media(min-width:1024px) {
+    #Menu {
+        display: none;
+    }
+    header  {
+
+        #burger {
+            display: none !important;
+        }
+        #Desktop_Links {
+            display: block;
+        }
+        .Links {
+            @include flex(row, center ,center);
+            gap:19px;
+            a {
+                font-size: 1.2rem;
+            }
+        }
+    }
+    #Landing {
+        .Job_text {
+            font-size: 8rem;
+            line-height: 104px;
+        }
+        #socials {
+            #line {
+                height: 193px;
+            }
+            svg {
+                height:1.5rem;
+            }
+        }
+    }
+}
+@media(min-width:1440px) {
+    .Section_title {
+        p {
+
+            font-size: 3rem;
+        }
+        .underline{
+            top: 40px;
+        }
+    }
+    .bg-element {
+        transform: scale(3.5) rotate(45deg);
+    }
+    .bottom{
+        left: -69px;
+    }
+    .top {
+        top: 789px;
+        right: -67px;
+    }
 }

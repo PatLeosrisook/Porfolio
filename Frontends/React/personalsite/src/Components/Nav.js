@@ -2,26 +2,17 @@ import { useEffect, useState } from 'react';
 import Logo from '../assets/Logo.svg'
 import { BurgerClose } from "react-burger-icons";
 import { Links } from './Links';
-export function Nav() {
+import '../SCSS/home.css'
+export function Nav({HomeRef, AboutRef,ContactRef, setTab, isTabOpen}) {
     const [menuSize, setMenuSize] = useState(24)
     const [isWindowResized, setIsWindowResized] = useState(false)
     const [isClosed, setIsClosed] = useState(false)
     window.onresize = () => {
         setIsWindowResized(true)
     }
-    useEffect(() => {
-        let currentWidth = window.innerWidth
-        if(currentWidth < 700) {
-            setMenuSize(30)
-        } else if(currentWidth>= 700 && currentWidth < 1024) {
-            setMenuSize(40)
-        } else {
-            setMenuSize(50)
-        }
-        setIsWindowResized(false)
-    },[isWindowResized])
+  
     let handleClose = () => {
-        setIsClosed(!isClosed)
+        setTab(!isTabOpen)
 
     }
     let handleMenu = () => {
@@ -38,8 +29,7 @@ export function Nav() {
         }
     }
     useEffect(() => {
-        console.log("isClosed" , isClosed)
-        handleMenu()
+        // handleMenu()
     })
     return(
         <header onClick={() => console.log("header")}>
@@ -53,11 +43,11 @@ export function Nav() {
                 placeItems: "center",
             }}
             >
-            <BurgerClose isClosed={isClosed} />
+            <BurgerClose isClosed={isTabOpen} />
             </button>
             
             <nav id="Desktop_Links">
-                <Links/>
+                <Links HomeRef={HomeRef} AboutRef={AboutRef} ContactRef={ContactRef}/>
             </nav>
         </header>
     )
