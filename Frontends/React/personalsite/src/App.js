@@ -47,19 +47,19 @@ function App() {
     
   }
   window.onscroll = (e) => {
-
     if(pathname == "/" || pathname == "/About" || pathname == "/Contact") {
-        let HomeY = document.querySelector("#Landing").getBoundingClientRect().y
-        let AboutY = document.querySelector("#About").getBoundingClientRect().y
-        let ContactY = document.querySelector("#Contact").getBoundingClientRect().y
-        let HomeElement = document.querySelector("#Landing")
-        let AboutElement = document.querySelector(".About_wrapper")
-        let ContactElement = document.querySelector("#Contact .Section_title")
-        let exLinks = document.querySelectorAll(".external_links")
-        let Home = document.querySelector(".Home-link").classList
-        let About = document.querySelector(".About-link").classList
-        let Contact = document.querySelector(".Contact-link").classList
-  
+      let HomeY = document.querySelector("#Landing").getBoundingClientRect().y
+      let AboutY = document.querySelector("#About").getBoundingClientRect().y
+      let ContactY = document.querySelector("#Contact").getBoundingClientRect().y
+      let HomeElement = document.querySelector("#Landing")
+      let AboutElement = document.querySelector(".About_wrapper")
+      let ContactElement = document.querySelector("#Contact .Section_title")
+      let exLinks = document.querySelectorAll(".external_links")
+      let Home = document.querySelector(".Home-link").classList
+      let About = document.querySelector(".About-link").classList
+      let Contact = document.querySelector(".Contact-link").classList
+      console.log(window.scrollY, ContactY)
+        
         if(HomeY <= 0 && HomeY > -500) {
             Home.add("active")
         } else {
@@ -78,7 +78,7 @@ function App() {
             // AboutElement.classList.add("animate__slideOutDown")
             
         }
-        if(ContactY < 500 && ContactY >= 0) {
+        if(ContactY < 500 && ContactY >= -20) {
             Contact.add("active")
             ContactElement.childNodes[0].classList.add("show_element")
             ContactElement.childNodes[0].classList.add("animate__bounceIn")

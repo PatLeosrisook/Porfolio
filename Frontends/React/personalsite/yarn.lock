@@ -1733,10 +1733,10 @@
     "@react-spring/shared" "~9.7.3"
     "@react-spring/types" "~9.7.3"
 
-"@remix-run/router@1.14.2":
-  "integrity" "sha512-ACXpdMM9hmKZww21yEqWwiLws/UPLhNKvimN8RrYSqPSvB3ov7sLvAcfvaxePeLvccTQKGdkDIhLYApZVDFuKg=="
-  "resolved" "https://registry.npmjs.org/@remix-run/router/-/router-1.14.2.tgz"
-  "version" "1.14.2"
+"@remix-run/router@1.15.2":
+  "integrity" "sha512-+Rnav+CaoTE5QJc4Jcwh5toUpnVLKYbpU6Ys0zqbakqbaLQHeglLVHPfxOiQqdNmUy5C2lXz5dwC6tQNX2JW2Q=="
+  "resolved" "https://registry.npmjs.org/@remix-run/router/-/router-1.15.2.tgz"
+  "version" "1.15.2"
 
 "@rollup/plugin-babel@^5.2.0":
   "integrity" "sha512-WFfdLWU/xVWKeRQnKmIAQULUI7Il0gZnBIH/ZFO069wYIfPu+8zrfp/KMW0atmELoRDq8FbiP3VCss9MhCut7Q=="
@@ -8044,20 +8044,20 @@
   "resolved" "https://registry.npmjs.org/react-refresh/-/react-refresh-0.11.0.tgz"
   "version" "0.11.0"
 
-"react-router-dom@^6.21.2":
-  "integrity" "sha512-tE13UukgUOh2/sqYr6jPzZTzmzc70aGRP4pAjG2if0IP3aUT+sBtAKUJh0qMh0zylJHGLmzS+XWVaON4UklHeg=="
-  "resolved" "https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.21.2.tgz"
-  "version" "6.21.2"
+"react-router-dom@^6.22.2":
+  "integrity" "sha512-WgqxD2qySEIBPZ3w0sHH+PUAiamDeszls9tzqMPBDA1YYVucTBXLU7+gtRfcSnhe92A3glPnvSxK2dhNoAVOIQ=="
+  "resolved" "https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.22.2.tgz"
+  "version" "6.22.2"
   dependencies:
-    "@remix-run/router" "1.14.2"
-    "react-router" "6.21.2"
+    "@remix-run/router" "1.15.2"
+    "react-router" "6.22.2"
 
-"react-router@6.21.2":
-  "integrity" "sha512-jJcgiwDsnaHIeC+IN7atO0XiSRCrOsQAHHbChtJxmgqG2IaYQXSnhqGb5vk2CU/wBQA12Zt+TkbuJjIn65gzbA=="
-  "resolved" "https://registry.npmjs.org/react-router/-/react-router-6.21.2.tgz"
-  "version" "6.21.2"
+"react-router@6.22.2":
+  "integrity" "sha512-YD3Dzprzpcq+tBMHBS822tCjnWD3iIZbTeSXMY9LPSG541EfoBGyZ3bS25KEnaZjLcmQpw2AVLkFyfgXY8uvcw=="
+  "resolved" "https://registry.npmjs.org/react-router/-/react-router-6.22.2.tgz"
+  "version" "6.22.2"
   dependencies:
-    "@remix-run/router" "1.14.2"
+    "@remix-run/router" "1.15.2"
 
 "react-scripts@5.0.1":
   "integrity" "sha512-8VAmEm/ZAwQzJ+GOMLbBsTdDKOpuZh7RPs0UymvBR2vRk4iZWCskjbFnxqjrzoIvlNNRZ3QJFx6/qDSi6zSnaQ=="

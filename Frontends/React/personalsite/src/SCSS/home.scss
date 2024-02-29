@@ -30,6 +30,7 @@ body {
     position:relative;
     scroll-behavior: smooth;
     overflow-x: hidden;
+  
 }
 
 .moveMenu {
@@ -76,13 +77,18 @@ body {
     transition: opacity 0.4s ease!important;
     transition-delay: 10s !important;
 }
-
+#Home {
+   
+}
 #Home section {
     @include flex();
     height:100vh;
     width:100%;
     scroll-snap-type: y mandatory;
     scroll-snap-align: start;
+    background-image: radial-gradient(rgba(0, 0, 0, 0) 2px, #f2f2f2 2px);
+    background-size: 20px 20px;
+    backdrop-filter: blur(20px);
 }
 #Landing {
    p{
