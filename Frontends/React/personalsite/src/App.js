@@ -30,15 +30,18 @@ function App() {
     let app = document.querySelector("#Home")
     let Menu = document.querySelector("#Menu")
     let Header = document.querySelector("header")
+    let burger = document.querySelector('.burger')
     if(Menu) {
 
       if(isTabOpen) {
           // app.classList.add("moveApp")
           Menu.classList.add("moveMenu")
-          Header.classList.add("moveHeader")
+          burger.classList.add ('invert')
+          // Header.classList.add("moveHeader")
         } else {
           Menu.classList.remove("moveMenu")
-          Header.classList.remove("moveHeader")
+          burger.classList.remove ('invert')
+          // Header.classList.remove("moveHeader")
   
       }
     }
@@ -146,7 +149,7 @@ function App() {
   }) 
   return (
     <div className="App">
-      {(windowSize < 1024) ? <Menu AboutRef={aboutRef} HomeRef={homeRef} ContactRef={contactRef}/>: "" } 
+      <Menu AboutRef={aboutRef} HomeRef={homeRef} ContactRef={contactRef} setTab={setTabOpen} isTabOpoen={isTabOpen}/>
       
       <Nav AboutRef={aboutRef} HomeRef={homeRef} ContactRef={contactRef} setTab={setTabOpen} isTabOpen={isTabOpen} />
       <Routes>
