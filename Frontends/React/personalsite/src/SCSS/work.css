@@ -81,6 +81,10 @@ body {
   width: 100%;
   scroll-snap-type: y mandatory;
   scroll-snap-align: start;
+  background-image: radial-gradient(rgba(0, 0, 0, 0) 2px, #f2f2f2 2px);
+  background-size: 20px 20px;
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
 }
 
 #Landing p {
@@ -471,6 +475,10 @@ body {
   width: 100%;
   scroll-snap-type: y mandatory;
   scroll-snap-align: start;
+  background-image: radial-gradient(rgba(0, 0, 0, 0) 2px, #f2f2f2 2px);
+  background-size: 20px 20px;
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
 }
 
 #Landing p {
@@ -828,7 +836,7 @@ header nav {
   word-break: break-all;
 }
 #Works .Project .Content h3, #Works .Project .Content p {
-  color: #F2F2F2 !important;
+  color: #2A2A2A !important;
 }
 #Works .Project .image_wrap .Content {
   display: none;
@@ -882,6 +890,11 @@ header nav {
     z-index: 2;
     opacity: 0;
     transition: opacity ease 0.3s;
+  }
+  #Works .Project .image_wrap .Content p {
+    font-size: 1rem;
+    max-width: 80%;
+    word-break: normal;
   }
   #Works .Project .image_wrap::after {
     content: "";

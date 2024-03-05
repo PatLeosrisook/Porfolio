@@ -8,9 +8,9 @@ export function ProjectList({img, Name, Overview, Url, lists}) {
             {
                 lists.map((work, index) => {
                     return <Project
-                        img={work.img}
-                        Name={work.Name}
-                        Overview={work.Overview}
+                        img={work.src}
+                        Name={work.Title}
+                        Overview={work.desc}
                         // Url={<img src={web}/>}
                         animation_delay={index}
                     />

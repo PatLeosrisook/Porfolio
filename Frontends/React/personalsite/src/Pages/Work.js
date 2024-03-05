@@ -4,6 +4,7 @@ import { InConstructionState } from "../Components/inConstructionState";
 import {Blob} from '../Components/BackgroundBlob'
 import '../SCSS/work.css'
 import web from '../assets/Img/web_dictionary.jpg'
+import {details} from '../Components/ProjectDetails'
 import 'animate.css';
 import { useEffect } from "react";
 // import {fs}  from 'fs'
@@ -34,7 +35,7 @@ export function Work() {
                     <p>Collections of all my hard works</p>
                 </div>
             </section>
-            <ProjectList  lists={list}/>
+            <ProjectList  lists={details}/>
         </section>
     )
 }

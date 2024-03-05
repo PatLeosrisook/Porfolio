@@ -39,7 +39,7 @@
             font-size: 0.9rem;
             word-break: break-all;
             h3, p {
-                color: $White !important;
+                color: $Primary !important;
 
             }
         }
@@ -95,6 +95,11 @@
                     opacity: 0;
                     
                     transition: opacity ease 0.3s;
+                    p {
+                        font-size: 1rem;
+                        max-width: 80%;
+                        word-break: normal;
+                    }
                 }
                 &::after {
                     content:"";
