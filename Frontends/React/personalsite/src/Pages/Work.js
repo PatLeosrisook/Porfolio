@@ -3,23 +3,28 @@ import { ProjectList } from "../Components/ProjectList";
 import { InConstructionState } from "../Components/inConstructionState";
 import {Blob} from '../Components/BackgroundBlob'
 import '../SCSS/work.css'
-import sample from '../assets/Img/Sample.png'
+import web from '../assets/Img/web_dictionary.jpg'
 import 'animate.css';
+import { useEffect } from "react";
+// import {fs}  from 'fs'
+// const images = require.context('../assets/img', true)
 export function Work() {
     let list = [
         {
-            img: sample, 
-            Name: "Project",
+            img: web, 
+            Name: "Web dictionary",
             Overview: "Test tetst teseffeiafjdkaofjewaklfjeoifjkdljfaeso;f",
-            url:""
+            url:"web_dictionary.jpg"
         },
         {
-            img: sample, 
+            img: web, 
             Name: "Project",
             Overview: "Test tetst teseffeiafjdkaofjewaklfjeoifjkdljfaeso;f",
             url:""
         }
     ]
+    
+  
     return(
         <section id="Work">
             <Blob/>

@@ -1,7 +1,7 @@
 import '../SCSS/home.css'
 import { NavLink, useLocation } from "react-router-dom";
 import { useEffect, useState } from 'react';
-export function Links({HomeRef, AboutRef,ContactRef, handleOpenTab}) {
+export function Links({HomeRef, AboutRef,ContactRef, setTab,isTabOpen}) {
     let handleClick = (name) => {
 
         try {  
@@ -25,6 +25,7 @@ export function Links({HomeRef, AboutRef,ContactRef, handleOpenTab}) {
         } catch(e) {
             console.log("erro ", e.message)
         }
+        setTab(!isTabOpen)
     }
     return (
         <ul className="Links">

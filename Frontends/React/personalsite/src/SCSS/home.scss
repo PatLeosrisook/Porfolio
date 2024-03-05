@@ -34,10 +34,10 @@ body {
 }
 
 .moveMenu {
-    transform:translateX(0px) !important;
-    border-top-left-radius:0px  !important;
-    border-bottom-left-radius:0px  !important;
-    transition: transform cubic-bezier(.73,0,0,1.03) 0.3s, border-top-left-radius 0.2s ease 0.1s , border-bottom-left-radius 0.2s ease 0.1s !important;
+    transform:translateY(0px) !important;
+    // border-top-left-radius:0px  !important;
+    // border-bottom-left-radius:0px  !important;
+    transition: transform cubic-bezier(.73,0,0,1.03) 0.3s !important;
 }
 .moveHeader {
     transform: translateX(-160px) !important;
@@ -202,12 +202,12 @@ body {
     }
     a {
         text-decoration: none;
-        color: $White;
+        color: $Primary;
         font-weight: 500;
         font-size: 1.5rem;
     }
     .active {
-        color: $Accent;
+        color: $White;
         font-weight: 600;
     }
 }
@@ -220,15 +220,18 @@ header {
     z-index: 200;
     transform: translateX(0px);
     transition: transform ease 0.3s;
-    #Desktop_Links {
-        display:none; 
-    }
+    // #Desktop_Links {
+    //     display:none; 
+    // }
    
     #burger {
         background: transparent;
         border: none;
         .burger , .burger::after, .burger::before{
             background-color: $Primary;
+        }
+        .burger.invert, .burger.invert::after , .burger.invert::before {
+            background-color: $White;
         }
     }
     #logo {
@@ -259,14 +262,14 @@ header {
     @include flex();
     position: fixed;
     z-index: 3;
-    background-color: $Primary;
-    width:34vw; 
+    background-color: $Accent;
+    width:100vw;
     height:100vh;
     right: 0;;
-    transform: translateX(182px);
-    border-top-left-radius:100%;
-    border-bottom-left-radius:100%;
-    transition: transform cubic-bezier(.73,0,0,1.03) 0.3s, border-top-left-radius 0.2s ease 0.1s , border-bottom-left-radius 0.2s ease 0.1s !important;
+    transform: translateY(-200vw);
+    // border-top-left-radius:100%;
+    // border-bottom-left-radius:100%;
+    transition: transform cubic-bezier(.73,0,0,1.03) 0.3s !important;
 }
 @media(min-width: 375px) {
    #Landing {
@@ -301,7 +304,7 @@ header {
         right: -71px;
     }
     #Menu {
-        width:20vw;
+        width:100vw;
     }
     #socials{
         top: 42vh;
@@ -343,17 +346,8 @@ header {
    }
 }
 @media(min-width:1024px) {
-    #Menu {
-        display: none;
-    }
+   
     header  {
-
-        #burger {
-            display: none !important;
-        }
-        #Desktop_Links {
-            display: block;
-        }
         .Links {
             @include flex(row, center ,center);
             gap:19px;

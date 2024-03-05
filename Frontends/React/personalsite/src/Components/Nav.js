@@ -46,9 +46,9 @@ export function Nav({HomeRef, AboutRef,ContactRef, setTab, isTabOpen}) {
             <BurgerClose isClosed={isTabOpen} />
             </button>
             
-            <nav id="Desktop_Links">
+            {/* <nav id="Desktop_Links">
                 <Links HomeRef={HomeRef} AboutRef={AboutRef} ContactRef={ContactRef}/>
-            </nav>
+            </nav> */}
         </header>
     )
 }

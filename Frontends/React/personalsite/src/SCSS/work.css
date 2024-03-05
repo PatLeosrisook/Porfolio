@@ -26,10 +26,8 @@ body {
 }
 
 .moveMenu {
-  transform: translateX(0px) !important;
-  border-top-left-radius: 0px !important;
-  border-bottom-left-radius: 0px !important;
-  transition: transform cubic-bezier(0.73, 0, 0, 1.03) 0.3s, border-top-left-radius 0.2s ease 0.1s, border-bottom-left-radius 0.2s ease 0.1s !important;
+  transform: translateY(0px) !important;
+  transition: transform cubic-bezier(0.73, 0, 0, 1.03) 0.3s !important;
 }
 
 .moveHeader {
@@ -213,12 +211,12 @@ body {
 }
 .Links a {
   text-decoration: none;
-  color: #F2F2F2;
+  color: #2A2A2A;
   font-weight: 500;
   font-size: 1.5rem;
 }
 .Links .active {
-  color: #ffbb6e;
+  color: #F2F2F2;
   font-weight: 600;
 }
 
@@ -236,15 +234,15 @@ header {
   transition: transform ease 0.3s;
   padding: 0 10%;
 }
-header #Desktop_Links {
-  display: none;
-}
 header #burger {
   background: transparent;
   border: none;
 }
 header #burger .burger, header #burger .burger::after, header #burger .burger::before {
   background-color: #2A2A2A;
+}
+header #burger .burger.invert, header #burger .burger.invert::after, header #burger .burger.invert::before {
+  background-color: #F2F2F2;
 }
 header #logo {
   width: 24px;
@@ -280,14 +278,12 @@ header nav {
   align-items: center;
   position: fixed;
   z-index: 3;
-  background-color: #2A2A2A;
-  width: 34vw;
+  background-color: #ffbb6e;
+  width: 100vw;
   height: 100vh;
   right: 0;
-  transform: translateX(182px);
-  border-top-left-radius: 100%;
-  border-bottom-left-radius: 100%;
-  transition: transform cubic-bezier(0.73, 0, 0, 1.03) 0.3s, border-top-left-radius 0.2s ease 0.1s, border-bottom-left-radius 0.2s ease 0.1s !important;
+  transform: translateY(-200vw);
+  transition: transform cubic-bezier(0.73, 0, 0, 1.03) 0.3s !important;
 }
 
 @media (min-width: 375px) {
@@ -317,7 +313,7 @@ header nav {
     right: -71px;
   }
   #Menu {
-    width: 20vw;
+    width: 100vw;
   }
   #socials {
     top: 42vh;
@@ -354,15 +350,6 @@ header nav {
   }
 }
 @media (min-width: 1024px) {
-  #Menu {
-    display: none;
-  }
-  header #burger {
-    display: none !important;
-  }
-  header #Desktop_Links {
-    display: block;
-  }
   header .Links {
     display: flex;
     flex-direction: row;
@@ -429,10 +416,8 @@ body {
 }
 
 .moveMenu {
-  transform: translateX(0px) !important;
-  border-top-left-radius: 0px !important;
-  border-bottom-left-radius: 0px !important;
-  transition: transform cubic-bezier(0.73, 0, 0, 1.03) 0.3s, border-top-left-radius 0.2s ease 0.1s, border-bottom-left-radius 0.2s ease 0.1s !important;
+  transform: translateY(0px) !important;
+  transition: transform cubic-bezier(0.73, 0, 0, 1.03) 0.3s !important;
 }
 
 .moveHeader {
@@ -616,12 +601,12 @@ body {
 }
 .Links a {
   text-decoration: none;
-  color: #F2F2F2;
+  color: #2A2A2A;
   font-weight: 500;
   font-size: 1.5rem;
 }
 .Links .active {
-  color: #ffbb6e;
+  color: #F2F2F2;
   font-weight: 600;
 }
 
@@ -639,15 +624,15 @@ header {
   transition: transform ease 0.3s;
   padding: 0 10%;
 }
-header #Desktop_Links {
-  display: none;
-}
 header #burger {
   background: transparent;
   border: none;
 }
 header #burger .burger, header #burger .burger::after, header #burger .burger::before {
   background-color: #2A2A2A;
+}
+header #burger .burger.invert, header #burger .burger.invert::after, header #burger .burger.invert::before {
+  background-color: #F2F2F2;
 }
 header #logo {
   width: 24px;
@@ -683,14 +668,12 @@ header nav {
   align-items: center;
   position: fixed;
   z-index: 3;
-  background-color: #2A2A2A;
-  width: 34vw;
+  background-color: #ffbb6e;
+  width: 100vw;
   height: 100vh;
   right: 0;
-  transform: translateX(182px);
-  border-top-left-radius: 100%;
-  border-bottom-left-radius: 100%;
-  transition: transform cubic-bezier(0.73, 0, 0, 1.03) 0.3s, border-top-left-radius 0.2s ease 0.1s, border-bottom-left-radius 0.2s ease 0.1s !important;
+  transform: translateY(-200vw);
+  transition: transform cubic-bezier(0.73, 0, 0, 1.03) 0.3s !important;
 }
 
 @media (min-width: 375px) {
@@ -720,7 +703,7 @@ header nav {
     right: -71px;
   }
   #Menu {
-    width: 20vw;
+    width: 100vw;
   }
   #socials {
     top: 42vh;
@@ -757,15 +740,6 @@ header nav {
   }
 }
 @media (min-width: 1024px) {
-  #Menu {
-    display: none;
-  }
-  header #burger {
-    display: none !important;
-  }
-  header #Desktop_Links {
-    display: block;
-  }
   header .Links {
     display: flex;
     flex-direction: row;
@@ -824,6 +798,12 @@ header nav {
   transition: opacity ease 0.3s;
 }
 
+#Work_landing {
+  background-image: radial-gradient(rgba(0, 0, 0, 0) 2px, #f2f2f2 2px);
+  background-size: 20px 20px;
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+}
 #Work_landing h1 {
   font-size: 5rem;
 }
