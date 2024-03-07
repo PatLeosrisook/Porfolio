@@ -35,30 +35,50 @@ main {
     background-image: url("/Images/Landing.jpg");
     background-size: contain;
     position: relative;
-    main::after{
+    &::after{
         content: "";
         position:absolute;
         width:100vw;
         height:100vh;
         top: 0;
         left:0;
+        z-index: 1;
         background-color: $Semi-dark-blue;
+        opacity: 0.8
     }
 }
 header {
     @include flex (row, center ,space-between);
     width: 80vw;
     position: absolute;
+    z-index: 2;
     top:20px;
 }
 #Heading {
-    @include flex();
+    @include flex(column, flex-start, center);
+    gap:10px;
     width:70vw;
+    position:relative; 
+    z-index: 2;
     h1 {
         font-weight: 500;
     }
     #register_cta {
         width: 126px;
-        height: 49px;
+        height: 39px;
+        border-radius: 5px;
+        font-weight: 400;
+    }
+}
+
+#Registrations {
+    @include flex();
+    width: 100vw; 
+    height:100vh;
+    background-color: $Dark-blue;
+    .Register_card {
+        background-color: $Semi-dark-blue;
+        height: 327px;
+        width:263px;;
     }
 }

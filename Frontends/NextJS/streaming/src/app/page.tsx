@@ -2,12 +2,13 @@ import Image from "next/image";
 // import styles from "./page.module.css";
 import logo from '../../public/Movie.svg';
 import './CSS/style.css'
+import Link from "next/link";
 export default function Home() {
   return (
     <main>
       <header>
         <Image src={`/icons/Movie.svg`} width={20} height={20} alt="Background image" />
-        <p>Login</p>
+        <Link href="/login">Login</Link>
       </header>
       <article id="Heading">
         <h1>Stream me</h1>

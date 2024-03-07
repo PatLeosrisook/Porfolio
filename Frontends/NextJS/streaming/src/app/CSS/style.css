@@ -31,14 +31,16 @@ main {
   background-size: contain;
   position: relative;
 }
-main main::after {
+main::after {
   content: "";
   position: absolute;
   width: 100vw;
   height: 100vh;
   top: 0;
   left: 0;
+  z-index: 1;
   background-color: #161D2F;
+  opacity: 0.8;
 }
 
 header {
@@ -48,20 +50,41 @@ header {
   justify-content: space-between;
   width: 80vw;
   position: absolute;
+  z-index: 2;
   top: 20px;
 }
 
 #Heading {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  gap: 10px;
   width: 70vw;
+  position: relative;
+  z-index: 2;
 }
 #Heading h1 {
   font-weight: 500;
 }
 #Heading #register_cta {
   width: 126px;
-  height: 49px;
+  height: 39px;
+  border-radius: 5px;
+  font-weight: 400;
+}
+
+#Registrations {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #10141E;
+}
+#Registrations .Register_card {
+  background-color: #161D2F;
+  height: 327px;
+  width: 263px;
 }/*# sourceMappingURL=style.css.map */
