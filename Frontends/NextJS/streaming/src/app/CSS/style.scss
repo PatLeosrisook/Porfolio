@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@mixin flex($dir: column, $align: center, $justify: center) {
+    display: flex;
+    flex-direction: $dir;
+    align-items: $align;
+    justify-content: $justify;
+}
+$Primary: #FC4747;
+$Accent : #5A698F;
+$Dark-blue : #10141E;
+$Semi-dark-blue :#161D2F;
+$White : #FFFFFF;
+.cta {
+    width: 100px;
+    height: 30px;
+    background-color: $Primary;
+    border:none;
+}
+html , body {
+    width:100vw;
+    min-height: 100vh;
+    margin: 0; 
+    padding:0;
+}
+* {
+    font-family: "Outfit";
+    font-weight:100;
+    box-sizing: border-box;
+}
+main {
+    @include  flex();
+    height:100vh;
+    width:100vw;
+    position:relative;
+    background-image: url("/Images/Landing.jpg");
+    background-size: contain;
+    position: relative;
+    main::after{
+        content: "";
+        position:absolute;
+        width:100vw;
+        height:100vh;
+        top: 0;
+        left:0;
+        background-color: $Semi-dark-blue;
+    }
+}
+header {
+    @include flex (row, center ,space-between);
+    width: 80vw;
+    position: absolute;
+    top:20px;
+}
+#Heading {
+    @include flex();
+    width:70vw;
+    h1 {
+        font-weight: 500;
+    }
+    #register_cta {
+        width: 126px;
+        height: 49px;
+    }
+}
