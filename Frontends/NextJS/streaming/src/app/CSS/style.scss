@@ -79,6 +79,11 @@ header {
     width: 100vw; 
     height:100vh;
     background-color: $Dark-blue;
+    #Register_header{
+        justify-content: center !important;
+        width: 100vw;
+        height: 10vh;
+    }
     .Register_card {
         padding:20px;
         @include flex(column, flex-start, flex-start);

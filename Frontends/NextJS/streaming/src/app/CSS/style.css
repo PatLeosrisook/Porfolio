@@ -87,6 +87,11 @@ header {
   height: 100vh;
   background-color: #10141E;
 }
+#Registrations #Register_header {
+  justify-content: center !important;
+  width: 100vw;
+  height: 10vh;
+}
 #Registrations .Register_card {
   padding: 20px;
   display: flex;
