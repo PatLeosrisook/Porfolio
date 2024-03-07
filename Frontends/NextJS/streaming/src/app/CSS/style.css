@@ -6,6 +6,10 @@
   border: none;
 }
 
+.error_input {
+  border-bottom: 1px solid #FC4747 !important;
+}
+
 html, body {
   width: 100vw;
   min-height: 100vh;
@@ -84,7 +88,50 @@ header {
   background-color: #10141E;
 }
 #Registrations .Register_card {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
   background-color: #161D2F;
-  height: 327px;
+  min-height: 327px;
+  height: -moz-fit-content;
+  height: fit-content;
   width: 263px;
+  gap: 20px;
+}
+#Registrations .Register_card p {
+  font-size: 14px;
+}
+#Registrations .Register_card .register_cta {
+  width: 100%;
+  height: 40px;
+}
+#Registrations .Register_card a {
+  color: #FC4747;
+}
+#Registrations .form_group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  gap: 5px;
+}
+#Registrations .form_group a {
+  color: #FC4747;
+  align-self: flex-end;
+  font-size: 12px;
+  font-weight: 400;
+}
+#Registrations input {
+  border: none;
+  border-bottom: 1px solid #5A698F;
+  background-color: transparent;
+  width: 100%;
+  height: 37px;
+}
+#Registrations input:focus-visible {
+  outline: none;
+  border-bottom-color: #FFFFFF;
 }/*# sourceMappingURL=style.css.map */

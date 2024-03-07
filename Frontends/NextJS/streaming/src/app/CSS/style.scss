@@ -16,6 +16,9 @@ $White : #FFFFFF;
     background-color: $Primary;
     border:none;
 }
+.error_input {
+    border-bottom: 1px solid $Primary !important;
+}
 html , body {
     width:100vw;
     min-height: 100vh;
@@ -77,8 +80,47 @@ header {
     height:100vh;
     background-color: $Dark-blue;
     .Register_card {
+        padding:20px;
+        @include flex(column, flex-start, flex-start);
         background-color: $Semi-dark-blue;
-        height: 327px;
+        min-height: 327px;
+        height: fit-content;
         width:263px;;
+        gap:20px;
+        p{
+            font-size:14px;
+        }
+        .register_cta {
+            width:100%;
+            height:40px;
+        }
+        a {
+            color: $Primary;
+            
+        }
     }
+    .form_group {
+        @include flex(column, flex-start, center);
+        width:100%;
+        gap:5px;
+        a {
+            color:$Primary;
+            align-self: flex-end;
+            font-size: 12px;
+            font-weight: 400;
+        }
+    }
+    input {
+        border: none;
+        border-bottom: 1px  solid $Accent;
+        background-color: transparent;
+        width: 100%;
+        height: 37px;;
+        &:focus-visible {
+            outline:none;
+            border-bottom-color: $White;
+        }
+    }
+    
+
 }

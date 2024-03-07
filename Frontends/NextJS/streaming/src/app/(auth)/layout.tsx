@@ -3,9 +3,9 @@ export default function RegisterLayout({children} : {
 }) {
     return (
         <section id="Registrations">
-            <article className="Register_card">
+            <form className="Register_card">
                 {children}
-            </article>
+            </form>
         </section>
     )
 }
