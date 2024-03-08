@@ -5,10 +5,7 @@ import { useState } from "react";
 export default function RegisterLayout({children} : {
     children: React.ReactNode
 }) {
-    const[value, setValue] = useState({
-        Email:"",
-        Password:"",
-    })
+    
     return (
         <section id="Registrations">
             <header id="Register_header">

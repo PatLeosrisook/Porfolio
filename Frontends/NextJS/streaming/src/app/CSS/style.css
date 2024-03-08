@@ -10,6 +10,16 @@
   border-bottom: 1px solid #FC4747 !important;
 }
 
+.hide_error {
+  display: 0;
+}
+
+.error_message {
+  font-size: 12px;
+  color: #FC4747;
+  display: block;
+}
+
 html, body {
   width: 100vw;
   min-height: 100vh;
@@ -102,7 +112,9 @@ header {
   min-height: 327px;
   height: -moz-fit-content;
   height: fit-content;
-  width: 263px;
+  min-width: 263px;
+  width: 80vw;
+  max-width: 393px;
   gap: 20px;
 }
 #Registrations .Register_card p {
