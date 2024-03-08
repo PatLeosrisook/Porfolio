@@ -1,0 +1,48 @@
+@use './style';
+#Dashboard {
+    @include style.flex();
+    height:100vh;
+    width:100vw;
+    header{
+        @include style.flex(row, center, space-evenly);
+        width:100vw;
+        background-color: style.$Semi-dark-blue;
+        height:10vh;
+        position: relative;
+        top:0;
+        ul {
+            padding: 0;
+            list-style: none;
+            li {
+                display: inline;
+                margin-right:25px;
+                &:last-child {
+                    margin:0;
+                }
+                
+            }
+        }
+        #Profile {
+            background-color: White;
+            width: 20px;
+            height: 20px;
+            border-radius: 100%;
+        }
+    }
+    #Content {
+        @include style.flex(column,center, flex-start);
+        height: 90vh;
+        width: 100%;
+        #SearchBox {
+            height: 60px;
+            width:100vw;
+            input[name="search"] {
+                border:none;
+                background-color: transparent;
+                height:100%;
+                width:80%;
+            }
+            
+        }
+    }
+}
