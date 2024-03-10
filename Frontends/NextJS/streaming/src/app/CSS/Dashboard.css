@@ -196,14 +196,78 @@ header {
   justify-content: flex-start;
   height: 90vh;
   width: 100%;
+  padding: 0 20px;
 }
 #Dashboard #Content #SearchBox {
   height: 60px;
-  width: 100vw;
+  width: 100%;
 }
 #Dashboard #Content #SearchBox input[name=search] {
   border: none;
   background-color: transparent;
   height: 100%;
   width: 80%;
+  font-size: 16px;
+}
+#Dashboard #Content #SearchBox input[name=search]:focus-visible {
+  outline: none;
+}
+#Dashboard #Content #SearchBox img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+#Dashboard #Home {
+  width: 100%;
+  height: 100%;
+}
+#Dashboard #trending {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+#Dashboard .lists {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: -moz-fit-content;
+  width: fit-content;
+  overflow-x: scroll;
+  gap: 10px;
+}
+
+.Trending_media {
+  position: relative;
+  background-size: cover;
+  width: 218px;
+  height: 129px;
+  border-radius: 10px;
+}
+.Trending_media .Media-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  top: 60%;
+  font-size: 12px;
+}
+.Trending_media .Media-content p {
+  font-weight: 400;
+}
+.Trending_media .sub-content, .Trending_media #MediaType {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.Trending_media .sub-content {
+  width: -moz-fit-content;
+  width: fit-content;
+  gap: 10px;
 }/*# sourceMappingURL=Dashboard.css.map */

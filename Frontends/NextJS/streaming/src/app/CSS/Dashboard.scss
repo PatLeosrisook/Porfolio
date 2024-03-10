@@ -33,16 +33,67 @@
         @include style.flex(column,center, flex-start);
         height: 90vh;
         width: 100%;
+        padding: 0 20px;;
         #SearchBox {
             height: 60px;
-            width:100vw;
+            width:100%;
             input[name="search"] {
                 border:none;
                 background-color: transparent;
                 height:100%;
                 width:80%;
+                font-size:16px;
+                &:focus-visible {
+                    outline : none;
+                }
+            }
+            img {
+                width:20px;
+                height:20px;
+                margin-right:10px;
             }
             
         }
     }
+    #Home {
+        width: 100%;
+        height: 100%;
+    }
+    #trending {
+        width: fit-content;
+        height:fit-content;
+    }
+    .lists {
+        @include style.flex(row, center, center);
+        height:100%;
+        width: fit-content;
+        overflow-x: scroll;
+        gap:10px;
+    }
+}
+.Trending_media {
+    position: relative;
+   background-size: cover;
+   width: 218px;
+   height: 129px;
+   border-radius: 10px;
+   .Media-content {
+    @include style.flex(column, flex-start, center);
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    top:60%;
+    font-size:12px;
+    p{
+        font-weight: 400;
+    }
+}
+
+   .sub-content, #MediaType {
+    @include style.flex(row, center,center);
+   }
+   .sub-content{
+    width:fit-content;
+    gap:10px;
+   }
 }
