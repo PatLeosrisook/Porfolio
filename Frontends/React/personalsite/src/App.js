@@ -61,7 +61,7 @@ function App() {
       let Home = document.querySelector(".Home-link").classList
       let About = document.querySelector(".About-link").classList
       let Contact = document.querySelector(".Contact-link").classList
-      console.log(window.scrollY, ContactY)
+      // console.log(window.scrollY, ContactY)
         
         if(HomeY <= 0 && HomeY > -500) {
             Home.add("active")
@@ -116,10 +116,9 @@ function App() {
             
         }
     } else if(pathname == "/Work") {
-      console.log(window.scrollY)
+      // console.log(window.scrollY)
       var Projects = document.querySelectorAll('.Project')
       if(window.scrollY >= 100) {
-        console.log("up")
         if(Projects.length  > 0) {
           Projects.forEach(project => {
             project.classList.remove("animate__zoomOut")
@@ -129,7 +128,6 @@ function App() {
 
         }
         }else {
-          console.log("down")
           if(Projects.length  > 0) {
             Projects.forEach(project => {
               project.classList.remove("animate__zoomIn")
@@ -151,9 +149,9 @@ function App() {
     <div className="App">
       <Menu AboutRef={aboutRef} HomeRef={homeRef} ContactRef={contactRef} setTab={setTabOpen} isTabOpoen={isTabOpen}/>
       
-      <Nav AboutRef={aboutRef} HomeRef={homeRef} ContactRef={contactRef} setTab={setTabOpen} isTabOpen={isTabOpen} />
+      <Nav  setTab={setTabOpen} isTabOpen={isTabOpen} />
       <Routes>
-        <Route path="/" element={<Home scrollYProgress={scrollYProgress} refFromChild={handleRef} />} />
+        <Route exact path="/" element={<Home scrollYProgress={scrollYProgress} refFromChild={handleRef} />} />
         <Route path="/About" element={<Home scrollYProgress={scrollYProgress} refFromChild={handleRef} />} />
         <Route path="/Contact" element={<Home scrollYProgress={scrollYProgress} refFromChild={handleRef} />} />
         <Route path="/Work" element={<Work/>} />

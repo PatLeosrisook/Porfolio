@@ -5,6 +5,7 @@ export function Links({HomeRef, AboutRef,ContactRef, setTab,isTabOpen}) {
     let route = useLocation()
     let {pathname} = route
     let handleClick = (name) => {
+        console.log(pathname)
         try {  
             switch(name) {
                 case "homeRef":
@@ -33,9 +34,12 @@ export function Links({HomeRef, AboutRef,ContactRef, setTab,isTabOpen}) {
         }
         setTab(!isTabOpen)
     }
+    useEffect(() => {
+        console.log(AboutRef, ContactRef, HomeRef)
+    })
     return (
         <ul className="Links">
-            <li><NavLink onClick={() => handleClick("homeRef")}  className="Home-link" to="/">Home</NavLink></li>
+            <li><NavLink onClick={() => handleClick("homeRef")}  className="Home-link" exact to="/">Home</NavLink></li>
             <li><NavLink onClick={() => handleClick("aboutRef")} className="About-link" to="/About">About</NavLink></li>
             <li><NavLink onClick={() => handleClick("Work")} to="/Work">Works</NavLink></li>
             <li><NavLink onClick={() => handleClick("contactRef")} className="Contact-link" to="/Contact">Contact</NavLink></li>
