@@ -891,7 +891,11 @@ header nav {
     opacity: 0;
     transition: opacity ease 0.3s;
   }
+  #Works .Project .image_wrap .Content h3 {
+    color: white !important;
+  }
   #Works .Project .image_wrap .Content p {
+    color: white !important;
     font-size: 1rem;
     max-width: 80%;
     word-break: normal;

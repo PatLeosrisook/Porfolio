@@ -2,8 +2,9 @@ import '../SCSS/home.css'
 import { NavLink, useLocation } from "react-router-dom";
 import { useEffect, useState } from 'react';
 export function Links({HomeRef, AboutRef,ContactRef, setTab,isTabOpen}) {
+    let route = useLocation()
+    let {pathname} = route
     let handleClick = (name) => {
-
         try {  
             switch(name) {
                 case "homeRef":
@@ -12,11 +13,16 @@ export function Links({HomeRef, AboutRef,ContactRef, setTab,isTabOpen}) {
                     window.scrollTo({top: 0, behavior: "smooth"})
                     
                     break;
-                case 'aboutRef' :
-                    AboutRef.current.scrollIntoView({behavior: 'smooth'})
-                    break;
-                case "contactRef":
-                    ContactRef.current.scrollIntoView({behavior: 'smooth'})
+                    case 'aboutRef' :
+                        AboutRef.current.scrollIntoView({behavior: 'smooth'})
+                        break;
+                    case "contactRef":
+                        console.log(ContactRef.current)
+                        ContactRef.current.scrollIntoView({behavior: 'smooth'})
+                        if(pathname == '/Contact') {
+                            
+                        }
+                        // window.scrollTo({top: 100, behavior: "smooth"})
                     break;
                 case "Work": 
                     window.scrollTo({top: 0, behavior: "smooth"})

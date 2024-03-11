@@ -9,23 +9,7 @@ import 'animate.css';
 import { useEffect } from "react";
 // import {fs}  from 'fs'
 // const images = require.context('../assets/img', true)
-export function Work() {
-    let list = [
-        {
-            img: web, 
-            Name: "Web dictionary",
-            Overview: "Test tetst teseffeiafjdkaofjewaklfjeoifjkdljfaeso;f",
-            url:"web_dictionary.jpg"
-        },
-        {
-            img: web, 
-            Name: "Project",
-            Overview: "Test tetst teseffeiafjdkaofjewaklfjeoifjkdljfaeso;f",
-            url:""
-        }
-    ]
-    
-  
+export function Work() {  
     return(
         <section id="Work">
             <Blob/>
