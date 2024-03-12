@@ -6,6 +6,7 @@ import { faGithub , faLinkedin} from '@fortawesome/free-brands-svg-icons'
 import React, { createRef, useEffect, useRef } from 'react'
 import { animated, useScroll } from '@react-spring/web'
 import 'animate.css';
+import { useLocation } from 'react-router-dom'
 export class Home extends React.Component {
     constructor(props) {
         super(props)
@@ -13,12 +14,14 @@ export class Home extends React.Component {
         this.aboutRef = createRef()
         this.contactRef = createRef()
         
-        
     }
     componentDidMount() {
         this.props.refFromChild(this.homeRef,this.aboutRef, this.contactRef)
+        console.log("Props:", this.props.location, this.props.navigation)
     }
     
+   
+
     render() {
         
        return (

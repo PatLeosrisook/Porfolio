@@ -35,7 +35,6 @@ export function Links({HomeRef, AboutRef,ContactRef, setTab,isTabOpen}) {
         setTab(!isTabOpen)
     }
     useEffect(() => {
-        console.log(AboutRef, ContactRef, HomeRef)
     })
     return (
         <ul className="Links">
