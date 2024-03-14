@@ -20,6 +20,7 @@ function App() {
   const [contactRef, setContactRef] = useState(null)
   const [isTabOpen, setTabOpen] = useState(false)
   const [windowSize, setWindowSize] = useState(0)
+  const [nextPath, setNextPath] = useState("/")
 
   const { scrollYProgress } = useScroll()
   let handleRef = (home, about, contact) => {
@@ -149,10 +150,35 @@ function App() {
   useEffect(() => {
     handleOpenTab()
     setWindowSize(window.innerWidth)
-  }) 
+    console.log(pathname)
+    //TODO: Bug here
+    if(pathname == '/') {
+      window.scrollTo({top: 0, behavior: "smooth"})
+    } else if(pathname == "/About") {
+      if(aboutRef.current) {
+        aboutRef.current.scrollIntoView({behavior: 'smooth'})
+      } 
+    } else if(pathname=='/Contact') {
+      if(contactRef.current) {
+        contactRef.current.scrollIntoView({behavior: 'smooth'})
+      }
+    } else {
+      window.scrollTo({top: 0, behavior: "smooth"})
+    }
+  },[pathname, isTabOpen]) 
   return (
     <div className="App">
-      <Menu AboutRef={aboutRef} HomeRef={homeRef} ContactRef={contactRef} setTab={setTabOpen} isTabOpoen={isTabOpen}/>
+      <Menu 
+      AboutRef={aboutRef}
+      HomeRef={homeRef}
+      ContactRef={contactRef}
+      setTab={setTabOpen}
+      isTabOpoen={isTabOpen} 
+      currentPath={pathname}
+      nextPath={nextPath}
+      setNextPath={setNextPath}
+
+      />
       
       <Nav  setTab={setTabOpen} isTabOpen={isTabOpen} />
       <Routes>
