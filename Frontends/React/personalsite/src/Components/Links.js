@@ -1,7 +1,8 @@
 import '../SCSS/home.css'
 import { NavLink, useLocation } from "react-router-dom";
 import { useEffect, useState } from 'react';
-export function Links({HomeRef, AboutRef,ContactRef, setTab,isTabOpen, setNextPath, nextPath}) {
+import { Home } from '../Pages/Home';
+export function Links({HomeRef, AboutRef,ContactRef, setTab,isTabOpen, setNextPath, isLoading, setIsLoading}) {
     
     let handleClick = (name) => {
         try {  
@@ -31,24 +32,22 @@ export function Links({HomeRef, AboutRef,ContactRef, setTab,isTabOpen, setNextPa
         setTab(!isTabOpen)
     }
     useEffect(() => {
-        try{
-            // console.log("Currentttt" ,HomeRef.current && AboutRef.current && ContactRef.current, HomeRef,AboutRef, ContactRef)
-        } catch(e) {
-            console.log(e.message)
-        }
-        if(nextPath == "/") {
+        // var loading = setInterval(() => {
+        //   console.log(HomeRef, AboutRef, ContactRef)
+        // }, 1000)
+        // try {
+        //     if(HomeRef.current && AboutRef.current && ContactRef.current) {
+        //       setIsLoading(false)
+        //       clearInterval(loading)
+        //     }
             
-            
-        } else if (nextPath == "/About") {
-   
-            
-        } else if(nextPath == "/Contact") {
-            
-        } else {
-            // window.scrollTo({top: 0, behavior: "smooth"})
-        }
+        // }catch (e) {
+        //     console.log("Still laoding ")
+        // }
+        // console.log("Updated", HomeRef, AboutRef, ContactRef)
         
-    })
+        
+    }, [HomeRef, AboutRef, ContactRef])
     return (
         <ul className="Links">
             <li><NavLink onClick={() => handleClick("homeRef")}  className="Home-link"  to="/">Home</NavLink></li>
