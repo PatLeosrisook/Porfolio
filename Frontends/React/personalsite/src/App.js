@@ -52,7 +52,7 @@ const [isLoading, setIsLoading] = useState(true)
     
   }
   window.onscroll = (e) => {
-    if(pathname == "/" || pathname == "/About" || pathname == "/Contact") {
+    if(pathname == "/Home" || pathname == "/About" || pathname == "/Contact") {
       let HomeY = document.querySelector("#Landing").getBoundingClientRect().y
       let AboutY = document.querySelector("#About").getBoundingClientRect().y
       let ContactY = document.querySelector("#Contact").getBoundingClientRect().y
@@ -150,29 +150,8 @@ const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
     handleOpenTab()
     setWindowSize(window.innerWidth)
-   
-    try{
-      if((homeRef.current && aboutRef.current && contactRef.current)) {
-        if(nextPath == '/') {
-          window.scrollTo({top: 0, behavior: "smooth"})
-        } else if(nextPath == "/About") {
-          if(aboutRef.current) {
-            aboutRef.current.scrollIntoView({behavior: 'smooth'})
-          } 
-        } else if(nextPath=='/Contact' && pathname == '/Contact') {
-          if(contactRef.current) {
-            contactRef.current.scrollIntoView({behavior: 'smooth'})
-          } else {
-            console.log(contactRef)
-          }
-        } else {
-          window.scrollTo({top: 0, behavior: "smooth"})
-        }
-      }
-
-    } catch(e) {
-      console.log("NOt load")
-    }
+   console.log(pathname)
+    
   }) 
   return (
     <div className="App">
@@ -185,12 +164,13 @@ const [isLoading, setIsLoading] = useState(true)
       isLoading={isLoading}
       setIsLoading={setIsLoading}
       setNextPath={setNextPath}
+      nextPath={nextPath}
 
       />
       
       <Nav  setTab={setTabOpen} isTabOpen={isTabOpen} />
       <Routes>
-        <Route exact path="/" element={<Home scrollYProgress={scrollYProgress} refFromChild={handleRef} location={location} />} />
+        <Route exact path="/Home" element={<Home scrollYProgress={scrollYProgress} refFromChild={handleRef} location={location} />} />
         <Route path="/About" element={<Home scrollYProgress={scrollYProgress} refFromChild={handleRef} />} />
         <Route path="/Contact" element={<Home scrollYProgress={scrollYProgress} refFromChild={handleRef} />} />
         <Route path="/Work" element={<Work/>} />

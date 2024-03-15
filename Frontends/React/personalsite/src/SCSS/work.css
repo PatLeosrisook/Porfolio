@@ -73,8 +73,13 @@ body {
 }
 
 #Loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
   width: 100vw;
+  background-color: #2A2A2A;
 }
 
 #Home section {
@@ -472,8 +477,13 @@ body {
 }
 
 #Loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
   width: 100vw;
+  background-color: #2A2A2A;
 }
 
 #Home section {
