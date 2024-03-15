@@ -52,7 +52,7 @@ const [isLoading, setIsLoading] = useState(true)
     
   }
   window.onscroll = (e) => {
-    if(pathname == "/Home" || pathname == "/About" || pathname == "/Contact") {
+    if(pathname == "/" || pathname == "/About" || pathname == "/Contact") {
       let HomeY = document.querySelector("#Landing").getBoundingClientRect().y
       let AboutY = document.querySelector("#About").getBoundingClientRect().y
       let ContactY = document.querySelector("#Contact").getBoundingClientRect().y
@@ -145,7 +145,7 @@ const [isLoading, setIsLoading] = useState(true)
         }
 
       } 
-    }
+  }
 
   useEffect(() => {
     handleOpenTab()
@@ -170,7 +170,7 @@ const [isLoading, setIsLoading] = useState(true)
       
       <Nav  setTab={setTabOpen} isTabOpen={isTabOpen} />
       <Routes>
-        <Route exact path="/Home" element={<Home scrollYProgress={scrollYProgress} refFromChild={handleRef} location={location} />} />
+        <Route exact path="/" element={<Home scrollYProgress={scrollYProgress} refFromChild={handleRef} location={location} />} />
         <Route path="/About" element={<Home scrollYProgress={scrollYProgress} refFromChild={handleRef} />} />
         <Route path="/Contact" element={<Home scrollYProgress={scrollYProgress} refFromChild={handleRef} />} />
         <Route path="/Work" element={<Work/>} />

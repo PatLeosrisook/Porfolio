@@ -133,6 +133,7 @@ body {
         @include flex();
         opacity: 0;
         transition: opacity 0.4s ease;
+        gap:10px
     }
     
     .Paragraphs {
@@ -262,6 +263,20 @@ header {
 
         height:1px;
         background-color: $Primary-tint;
+    }
+}
+#TechStack {
+    padding: 16px; 
+    li::marker {
+        color:$Accent-2
+    }
+    @include flex(column, center, flex-start);
+    font-size: 14px;
+    font-weight: 600;
+    gap:5px;
+    .note {
+        color:$Accent-2;
+        font-size: 10px;
     }
 }
 #Menu {

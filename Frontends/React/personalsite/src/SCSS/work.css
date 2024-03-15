@@ -285,6 +285,24 @@ header nav {
   background-color: #d1d1d1;
 }
 
+#TechStack {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 14px;
+  font-weight: 600;
+  gap: 5px;
+}
+#TechStack li::marker {
+  color: #FF79C1;
+}
+#TechStack .note {
+  color: #FF79C1;
+  font-size: 10px;
+}
+
 #Menu {
   display: flex;
   flex-direction: column;
@@ -687,6 +705,24 @@ header nav {
   width: 100px;
   height: 1px;
   background-color: #d1d1d1;
+}
+
+#TechStack {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 14px;
+  font-weight: 600;
+  gap: 5px;
+}
+#TechStack li::marker {
+  color: #FF79C1;
+}
+#TechStack .note {
+  color: #FF79C1;
+  font-size: 10px;
 }
 
 #Menu {

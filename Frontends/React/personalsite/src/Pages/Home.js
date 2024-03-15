@@ -51,9 +51,17 @@ export class Home extends React.Component {
                            </div>
                        </div>
                        <div className="Paragraphs">
-                           <p>Hello there! I'm Pat, a passionate 25-year-old from the vibrant city of Bangkok, Thailand. </p>
-                           <p>I hold a Bsc (Hons) degree in computer science from the prestigious University of Birmingham, UK, and I currently thrive in the dynamic field of IT at BSG Group.</p>
-                           <p>Beyond the world of coding, you'll find me immersed in personal development books, fueling my curiosity for continuous growth. Drawing has become my latest venture as I embrace the joy of acquiring new skills. Join me on this exciting journey of exploration and development!</p>
+                           <p>Hello there! My name is Pat and I'm a Front-end developer based in Bangkok, Thailand. </p>
+                           <p>I graduated from the University of Birmingham with a Computer science degree and currently employed as an IT at the BSG Group.</p>
+                           <p>Although my current career does not relate to Front-end development, I do enjoy creating website and learning new technologies in my spare time.</p>
+                           <p>Here are the technologies I use: </p>
+                           <ul id="TechStack">
+                                <li>ReactJS</li>
+                                <li>NextJS <span className='note'>(Currently learning)</span></li>
+                                <li>JavaScript</li>
+                                <li>TypeScript <span className='note'>(Currently learning)</span></li>
+                                <li>MongoDB <span className='note'>(Currently learning)</span></li>
+                           </ul>
                        </div>
                    </div>
                </section>

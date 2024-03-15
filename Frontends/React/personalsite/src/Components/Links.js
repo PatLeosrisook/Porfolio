@@ -36,10 +36,36 @@ export function Links({HomeRef, AboutRef,ContactRef, setTab,isTabOpen, setNextPa
     })
     return (
         <ul className="Links">
-            <li><NavHashLink  onClick={() => handleClick("HomeRef")}  className="Home-link"  to={"/Home#Landing"}>Home</NavHashLink></li>
-            <li><NavHashLink  smooth onClick={() => handleClick("AboutRef")} className="About-link" to="/Home#About">About</NavHashLink></li>
-            <li><NavHashLink  onClick={() => handleClick("Work")} smooth  to="/Work#Work">Works</NavHashLink></li>
-            <li><NavHashLink  smooth onClick={() => handleClick("ContactRef")} className="Contact-link" to="/Home#Contact">Contact</NavHashLink></li>
+            <li>
+                <NavHashLink  
+                onClick={() => handleClick("HomeRef")}  
+                className="Home-link"  
+                to={"/"} 
+                elementId='Landing'>Home</NavHashLink>
+            </li>
+            <li>
+                <NavHashLink  
+                smooth 
+                onClick={() => handleClick("AboutRef")} 
+                className="About-link" 
+                to="/About"
+                elementId='About'>About</NavHashLink>
+            </li>
+            <li>
+                <NavHashLink  
+                onClick={() => handleClick("Work")} 
+                smooth
+                to="/Work" 
+                elementId='Work'>Works</NavHashLink>
+            </li>
+            <li>
+                <NavHashLink  
+                smooth 
+                onClick={() => handleClick("ContactRef")} 
+                className="Contact-link" 
+                to="/Contact" 
+                elementId='Contact'>Contact</NavHashLink>
+            </li>
         </ul>
     )
 }
