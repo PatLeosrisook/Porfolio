@@ -2,6 +2,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Media from '../../../Component/Media'
+import RecommendedMedia from '@/Component/RecommendedMedia';
 interface ListItem { 
     Title : string,
     src : string, 
@@ -17,7 +18,7 @@ export default function Home() {
         url: 'https://api.themoviedb.org/3/trending/all/day?language=en-US',
         headers: {
           accept: 'application/json',
-          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwOGFmZTU1MTQzYTVmNjdiNzQ0ZDhjNTg3NGU1NjQ4OCIsInN1YiI6IjVlMjIzZGUzOGYyNmJjMDAxNTc0YWI3ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.5xEfY5DbDSlb5djCaSq3VW5kdAQs6ppHdAhdD7PORxc' //TODO:: reenter the tokent here
+          Authorization: 'Bearer' //TODO:: reenter the tokent here
         }
       };
     let loadTrending = () => {
@@ -62,18 +63,33 @@ export default function Home() {
         axios(options).then(response => {
             return response.data.results
         }).then(result=> {
+            let mid = Math.floor(result.length / 2)
+            result = result.slice(0, mid)
+            console.log("popular" ,result)
+            let list : ListItem[] = []
+            list = result.map((media) => {
+                return {
+                    Title : media['original_title'],
+                    src: media["poster_path"],
+                    year:  media['release_date'].split("-")[0] ,
+                    Type: "movie",
+                    adult: media.adult
+                }
+            })
+            setRecommendedList(prev => [...prev, ...list])
             
         }).catch(e=> {
             console.log("unable to load movie")
         })
     }
     useEffect(() => {
-        if(popularList.length == 0) {
+        if(popularList.length == 0 && recommendedList.length == 0) {
 
             loadTrending()
+            loadRecommend()
         }
 
-        console.log("afterr load", popularList)
+        console.log("afterr load", popularList, recommendedList)
     })
     return (
         <section id="Home">
@@ -98,7 +114,17 @@ export default function Home() {
             <section id="recommends">
                 <h2>Recommend for you</h2>
                 <section className="lists">
-                    
+                    {
+                        recommendedList.map(list => {
+                            return <RecommendedMedia
+                                    Title={list.Title}
+                                    Year={list.year}
+                                    isAdult={list.adult}
+                                    Type={list.Type}
+                                    src={list.src}
+                            />
+                        })
+                    }
                 </section>
             </section>
         </section>

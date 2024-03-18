@@ -237,6 +237,15 @@ header {
   overflow-x: scroll;
   gap: 10px;
 }
+#Dashboard #recommends {
+  width: 100vw;
+  height: 100vh;
+}
+#Dashboard #recommends .lists {
+  overflow-x: hidden;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
 
 .Trending_media {
   position: relative;
@@ -256,7 +265,8 @@ header {
   position: absolute;
   z-index: 1;
 }
-.Trending_media .Media-content {
+
+.Media-content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -268,27 +278,43 @@ header {
   font-size: 12px;
   z-index: 2;
 }
-.Trending_media .Media-content img {
+.Media-content img {
   width: 15px;
   height: 15px;
 }
-.Trending_media .Media-content p {
+.Media-content p {
   font-weight: 400;
 }
-.Trending_media .Media-content .media-title {
+.Media-content .media-title {
   font-size: 16px;
 }
-.Trending_media .sub-content, .Trending_media .MediaType {
+
+.sub-content, .MediaType {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
-.Trending_media .MediaType {
+
+.MediaType {
   gap: 5px;
 }
-.Trending_media .sub-content {
+
+.sub-content {
   width: -moz-fit-content;
   width: fit-content;
   gap: 10px;
+}
+
+.RecommendedMedia {
+  width: 40%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.RecommendedMedia .Image_wrap {
+  height: 120px;
+  width: 100%;
+}
+.RecommendedMedia .Media-content {
+  position: static;
 }/*# sourceMappingURL=Dashboard.css.map */

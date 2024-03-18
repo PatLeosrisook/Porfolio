@@ -1,14 +1,14 @@
-export default function RecommendedMedia({Year, Title, PG, Type, ImageSrc}: {
-    Year: "string",
-    Title: 'string',
-    PG: 'string',
-    Type: 'string'
-    ImageSrc: 'string'
+export default function RecommendedMedia({Year, Title, isAdult, Type, src}: {
+    Year: string,
+    Title: string,
+    isAdult: boolean,
+    Type: string,
+    src: string
 }) {
     return (
-        <article className="RecommnededMedia">
-            <div className="Image_wrap">
-                <img src={"https://image.tmdb.org/t/p/w200/" + ImageSrc} />
+        <article className="RecommendedMedia">
+            <div style={{background:`url(https://image.tmdb.org/t/p/w200/${src})` }} className="Image_wrap">
+
             </div>
             <div className="Media-content">
                 <div className="sub-content">
@@ -16,7 +16,7 @@ export default function RecommendedMedia({Year, Title, PG, Type, ImageSrc}: {
                     <div className="MediaType">
                         <img src={`/icons/${Type}-icon.svg`} />
                     </div>
-                    <p>{PG}</p>
+                    <p>{(isAdult) ? "18+" : "PG"}</p>
                 </div>
                 <p className="media-title">{Title}</p>
             </div>
