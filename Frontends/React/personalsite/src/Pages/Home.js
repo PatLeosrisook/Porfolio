@@ -74,7 +74,9 @@ export class Home extends React.Component {
                    <div className="Connections">
                         <a className="external_links animate__animated" href="https://www.linkedin.com/in/kalyada-leosrisook-314a31173/">LinkedIn</a>
                         <a className="external_links animate__animated" href="">Email</a>
-                        <a className="external_links animate__animated" href="">Resume</a>
+                        <a href="../assets/PDF/Resume.pdf" download="../assets/PDF/Resume.pdf"  className='external_links animate__animated'>Resume</a>    
+                        
+
                    </div>
                </section>
    
