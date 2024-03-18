@@ -11,15 +11,16 @@ interface ListItem {
 }
 export default function Home() {
     const [popularList, setPopularList] = useState<Array<ListItem>>([])
+    const [recommendedList, setRecommendedList] = useState<Array<ListItem>>([])
+    const options = {
+        method: 'GET',
+        url: 'https://api.themoviedb.org/3/trending/all/day?language=en-US',
+        headers: {
+          accept: 'application/json',
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwOGFmZTU1MTQzYTVmNjdiNzQ0ZDhjNTg3NGU1NjQ4OCIsInN1YiI6IjVlMjIzZGUzOGYyNmJjMDAxNTc0YWI3ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.5xEfY5DbDSlb5djCaSq3VW5kdAQs6ppHdAhdD7PORxc' //TODO:: reenter the tokent here
+        }
+      };
     let loadTrending = () => {
-        const options = {
-            method: 'GET',
-            url: 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1',
-            headers: {
-              accept: 'application/json',
-              Authorization: 'Bearer' //TODO:: reenter the tokent here
-            }
-          };
           
           axios.request(options)
             .then(function (response) {
@@ -33,8 +34,8 @@ export default function Home() {
                     return {
                         Title : r['original_title'],
                         src: r["poster_path"],
-                        year: r['release_date'].split("-")[0],
-                        Type: "Movie",
+                        year: (r.hasOwnProperty('release_date')) ? r['release_date'].split("-")[0] : r['first_air_date'].split("-")[0],
+                        Type: r["media_type"],
                         adult: r.adult
                     }
                 })
@@ -55,6 +56,16 @@ export default function Home() {
             // }).catch(err => {
             //     console.log(err)
             // })
+    }
+    let loadRecommend = () => {
+        options.url = "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1"
+        axios(options).then(response => {
+            return response.data.results
+        }).then(result=> {
+            
+        }).catch(e=> {
+            console.log("unable to load movie")
+        })
     }
     useEffect(() => {
         if(popularList.length == 0) {
@@ -87,7 +98,7 @@ export default function Home() {
             <section id="recommends">
                 <h2>Recommend for you</h2>
                 <section className="lists">
-
+                    
                 </section>
             </section>
         </section>

@@ -52,7 +52,7 @@ export default function Login() {
         if(value.Email == "a@gmail.com" && value.Password === 'a' && isValid) {
             // continue to dashboard 
             console.log("valid")
-            router.push('/Dashboard')
+            router.push('/Dashboard/Home')
         } 
     }
     useEffect(() => {

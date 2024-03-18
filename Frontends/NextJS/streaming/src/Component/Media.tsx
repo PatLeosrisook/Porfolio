@@ -15,14 +15,14 @@ export default function Media({Title, Year, Image, Type, isAdult} : {
             <div className="Media-content">
                 <div className="sub-content">
                     <p>{Year}</p>
-                    <div id="MediaType">
-                        <img src={`../public/icons/${Type}-icon.svg`} alt="media icon"/>
+                    <div className="MediaType">
+                        <img src={`/icons/${Type}-icon.svg`} alt="media icon"/>
                         <p>{Type}</p>
                     </div>
                     <p>{(isAdult) ? "18+":"PG"}</p>
                 </div>
 
-                <p>{Title}</p>
+                <p className="media-title">{Title}</p>
             </div>
         </article>
     )
