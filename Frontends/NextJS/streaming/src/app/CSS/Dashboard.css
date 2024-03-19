@@ -219,7 +219,7 @@ header {
 }
 #Dashboard #Home {
   width: 100%;
-  height: 100%;
+  height: 80%;
 }
 #Dashboard #trending {
   width: -moz-fit-content;

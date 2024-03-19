@@ -15,6 +15,7 @@ export default function RecommendedMedia({Year, Title, isAdult, Type, src}: {
                     <p>{Year}</p>
                     <div className="MediaType">
                         <img src={`/icons/${Type}-icon.svg`} />
+                        <p>{Type}</p>
                     </div>
                     <p>{(isAdult) ? "18+" : "PG"}</p>
                 </div>
