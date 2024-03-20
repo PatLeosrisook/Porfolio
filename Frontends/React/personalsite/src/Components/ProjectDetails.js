@@ -1,4 +1,4 @@
-import web from '../assets/Img/web_dictionary.jpg'
+import web from '../assets/Img/dictionary.jpeg'
 export const details = [
     {
         id: "dictionary",
@@ -13,6 +13,27 @@ export const details = [
         desc:"Developed a clone of Netflix website, with Next.Js as framework and Mongodb as database",
         url: "",
         src: web
-    }
+    },
+    {
+        id:"Netflix",
+        Title: "Netflix clone",
+        desc:"Developed a clone of Netflix website, with Next.Js as framework and Mongodb as database",
+        url: "",
+        src: web
+    },
+    {
+        id:"Netflix",
+        Title: "Netflix clone",
+        desc:"Developed a clone of Netflix website, with Next.Js as framework and Mongodb as database",
+        url: "",
+        src: web
+    },
+    {
+        id:"Netflix",
+        Title: "Netflix clone",
+        desc:"Developed a clone of Netflix website, with Next.Js as framework and Mongodb as database",
+        url: "",
+        src: web
+    },
 ]
 // module.exports = {details}

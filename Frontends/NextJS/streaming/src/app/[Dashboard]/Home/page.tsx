@@ -18,7 +18,7 @@ export default function Home() {
         url: 'https://api.themoviedb.org/3/trending/all/day?language=en-US',
         headers: {
           accept: 'application/json',
-          Authorization: 'Bearer' //TODO:: reenter the tokent here
+          Authorization: 'Bearer ' //TODO:: reenter the tokent here
         }
       };
     let loadTrending = () => {

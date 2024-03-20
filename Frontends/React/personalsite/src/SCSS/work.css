@@ -881,6 +881,7 @@ header nav {
   height: -moz-fit-content;
   height: fit-content;
   gap: 45px;
+  flex-wrap: wrap;
 }
 #Works .Project {
   width: 80%;

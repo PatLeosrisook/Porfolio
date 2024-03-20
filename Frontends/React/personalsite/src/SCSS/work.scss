@@ -29,6 +29,8 @@
 #Works {
     height: fit-content;
     gap:45px;
+    flex-wrap: wrap;
+    
     .Project {
         width: 80%;
         img {
