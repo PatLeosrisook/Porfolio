@@ -317,4 +317,21 @@ header {
 }
 .RecommendedMedia .Media-content {
   position: static;
+}
+
+#Movie {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  height: 90%;
+}
+#Movie .RecommendedMedia {
+  width: 48%;
+}
+#Movie .lists {
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }/*# sourceMappingURL=Dashboard.css.map */
