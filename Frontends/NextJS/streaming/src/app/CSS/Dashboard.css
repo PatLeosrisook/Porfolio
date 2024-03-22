@@ -327,6 +327,7 @@ header {
   gap: 20px;
   width: 100%;
   height: 90%;
+  overflow-y: scoll;
 }
 #Movie .RecommendedMedia {
   width: 48%;
@@ -362,5 +363,35 @@ header {
 @media (min-width: 1024px) {
   .RecommendedMedia {
     width: 18% !important;
+  }
+}
+@media (min-width: 1440px) {
+  #Dashboard {
+    flex-direction: row;
+    padding: 30px;
+  }
+  #Dashboard header {
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 46px 0;
+    width: 10vw;
+    height: 90vh;
+  }
+  #Dashboard header ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  #Dashboard header ul li {
+    margin: 0;
+  }
+  #Dashboard header ul li img {
+    width: 30px;
+    height: 30px;
+  }
+  .RecommendedMedia {
+    width: 15% !important;
   }
 }/*# sourceMappingURL=Dashboard.css.map */
