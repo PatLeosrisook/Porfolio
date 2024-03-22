@@ -1,7 +1,16 @@
-export function ChatBubble({text}) {
+import {
+    MainContainer,
+    ChatContainer,
+    MessageList,
+    Message,
+    MessageInput,
+  } from "@chatscope/chat-ui-kit-react";
+export function ChatBubble({text, sentTime, sender, direction, position}) {
     return(
-        <article className="chat_bubble">
-            <p>{text}</p>
-        </article>
+        <Message model={{
+            message: text
+        }}>
+
+        </Message>
     )
 }
