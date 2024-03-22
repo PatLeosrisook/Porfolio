@@ -334,4 +334,33 @@ header {
 #Movie .lists {
   justify-content: flex-start;
   flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+  #Movie h1 {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+  #Dashboard .lists {
+    gap: 23px;
+  }
+  .Media-content p {
+    font-weight: 400;
+    font-size: 14px;
+  }
+  .Media-content .media-title {
+    font-size: 20px;
+  }
+  .RecommendedMedia {
+    width: 31% !important;
+  }
+  .RecommendedMedia .Image_wrap {
+    height: 269px;
+    margin-bottom: 14px;
+  }
+}
+@media (min-width: 1024px) {
+  .RecommendedMedia {
+    width: 18% !important;
+  }
 }/*# sourceMappingURL=Dashboard.css.map */

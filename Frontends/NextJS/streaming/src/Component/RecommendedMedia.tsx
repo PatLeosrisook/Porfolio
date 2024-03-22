@@ -7,7 +7,7 @@ export default function RecommendedMedia({Year, Title, isAdult, Type, src}: {
 }) {
     return (
         <article className="RecommendedMedia">
-            <div style={{background:`url(https://image.tmdb.org/t/p/w200/${src})` }} className="Image_wrap">
+            <div style={{background:`url(https://image.tmdb.org/t/p/w200/${src})`, backgroundSize: "cover" }} className="Image_wrap">
 
             </div>
             <div className="Media-content">
