@@ -6,7 +6,8 @@ I'm currently learning new technologies to add more onto my tech stack. These ar
 <ul>
   <li>Node.js</li>
   <li>MongoDB</li>
-  <li>Angular</li>
+  <li>Next.js</li>
+  <li>TypeScript</li>
 </ul>
 
 
