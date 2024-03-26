@@ -18,6 +18,6 @@ If you want to send me feedback about any of my projects, interested in hire me 
 <p align="center" >
   <a style="font-size:35px;" href="https://www.linkedin.com/in/kalyada-leosrisook-314a31173/">LinkedIn</a>
   |
-  <a style="font-size:35px;" href="mailto:kalyadaleosrisook@gmail.com">My email</a>
+  <a style="font-size:35px;" href="mailto:Kalyada.L@outlook.com">My email</a>
 </p>
 <p><em>Side note: If you don't see any projects list on here, that means the projects have not been merged to this branch. Please see the other branch (beta). Thank you!</em></p>
