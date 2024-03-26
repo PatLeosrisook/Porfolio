@@ -139,7 +139,7 @@
         position: static;
     }
 }
-#Movie {
+.Specified_Type, #Movie, #TV {
     @include style.flex(column, flex-start, center);
     gap:20px;
     width:100%;
@@ -156,7 +156,7 @@
 }
 
 @media(min-width: 768px) {
-    #Movie {
+    .Specified_Type {
         h1 {
             font-size: 2rem;
             font-weight: 500;
@@ -175,9 +175,14 @@
     .Media-content .media-title {
         font-size: 20px;
     }
-    
+    .Specified_Type , #Movie , #TV  {
+        .RecommendedMedia {
+
+            width: 31%;
+        }
+    }
     .RecommendedMedia {
-        width: 31% !important;
+        width: 31%;
         .Image_wrap {
             height: 269px;
             margin-bottom: 14px;
@@ -187,7 +192,7 @@
 }
 @media (min-width: 1024px) {
     .RecommendedMedia {
-        width: 18% !important;
+        width: 18%;
     }
 }
 @media(min-width: 1440px) {
@@ -198,7 +203,7 @@
             flex-direction: column;
             justify-content: space-between;
             padding: 46px 0;
-            width: 10vw;
+            width: 6vw;
             height: 90vh;
             ul {
                 @include style.flex();
@@ -212,9 +217,43 @@
                 }
             }
         }
+        #Content {
+            width: 90%;
+        }
+        .lists {
+            padding-right : 200px;
+        }
+    }
+    .Specified_Type, #Movie, #TV {
+        .lists {
+            padding: 0;
+        }
+        
     }
     .RecommendedMedia {
-        width: 15% !important;
+        width: 15% ;
     }
 
+}
+@media(min-width: 1600px) {
+    #Dashboard {
+        .RecommendedMedia {
+            width: 11% ;
+        }
+        #recommends {
+            
+        }
+        .lists {
+            padding-right: 220px;
+        }
+    }
+    .Specified_Type, #Movie, #TV {
+        .lists {
+            padding:  0;;
+
+        }
+        .RecommendedMedia {
+            width: 12%;
+        }
+    }
 }

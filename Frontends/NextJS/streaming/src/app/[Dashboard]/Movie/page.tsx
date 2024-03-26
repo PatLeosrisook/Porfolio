@@ -4,6 +4,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react';
 import type { InferGetServerSidePropsType, GetServerSideProps } from 'next' // probably on the page that call this method.
 import RecommendedMedia from '@/Component/RecommendedMedia';
+import {options} from '../../../../public/API'
 // export async function getServerSideProps() {
 //     const result = await getMovie();
 
@@ -23,14 +24,7 @@ export default function Movie({result} : {
 }) {
     const [Movie,setMovie] = useState<Array<ListItem>>([])
     let loadMovie = () => {
-        let options = {
-            method: 'GET',
-            url: 'https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1',
-            headers: {
-            accept: 'application/json',
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwOGFmZTU1MTQzYTVmNjdiNzQ0ZDhjNTg3NGU1NjQ4OCIsInN1YiI6IjVlMjIzZGUzOGYyNmJjMDAxNTc0YWI3ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.5xEfY5DbDSlb5djCaSq3VW5kdAQs6ppHdAhdD7PORxc' //TODO:: reenter the tokent here
-            }
-        }
+        options.url = 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1'
         axios(options).then(response =>{
             return response.data.results
         }).then((result : any )=> {
@@ -54,7 +48,7 @@ export default function Movie({result} : {
         }
     })
     return (
-        <section id="Movie">
+        <section id="Movie" className='Specified_Type'>
             <h1>Movie</h1>
             <section className="lists">
             {

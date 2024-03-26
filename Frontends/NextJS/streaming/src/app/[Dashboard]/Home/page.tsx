@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Media from '../../../Component/Media'
 import RecommendedMedia from '@/Component/RecommendedMedia';
+import {options} from '../../../../public/API'
 interface ListItem { 
     Title : string,
     src : string, 
@@ -13,16 +14,8 @@ interface ListItem {
 export default function Home() {
     const [popularList, setPopularList] = useState<Array<ListItem>>([])
     const [recommendedList, setRecommendedList] = useState<Array<ListItem>>([])
-    const options = {
-        method: 'GET',
-        url: 'https://api.themoviedb.org/3/trending/all/day?language=en-US',
-        headers: {
-          accept: 'application/json',
-          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwOGFmZTU1MTQzYTVmNjdiNzQ0ZDhjNTg3NGU1NjQ4OCIsInN1YiI6IjVlMjIzZGUzOGYyNmJjMDAxNTc0YWI3ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.5xEfY5DbDSlb5djCaSq3VW5kdAQs6ppHdAhdD7PORxc' //TODO:: reenter the tokent here
-        }
-      };
     let loadTrending = () => {
-          
+          options.url = 'https://api.themoviedb.org/3/trending/all/day?language=en-US'
           axios.request(options)
             .then(function (response) {
             //   console.log(response.data);

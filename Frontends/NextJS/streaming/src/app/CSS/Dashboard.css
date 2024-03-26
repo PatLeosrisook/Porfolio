@@ -319,7 +319,7 @@ header {
   position: static;
 }
 
-#Movie {
+.Specified_Type, #Movie, #TV {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -329,16 +329,16 @@ header {
   height: 90%;
   overflow-y: scoll;
 }
-#Movie .RecommendedMedia {
+.Specified_Type .RecommendedMedia, #Movie .RecommendedMedia, #TV .RecommendedMedia {
   width: 48%;
 }
-#Movie .lists {
+.Specified_Type .lists, #Movie .lists, #TV .lists {
   justify-content: flex-start;
   flex-wrap: wrap;
 }
 
 @media (min-width: 768px) {
-  #Movie h1 {
+  .Specified_Type h1 {
     font-size: 2rem;
     font-weight: 500;
   }
@@ -352,8 +352,11 @@ header {
   .Media-content .media-title {
     font-size: 20px;
   }
+  .Specified_Type .RecommendedMedia, #Movie .RecommendedMedia, #TV .RecommendedMedia {
+    width: 31%;
+  }
   .RecommendedMedia {
-    width: 31% !important;
+    width: 31%;
   }
   .RecommendedMedia .Image_wrap {
     height: 269px;
@@ -362,7 +365,7 @@ header {
 }
 @media (min-width: 1024px) {
   .RecommendedMedia {
-    width: 18% !important;
+    width: 18%;
   }
 }
 @media (min-width: 1440px) {
@@ -374,7 +377,7 @@ header {
     flex-direction: column;
     justify-content: space-between;
     padding: 46px 0;
-    width: 10vw;
+    width: 6vw;
     height: 90vh;
   }
   #Dashboard header ul {
@@ -391,7 +394,30 @@ header {
     width: 30px;
     height: 30px;
   }
+  #Dashboard #Content {
+    width: 90%;
+  }
+  #Dashboard .lists {
+    padding-right: 200px;
+  }
+  .Specified_Type .lists, #Movie .lists, #TV .lists {
+    padding: 0;
+  }
   .RecommendedMedia {
-    width: 15% !important;
+    width: 15%;
+  }
+}
+@media (min-width: 1600px) {
+  #Dashboard .RecommendedMedia {
+    width: 11%;
+  }
+  #Dashboard .lists {
+    padding-right: 220px;
+  }
+  .Specified_Type .lists, #Movie .lists, #TV .lists {
+    padding: 0;
+  }
+  .Specified_Type .RecommendedMedia, #Movie .RecommendedMedia, #TV .RecommendedMedia {
+    width: 12%;
   }
 }/*# sourceMappingURL=Dashboard.css.map */
