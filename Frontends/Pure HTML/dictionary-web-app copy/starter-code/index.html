@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/shaheenhyderk/slideon@1.0.2/slideon.css"/>
+  <link rel="stylesheet" href="./style.css" />
+  <title>Frontend Mentor | Dictionary web app</title>
+</head>
+<body>
+  <header id="Header">
+    <article class="header_wrap">
+      <img src="./assets/images/logo.svg" alt="Logo"/>
+      <div class="util">
+        <div class="font">
+          <p id="selected_font">Sans serif <span><img src="./assets/images/icon-arrow-down.svg" /> </span> </p>
+          <ul class="dropList">
+            <li class="selected">Sans serif</li>
+            <li class="Serif">Serif</li>
+            <li class="Mono">Mono</li>
+          </ul>
+        </div>
+        <div id="divider"></div>
+        <div class="mode">
+          <label class="slideon slideon-xs">
+            <input id="setMode" type="checkbox">
+            <span class="slideon-slider"></span>
+          </label>
+          <span id="Moon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22"><path id="Moon_path" fill="none" stroke="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M1 10.449a10.544 10.544 0 0 0 19.993 4.686C11.544 15.135 6.858 10.448 6.858 1A10.545 10.545 0 0 0 1 10.449Z"/></svg></span>
+        </div>
+      </div>
+    </article>
+    <div id="Input_wrap">
+      <span class="Search_icon"></span>
+      <input type="text"  class="Search" placeholder="Search for any word...." required />
+      <p id="invalid_input">Whoops, can’t be empty…</p>
+    </div>
+  </header>
+  <main>
+    <section id="Empty">
+      <div class="container">
+        <p class="emoji">🔎</p>
+        <p class="empty_state_head">Wow, so empty.</p>
+        <p class="empty_state_para">Why not try searching for something to fill it up?
+          Our search feature can help you find what you're looking for.</p>
+      </div>
+    </section>
+    <section id="Def_notFound">
+      <div class="container">
+          <p class="emoji">😕</p>
+          <p class="empty_state_head">No definition found</p>
+          <p class="empty_state_para">Sorry pal, we couldn't find definitions for the word you were looking for. You can try the search again at later time or head to the web instead.</p>
+      </div>
+    </section>
+    
+    <section id="Definitions">
+      <section id="Title">
+        <div class="word_wrap">
+          <h1 id="word">Keyboard</h1>
+          <p id="Pronounciation"></p>
+        </div>
+        <div class="PlayBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" viewBox="0 0 75 75"><g fill="#e8cffb" fill-rule="evenodd"><circle id="play_btn_back" cx="37.5" cy="37.5" r="37.5" opacity="1"/><path id="play" d="M29 27v21l21-10.5z"/></g></svg>
+        </div>
+      </section>
+      <section id="Meanings">
+      
+      </section>
+      <section id="Source">
+        <p>Source</p>
+        <div class="link_wrap">
+          <img src="./assets/images/icon-new-window.svg"/>
+          <a href="#" id="sourceLink"></a>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="./index.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/shaheenhyderk/slideon@1.0.2/slideon.js"></script>
+</body>
+</html>
