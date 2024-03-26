@@ -1,0 +1,426 @@
+/*!***********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[3]!./src/app/CSS/Dashboard.css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************/
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+.cta {
+  width: 100px;
+  height: 30px;
+  background-color: #FC4747;
+  border: none;
+}
+
+.error_input {
+  border-bottom: 1px solid #FC4747 !important;
+}
+
+.hide_error {
+  display: 0;
+}
+
+.error_message {
+  font-size: 12px;
+  color: #FC4747;
+  display: block;
+}
+
+html, body {
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  font-family: "Outfit";
+  font-weight: 100;
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-image: url("/Images/Landing.jpg");
+  background-size: contain;
+  position: relative;
+}
+main::after {
+  content: "";
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: #161D2F;
+  opacity: 0.8;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 80vw;
+  position: absolute;
+  z-index: 2;
+  top: 20px;
+}
+
+#Heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  width: 70vw;
+  position: relative;
+  z-index: 2;
+}
+#Heading h1 {
+  font-weight: 500;
+}
+#Heading #register_cta {
+  width: 126px;
+  height: 39px;
+  border-radius: 5px;
+  font-weight: 400;
+}
+
+#Registrations {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #10141E;
+}
+#Registrations #Register_header {
+  justify-content: center !important;
+  width: 100vw;
+  height: 10vh;
+}
+#Registrations .Register_card {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: #161D2F;
+  min-height: 327px;
+  height: -moz-fit-content;
+  height: fit-content;
+  min-width: 263px;
+  width: 80vw;
+  max-width: 393px;
+  gap: 20px;
+}
+#Registrations .Register_card p {
+  font-size: 14px;
+}
+#Registrations .Register_card .register_cta {
+  width: 100%;
+  height: 40px;
+}
+#Registrations .Register_card a {
+  color: #FC4747;
+}
+#Registrations .form_group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  gap: 5px;
+}
+#Registrations .form_group a {
+  color: #FC4747;
+  align-self: flex-end;
+  font-size: 12px;
+  font-weight: 400;
+}
+#Registrations input {
+  border: none;
+  border-bottom: 1px solid #5A698F;
+  background-color: transparent;
+  width: 100%;
+  height: 37px;
+}
+#Registrations input:focus-visible {
+  outline: none;
+  border-bottom-color: #FFFFFF;
+}
+
+#Dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+#Dashboard header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100vw;
+  background-color: #161D2F;
+  height: 10vh;
+  position: relative;
+  top: 0;
+}
+#Dashboard header ul {
+  padding: 0;
+  list-style: none;
+}
+#Dashboard header ul li {
+  display: inline;
+  margin-right: 25px;
+}
+#Dashboard header ul li:last-child {
+  margin: 0;
+}
+#Dashboard header #Profile {
+  background-color: White;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+}
+#Dashboard #Content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 90vh;
+  width: 100%;
+  padding: 0 20px;
+}
+#Dashboard #Content #SearchBox {
+  height: 60px;
+  width: 100%;
+}
+#Dashboard #Content #SearchBox input[name=search] {
+  border: none;
+  background-color: transparent;
+  height: 100%;
+  width: 80%;
+  font-size: 16px;
+}
+#Dashboard #Content #SearchBox input[name=search]:focus-visible {
+  outline: none;
+}
+#Dashboard #Content #SearchBox img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+#Dashboard #Home {
+  width: 100%;
+  height: 80%;
+}
+#Dashboard #trending {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+#Dashboard .lists {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  overflow-x: scroll;
+  gap: 10px;
+}
+#Dashboard #recommends {
+  width: 100vw;
+  height: 100vh;
+}
+#Dashboard #recommends .lists {
+  overflow-x: hidden;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.Trending_media {
+  position: relative;
+  background-size: cover;
+  width: 218px;
+  height: 129px;
+  border-radius: 10px;
+  padding: 7px;
+}
+.Trending_media::after {
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.442);
+  position: absolute;
+  z-index: 1;
+}
+
+.Media-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  top: 60%;
+  font-size: 12px;
+  z-index: 2;
+}
+.Media-content img {
+  width: 15px;
+  height: 15px;
+}
+.Media-content p {
+  font-weight: 400;
+}
+.Media-content .media-title {
+  font-size: 16px;
+}
+
+.sub-content, .MediaType {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.MediaType {
+  gap: 5px;
+}
+
+.sub-content {
+  width: -moz-fit-content;
+  width: fit-content;
+  gap: 10px;
+}
+
+.RecommendedMedia {
+  width: 40%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.RecommendedMedia .Image_wrap {
+  height: 120px;
+  width: 100%;
+}
+.RecommendedMedia .Media-content {
+  position: static;
+}
+
+.Specified_Type, #Movie, #TV {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  height: 90%;
+  overflow-y: scoll;
+}
+.Specified_Type .RecommendedMedia, #Movie .RecommendedMedia, #TV .RecommendedMedia {
+  width: 48%;
+}
+.Specified_Type .lists, #Movie .lists, #TV .lists {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+  .Specified_Type h1 {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+  #Dashboard .lists {
+    gap: 23px;
+  }
+  .Media-content p {
+    font-weight: 400;
+    font-size: 14px;
+  }
+  .Media-content .media-title {
+    font-size: 20px;
+  }
+  .Specified_Type .RecommendedMedia, #Movie .RecommendedMedia, #TV .RecommendedMedia {
+    width: 31%;
+  }
+  .RecommendedMedia {
+    width: 31%;
+  }
+  .RecommendedMedia .Image_wrap {
+    height: 269px;
+    margin-bottom: 14px;
+  }
+}
+@media (min-width: 1024px) {
+  .RecommendedMedia {
+    width: 18%;
+  }
+}
+@media (min-width: 1440px) {
+  #Dashboard {
+    flex-direction: row;
+    padding: 30px;
+  }
+  #Dashboard header {
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 46px 0;
+    width: 6vw;
+    height: 90vh;
+  }
+  #Dashboard header ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  #Dashboard header ul li {
+    margin: 0;
+  }
+  #Dashboard header ul li img {
+    width: 30px;
+    height: 30px;
+  }
+  #Dashboard #Content {
+    width: 90%;
+  }
+  #Dashboard .lists {
+    padding-right: 200px;
+  }
+  .Specified_Type .lists, #Movie .lists, #TV .lists {
+    padding: 0;
+  }
+  .RecommendedMedia {
+    width: 15%;
+  }
+}
+@media (min-width: 1600px) {
+  #Dashboard .RecommendedMedia {
+    width: 11%;
+  }
+  #Dashboard .lists {
+    padding-right: 220px;
+  }
+  .Specified_Type .lists, #Movie .lists, #TV .lists {
+    padding: 0;
+  }
+  .Specified_Type .RecommendedMedia, #Movie .RecommendedMedia, #TV .RecommendedMedia {
+    width: 12%;
+  }
+}/*# sourceMappingURL=Dashboard.css.map */

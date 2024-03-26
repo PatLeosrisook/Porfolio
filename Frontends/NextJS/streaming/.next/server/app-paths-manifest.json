@@ -1,0 +1,7 @@
+{
+  "/not-found": "app/not-found.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/[Dashboard]/Home/page": "app/[Dashboard]/Home/page.js",
+  "/[Dashboard]/TV/page": "app/[Dashboard]/TV/page.js",
+  "/[Dashboard]/Movie/page": "app/[Dashboard]/Movie/page.js"
+}
