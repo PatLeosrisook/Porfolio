@@ -247,6 +247,42 @@ header {
   justify-content: flex-start;
 }
 
+#CreateProfile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f2f2f2;
+  height: 100vh;
+  width: 100vw;
+}
+#CreateProfile #Creator_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 90%;
+  background-color: #10141E;
+}
+#CreateProfile #Creator_card header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 10%;
+  width: 100%;
+}
+#CreateProfile #Creator_card h1 {
+  font-size: 12px;
+}
+#CreateProfile #Creator_card #Avatar {
+  background-color: white;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+}
+
 .Trending_media {
   position: relative;
   background-size: cover;
