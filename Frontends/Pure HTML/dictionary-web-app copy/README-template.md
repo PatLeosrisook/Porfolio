@@ -1,16 +1,3 @@
-# Frontend Mentor - Dictionary web app solution
-
-This is a solution to the [Dictionary web app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/dictionary-web-app-h5wwnyuKFL). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
-
-## Table of contents
-
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-- [My process](#my-process)
-  - [Built with](#built-with)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Overview
 This project is part of a challenge I took from [FrontendMentor](www.frontendmentor.io) as a way to practice the skill set I have. 
 ### The challenge
