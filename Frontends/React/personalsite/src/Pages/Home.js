@@ -74,7 +74,7 @@ export class Home extends React.Component {
                    <div className="Connections">
                         <a className="external_links animate__animated" href="https://www.linkedin.com/in/kalyada-leosrisook-314a31173/">LinkedIn</a>
                         <a className="external_links animate__animated" href="">Email</a>
-                        <a href="https://www.dropbox.com/scl/fi/qz1dh56x507ypks4xdnku/ResumAI-by-Wonsulting-1.jpg?rlkey=lt7hrj2qizvc5q6fqiqb2ccyf&dl=0" download="Resume.pdf"  className='external_links animate__animated'>Resume</a>    
+                        <a href="https://www.dropbox.com/s/6fertetbvgvzu3x/Resume.pdf?dl=0" download="Resume.pdf"  className='external_links animate__animated'>Resume</a>    
                         
 
                    </div>
