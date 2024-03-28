@@ -95,6 +95,7 @@ body, html {
         }
         svg {
             font-size:30px;
+            color:$Neon-Green;
         }
     }
     .indicators , .password{
@@ -149,6 +150,11 @@ body, html {
         .length_header {
             @include flex(row, center, space-between);
             width: 100%;;
+            p {
+                &:nth-child(2) {
+                    color: $Neon-Green;
+                }
+            }
         }
         input[type='range'] {
             appearance: none;
@@ -195,6 +201,24 @@ body, html {
                 
                 font-size: 32px;
                 margin:0;
+            }
+        }
+        svg {
+            transition: color ease 0.4s;
+            &:hover{
+                cursor: pointer;
+                color: $Almost-white;
+                transition: color ease 0.4s;
+            }
+        }
+        #Generate_btn {
+            transition: background-color ease 0.4s, color ease 0.4s ;
+            &:hover {
+                border: 1px solid $Neon-Green;
+                background-color: transparent;
+                cursor: pointer;
+                color: $Neon-Green;
+                transition: background-color ease 0.4s, color ease 0.4s;
             }
         }
     }

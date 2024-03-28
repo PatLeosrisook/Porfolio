@@ -95,6 +95,7 @@ body, html {
 }
 #Gen_panel .password svg {
   font-size: 30px;
+  color: #A4FFAF;
 }
 #Gen_panel .indicators, #Gen_panel .password {
   background-color: #34323f;
@@ -157,6 +158,9 @@ body, html {
   justify-content: space-between;
   width: 100%;
 }
+#Gen_panel .pass_length .length_header p:nth-child(2) {
+  color: #A4FFAF;
+}
 #Gen_panel .pass_length input[type=range] {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -200,5 +204,23 @@ body, html {
   #Gen_panel .password p {
     font-size: 32px;
     margin: 0;
+  }
+  #Gen_panel svg {
+    transition: color ease 0.4s;
+  }
+  #Gen_panel svg:hover {
+    cursor: pointer;
+    color: #E6E5EA;
+    transition: color ease 0.4s;
+  }
+  #Gen_panel #Generate_btn {
+    transition: background-color ease 0.4s, color ease 0.4s;
+  }
+  #Gen_panel #Generate_btn:hover {
+    border: 1px solid #A4FFAF;
+    background-color: transparent;
+    cursor: pointer;
+    color: #A4FFAF;
+    transition: background-color ease 0.4s, color ease 0.4s;
   }
 }/*# sourceMappingURL=style.css.map */

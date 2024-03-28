@@ -1,4 +1,4 @@
- import { faCopy } from "@fortawesome/free-solid-svg-icons"
+ import { faArrowRight, faCopy } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useEffect, useState } from "react"
 import Slider, { SliderThumb, SliderValueLabelProps } from '@mui/material/Slider';
@@ -60,6 +60,8 @@ export default function Generator() {
             
         }
         let passStrength = zxcbvn(password)
+
+        console.log(passStrength.guesses)
         if(passStrength.score < 2) {
 
             setStrength("Too Weak!");
@@ -140,6 +142,11 @@ export default function Generator() {
             }
         }
     }
+    let  handleCopy = () => {
+        let password = document.querySelector('.password p' ).textContent
+        console.log("copy", password)
+        navigator.clipboard.writeText(password)
+    }
     useEffect(()=> {
         let subArray = null
         if(condition.includeLower.is ) {
@@ -191,7 +198,9 @@ export default function Generator() {
             <section id="Gen_panel">
                 <section className="password">
                     <p>{randomPassword}</p>
-                    <FontAwesomeIcon icon={faCopy} />
+                    <div className="copy" onClick={handleCopy}>
+                        <FontAwesomeIcon icon={faCopy} />
+                    </div>
                 </section>
                 <section className="indicators">
                     <section className="pass_length">
@@ -203,6 +212,7 @@ export default function Generator() {
                         defaultValue={30}
                         onChange={e => handleSlider(e)}
                         value={length}
+                        max={20}
                         sx={{
                             width: "90%",
                             color: 'white',
@@ -238,7 +248,7 @@ export default function Generator() {
                             </div>
                         </div>
                     </section>
-                    <button onMouseUp={randomizer} id="Generate_btn">Generate <span>icon</span></button>
+                    <button onMouseUp={randomizer} id="Generate_btn">Generate <span><FontAwesomeIcon icon={faArrowRight} /></span></button>
                 </section>
             </section>
         </section>
