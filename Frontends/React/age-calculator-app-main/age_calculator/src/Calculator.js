@@ -41,7 +41,6 @@ export function Calculator() {
                 offsetDay = Math.abs(currentDate.getDate() - day)
                 console.log("current more day:" , offsetDay, currentDate.getDate(), day)
             }
-            console.log(`calculated : ${offsetDay}/${offsetMonth}/${offsetYear}`)
             setOffset({
                 offsetYear,
                 offsetMonth,
@@ -60,26 +59,60 @@ export function Calculator() {
         let isValid = false;
         let isLeapYear = false ;
         let isNot30Day = false ; 
-        if(month == 4 || month == 6 || month == 9 || month == 2) {
-            
-        }
+      
         const {day, month, year} = date
         if(day < 1) {
             console.log("wrong!")
         }
-        if(day === "" || (day > 31 || day < 1)) {
-            dateErrorText.classList.add("visible")
-            dateInput.classList.add("error_line")
-            isValid = false;
+        if(year % 4 == 0 ) {
+            console.log("LEap year")
+            if(month == 2) {
+                // feb should have 29 days here 
+                if(day == "" || (day < 1 || day > 29)) {
+                    dateErrorText.classList.add("visible")
+                    dateErrorText.textContent = "It's leap year! Only 29 days!"
+                    dateInput.classList.add("error_line")
+                    return false
+                } else {
+                    dateErrorText.classList.remove("visible")
+                    dateInput.classList.remove("error_line")
+                    isValid = true
+                }
+            }
         } else {
-            dateErrorText.classList.remove("visible")
-            dateInput.classList.remove("error_line")
-            isValid = true
+            if(month == 2) {
+                // not leap year so 28 days
+                if(day === "" || (day > 28 || day < 1)) {
+                    dateErrorText.textContent = "It's not leap year!"
+                    dateErrorText.classList.add("visible")
+                    dateInput.classList.add("error_line") 
+                    return false 
+                } else {
+                    dateErrorText.textContent = "Invalid date"
+                    dateErrorText.classList.remove("visible")
+                    dateInput.classList.remove("error_line")
+                    isValid = true
+                }
+            } else {
+                if(day === "" || (day > 31 || day < 1)) {
+                    dateErrorText.classList.add("visible")
+                    dateInput.classList.add("error_line")
+    
+                    return false 
+                    
+                } else {
+                    dateErrorText.classList.remove("visible")
+                    dateInput.classList.remove("error_line")
+                    isValid = true
+                }
+            }
+            
         }
         if(month === "" || (month > 12 || month < 1)) {
             monthErrorText.classList.add("visible")
             monthInput.classList.add("error_line")
             isValid = false;
+            // return false 
         } else {
             monthErrorText.classList.remove("visible")
             monthInput.classList.remove("error_line")
@@ -88,11 +121,11 @@ export function Calculator() {
         if(year === "" || (year > thisYear)) {
             yearInput.classList.add("error_line")
             yearErrorText.classList.add("visible")
-            isValid = false;
+            return false 
         } else if(year < 1900) {
             yearErrorText.textContent = "year must be more than or equal to 1900"
             yearErrorText.classList.add("visible")
-            isValid = false;
+            return false 
         }else {
             yearInput.classList.remove("error_line")
             yearErrorText.classList.remove("visible")
