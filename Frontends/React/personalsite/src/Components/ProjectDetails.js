@@ -1,39 +1,35 @@
-import web from '../assets/Img/dictionary.jpeg'
+import dictionary from '../assets/Img/dictionaryMockup.jpg'
+import age from '../assets/Img/AgeCalcMockup.jpg'
+import form from '../assets/Img/MultiFormMockup.jpg'
+import generator from '../assets/Img/PassGenMockup.jpg'
 export const details = [
     {
         id: "dictionary",
         Title : "Web dictionary",
         desc: "Developed using ReactJS and utilizing api to import definitions",
         url: "",
-        src: web
+        src: dictionary
     },
     {
-        id:"Netflix",
-        Title: "Netflix clone",
-        desc:"Developed a clone of Netflix website, with Next.Js as framework and Mongodb as database",
-        url: "",
-        src: web
+        id:"Pass_generator",
+        Title: "Password generator",
+        desc:"Built website that generate random password.",
+        url: "github.com/PatLeosrisook/Password_Generator.git",
+        src: generator
     },
     {
-        id:"Netflix",
-        Title: "Netflix clone",
-        desc:"Developed a clone of Netflix website, with Next.Js as framework and Mongodb as database",
-        url: "",
-        src: web
+        id:"Multi_step_form",
+        Title: "Multi-step form",
+        desc:"",
+        url: "patleosrisook.github.io/Multi-step-form/",
+        src: form
     },
     {
-        id:"Netflix",
-        Title: "Netflix clone",
-        desc:"Developed a clone of Netflix website, with Next.Js as framework and Mongodb as database",
-        url: "",
-        src: web
-    },
-    {
-        id:"Netflix",
-        Title: "Netflix clone",
-        desc:"Developed a clone of Netflix website, with Next.Js as framework and Mongodb as database",
-        url: "",
-        src: web
-    },
+        id:"Age_calc",
+        Title: "Age Calculator web",
+        desc:"",
+        url: "patleosrisook.github.io/Age-Calculator/",
+        src: age
+    }
 ]
 // module.exports = {details}

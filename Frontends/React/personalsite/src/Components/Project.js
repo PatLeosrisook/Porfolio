@@ -1,10 +1,13 @@
 import 'animate.css';
-
+import {useNavigate} from 'react-router-dom'
 export function Project({img, Name, Overview, Url}) {
+    let navigate = useNavigate()
     // let image = require(Url)
-    console.log(img)
+    let handleNavigateToLink = () => {
+        window.open(`http://${Url}`, "_blank")
+    }
     return (
-        <article className={`Project animate__animated animate__zoomOut `}>
+        <article onClick={handleNavigateToLink} className={`Project animate__animated animate__zoomOut `}>
             <div className="image_wrap">
                 <img src={img} />
                 <div className="Content">

@@ -1,6 +1,6 @@
 import { Project } from "./Project";
 import 'animate.css';
-import web from '../assets/Img/web_dictionary.jpg'
+
 export function ProjectList({img, Name, Overview, Url, lists}) {
     let imagePath = '../assets/Img/'
     return(
@@ -11,7 +11,7 @@ export function ProjectList({img, Name, Overview, Url, lists}) {
                         img={work.src}
                         Name={work.Title}
                         Overview={work.desc}
-                        // Url={<img src={web}/>}
+                        Url={work.url}
                         animation_delay={index}
                     />
                 })
