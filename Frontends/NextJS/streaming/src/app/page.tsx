@@ -1,9 +1,15 @@
+'use client';
 import Image from "next/image";
 // import styles from "./page.module.css";
 import logo from '../../public/Movie.svg';
 import './CSS/style.css'
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 export default function Home() {
+  let router = useRouter()
+  let handleNavigate = () => {
+    router.push('/signup')
+  }
   return (
     <main>
       <header>
@@ -13,7 +19,7 @@ export default function Home() {
       <article id="Heading">
         <h1>Stream me</h1>
         <p>Free streaming service. Watch anywhere and watch anything you want.</p>
-        <button id="register_cta" className="cta">Register</button>
+        <button onClick={handleNavigate} id="register_cta" className="cta">Register</button>
       </article>
     </main>
   );

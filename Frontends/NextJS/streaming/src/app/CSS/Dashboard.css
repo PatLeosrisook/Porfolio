@@ -80,6 +80,10 @@ header {
 }
 #Heading h1 {
   font-weight: 500;
+  font-size: 3.2rem;
+}
+#Heading p {
+  line-height: 24px;
 }
 #Heading #register_cta {
   width: 126px;
@@ -153,6 +157,39 @@ header {
   border-bottom-color: #FFFFFF;
 }
 
+@media (min-width: 768px) {
+  header {
+    height: 6vh;
+  }
+  header img {
+    width: 30px;
+    height: auto;
+  }
+  #Heading h1 {
+    font-size: 4rem;
+  }
+  #Heading p {
+    font-size: 1.4rem;
+    line-height: 2.1875rem;
+    margin-bottom: 20px;
+    max-width: 45%;
+  }
+  #Heading #register_cta {
+    width: 146px;
+    height: 49px;
+    font-size: 1.1rem;
+  }
+}
+@media (min-width: 2000px) {
+  #Heading {
+    max-width: 50%;
+    align-self: flex-start;
+    left: 10%;
+  }
+  #Heading h1 {
+    font-size: 6rem;
+  }
+}
 #Dashboard {
   display: flex;
   flex-direction: column;

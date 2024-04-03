@@ -74,6 +74,10 @@ header {
     z-index: 2;
     h1 {
         font-weight: 500;
+        font-size: 3.2rem;
+    }
+    p {
+        line-height: 24px;
     }
     #register_cta {
         width: 126px;
@@ -139,4 +143,41 @@ header {
     }
     
 
+}
+@media (min-width: 768px) {
+    header {
+        img {
+            width: 30px;
+            height: auto;
+        }
+        height: 6vh;
+    }
+    #Heading {
+        h1 {
+            font-size: 4rem;
+        }
+        p {
+            font-size:1.4rem;
+            line-height: calc(1.4rem * 1.25) * 1.25;
+            margin-bottom: 20px;
+            max-width: 45%;
+        }
+        #register_cta {
+            width: 146px;
+            height: 49px;
+            font-size: 1.1rem;
+        }
+    }
+
+}
+@media (min-width: 2000px) {
+    #Heading {
+        h1 {
+            font-size: 6rem;
+        }
+
+        max-width: 50%;
+        align-self: flex-start;
+        left: 10%;
+    }
 }
