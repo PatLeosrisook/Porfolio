@@ -136,26 +136,22 @@ export default function SignUp() {
                 Email: formData['email'],
                 Password: formData['password']
             }
-            let options = {
-                method: 'POST',
-                url: 'http://localhost:3000/api/data',
-                headers: {
-                'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            }
             return axios.post('http://localhost:3000/api/data', data, {
                 headers: {
                   'Content-Type': 'application/json',
                 },
               }).then(response => {
                 console.log("successfully added", data, response.data);
+                router.push('Create_Profile')
               }).catch(err => {
-                console.error("oops", err);
+                console.error("oops", err.response.data.error);
+                email?.classList.add("error_input")
+                setFormData(prevState => ({
+                    ...prevState, 
+                    email_error: err.response.data.error
+                }))
                 return false;
               });
-            console.log("Valid")
-            router.push('Create_Profile')
         } else {
             console.log("not valid")
         }
