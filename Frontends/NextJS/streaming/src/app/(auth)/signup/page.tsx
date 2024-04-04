@@ -1,7 +1,8 @@
 'use client';
 import Link from "next/link";
 import {useEffect, useState} from 'react'
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation"; 
+import axios from "axios";
 interface form {
     email: string,
     password: string,
@@ -131,7 +132,28 @@ export default function SignUp() {
 
         if(isValid) {
             //go to create account
-
+            let data = {
+                Email: formData['email'],
+                Password: formData['password']
+            }
+            let options = {
+                method: 'POST',
+                url: 'http://localhost:3000/api/data',
+                headers: {
+                'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            }
+            return axios.post('http://localhost:3000/api/data', data, {
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+              }).then(response => {
+                console.log("successfully added", data, response.data);
+              }).catch(err => {
+                console.error("oops", err);
+                return false;
+              });
             console.log("Valid")
             router.push('Create_Profile')
         } else {
