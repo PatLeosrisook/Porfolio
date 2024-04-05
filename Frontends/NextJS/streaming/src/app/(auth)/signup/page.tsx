@@ -141,7 +141,12 @@ export default function SignUp() {
                   'Content-Type': 'application/json',
                 },
               }).then(response => {
-                console.log("successfully added", data, response.data);
+                // push new email to db
+                email?.classList.remove("error_input")
+                setFormData(prevState => ({
+                    ...prevState, 
+                    email_error:""
+                }))
                 router.push('Create_Profile')
               }).catch(err => {
                 console.error("oops", err.response.data.error);

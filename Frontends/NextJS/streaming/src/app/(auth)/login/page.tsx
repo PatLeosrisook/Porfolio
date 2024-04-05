@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { useState, useEffect } from "react";
+import axios from "axios";
 interface FormData {
     Email: string, 
     Password: string, 
@@ -49,10 +50,16 @@ export default function Login() {
             isValid = true
 
         }
+
+        axios.get('http://localhost:3000/api/data').then(response => {
+            console.log("logged in ")
+            router.push('/Dashboard/Home')
+        }).catch(error => {
+            console.log("Error", error)
+        })
         if(value.Email == "a@gmail.com" && value.Password === 'a' && isValid) {
             // continue to dashboard 
             console.log("valid")
-            router.push('/Dashboard/Home')
         } 
     }
     useEffect(() => {
