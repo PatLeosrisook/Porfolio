@@ -26,9 +26,11 @@ export class Home extends React.Component {
         
        return (
            <section id="Home">
-               <div  className="bg-element top">
+               <div  className="bg-element circular-element top">
                </div>
-               <div className="bg-element bottom">
+               <div  className="bg-element triangle-element top">
+               </div>
+               <div className="bg-element circular-element bottom">
                </div>
                {/* <div  className="overlay-element top">
                </div>

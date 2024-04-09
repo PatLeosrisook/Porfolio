@@ -46,23 +46,27 @@ body {
 .bg-element {
     position: absolute;
     
-    transform: scale(2.1);
-    background: linear-gradient(45deg, $Accent, $Accent-2);
+    transform: scale(2.6);
+    // background: linear-gradient(45deg, $Accent, $Accent-2);
+    background-color: $White;
+    box-shadow: -2px 0px 14px rgb(120 120 120 / 19%);
     height:130px;
     width:130px;
-    border-radius: 100%;
     z-index: -1;
-    filter: blur(15px);
+    // filter: blur(15px);
 }
-.overlay-element {
-    position: absolute;
-    height:130px;
-    width:130px;
-    transform: scale(3.5);
-    background-image: radial-gradient(rgba(0, 0, 0, 0) 2px, #f2f2f2 2px);
-    background-size: 20px 20px;
-    backdrop-filter: blur(20px);
+.circular-element {
+    border-radius: 100%;
+
 }
+.triangle-element {
+    width: 0;
+	height: 0;
+	border-top: 25px solid transparent;
+	border-right: 50px solid $White;
+	border-bottom: 25px solid transparent;
+}
+
 .top {
     top: 473px;
     right: -70px;
@@ -322,15 +326,12 @@ header {
     
 }
 @media(min-width: 768px) {
-    .bg-element {
-        transform: scale(2) rotate(45deg) ;  
-
-    }
+    
     .bottom {
         top: 78%;
     }
     .top {
-        top: 831px;
+        top: 621px;
         right: -71px;
     }
     #Menu {
