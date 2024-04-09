@@ -26,12 +26,14 @@ export class Home extends React.Component {
         
        return (
            <section id="Home">
-               <animated.div  className="bg-element top">
-   
-               </animated.div>
-               <div className="bg-element bottom">
-   
+               <div  className="bg-element top">
                </div>
+               <div className="bg-element bottom">
+               </div>
+               {/* <div  className="overlay-element top">
+               </div>
+               <div className="overlay-element bottom">
+               </div> */}
                <section ref={this.homeRef} id="Landing">
                    <div id="HeadLine">
                        <p>Hi, I'm Pat</p>
