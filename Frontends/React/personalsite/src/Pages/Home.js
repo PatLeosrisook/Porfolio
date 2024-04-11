@@ -2,7 +2,8 @@
 import '../SCSS/home.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
-import { faGithub , faLinkedin} from '@fortawesome/free-brands-svg-icons'
+import { faGithub , faLinkedin, faReact, faHtml5, faCss3, faSass,faJs, faNodeJs} from '@fortawesome/free-brands-svg-icons'
+import {faGraduationCap, faSuitcase, faCrown, faBook, faDatabase, faCode} from '@fortawesome/free-solid-svg-icons'
 import React, { createRef, useEffect, useRef } from 'react'
 import { animated, useScroll } from '@react-spring/web'
 import 'animate.css';
@@ -48,24 +49,105 @@ export class Home extends React.Component {
                    
                </section>
                <section ref={this.aboutRef} id="About">
+                    <p id="Background_Pattern">About</p>
                    <div class="About_wrapper animate__animated">
-                       <div class="Section_title ">
-                           <p >About me</p>
-                           <div className="underline">
+                       <div id="About_title">
+                           <div className='squares'>
+                                <div className='square '></div>
+                                <div className='square '></div>
+                                <div className='square '></div>
+                                <div className='square '></div>
                            </div>
+                           <p >About me</p>
                        </div>
-                       <div className="Paragraphs">
-                           <p>Hello there! My name is Pat and I'm a Front-end developer based in Bangkok, Thailand. </p>
-                           <p>I graduated from the University of Birmingham with a Computer science degree and currently employed as an IT at the BSG Group.</p>
-                           <p>Although my current career does not relate to Front-end development, I do enjoy creating website and learning new technologies in my spare time.</p>
-                           <p>Here are the technologies I use: </p>
-                           <ul id="TechStack">
-                                <li>ReactJS</li>
-                                <li>NextJS <span className='note'>(Currently learning)</span></li>
-                                <li>JavaScript</li>
-                                <li>TypeScript <span className='note'>(Currently learning)</span></li>
-                                <li>MongoDB <span className='note'>(Currently learning)</span></li>
-                           </ul>
+                       <div id="Background_list">
+                           <div className='details'>
+                                <div className='details_header'>
+                                    <FontAwesomeIcon icon={faGraduationCap} />
+                                    <p>Education</p>
+                                </div>
+                                <div className='locations'>
+                                    <p>2017-2020</p>
+                                    <p>University of Birmingham, UK</p>
+                                    <p>Bsc(Hons) Computer science</p>
+                                </div>
+                                <div className='locations'>
+                                    <p>2016-2017</p>
+                                    <p>Bellerbys college, Brighton, UK</p>
+                                    <p>Foundation of Computing</p>
+                                </div>
+                           </div>
+                           <div className='details'>
+                                <div className='details_header'>
+                                    <FontAwesomeIcon icon={faSuitcase} beat />
+                                    <p>Current position</p>
+                                </div>
+                                <div className='locations'>
+                                    <p>Nov 2021 - Present</p>
+                                    <p>IT Maintenance</p>
+                                    <p>BSG Group, Bangkok, Thailand</p>
+                                </div>
+    
+                           </div>
+                           <div className='details'>
+                                <div className='details_header'>
+                                    <FontAwesomeIcon icon={faCrown} />
+                                    <p>Skills</p>
+                                </div>
+                                <div className='skills'>
+                                    <ul>
+                                        <li>
+                                            <FontAwesomeIcon icon={faJs}/>
+                                            <p>JavaScript</p>
+                                        </li>
+                                        <li>
+                                            <FontAwesomeIcon icon={faHtml5} />
+                                            <p>HTML</p>
+                                        </li>
+                                        <li>
+                                            <FontAwesomeIcon icon={faCss3} />
+                                            <p>CSS3</p>
+                                        </li>
+                                        <li>
+                                            <FontAwesomeIcon icon={faSass} />
+                                            <p>SASS</p>
+                                        </li>
+                                        <li>
+                                            <FontAwesomeIcon icon={faReact} />
+                                            <p>ReactJS</p>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+    
+                           </div>
+                           <div className='details'>
+                                <div className='details_header'>
+                                    <FontAwesomeIcon icon={faBook} />
+                                    <p>Learning skills</p>
+                                </div>
+                                <div className='skills'>
+                                    <ul>
+                                        <li>
+                                            <FontAwesomeIcon icon={faCode}/>
+                                            <p>TypeScript</p>
+                                        </li>
+                                        <li>
+                                            <FontAwesomeIcon icon={faNodeJs}/>
+                                            <p>NodeJS</p>
+                                        </li>
+                                        <li>
+                                            <FontAwesomeIcon icon={faDatabase}/>
+                                            <p>MongoDB</p>
+                                        </li>
+                                        <li>
+                                            <FontAwesomeIcon icon={faCode}/>
+                                            <p>NextJS</p>
+                                        </li>
+                                    </ul>
+                                </div>
+    
+                           </div>
                        </div>
                    </div>
                </section>

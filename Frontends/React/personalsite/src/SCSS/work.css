@@ -139,23 +139,129 @@ body {
   background: linear-gradient(to right, #ffbb6e, #FF79C1);
 }
 
+#About {
+  position: relative;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
+  height: 150vh !important;
+}
+#About #Background_Pattern {
+  text-transform: uppercase;
+  font-size: 6rem;
+  font-weight: 800;
+  color: #e6e6e6;
+}
 #About .About_wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  align-items: flex-start;
   opacity: 0;
   transition: opacity 0.4s ease;
   gap: 10px;
 }
-#About .Paragraphs {
-  width: 90%;
+#About #Background_list {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  text-align: left;
+  width: 90%;
   gap: 20px;
+}
+#About #Background_list .details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+}
+#About #Background_list .details_header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+#About #Background_list .details_header svg {
+  font-size: 1.3rem;
+}
+#About #Background_list .details_header svg path {
+  fill: #FF79C1;
+}
+#About #Background_list .details_header p {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+#About #Background_list .locations {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  gap: 3px;
+}
+#About #Background_list .locations p:nth-child(1) {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #bfbfbf;
+}
+#About #Background_list .locations p:nth-child(2) {
+  font-size: 0.9rem;
+  text-align: left;
+}
+#About #Background_list .locations p:nth-child(3) {
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+#About #About_title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-items: flex-start;
+}
+#About #About_title p {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+#About #About_title .squares {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+#About #About_title .squares .square {
+  width: 9px;
+  height: 9px;
+}
+#About #About_title .squares .square:nth-child(1) {
+  background-color: #ff6b8e;
+}
+#About #About_title .squares .square:nth-child(2) {
+  background-color: #ff917a;
+}
+#About #About_title .squares .square:nth-child(3) {
+  background-color: #ffb86b;
+}
+#About #About_title .squares .square:nth-child(4) {
+  background-color: #ffe057;
+}
+#About .skills ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;
+  list-style: none;
+  gap: 5px;
+}
+#About .skills ul li {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
 }
 
 #Contact {
@@ -342,6 +448,32 @@ header nav {
   }
 }
 @media (min-width: 768px) {
+  #About {
+    height: 100vh !important;
+  }
+  #About #Background_list {
+    display: grid;
+    width: 100%;
+    gap: 58px;
+    grid-template-columns: 49% 50%;
+    grid-template-rows: auto auto;
+    justify-content: flex-start;
+  }
+  #About #Background_list .locations p:nth-child(1), #About #Background_list .locations p:nth-child(3) {
+    font-size: 0.9rem;
+  }
+  #About #Background_list .locations p:nth-child(2) {
+    font-size: 1rem;
+  }
+  #About .skills ul {
+    gap: 10px;
+  }
+  #About .skills ul li {
+    gap: 10px;
+  }
+  #About .skills ul li svg {
+    font-size: 1.4rem;
+  }
   .bottom {
     top: 78%;
   }
@@ -425,6 +557,35 @@ header nav {
   .top {
     top: 789px;
     right: -67px;
+  }
+}
+@media (min-width: 1500px) {
+  #About {
+    position: relative;
+  }
+  #About .About_wrapper {
+    width: 70%;
+    height: 100%;
+    gap: 40px;
+  }
+  #About #About_title p {
+    font-size: 3rem;
+  }
+  #About #Background_list {
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+  }
+  #About #Background_list .locations p:nth-child(1), #About #Background_list .locations p:nth-child(3) {
+    font-size: 1rem;
+  }
+  #About #Background_list .locations p *:nth-child(2) {
+    font-size: 1.4rem;
+  }
+  #About #Background_list .details_header p {
+    font-size: 2rem;
+  }
+  #About #Background_list .details_header svg {
+    font-size: 1.7rem;
   }
 }
 * {
@@ -566,23 +727,129 @@ body {
   background: linear-gradient(to right, #ffbb6e, #FF79C1);
 }
 
+#About {
+  position: relative;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
+  height: 150vh !important;
+}
+#About #Background_Pattern {
+  text-transform: uppercase;
+  font-size: 6rem;
+  font-weight: 800;
+  color: #e6e6e6;
+}
 #About .About_wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  align-items: flex-start;
   opacity: 0;
   transition: opacity 0.4s ease;
   gap: 10px;
 }
-#About .Paragraphs {
-  width: 90%;
+#About #Background_list {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  text-align: left;
+  width: 90%;
   gap: 20px;
+}
+#About #Background_list .details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+}
+#About #Background_list .details_header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+#About #Background_list .details_header svg {
+  font-size: 1.3rem;
+}
+#About #Background_list .details_header svg path {
+  fill: #FF79C1;
+}
+#About #Background_list .details_header p {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+#About #Background_list .locations {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  gap: 3px;
+}
+#About #Background_list .locations p:nth-child(1) {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #bfbfbf;
+}
+#About #Background_list .locations p:nth-child(2) {
+  font-size: 0.9rem;
+  text-align: left;
+}
+#About #Background_list .locations p:nth-child(3) {
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+#About #About_title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-items: flex-start;
+}
+#About #About_title p {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+#About #About_title .squares {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+#About #About_title .squares .square {
+  width: 9px;
+  height: 9px;
+}
+#About #About_title .squares .square:nth-child(1) {
+  background-color: #ff6b8e;
+}
+#About #About_title .squares .square:nth-child(2) {
+  background-color: #ff917a;
+}
+#About #About_title .squares .square:nth-child(3) {
+  background-color: #ffb86b;
+}
+#About #About_title .squares .square:nth-child(4) {
+  background-color: #ffe057;
+}
+#About .skills ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;
+  list-style: none;
+  gap: 5px;
+}
+#About .skills ul li {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
 }
 
 #Contact {
@@ -769,6 +1036,32 @@ header nav {
   }
 }
 @media (min-width: 768px) {
+  #About {
+    height: 100vh !important;
+  }
+  #About #Background_list {
+    display: grid;
+    width: 100%;
+    gap: 58px;
+    grid-template-columns: 49% 50%;
+    grid-template-rows: auto auto;
+    justify-content: flex-start;
+  }
+  #About #Background_list .locations p:nth-child(1), #About #Background_list .locations p:nth-child(3) {
+    font-size: 0.9rem;
+  }
+  #About #Background_list .locations p:nth-child(2) {
+    font-size: 1rem;
+  }
+  #About .skills ul {
+    gap: 10px;
+  }
+  #About .skills ul li {
+    gap: 10px;
+  }
+  #About .skills ul li svg {
+    font-size: 1.4rem;
+  }
   .bottom {
     top: 78%;
   }
@@ -852,6 +1145,35 @@ header nav {
   .top {
     top: 789px;
     right: -67px;
+  }
+}
+@media (min-width: 1500px) {
+  #About {
+    position: relative;
+  }
+  #About .About_wrapper {
+    width: 70%;
+    height: 100%;
+    gap: 40px;
+  }
+  #About #About_title p {
+    font-size: 3rem;
+  }
+  #About #Background_list {
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+  }
+  #About #Background_list .locations p:nth-child(1), #About #Background_list .locations p:nth-child(3) {
+    font-size: 1rem;
+  }
+  #About #Background_list .locations p *:nth-child(2) {
+    font-size: 1.4rem;
+  }
+  #About #Background_list .details_header p {
+    font-size: 2rem;
+  }
+  #About #Background_list .details_header svg {
+    font-size: 1.7rem;
   }
 }
 #Work {

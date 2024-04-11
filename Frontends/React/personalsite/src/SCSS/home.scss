@@ -46,7 +46,7 @@ body {
 .bg-element {
     position: absolute;
     
-    transform: scale(2.6);
+    transform: scale(2);
     // background: linear-gradient(45deg, $Accent, $Accent-2);
     background-color: $White;
     box-shadow: -2px 0px 14px rgb(120 120 120 / 19%);
@@ -68,7 +68,7 @@ body {
 }
 
 .top {
-    top: 473px;
+    top: 283px;
     right: -70px;
 }
 .bottom {
@@ -142,18 +142,108 @@ body {
     }
 }
 #About {
+    position: relative;
+    #Background_Pattern {
+        text-transform: uppercase;
+        font-size: 6rem;
+        font-weight: 800;
+        color: #e6e6e6;
+    }
+    min-height: fit-content;
+    height: 150vh !important;
     .About_wrapper{
         @include flex();
+        align-items: flex-start;
         opacity: 0;
         transition: opacity 0.4s ease;
-        gap:10px
+        gap:10px;
     }
     
-    .Paragraphs {
-        width: 90%;
+    #Background_list {
         @include flex(column, center ,flex-start);
-        text-align: left;
+        width: 90%;
         gap:20px;
+        .details {
+            @include flex(column, center, flex-start);
+            gap:10px;
+        }
+        .details_header {
+            @include flex(column, center, flex-start);
+            svg{
+                font-size:1.3rem;
+                path{
+
+                    fill: $Accent-2;
+                }
+            }
+            p{
+                font-size: 1.2rem;
+                font-weight: 600;
+            }
+        }
+        .locations {
+            @include flex(column, center, flex-start);
+            margin-bottom:20px;
+            gap:3px;
+            p{
+                &:nth-child(1) {
+                    font-size: 0.7rem;
+                    font-weight: 700;
+                    color:#bfbfbf
+                }
+                &:nth-child(2) {
+                    font-size:0.9rem;
+                    text-align: left;
+
+                }
+                &:nth-child(3) {
+                    font-size: 0.7rem;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
+    #About_title {
+        @include flex();
+        align-items: flex-start;
+        p {
+            font-size: 1.4rem;
+            font-weight: 600
+        }
+        
+        .squares {
+            @include flex(row, center ,center);
+            gap: 3px;
+            .square{
+                width:9px;
+                height:9px;
+                &:nth-child(1) {
+                    background-color: #ff6b8e;
+                }
+                &:nth-child(2) {
+                    background-color: #ff917a;
+                }
+                &:nth-child(3) {
+                    background-color: #ffb86b;
+                }
+                &:nth-child(4) {
+                    background-color: #ffe057;
+                }
+            }
+        }
+    }
+    .skills {
+        ul {
+            @include flex(column, center ,flex-start);
+            padding: 0; 
+            list-style: none;
+            gap:5px;
+            li {
+                @include flex(row, center, center);
+                gap:5px;
+            }
+        }
     }
 }
 #Contact {
@@ -326,6 +416,38 @@ header {
     
 }
 @media(min-width: 768px) {
+    #About {
+        height: 100vh !important;
+        #Background_list {
+            display: grid;
+            width: 100%;
+            gap: 58px;
+            grid-template-columns: 49% 50%;
+            grid-template-rows: auto auto;
+            justify-content: flex-start;
+            .locations {
+                p {
+                    &:nth-child(1) , &:nth-child(3) {
+                        font-size: 0.9rem
+                    }
+                    &:nth-child(2) {
+                        font-size:1rem;
+                    }
+                }
+            }
+        }
+        .skills{
+            ul {
+                gap: 10px;
+                li {
+                    gap:10px;
+                    svg {
+                        font-size: 1.4rem;
+                    }
+                }
+            }
+        }
+    }
     
     .bottom {
         top: 78%;
@@ -422,5 +544,49 @@ header {
     .top {
         top: 789px;
         right: -67px;
+    }
+}
+
+@media(min-width:1500px) {
+   
+    #About {
+        position: relative;
+        .About_wrapper {
+            width: 70%;
+            height:100%;
+            gap:40px;
+        }
+        #About_title {
+            p {
+                font-size: 3rem;
+            }
+        }
+        #Background_list{
+            grid-template-columns: 50% 50%;
+            grid-template-rows: 50% 50%;
+            .locations {
+
+                p {
+                    &:nth-child(1), &:nth-child(3) {
+                        font-size:1rem;
+                    }
+                    *:nth-child(2) {
+                        font-size: 1.4rem;
+                    }
+                }
+            }
+
+            .details_header {
+                p {
+                    font-size: 2rem;
+                }
+                svg {
+                    font-size: 1.7rem;;
+                }
+            }
+        }
+
+
+        
     }
 }
