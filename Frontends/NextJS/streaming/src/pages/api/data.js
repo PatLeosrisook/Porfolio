@@ -17,7 +17,7 @@ export default async function handler(req, res) {
       res.status(201).send({ success: true });
     } else {
       console.log("existed")
-      res.status(409).json({ error: 'This value already exists in the database.' });
+      res.status(409).json({ error: 'This email already existed.' });
     }
   } else if (req.method === 'GET') {
     // Retrieve data from the database
