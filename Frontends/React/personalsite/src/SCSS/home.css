@@ -149,6 +149,7 @@ body {
   font-size: 6rem;
   font-weight: 800;
   color: #e6e6e6;
+  position: absolute;
 }
 #About .About_wrapper {
   display: flex;
@@ -180,6 +181,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  gap: 10px;
 }
 #About #Background_list .details_header svg {
   font-size: 1.3rem;
@@ -450,6 +452,17 @@ header nav {
   #About {
     height: 100vh !important;
   }
+  #About #About_title p {
+    font-size: 2rem;
+  }
+  #About #Background_Pattern {
+    top: 120px;
+    left: -110px;
+    font-size: 14rem;
+  }
+  #About .About_wrapper {
+    gap: 40px;
+  }
   #About #Background_list {
     display: grid;
     width: 100%;
@@ -463,6 +476,9 @@ header nav {
   }
   #About #Background_list .locations p:nth-child(2) {
     font-size: 1rem;
+  }
+  #About #Background_list .details {
+    gap: 15px;
   }
   #About .skills ul {
     gap: 10px;
@@ -541,6 +557,25 @@ header nav {
   }
 }
 @media (min-width: 1440px) {
+  #About #About_title p {
+    font-size: 2.3rem;
+  }
+  #About .About_wrapper {
+    width: 70%;
+  }
+  #About #Background_list {
+    -moz-column-gap: 31px;
+         column-gap: 31px;
+  }
+  #About #Background_list .details_header p {
+    font-size: 1.5rem;
+  }
+  #About #Background_list .locations {
+    gap: 10px;
+  }
+  #About #Background_list .locations p:nth-child(2) {
+    font-size: 1.3rem;
+  }
   .Section_title p {
     font-size: 3rem;
   }

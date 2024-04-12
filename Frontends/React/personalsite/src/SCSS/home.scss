@@ -148,6 +148,7 @@ body {
         font-size: 6rem;
         font-weight: 800;
         color: #e6e6e6;
+        position:absolute;
     }
     min-height: fit-content;
     height: 150vh !important;
@@ -169,6 +170,7 @@ body {
         }
         .details_header {
             @include flex(column, center, flex-start);
+            gap:10px;
             svg{
                 font-size:1.3rem;
                 path{
@@ -418,6 +420,19 @@ header {
 @media(min-width: 768px) {
     #About {
         height: 100vh !important;
+        #About_title {
+            p {
+                font-size:2rem;
+            }
+        }
+        #Background_Pattern {
+            top:120px;
+            left:-110px;
+            font-size:14rem;
+        }
+        .About_wrapper {
+            gap:40px;
+        }
         #Background_list {
             display: grid;
             width: 100%;
@@ -434,6 +449,9 @@ header {
                         font-size:1rem;
                     }
                 }
+            }
+            .details {
+                gap:15px;
             }
         }
         .skills{
@@ -526,6 +544,31 @@ header {
     }
 }
 @media(min-width:1440px) {
+
+    #About {
+        #About_title p {
+            font-size: 2.3rem;
+        }
+        .About_wrapper {
+            width: 70%;
+        }
+        #Background_list {
+            column-gap: 31px;
+            .details_header {
+                p {
+                    font-size: 1.5rem;       
+                }
+            }
+            .locations {
+                gap:10px;
+                p {
+                    &:nth-child(2) {
+                        font-size: 1.3rem;;
+                    }
+                }
+            }
+        }
+    }
     .Section_title {
         p {
 
