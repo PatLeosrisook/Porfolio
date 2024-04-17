@@ -2,7 +2,6 @@ import { Project } from "./Project";
 import 'animate.css';
 
 export function ProjectList({img, Name, Overview, Url, lists}) {
-    let imagePath = '../assets/Img/'
     return(
         <section id="Works">
             {

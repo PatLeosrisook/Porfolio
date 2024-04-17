@@ -1,10 +1,8 @@
-import { Project } from "../Components/Project";
 import { ProjectList } from "../Components/ProjectList";
 import {Blob} from '../Components/BackgroundBlob'
 import '../SCSS/work.css'
 import {details} from '../Components/ProjectDetails'
 import 'animate.css';
-import { useEffect } from "react";
 
 export function Work() {  
     return(

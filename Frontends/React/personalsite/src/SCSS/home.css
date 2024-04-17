@@ -185,6 +185,7 @@ body {
 }
 #About #Background_list .details_header svg {
   font-size: 1.3rem;
+  --fa-beat-scale: 1.1;
 }
 #About #Background_list .details_header svg path {
   fill: #FF79C1;
