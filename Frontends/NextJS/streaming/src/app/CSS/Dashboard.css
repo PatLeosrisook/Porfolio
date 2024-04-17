@@ -4,6 +4,8 @@
   height: 30px;
   background-color: #FC4747;
   border: none;
+  color: white;
+  font-weight: 500;
 }
 
 .error_input {
@@ -314,10 +316,62 @@ header {
   font-size: 12px;
 }
 #CreateProfile #Creator_card #Avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+#CreateProfile #Creator_card #ProfilePic {
   background-color: white;
   width: 100px;
   height: 100px;
   border-radius: 100%;
+}
+#CreateProfile #Creator_card input[type=file] {
+  display: none;
+}
+#CreateProfile #Creator_card label[for=selectFile] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 40px;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: #5A698F;
+}
+#CreateProfile #User_info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  height: 80%;
+  width: 100%;
+}
+#CreateProfile #Details {
+  width: 80%;
+}
+#CreateProfile .form_group {
+  width: 100%;
+  margin-bottom: 15px;
+}
+#CreateProfile input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid white;
+  height: 45px;
+  width: 100%;
+  border-radius: 0;
+}
+#CreateProfile input:focus {
+  outline: none;
+}
+#CreateProfile .create_profile {
+  width: 90% !important;
+  height: 50px;
 }
 
 .Trending_media {
@@ -410,7 +464,22 @@ header {
   flex-wrap: wrap;
 }
 
+@media (min-width: 375px) {
+  #CreateProfile #User_info {
+    gap: 70px;
+  }
+}
 @media (min-width: 768px) {
+  #CreateProfile #Creator_card {
+    height: 60%;
+    max-width: 640px;
+  }
+  #CreateProfile #Creator_card label[for=selectFile] {
+    font-size: 0.9rem;
+    font-weight: 500;
+    width: 126px;
+    height: 38px;
+  }
   .Specified_Type h1 {
     font-size: 2rem;
     font-weight: 500;
