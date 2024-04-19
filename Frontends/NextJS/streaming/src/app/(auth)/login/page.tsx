@@ -50,8 +50,12 @@ export default function Login() {
             isValid = true
 
         }
+        let data = {
+            Email: value.Email,
+            Password: value.Password
+        }
 
-        axios.get('http://localhost:3000/api/data').then(response => {
+        axios.post('http://localhost:3000/api/data', data).then(response => {
             console.log("logged in ")
             router.push('/Dashboard/Home')
         }).catch(error => {

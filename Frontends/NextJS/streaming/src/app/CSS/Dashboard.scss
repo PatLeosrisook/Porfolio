@@ -99,12 +99,60 @@
             font-size:12px;
         }
         #Avatar {
-            background-color: white;
+            @include style.flex();
+            gap:10px;
+            
+        }
+        #ProfilePic {
+            @include style.flex();
+
+            border: 1px solid white;
             width: 100px;
             height:100px;
             border-radius: 100%;
         }
+        input[type='file'] {
+            display: none;
+        }
+        label[for="selectFile"] {
+            @include style.flex();
+            width: 160px;
+            height: 40px;
+            border-radius: 3px;
+            cursor: pointer;
+            background-color: style.$Accent;
+
+        }
     }
+    #User_info {
+        @include style.flex(column, center,flex-start);  
+        gap:10px;
+        height:80%;
+        width:100%;
+    }
+    #Details{
+        width:80%;
+    }
+    .form_group{
+        width:100%;
+        margin-bottom: 15px;;
+    }
+    input {
+        background-color: transparent;
+        border:none;
+        border-bottom: 1px solid white;
+        height:45px;
+        width:100%;
+        border-radius: 0;
+        &:focus {
+            outline: none;
+        }
+    }
+    .create_profile {
+        width:90% !important;
+        height:50px;
+    }
+    
 }
 .Trending_media {
     position: relative;
@@ -180,8 +228,27 @@
 
     }
 }
-
+@media(min-width: 375px) {
+    #CreateProfile{
+        #User_info {
+            gap:70px; 
+        }
+    }
+    
+}
 @media(min-width: 768px) {
+    #CreateProfile {
+        #Creator_card {
+            height: 60%;
+            max-width:640px;
+            label[for="selectFile"] {
+                font-size: 0.9rem;
+                font-weight: 500;
+                width: 126px;
+                height: 38px;
+            }
+        }
+    }
     .Specified_Type {
         h1 {
             font-size: 2rem;

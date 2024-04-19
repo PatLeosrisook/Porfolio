@@ -133,6 +133,7 @@ export default function SignUp() {
         if(isValid) {
             //go to create account
             let data = {
+                Type: "Signup", 
                 Email: formData['email'],
                 Password: formData['password']
             }
