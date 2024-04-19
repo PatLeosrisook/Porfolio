@@ -13,7 +13,7 @@
 }
 
 .hide_error {
-  display: 0;
+  display: none !important;
 }
 
 .error_message {

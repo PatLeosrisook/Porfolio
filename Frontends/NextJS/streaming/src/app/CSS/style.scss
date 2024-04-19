@@ -22,7 +22,7 @@ $White : #FFFFFF;
     border-bottom: 1px solid $Primary !important;
 }
 .hide_error {
-    display:0;
+    display: none !important;
 
 }
 .error_message{
