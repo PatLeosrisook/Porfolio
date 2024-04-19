@@ -111,7 +111,6 @@ export default function SignUp() {
 
                 isValid = true
             }
-            console.log("ee" , formData.email, formData.email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g))
             if(formData.email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g) == null) {
                 setFormData(prevState => ({
                     ...prevState, 

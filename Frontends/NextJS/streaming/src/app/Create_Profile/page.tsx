@@ -1,8 +1,9 @@
 'use client';
-import {faCamera} from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import { useEffect, useState } from 'react';
 import placeholderImage from '../../../public/Images/PlaceHolderAvatar.png'
+import Image from "next/image";
+import axios from 'axios'
 interface User {
     username: String, 
     name: String, 
@@ -11,6 +12,8 @@ export default function CreateProfile() {
     const [userData, setUserData] = useState<User>({})
     let handleChangeProfilePic = (e) => {
         let profilePic = document.querySelector("#ProfilePic")
+        profilePic?.setAttribute("src", "")
+        profilePic?.setAttribute("srcset", "")
         console.log("Change profile", e.target.files[0].name.split(" ").join(""))
         // profilePic.style.backgroundImage = url(``)
         var reader = new FileReader();
@@ -21,7 +24,7 @@ export default function CreateProfile() {
         reader.onload = (event2) => { // called once readAsDataURL is completed
           if(event2.target == null) return;
           if(event2.target.result == null) return;
-          document.getElementById('ProfilePic')?.setAttribute("src", event2.target.result as string)
+            profilePic?.setAttribute("src", event2.target.result as string)
             console.log(event2.target.result)
         }
     }
@@ -58,6 +61,16 @@ export default function CreateProfile() {
             isValid = true
             
         }
+        //Check if username exists 
+        axios.post("http://localhost:3000/api/data", {username : userData.username}).then(response => {
+
+        }).catch((err : string) => {
+            console.log(err)
+            isValid = false 
+            username?.classList.add('error_input')
+            username_text?.classList.remove("hide_error")
+            username_text.textContent = err
+        })
         return isValid
     }
     let handleCreateProfile = () => {
@@ -75,7 +88,7 @@ export default function CreateProfile() {
             </header>
             <section id="User_info">
                 <div  id="Avatar">
-                    <img src={placeholderImage} id="ProfilePic" />
+                    <Image src={placeholderImage} alt="Placeholder image" id="ProfilePic" width={20} height={20}/>
                     <label for="selectFile">
                         Choose picture
                     </label>

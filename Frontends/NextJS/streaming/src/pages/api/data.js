@@ -8,19 +8,17 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     // Add data to the database
     const data = req.body
-    const doesExist = await db.collection('user_account').findOne({email: data.email})
+    let doesExist = await db.collection('user_account').findOne({email: data.email})
     console.log("POSTING", data)
     if(data.Type == "Signup") {
         if(!doesExist ) {
-          console.log("adding new")
           await db.collection('user_account').insertOne(data);
           res.status(201).send({ success: true });
         } else {
-          console.log("existed")
           res.status(409).json({ error: 'This email already existed.' });
         }
 
-    } else {
+    } else if(data.Type == "Signin") {
       if(!doesExist) {
         res.status(409).json({error:"Account doesn't exist"})
       } else {
@@ -29,6 +27,14 @@ export default async function handler(req, res) {
         } else {
           res.status(401).json({error:"Password or email incorrect"})
         }
+      }
+    } else if(data.Type == "createProfile") {
+      await db.collection('user_account').findOne({username: data.username})
+      if(doesExist) {
+        // already have that username 
+        res.status(409).json({error: "Username existed, try another one."})
+      } else {
+        res.status(200).json(req.body)
       }
     }
   } 

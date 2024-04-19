@@ -51,6 +51,7 @@ export default function Login() {
 
         }
         let data = {
+            Type: "Signin",
             Email: value.Email,
             Password: value.Password
         }
