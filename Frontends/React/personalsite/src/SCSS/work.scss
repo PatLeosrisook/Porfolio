@@ -1,6 +1,34 @@
 @use "home";
 @import "home";
+.shadow-element {
+    position: absolute;
+    background-color: #ebebeb;
+    width: 200px;
+    height: 200px;
+    z-index: -1;
+}
+.sq-shadow {
+    top: 640px;
+    right: 150px;  
+    animation-name: rotate;
+    animation-duration: 200s;
+    animation-iteration-count: infinite;
+}
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.circle-shadow {
+    border-radius: 100%;
+    transform: scale(6.5);
+    
+}
 #Work {
+    position:relative;
     padding-bottom: 80px;
 }
 // :root {
@@ -16,9 +44,9 @@
     transition: opacity ease 0.3s;
 }
 #Work_landing {
-    background-image: radial-gradient(rgba(0, 0, 0, 0) 2px, #f2f2f2 2px);
-    background-size: 20px 20px;
-    backdrop-filter: blur(20px);
+    // background-image: radial-gradient(rgba(0, 0, 0, 0) 2px, #f2f2f2 2px);
+    // background-size: 20px 20px;
+    // backdrop-filter: blur(20px);
     h1 {
         font-size:5rem;
     }

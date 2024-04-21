@@ -51,7 +51,7 @@ const [isLoading, setIsLoading] = useState(true)
       let Home = document.querySelector(".Home-link").classList
       let About = document.querySelector(".About-link").classList
       let Contact = document.querySelector(".Contact-link").classList
-        
+        console.log(AboutY)
         if(HomeY <= 0 && HomeY > -500) {
             Home.add("active")
 
@@ -59,7 +59,7 @@ const [isLoading, setIsLoading] = useState(true)
             Home.remove("active")
             
         }
-        if(AboutY < 500 && AboutY > -500) {
+        if(AboutY < 500 && AboutY > -900) {
             About.add("active")
             AboutElement.classList.add("animate__slideInUp")
             AboutElement.classList.add("show_element")

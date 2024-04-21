@@ -65,6 +65,9 @@ body {
 	border-top: 25px solid transparent;
 	border-right: 50px solid $White;
 	border-bottom: 25px solid transparent;
+    right: -30px;
+    top: 480px;
+    transform: rotate(45deg) scale(2.5);
 }
 
 .top {
@@ -144,6 +147,7 @@ body {
 #About {
     position: relative;
     #Background_Pattern {
+        top:200px;
         text-transform: uppercase;
         font-size: 6rem;
         font-weight: 800;
@@ -318,6 +322,11 @@ body {
         color: $Primary;
         font-weight: 500;
         font-size: 1.5rem;
+        transition: color ease 0.4s;
+        &:hover {
+            color:white;
+            transition: color ease 0.4s;
+        }
     }
     .active {
         color: $White;
@@ -340,6 +349,7 @@ header {
     #burger {
         background: transparent;
         border: none;
+        cursor: pointer;
         .burger , .burger::after, .burger::before{
             background-color: $Primary;
         }
@@ -370,6 +380,9 @@ header {
         height:1px;
         background-color: $Primary-tint;
     }
+    a {
+        font-size: 2rem;
+    }
 }
 #TechStack {
     padding: 16px; 
@@ -393,7 +406,7 @@ header {
     width:100vw;
     height:100vh;
     right: 0;;
-    transform: translateY(-200vw);
+    transform: translateY(-300vw);
     // border-top-left-radius:100%;
     // border-bottom-left-radius:100%;
     transition: transform cubic-bezier(.73,0,0,1.03) 0.3s !important;
@@ -436,9 +449,9 @@ header {
         }
         #Background_list {
             display: grid;
-            width: 100%;
+            width: fit-content;
             gap: 58px;
-            grid-template-columns: 49% 50%;
+            grid-template-columns: auto auto;
             grid-template-rows: auto auto;
             justify-content: flex-start;
             .locations {
@@ -554,7 +567,7 @@ header {
             width: 70%;
         }
         #Background_list {
-            column-gap: 31px;
+            column-gap: 170px;
             .details_header {
                 p {
                     font-size: 1.5rem;       

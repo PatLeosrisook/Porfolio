@@ -55,6 +55,9 @@ body {
   border-top: 25px solid transparent;
   border-right: 50px solid #F2F2F2;
   border-bottom: 25px solid transparent;
+  right: -30px;
+  top: 480px;
+  transform: rotate(45deg) scale(2.5);
 }
 
 .top {
@@ -146,6 +149,7 @@ body {
   height: 150vh !important;
 }
 #About #Background_Pattern {
+  top: 200px;
   text-transform: uppercase;
   font-size: 6rem;
   font-weight: 800;
@@ -345,6 +349,11 @@ body {
   color: #2A2A2A;
   font-weight: 500;
   font-size: 1.5rem;
+  transition: color ease 0.4s;
+}
+.Links a:hover {
+  color: white;
+  transition: color ease 0.4s;
 }
 .Links .active {
   color: #F2F2F2;
@@ -368,6 +377,7 @@ header {
 header #burger {
   background: transparent;
   border: none;
+  cursor: pointer;
 }
 header #burger .burger, header #burger .burger::after, header #burger .burger::before {
   background-color: #2A2A2A;
@@ -401,6 +411,9 @@ header nav {
   height: 1px;
   background-color: #d1d1d1;
 }
+#socials a {
+  font-size: 2rem;
+}
 
 #TechStack {
   padding: 16px;
@@ -431,7 +444,7 @@ header nav {
   width: 100vw;
   height: 100vh;
   right: 0;
-  transform: translateY(-200vw);
+  transform: translateY(-300vw);
   transition: transform cubic-bezier(0.73, 0, 0, 1.03) 0.3s !important;
 }
 
@@ -467,9 +480,10 @@ header nav {
   }
   #About #Background_list {
     display: grid;
-    width: 100%;
+    width: -moz-fit-content;
+    width: fit-content;
     gap: 58px;
-    grid-template-columns: 49% 50%;
+    grid-template-columns: auto auto;
     grid-template-rows: auto auto;
     justify-content: flex-start;
   }
@@ -566,8 +580,8 @@ header nav {
     width: 70%;
   }
   #About #Background_list {
-    -moz-column-gap: 31px;
-         column-gap: 31px;
+    -moz-column-gap: 170px;
+         column-gap: 170px;
   }
   #About #Background_list .details_header p {
     font-size: 1.5rem;
@@ -679,6 +693,9 @@ body {
   border-top: 25px solid transparent;
   border-right: 50px solid #F2F2F2;
   border-bottom: 25px solid transparent;
+  right: -30px;
+  top: 480px;
+  transform: rotate(45deg) scale(2.5);
 }
 
 .top {
@@ -770,6 +787,7 @@ body {
   height: 150vh !important;
 }
 #About #Background_Pattern {
+  top: 200px;
   text-transform: uppercase;
   font-size: 6rem;
   font-weight: 800;
@@ -969,6 +987,11 @@ body {
   color: #2A2A2A;
   font-weight: 500;
   font-size: 1.5rem;
+  transition: color ease 0.4s;
+}
+.Links a:hover {
+  color: white;
+  transition: color ease 0.4s;
 }
 .Links .active {
   color: #F2F2F2;
@@ -992,6 +1015,7 @@ header {
 header #burger {
   background: transparent;
   border: none;
+  cursor: pointer;
 }
 header #burger .burger, header #burger .burger::after, header #burger .burger::before {
   background-color: #2A2A2A;
@@ -1025,6 +1049,9 @@ header nav {
   height: 1px;
   background-color: #d1d1d1;
 }
+#socials a {
+  font-size: 2rem;
+}
 
 #TechStack {
   padding: 16px;
@@ -1055,7 +1082,7 @@ header nav {
   width: 100vw;
   height: 100vh;
   right: 0;
-  transform: translateY(-200vw);
+  transform: translateY(-300vw);
   transition: transform cubic-bezier(0.73, 0, 0, 1.03) 0.3s !important;
 }
 
@@ -1091,9 +1118,10 @@ header nav {
   }
   #About #Background_list {
     display: grid;
-    width: 100%;
+    width: -moz-fit-content;
+    width: fit-content;
     gap: 58px;
-    grid-template-columns: 49% 50%;
+    grid-template-columns: auto auto;
     grid-template-rows: auto auto;
     justify-content: flex-start;
   }
@@ -1190,8 +1218,8 @@ header nav {
     width: 70%;
   }
   #About #Background_list {
-    -moz-column-gap: 31px;
-         column-gap: 31px;
+    -moz-column-gap: 170px;
+         column-gap: 170px;
   }
   #About #Background_list .details_header p {
     font-size: 1.5rem;
@@ -1248,7 +1276,37 @@ header nav {
     font-size: 1.7rem;
   }
 }
+.shadow-element {
+  position: absolute;
+  background-color: #ebebeb;
+  width: 200px;
+  height: 200px;
+  z-index: -1;
+}
+
+.sq-shadow {
+  top: 640px;
+  right: 150px;
+  animation-name: rotate;
+  animation-duration: 200s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.circle-shadow {
+  border-radius: 100%;
+  transform: scale(6.5);
+}
+
 #Work {
+  position: relative;
   padding-bottom: 80px;
 }
 
@@ -1266,12 +1324,6 @@ header nav {
   transition: opacity ease 0.3s;
 }
 
-#Work_landing {
-  background-image: radial-gradient(rgba(0, 0, 0, 0) 2px, #f2f2f2 2px);
-  background-size: 20px 20px;
-  -webkit-backdrop-filter: blur(20px);
-          backdrop-filter: blur(20px);
-}
 #Work_landing h1 {
   font-size: 5rem;
 }
