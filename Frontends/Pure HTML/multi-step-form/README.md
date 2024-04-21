@@ -27,8 +27,8 @@ The challange is to build a multi-page form. The requirements of this challange 
   - The email address is not formatted correctly
   - A step is submitted, but no selection has been made
 
-#How to run project 
-Visit [The site](patleosrisook.github.io/Multi-step-form/)
+# How to run project 
+Visit [The site](http://patleosrisook.github.io/Multi-step-form/)
 ## My process
 
 ### Built with
