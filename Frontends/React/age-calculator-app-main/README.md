@@ -5,7 +5,7 @@ This project is made as part of a challenge from [Frontend Mentor](https://www.f
 
 
 # How to run project 
-Visit [The site](http://patleosrisook.github.io/Age-Calculator/)
+Direct to age_calculator and run `npm start` on your console
 ### Built with
 
 - HTML5 markup
