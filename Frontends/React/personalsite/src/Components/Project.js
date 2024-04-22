@@ -4,7 +4,12 @@ export function Project({img, Name, Overview, Url}) {
     let navigate = useNavigate()
     // let image = require(Url)
     let handleNavigateToLink = () => {
-        window.open(`http://${Url}`, "_blank")
+        if(Url == null) {
+            navigate.push('/NotFound')
+        } else {
+
+            window.open(`http://${Url}`, "_blank")
+        }
     }
     return (
         <article onClick={handleNavigateToLink} className={`Project animate__animated animate__zoomOut `}>

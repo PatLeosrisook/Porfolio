@@ -138,7 +138,7 @@ export function Home() {
                 <div className="Connections">
                      <a className="external_links animate__animated" href="https://www.linkedin.com/in/kalyada-leosrisook-314a31173/">LinkedIn</a>
                      <a className="external_links animate__animated" href="">Email</a>
-                     <a href="https://www.dropbox.com/s/6fertetbvgvzu3x/Resume.pdf?dl=0" download="Resume.pdf"  className='external_links animate__animated'>Resume</a>    
+                     <a href="https://www.dropbox.com/preview/PDF/Resume.pdf" download="Resume.pdf"  className='external_links animate__animated'>Resume</a>    
                      
 
                 </div>

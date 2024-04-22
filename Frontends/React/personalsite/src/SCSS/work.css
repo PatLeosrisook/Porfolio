@@ -1338,6 +1338,7 @@ header nav {
   flex-wrap: wrap;
 }
 #Works .Project {
+  cursor: pointer;
   width: 80%;
 }
 #Works .Project img {

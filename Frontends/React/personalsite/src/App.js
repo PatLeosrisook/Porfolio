@@ -11,6 +11,7 @@ import {Route, Routes, useLocation, useNavigate} from 'react-router-dom'
 import { Menu } from './Components/Menu';
 import {Work} from './Pages/Work'
 import { animated, useScroll } from '@react-spring/web'
+import { NotFound } from './Pages/Not-Found';
 function App() {
   let location = useLocation()
   let navigate = useNavigate()
@@ -152,6 +153,7 @@ const [isLoading, setIsLoading] = useState(true)
         <Route path="/About" element={<Home scrollYProgress={scrollYProgress}  />} />
         <Route path="/Contact" element={<Home scrollYProgress={scrollYProgress}  />} />
         <Route path="/Work" element={<Work/>} />
+        <Route path="/NotFound" element={<NotFound/>} />
       </Routes>
       <div id="socials">
           <div id="line"></div>

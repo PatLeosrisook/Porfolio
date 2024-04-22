@@ -6,29 +6,29 @@ export const details = [
     {
         id: "dictionary",
         Title : "Web dictionary",
-        desc: "Developed using ReactJS and utilizing api to import definitions",
-        url: "",
+        desc: "HTML | SASS | JS | API",
+        url: "patleosrisook.github.io/Dictionary/",
         src: dictionary
     },
     {
         id:"Pass_generator",
         Title: "Password generator",
-        desc:"Built website that generate random password.",
+        desc:"HTML | REACTJS | SASS | API",
         url: "github.com/PatLeosrisook/Password_Generator.git",
         src: generator
     },
     {
         id:"Multi_step_form",
         Title: "Multi-step form",
-        desc:"",
+        desc:"HTML | SASS | JS",
         url: "patleosrisook.github.io/Multi-step-form/",
         src: form
     },
     {
         id:"Age_calc",
         Title: "Age Calculator web",
-        desc:"",
-        url: "patleosrisook.github.io/Age-Calculator/",
+        desc:"HTML | SASS | REACTJS | JS",
+        url: "github.com/PatLeosrisook/Porfolio/tree/main/Frontends/React/age-calculator-app-main/age_calculator",
         src: age
     }
 ]
