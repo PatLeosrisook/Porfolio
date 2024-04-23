@@ -138,7 +138,8 @@ html, body {
     font-size: 64px;
   }
   #Cal {
-    height: 60%;
+    height: -moz-fit-content;
+    height: fit-content;
     width: 80%;
     border-radius: 30px;
     border-bottom-right-radius: 167px;
