@@ -7,7 +7,7 @@ const options = {
   useUnifiedTopology: true,
   useNewUrlParser: true,
 };
-
+console.log(uri)
 let client;
 let clientPromise;
 const createIndexes = async (client) => {
@@ -21,8 +21,10 @@ const createIndexes = async (client) => {
 
 
 if (!process.env.MONGODB_URI) {
-  throw new Error('Please add your Mongo URI to .env.local');
+  
+  throw new Error('Please add your Mongo URI to .env.local' + " " + process.env.MONGODB_URI);
 }
+
 
 console.log("Connectingg......")
 if (process.env.NODE_ENV === 'development') {
