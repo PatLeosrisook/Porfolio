@@ -152,7 +152,7 @@ export default function SignUp() {
                     ...prevState, 
                     email_error:""
                 }))
-                router.push("Create_Profile" + "?" + createQuery("email", formData.email ))
+                router.push("Create_Profile" + "?" + createQuery("email", formData.email))
               }).catch(err => {
                 console.error("oops", err.response.data.error);
                 email?.classList.add("error_input")

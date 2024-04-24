@@ -3,13 +3,15 @@
 import { useEffect, useState } from 'react';
 import placeholderImage from '../../../public/Images/PlaceHolderAvatar.png'
 import Image from "next/image";
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
+import createQuery from '../../Component/createQuery';
 import axios from 'axios'
 interface User {
     username: String, 
     name: String, 
 }
 export default function CreateProfile() {
+    const router = useRouter()
     const searchParams = useSearchParams();
     const [userData, setUserData] = useState<User>({})
     let handleChangeProfilePic = (e) => {
@@ -63,23 +65,26 @@ export default function CreateProfile() {
             isValid = true
             
         }
-        //Check if username exists 
-        axios.post("http://localhost:3000/api/data", {username : userData.username, Type: "CreateProfile", email: searchParams?.get('email')}).then(response => {
-            console.log("Submitting", userData)
-            console.log(response)
-        }).catch((err : string) => {
-            console.log("error:" , err)
-            isValid = false 
-            username?.classList.add('error_input')
-            username_text?.classList.remove("hide_error")
-            username_text.textContent = err
-        })
+        
         return isValid
     }
     let handleCreateProfile = () => {
         if(validation()) {
-
-        }
+            //Check if username exists 
+            axios.post("http://localhost:3000/api/data", {username : userData.username, Type: "CreateProfile", email: searchParams?.get('email'), name: userData.name}).then(response => {
+                return response.data
+            }).then((data) => {
+                console.log(data.message)
+                router.push(`/${userData.username}/Home`)
+                
+            }).catch((err : string) => {
+                console.log("error:" , err)
+                isValid = false 
+                username?.classList.add('error_input')
+                username_text?.classList.remove("hide_error")
+                username_text.textContent = err
+            })
+            }
     }
     useEffect(() => {
         console.log(userData)
