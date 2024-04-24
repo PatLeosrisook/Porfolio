@@ -57,15 +57,13 @@ export function Calculator() {
         let yearInput = document.querySelector("#year")
         let thisYear = new Date().getFullYear()
         let isValid = false;
-        let isLeapYear = false ;
-        let isNot30Day = false ; 
-      
+
         const {day, month, year} = date
         if(day < 1) {
             console.log("wrong!")
         }
         if(year % 4 == 0 ) {
-            console.log("LEap year")
+            //Leap years, 29 days
             if(month == 2) {
                 // feb should have 29 days here 
                 if(day == "" || (day < 1 || day > 29)) {
@@ -94,7 +92,15 @@ export function Calculator() {
                     isValid = true
                 }
             } else {
-                if(day === "" || (day > 31 || day < 1)) {
+                let subtractADay = 0
+                if(month == 4 || month == 6 || month == 9 || month == 11) {
+                    subtractADay = 1
+                    dateErrorText.textContent = "There's only 30 days"
+                } else {
+                    subtractADay = 0
+                    dateErrorText.textContent = "Must be a valid date"
+                }
+                if(day === "" || (day > (31 - subtractADay) || day < 1)) {
                     dateErrorText.classList.add("visible")
                     dateInput.classList.add("error_line")
     
