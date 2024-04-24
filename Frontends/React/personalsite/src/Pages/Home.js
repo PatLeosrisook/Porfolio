@@ -1,9 +1,5 @@
 
 import '../SCSS/home.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-import { faGithub , faLinkedin, faReact, faHtml5, faCss3, faSass,faJs, faNodeJs} from '@fortawesome/free-brands-svg-icons'
-import {faGraduationCap, faSuitcase, faCrown, faBook, faDatabase, faCode} from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import 'animate.css';
 export function Home() {

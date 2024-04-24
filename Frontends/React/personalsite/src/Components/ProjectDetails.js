@@ -28,7 +28,7 @@ export const details = [
         id:"Age_calc",
         Title: "Age Calculator web",
         desc:"HTML | SASS | REACTJS | JS",
-        url: "github.com/PatLeosrisook/Porfolio/tree/main/Frontends/React/age-calculator-app-main/age_calculator",
+        url: "github.com/PatLeosrisook/Porfolio/tree/main/Frontends/React/age_calculator",
         src: age
     }
 ]

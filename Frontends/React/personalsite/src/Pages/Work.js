@@ -1,5 +1,4 @@
 import { ProjectList } from "../Components/ProjectList";
-import {Blob} from '../Components/BackgroundBlob'
 import '../SCSS/work.css'
 import {details} from '../Components/ProjectDetails'
 import 'animate.css';

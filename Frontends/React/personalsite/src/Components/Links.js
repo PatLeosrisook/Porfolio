@@ -1,5 +1,4 @@
 import '../SCSS/home.css'
-import { NavLink, useLocation } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { Home } from '../Pages/Home';
 import { NavHashLink, HashLink } from 'react-router-hash-link';

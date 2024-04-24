@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import Logo from '../assets/Logo.svg'
 import { BurgerClose } from "react-burger-icons";
-import { Links } from './Links';
 import '../SCSS/home.css'
 export function Nav({setTab, isTabOpen}) {
     const [menuSize, setMenuSize] = useState(24)
@@ -28,9 +27,7 @@ export function Nav({setTab, isTabOpen}) {
 
         }
     }
-    useEffect(() => {
-        // handleMenu()
-    })
+
     return(
         <header onClick={() => console.log("header")}>
             <img src={Logo} id="logo" />
