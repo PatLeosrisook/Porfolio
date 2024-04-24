@@ -30,101 +30,51 @@ export function Home() {
                  <p id="Background_Pattern">About</p>
                 <div class="About_wrapper animate__animated">
                     <div id="About_title">
-                        <div className='squares'>
-                             <div className='square '></div>
-                             <div className='square '></div>
-                             <div className='square '></div>
-                             <div className='square '></div>
+                        <p>Frontend Developer with passion in UX/UI design.</p>
+                        <div id="Paragraphs">
+                            <p>I'm Pat, a frontend developer based in Bangkok, Thailand. I'm 25 years old and graduated from the University of Birmingham, UK, in 2020 with a Computer Science degree. During my last year at university, I was introduced to UX/UI design through a Human Computer Interaction course, sparking a deep interest that led me to pursue additional courses. This passion has significantly influenced my approach to ensuring that products are user-centric.</p>
+                            <p>I'm currently working at BSG group as an IT maintenance where I make sure all devices are operating smoothly (to explain it shortly).</p>
+                            <p>In my spare time, I engage in various personal projects that help practice my skills in frontend development. I also have a keen interest in reading books, particularly about personal development and sometime a novel.</p>
                         </div>
-                        <p >About me</p>
                     </div>
-                    <div id="Background_list">
-                        <div className='details'>
-                             <div className='details_header'>
-                                 <FontAwesomeIcon icon={faGraduationCap} beat />
-                                 <p>Education</p>
-                             </div>
-                             <div className='locations'>
-                                 <p>2017-2020</p>
-                                 <p>University of Birmingham, UK</p>
-                                 <p>Bsc(Hons) Computer science</p>
-                             </div>
-                             <div className='locations'>
-                                 <p>2016-2017</p>
-                                 <p>Bellerbys college, Brighton, UK</p>
-                                 <p>Foundation of Computing</p>
-                             </div>
+                    <div id="Skills_list">
+                        <div className="skills">
+                            <p>Core skills</p>
+                            <div className='skills_card'>
+                                <div className="cards">
+                                    <p>HTML</p>
+                                </div>
+                                <div className="cards">
+                                    <p>CSS3</p>
+                                </div>
+                                <div className="cards">
+                                    <p>SASS</p>
+                                </div>
+                                <div className="cards">
+                                    <p>ReactJS</p>
+                                </div>
+                                <div className="cards">
+                                    <p>JavaScript</p>
+                                </div>
+                            </div>
                         </div>
-                        <div className='details'>
-                             <div className='details_header'>
-                                 <FontAwesomeIcon icon={faSuitcase} beat />
-                                 <p>Current position</p>
-                             </div>
-                             <div className='locations'>
-                                 <p>Nov 2021 - Present</p>
-                                 <p>IT Maintenance</p>
-                                 <p>BSG Group, Bangkok, Thailand</p>
-                             </div>
- 
-                        </div>
-                        <div className='details'>
-                             <div className='details_header'>
-                                 <FontAwesomeIcon icon={faCrown}   beat/>
-                                 <p>Skills</p>
-                             </div>
-                             <div className='skills'>
-                                 <ul>
-                                     <li>
-                                         <FontAwesomeIcon icon={faJs}/>
-                                         <p>JavaScript</p>
-                                     </li>
-                                     <li>
-                                         <FontAwesomeIcon icon={faHtml5} />
-                                         <p>HTML</p>
-                                     </li>
-                                     <li>
-                                         <FontAwesomeIcon icon={faCss3} />
-                                         <p>CSS3</p>
-                                     </li>
-                                     <li>
-                                         <FontAwesomeIcon icon={faSass} />
-                                         <p>SASS</p>
-                                     </li>
-                                     <li>
-                                         <FontAwesomeIcon icon={faReact} />
-                                         <p>ReactJS</p>
-                                     </li>
-                                     
-                                 </ul>
-                             </div>
- 
-                        </div>
-                        <div className='details'>
-                             <div className='details_header'>
-                                 <FontAwesomeIcon icon={faBook}  beat />
-                                 <p>Learning skills</p>
-                             </div>
-                             <div className='skills'>
-                                 <ul>
-                                     <li>
-                                         <FontAwesomeIcon icon={faCode}/>
-                                         <p>TypeScript</p>
-                                     </li>
-                                     <li>
-                                         <FontAwesomeIcon icon={faNodeJs}/>
-                                         <p>NodeJS</p>
-                                     </li>
-                                     <li>
-                                         <FontAwesomeIcon icon={faDatabase}/>
-                                         <p>MongoDB</p>
-                                     </li>
-                                     <li>
-                                         <FontAwesomeIcon icon={faCode}/>
-                                         <p>NextJS</p>
-                                     </li>
-                                 </ul>
-                             </div>
- 
+                        <div className="skills">
+                            <p>Learning skills</p>
+                            <div className='skills_card'>
+                                <div className="cards">
+                                    <p>Next.JS</p>
+                                </div>
+                                <div className="cards">
+                                    <p>Node.JS</p>
+                                </div>
+                                <div className="cards">
+                                    <p>TypeScript</p>
+                                </div>
+                                <div className="cards">
+                                    <p>MongoDB</p>
+                                </div>
+                                
+                            </div>
                         </div>
                     </div>
                 </div>

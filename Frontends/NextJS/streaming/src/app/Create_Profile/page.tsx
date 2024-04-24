@@ -3,12 +3,14 @@
 import { useEffect, useState } from 'react';
 import placeholderImage from '../../../public/Images/PlaceHolderAvatar.png'
 import Image from "next/image";
+import { useSearchParams } from 'next/navigation';
 import axios from 'axios'
 interface User {
     username: String, 
     name: String, 
 }
 export default function CreateProfile() {
+    const searchParams = useSearchParams();
     const [userData, setUserData] = useState<User>({})
     let handleChangeProfilePic = (e) => {
         let profilePic = document.querySelector("#ProfilePic")
@@ -62,10 +64,11 @@ export default function CreateProfile() {
             
         }
         //Check if username exists 
-        axios.post("http://localhost:3000/api/data", {username : userData.username}).then(response => {
-
+        axios.post("http://localhost:3000/api/data", {username : userData.username, Type: "CreateProfile", email: searchParams?.get('email')}).then(response => {
+            console.log("Submitting", userData)
+            console.log(response)
         }).catch((err : string) => {
-            console.log(err)
+            console.log("error:" , err)
             isValid = false 
             username?.classList.add('error_input')
             username_text?.classList.remove("hide_error")
@@ -89,7 +92,7 @@ export default function CreateProfile() {
             <section id="User_info">
                 <div  id="Avatar">
                     <Image src={placeholderImage} alt="Placeholder image" id="ProfilePic" width={20} height={20}/>
-                    <label for="selectFile">
+                    <label htmlFor="selectFile">
                         Choose picture
                     </label>
                     <input onChange={e => handleChangeProfilePic(e)} name="selectFile" id="selectFile" type="file"/>

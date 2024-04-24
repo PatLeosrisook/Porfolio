@@ -161,52 +161,46 @@ body {
         align-items: flex-start;
         opacity: 0;
         transition: opacity 0.4s ease;
-        gap:10px;
+        gap:40px;
+        padding: 0px 20px;
     }
     
-    #Background_list {
-        @include flex(column, center ,flex-start);
-        width: 90%;
+    
+    #Skills_list {
+        @include flex();
         gap:20px;
-        .details {
+        .skills {
             @include flex(column, center, flex-start);
+            width: 100%;
             gap:10px;
-        }
-        .details_header {
-            @include flex(column, center, flex-start);
-            gap:10px;
-            svg{
-                font-size:1.3rem;
-                --fa-beat-scale: 1.1;
-                path{
+            p {
+                font-weight: 700;
 
-                    fill: $Accent-2;
-                }
             }
-            p{
-                font-size: 1.2rem;
-                font-weight: 600;
+            .skills_card {
+                @include flex(row, flex-start, center);
+                flex-wrap: wrap;
+                gap:5px;
             }
-        }
-        .locations {
-            @include flex(column, center, flex-start);
-            margin-bottom:20px;
-            gap:3px;
-            p{
-                &:nth-child(1) {
-                    font-size: 0.7rem;
-                    font-weight: 700;
-                    color:#bfbfbf
-                }
-                &:nth-child(2) {
-                    font-size:0.9rem;
-                    text-align: left;
 
-                }
-                &:nth-child(3) {
-                    font-size: 0.7rem;
-                    font-weight: 700;
-                }
+        }
+        .cards {
+            @include flex();
+            // background: linear-gradient(to right, #FF6D90 -58%, #F9E795 164%);
+            width: 74px;
+            height: 32px;
+            min-width: fit-content;
+            padding: 0px 9px;
+            border-radius: 15px;
+            border: 2px solid;
+            border-image-slice: 1;
+            border-width: 3px;
+
+            border-image-source:linear-gradient(to right, #FF6D90 -58%, #F9E795 164%);
+            p{
+                color:$Primary;
+                font-weight: 500;  
+                
             }
         }
     }
@@ -215,43 +209,33 @@ body {
         @include flex();
         align-items: flex-start;
         p {
-            font-size: 1.4rem;
-            font-weight: 600
+            font-size: 2.2rem;
+            text-align: left;
+            font-weight: 700
+        }
+        #Paragraphs {
+            @include flex(column, center, flex-start);
+            gap:5px;
+            p {
+                font-size:0.9rem;
+                font-weight: 500;
+                line-height: 19px;
+            }
         }
         
-        .squares {
-            @include flex(row, center ,center);
-            gap: 3px;
-            .square{
-                width:9px;
-                height:9px;
-                &:nth-child(1) {
-                    background-color: #ff6b8e;
-                }
-                &:nth-child(2) {
-                    background-color: #ff917a;
-                }
-                &:nth-child(3) {
-                    background-color: #ffb86b;
-                }
-                &:nth-child(4) {
-                    background-color: #ffe057;
-                }
-            }
-        }
     }
-    .skills {
-        ul {
-            @include flex(column, center ,flex-start);
-            padding: 0; 
-            list-style: none;
-            gap:5px;
-            li {
-                @include flex(row, center, center);
-                gap:5px;
-            }
-        }
-    }
+    // .skills {
+    //     ul {
+    //         @include flex(column, center ,flex-start);
+    //         padding: 0; 
+    //         list-style: none;
+    //         gap:5px;
+    //         li {
+    //             @include flex(row, center, center);
+    //             gap:5px;
+    //         }
+    //     }
+    // }
 }
 #Contact {
     gap:20px;
@@ -435,8 +419,16 @@ header {
     #About {
         height: 100vh !important;
         #About_title {
+            gap:18px;
             p {
-                font-size:2rem;
+                font-size:3.5rem;
+            }
+            #Paragraphs {
+                gap:15px;
+                p {
+                    font-size: 1.2rem;
+                    line-height: 33px;;
+                }
             }
         }
         #Background_Pattern {
@@ -446,39 +438,18 @@ header {
         }
         .About_wrapper {
             gap:40px;
+            padding: 0px 50px;
         }
-        #Background_list {
-            display: grid;
-            width: fit-content;
-            gap: 58px;
-            grid-template-columns: auto auto;
-            grid-template-rows: auto auto;
-            justify-content: flex-start;
-            .locations {
-                p {
-                    &:nth-child(1) , &:nth-child(3) {
-                        font-size: 0.9rem
-                    }
-                    &:nth-child(2) {
-                        font-size:1rem;
-                    }
-                }
+        #Skills_list {
+            .skills_card {
+                gap:13px;
             }
-            .details {
-                gap:15px;
+            .cards {
+                width: 109px;
+                height: 42px;
             }
         }
-        .skills{
-            ul {
-                gap: 10px;
-                li {
-                    gap:10px;
-                    svg {
-                        font-size: 1.4rem;
-                    }
-                }
-            }
-        }
+        
     }
     
     .bottom {
@@ -557,28 +528,21 @@ header {
         }
     }
 }
-@media(min-width:1440px) {
+@media(min-width:1200px) {
 
     #About {
         #About_title p {
-            font-size: 2.3rem;
+            font-size: 5rem;
+
         }
         .About_wrapper {
             width: 70%;
+            max-width: 1023px;
         }
-        #Background_list {
-            column-gap: 170px;
-            .details_header {
-                p {
-                    font-size: 1.5rem;       
-                }
-            }
-            .locations {
-                gap:10px;
-                p {
-                    &:nth-child(2) {
-                        font-size: 1.3rem;;
-                    }
+        #Skills_list {
+            .skills {
+                .skills_card {
+                    width: 100%;;
                 }
             }
         }
@@ -613,11 +577,7 @@ header {
             height:100%;
             gap:40px;
         }
-        #About_title {
-            p {
-                font-size: 3rem;
-            }
-        }
+       
         #Background_list{
             grid-template-columns: 50% 50%;
             grid-template-rows: 50% 50%;

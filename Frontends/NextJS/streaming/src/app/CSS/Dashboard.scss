@@ -101,7 +101,15 @@
         #Avatar {
             @include style.flex();
             gap:10px;
-            
+            label{
+                @include style.flex();
+                width: 160px;
+                height: 40px;
+                border-radius: 3px;
+                cursor: pointer;
+                background-color: style.$Accent;
+    
+            }
         }
         #ProfilePic {
             @include style.flex();
@@ -114,15 +122,7 @@
         input[type='file'] {
             display: none;
         }
-        label[for="selectFile"] {
-            @include style.flex();
-            width: 160px;
-            height: 40px;
-            border-radius: 3px;
-            cursor: pointer;
-            background-color: style.$Accent;
-
-        }
+        
     }
     #User_info {
         @include style.flex(column, center,flex-start);  

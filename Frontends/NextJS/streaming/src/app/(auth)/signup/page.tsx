@@ -32,6 +32,11 @@ export default function SignUp() {
             [name]: e.target.value
         }));
     }
+    let createQuery = (name : string, value : string) => {
+        const params = new URLSearchParams()
+        params.set(name, value)
+        return params.toString()
+    }
     let handleSubmit = (e) => {
         e.preventDefault();
         let isValid = false
@@ -147,7 +152,7 @@ export default function SignUp() {
                     ...prevState, 
                     email_error:""
                 }))
-                router.push('Create_Profile')
+                router.push("Create_Profile" + "?" + createQuery("email", formData.email ))
               }).catch(err => {
                 console.error("oops", err.response.data.error);
                 email?.classList.add("error_input")
