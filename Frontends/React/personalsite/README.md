@@ -8,4 +8,4 @@ It's my personal portfolio where I put all my other works in here (that is not o
 - JavaScript
 
 ## Status 
-Currently making some change so if you want to see the project please clone this project to your local computer and  direct to this folder on your terminal and start with `npm start`
+Currently making some change so if you want to see the project please clone this project to your local computer and  direct to this folder on your terminal then run `npm install` and  `npm start`
