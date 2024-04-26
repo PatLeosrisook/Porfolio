@@ -38,7 +38,7 @@ body {
   position: absolute;
   transform: scale(2);
   background-color: #F2F2F2;
-  box-shadow: -2px 0px 14px rgba(120, 120, 120, 0.19);
+  box-shadow: 0px 0px 9px rgba(141, 141, 141, 0.22);
   height: 130px;
   width: 130px;
   z-index: -1;
@@ -48,20 +48,20 @@ body {
   border-radius: 100%;
 }
 
+.top {
+  top: 283px;
+  right: -70px;
+}
+
 .triangle-element {
   width: 0;
   height: 0;
   border-top: 25px solid transparent;
   border-right: 50px solid #F2F2F2;
   border-bottom: 25px solid transparent;
-  right: -30px;
-  top: 480px;
+  top: 157px;
+  left: -33px;
   transform: rotate(45deg) scale(2.5);
-}
-
-.top {
-  top: 283px;
-  right: -70px;
 }
 
 .bottom {
@@ -106,23 +106,26 @@ body {
   scroll-snap-align: start;
 }
 
-#Landing p {
-  font-size: 1rem;
-  margin: 0;
-  color: #2A2A2A;
-}
-#Landing .Job_text {
-  font-size: 3rem;
-  margin: 0;
-  font-weight: 900;
-  line-height: 40px;
-  color: #2A2A2A;
-}
 #Landing #HeadLine, #Landing #Job_title {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+}
+
+#HeadLine p {
+  font-size: 1rem;
+  margin: 0;
+  color: #2A2A2A;
+  font-weight: 500;
+}
+
+#Job_title .Job_text {
+  font-size: 3rem;
+  margin: 0;
+  font-weight: 900;
+  line-height: 40px;
+  color: #2A2A2A;
 }
 
 .Section_title {
@@ -415,11 +418,11 @@ header nav {
 }
 
 @media (min-width: 375px) {
-  #Landing .Job_text {
+  #Job_title .Job_text {
     font-size: 4rem;
     line-height: 53px;
   }
-  #Landing p {
+  #HeadLine p {
     font-size: 1.2rem;
   }
   #About {
@@ -430,6 +433,9 @@ header nav {
   }
 }
 @media (min-width: 768px) {
+  header #logo {
+    width: 54px;
+  }
   #About {
     height: 100vh !important;
   }
@@ -473,26 +479,30 @@ header nav {
     width: 100vw;
   }
   #socials {
-    top: 42vh;
-    left: 10vw;
-    flex-direction: column;
+    top: 85vh;
+    left: 40vw;
     order: 1;
   }
   #socials svg {
     height: 1.7rem;
   }
   #socials #line {
-    height: 100px;
-    width: 1px;
+    height: 1px;
+    width: 100px;
+  }
+  #HeadLine {
+    order: 2;
+  }
+  #HeadLine > p {
+    font-size: 1.5rem;
+    position: relative;
+    left: 5px;
   }
   #Landing {
     flex-direction: row !important;
     gap: 60px;
   }
-  #Landing #HeadLine {
-    order: 2;
-  }
-  #Landing .Job_text {
+  #Job_title .Job_text {
     font-size: 6rem;
     line-height: 84px;
   }
@@ -507,6 +517,10 @@ header nav {
   }
 }
 @media (min-width: 1024px) {
+  .triangle-element {
+    top: 560px !important;
+    left: 157px !important;
+  }
   header .Links {
     display: flex;
     flex-direction: row;
@@ -518,7 +532,7 @@ header nav {
     font-size: 1.2rem;
     color: #2A2A2A;
   }
-  #Landing .Job_text {
+  #Job_title .Job_text {
     font-size: 8rem;
     line-height: 104px;
   }
@@ -530,6 +544,15 @@ header nav {
   }
 }
 @media (min-width: 1200px) {
+  #socials {
+    flex-direction: column;
+    top: 45vh;
+    left: 10vw;
+  }
+  #socials #line {
+    height: 100px;
+    width: 1px;
+  }
   #About #About_title p {
     font-size: 5rem;
   }
@@ -558,6 +581,9 @@ header nav {
   }
 }
 @media (min-width: 1500px) {
+  #HeadLine > p {
+    font-size: 2rem;
+  }
   #About {
     position: relative;
   }

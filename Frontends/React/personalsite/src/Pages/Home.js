@@ -28,8 +28,8 @@ export function Home() {
                     <div id="About_title">
                         <p>Frontend Developer with passion in UX/UI design.</p>
                         <div id="Paragraphs">
-                            <p>I'm Pat, a frontend developer based in Bangkok, Thailand. I'm 25 years old and graduated from the University of Birmingham, UK, in 2020 with a Computer Science degree. During my last year at university, I was introduced to UX/UI design through a Human Computer Interaction course, sparking a deep interest that led me to pursue additional courses. This passion has significantly influenced my approach to ensuring that products are user-centric.</p>
-                            <p>I'm currently working at BSG group as an IT maintenance where I make sure all devices are operating smoothly (to explain it shortly).</p>
+                            <p>I'm Pat, a frontend developer based in Bangkok, Thailand. I'm 25 years old and <strong>graduated from the University of Birmingham, UK, in 2020 with a Computer Science degree.</strong> During my last year at university, I was introduced to UX/UI design through a Human Computer Interaction course, sparking a deep interest that led me to pursue additional courses. This passion has significantly influenced my approach to ensuring that products are user-centric.</p>
+                            <p><strong>I'm currently working at BSG group as an IT maintenance</strong> where I make sure all devices are operating smoothly (to explain it shortly).</p>
                             <p>In my spare time, I engage in various personal projects that help practice my skills in frontend development. I also have a keen interest in reading books, particularly about personal development and sometime a novel.</p>
                         </div>
                     </div>

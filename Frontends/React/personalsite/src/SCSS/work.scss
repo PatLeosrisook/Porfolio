@@ -92,6 +92,13 @@
     
 }
 @media(min-width:768px) {
+    .circle-shadow {
+        transform: scale(4.5);
+    }
+    .sq-shadow {
+        width: 120px;
+        height: 120px;
+    }
     #Work_landing {
         h1 {
             font-size: 8rem;;

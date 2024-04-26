@@ -49,7 +49,7 @@ body {
     transform: scale(2);
     // background: linear-gradient(45deg, $Accent, $Accent-2);
     background-color: $White;
-    box-shadow: -2px 0px 14px rgb(120 120 120 / 19%);
+    box-shadow: 0px 0px 9px rgb(141 141 141 / 22%);
     height:130px;
     width:130px;
     z-index: -1;
@@ -59,20 +59,21 @@ body {
     border-radius: 100%;
 
 }
+
+
+.top {
+    top: 283px;
+    right: -70px;
+}
 .triangle-element {
     width: 0;
 	height: 0;
 	border-top: 25px solid transparent;
 	border-right: 50px solid $White;
 	border-bottom: 25px solid transparent;
-    right: -30px;
-    top: 480px;
+    top: 157px;
+    left: -33px;
     transform: rotate(45deg) scale(2.5);
-}
-
-.top {
-    top: 283px;
-    right: -70px;
 }
 .bottom {
     top: 70%;
@@ -112,22 +113,29 @@ body {
     // background-size: 20px 20px;
     // backdrop-filter: blur(20px);
 }
+
 #Landing {
-   p{
-    font-size:1rem;
-    margin:0;
-    color: $Primary;
-   } 
-   .Job_text{
-    font-size:3rem;
-    margin:0;
-    font-weight: 900;
-    line-height: 40px;
-    color: $Primary;
-   }
    #HeadLine,#Job_title {
     @include flex(column , center, flex-start)
    }
+}
+#HeadLine {
+    p{
+        font-size:1rem;
+        margin:0;
+        color: $Primary;
+        font-weight: 500;
+       } 
+       
+}
+#Job_title {
+    .Job_text{
+        font-size:3rem;
+        margin:0;
+        font-weight: 900;
+        line-height: 40px;
+        color: $Primary;
+       }
 }
 .Section_title {
     position: relative;
@@ -396,11 +404,13 @@ header {
     transition: transform cubic-bezier(.73,0,0,1.03) 0.3s !important;
 }
 @media(min-width: 375px) {
-   #Landing {
-     .Job_text {
-        font-size: 4rem;
-        line-height: 53px;
-     }
+    #Job_title {
+        .Job_text {
+           font-size: 4rem;
+           line-height: 53px;
+        }
+    }
+   #HeadLine {
      p {
         font-size: 1.2rem;
      }
@@ -416,6 +426,11 @@ header {
     
 }
 @media(min-width: 768px) {
+    header{
+        #logo {
+            width: 54px;
+        }
+    }
     #About {
         height: 100vh !important;
         #About_title {
@@ -463,25 +478,33 @@ header {
         width:100vw;
     }
     #socials{
-        top: 42vh;
-        left: 10vw;
-        flex-direction: column;
+        top: 85vh;
+        left: 40vw;
+        // flex-direction: column;
         order:1;
         svg {
             height: 1.7rem;
         }
         #line {
-            height:100px;
-            width:1px;
+            height:1px;
+            width:100px;
         }
     }
-   #Landing {
-       flex-direction: row !important;
-        gap:60px;   
+
     #HeadLine {
         order:2;
     }
-    
+    #HeadLine > p {
+        
+        font-size:1.5rem;
+        position: relative;
+        left:5px;
+    }
+    #Landing {
+       flex-direction: row !important;
+        gap:60px;   
+   }
+   #Job_title {
     .Job_text {
         font-size:6rem;
         line-height: 84px;
@@ -502,7 +525,10 @@ header {
    }
 }
 @media(min-width:1024px) {
-   
+   .triangle-element {
+    top: 560px !important;
+    left: 157px !important;
+   }
     header  {
         .Links {
             @include flex(row, center ,center);
@@ -513,11 +539,14 @@ header {
             }
         }
     }
-    #Landing {
+    #Job_title {
         .Job_text {
             font-size: 8rem;
             line-height: 104px;
         }
+    }
+    #Landing {
+        
         #socials {
             #line {
                 height: 193px;
@@ -529,7 +558,15 @@ header {
     }
 }
 @media(min-width:1200px) {
-
+    #socials {
+        flex-direction: column;
+        top: 45vh;
+        left: 10vw;
+        #line {
+            height:100px;
+            width:1px;
+        }
+    }
     #About {
         #About_title p {
             font-size: 5rem;
@@ -569,7 +606,9 @@ header {
 }
 
 @media(min-width:1500px) {
-   
+    #HeadLine > p{
+        font-size: 2rem;
+    }
     #About {
         position: relative;
         .About_wrapper {
