@@ -82,9 +82,9 @@ export function Home() {
                      </div>
                 </div>
                 <div className="Connections">
-                     <a className="external_links animate__animated" href="https://www.linkedin.com/in/kalyada-leosrisook-314a31173/">LinkedIn</a>
-                     <a className="external_links animate__animated" href="">Email</a>
-                     <a href="https://www.dropbox.com/preview/PDF/Resume.pdf" download="Resume.pdf"  className='external_links animate__animated'>Resume</a>    
+                     <a className="external_links animate__animated" target='_blank' href="https://www.linkedin.com/in/kalyada-leosrisook-314a31173/">LinkedIn</a>
+                     <a className="external_links animate__animated" href="mailto:kalyada.l@outlook.com" target='_blank'>Email</a>
+                     <a href="https://www.dropbox.com/preview/PDF/Resume.pdf" target='_blank' download="Resume.pdf"  className='external_links animate__animated'>Resume</a>    
                      
 
                 </div>

@@ -38,6 +38,7 @@ export function Links({HomeRef, AboutRef,ContactRef, setTab,isTabOpen, setNextPa
             <li>
                 <NavHashLink  
                 onClick={() => handleClick("HomeRef")}  
+                smooth
                 className="Home-link"  
                 to={"/"} 
                 elementId='Landing'>Home</NavHashLink>

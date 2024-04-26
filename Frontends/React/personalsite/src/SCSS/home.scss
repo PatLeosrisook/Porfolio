@@ -652,3 +652,15 @@ header {
         
     }
 }
+@media(min-width:2000px) {
+    #About {
+        #About_title {
+            p {
+                font-size: 5rem;
+            }
+        }
+        #Paragraphs p {
+            line-height: 40px;
+        }
+    }
+}

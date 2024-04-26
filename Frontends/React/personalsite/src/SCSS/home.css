@@ -612,4 +612,12 @@ header nav {
   #About #Background_list .details_header svg {
     font-size: 1.7rem;
   }
+}
+@media (min-width: 2000px) {
+  #About #About_title p {
+    font-size: 5rem;
+  }
+  #About #Paragraphs p {
+    line-height: 40px;
+  }
 }/*# sourceMappingURL=home.css.map */

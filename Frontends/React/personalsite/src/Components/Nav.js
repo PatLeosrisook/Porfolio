@@ -2,35 +2,20 @@ import { useEffect, useState } from 'react';
 import Logo from '../assets/Logo.svg'
 import { BurgerClose } from "react-burger-icons";
 import '../SCSS/home.css'
+import { NavHashLink } from 'react-router-hash-link';
 export function Nav({setTab, isTabOpen}) {
-    const [menuSize, setMenuSize] = useState(24)
-    const [isWindowResized, setIsWindowResized] = useState(false)
-    const [isClosed, setIsClosed] = useState(false)
-    window.onresize = () => {
-        setIsWindowResized(true)
-    }
-  
     let handleClose = () => {
         setTab(!isTabOpen)
 
     }
-    let handleMenu = () => {
-        let page = document.querySelector("#Home")
-        let header = document.querySelector("header")
-        if(isClosed == false ) {
-            // true == close
-            page.classList.remove("open_menu")
-            header.classList.remove("open_menu")
-        } else {
-            page.classList.add("open_menu")
-            header.classList.add("open_menu")
-
-        }
-    }
-
     return(
-        <header onClick={() => console.log("header")}>
-            <img src={Logo} id="logo" />
+        <header>
+            <NavHashLink 
+                to={"/"} 
+                smooth
+                elementId='Landing'>
+                <img src={Logo} id="logo" />
+            </NavHashLink>
             <button id="burger"
             onClick={handleClose }
             style={{

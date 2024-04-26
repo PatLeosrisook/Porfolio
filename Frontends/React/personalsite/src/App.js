@@ -133,7 +133,7 @@ const [isLoading, setIsLoading] = useState(true)
     setWindowSize(window.innerWidth)
   }) 
   return (
-    <div className="App">
+    <main className="App">
       <Menu 
       setTab={setTabOpen}
       isTabOpoen={isTabOpen} 
@@ -153,14 +153,15 @@ const [isLoading, setIsLoading] = useState(true)
       </Routes>
       <div id="socials">
           <div id="line"></div>
-          <a target='_blank' href="https://github.com/PatLeosrisook/Porfolio/tree/beta">
+          <a target='_blank' href="https://github.com/PatLeosrisook/Porfolio">
             <FontAwesomeIcon icon={faGithub} />
           </a>
           <a target='_blank' href="https://bit.ly/Kalyada-Linkedin">
             <FontAwesomeIcon icon={faLinkedin} />
           </a>
       </div>
-    </div>
+
+    </main>
   );
 }
 
