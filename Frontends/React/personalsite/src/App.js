@@ -59,7 +59,7 @@ const [isLoading, setIsLoading] = useState(true)
             Home.remove("active")
             
         }
-        if(AboutY < 500 && AboutY > -900) {
+        if(AboutY < 500 && AboutY > -570) {
             About.add("active")
             AboutElement.classList.add("animate__slideInUp")
             AboutElement.classList.add("show_element")
@@ -70,7 +70,7 @@ const [isLoading, setIsLoading] = useState(true)
             AboutElement.classList.remove("show_element")
             AboutElement.classList.remove("animate__slideInUp")
         }
-        if(ContactY < 500 && ContactY >= -20) {
+        if(ContactY < 500 && ContactY >= -587) {
             
             Contact.add("active")
             ContactElement.childNodes[0].classList.add("show_element")

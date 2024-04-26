@@ -557,7 +557,7 @@ header {
         }
     }
 }
-@media(min-width:1200px) {
+@media(min-width:1280px) {
     #socials {
         flex-direction: column;
         top: 45vh;
@@ -569,8 +569,14 @@ header {
     }
     #About {
         #About_title p {
-            font-size: 5rem;
+            font-size: 3.7rem;
 
+        }
+        #Paragraphs {
+            p{
+                font-size: 1rem;
+                line-height: 29px;
+            }
         }
         .About_wrapper {
             width: 70%;

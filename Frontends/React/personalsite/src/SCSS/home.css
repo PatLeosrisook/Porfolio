@@ -543,7 +543,7 @@ header nav {
     height: 1.5rem;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1280px) {
   #socials {
     flex-direction: column;
     top: 45vh;
@@ -554,7 +554,11 @@ header nav {
     width: 1px;
   }
   #About #About_title p {
-    font-size: 5rem;
+    font-size: 3.7rem;
+  }
+  #About #Paragraphs p {
+    font-size: 1rem;
+    line-height: 29px;
   }
   #About .About_wrapper {
     width: 70%;
