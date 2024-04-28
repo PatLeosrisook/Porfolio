@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Logo from '../assets/Logo.svg'
+import Logo from '../assets/logo.png'
 import { BurgerClose } from "react-burger-icons";
 import '../SCSS/home.css'
 import { NavHashLink } from 'react-router-hash-link';

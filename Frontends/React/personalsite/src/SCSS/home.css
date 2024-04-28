@@ -335,7 +335,7 @@ header {
   justify-content: space-between;
   align-items: center;
   width: 100vw;
-  height: 10vh;
+  height: 16vh;
   position: fixed;
   top: 0;
   z-index: 200;
@@ -355,9 +355,8 @@ header #burger .burger.invert, header #burger .burger.invert::after, header #bur
   background-color: #F2F2F2;
 }
 header #logo {
-  width: 24px;
-  height: -moz-fit-content;
-  height: fit-content;
+  width: 50px;
+  height: auto;
 }
 header nav {
   display: none;

@@ -328,7 +328,7 @@ body {
 header {
     @include flex(row, space-between,center);
     width:100vw;
-    height:10vh;
+    height:16vh;
     position:fixed;
     top:0;
     z-index: 200;
@@ -350,8 +350,8 @@ header {
         }
     }
     #logo {
-        width:24px;
-        height:fit-content;
+        width:50px;
+        height: auto;
     }
     nav {
         display:none;
