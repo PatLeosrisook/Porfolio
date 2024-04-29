@@ -352,6 +352,7 @@ header {
     #logo {
         width:50px;
         height: auto;
+        content: url('../assets/logo_mobile.svg');
     }
     nav {
         display:none;
@@ -428,7 +429,8 @@ header {
 @media(min-width: 768px) {
     header{
         #logo {
-            width: 54px;
+            width: 154px;
+            content: url("../assets/logo_desktop.svg");
         }
     }
     #About {

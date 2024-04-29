@@ -1,10 +1,9 @@
 import '../SCSS/home.css'
-import { useEffect, useState } from 'react';
-import { Home } from '../Pages/Home';
-import { NavHashLink, HashLink } from 'react-router-hash-link';
-export function Links({HomeRef, AboutRef,ContactRef, setTab,isTabOpen, setNextPath,nextPath,  isLoading, setIsLoading}) {
+import { useEffect } from 'react';
+import { NavHashLink} from 'react-router-hash-link';
+export function Links({ setTab,isTabOpen}) {
     
-    let handleClick = (name) => {
+    let handleClick = () => {
         setTab(!isTabOpen)
     }
     useEffect(() => {

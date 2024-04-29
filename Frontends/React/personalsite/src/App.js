@@ -5,31 +5,25 @@ import { Home } from './Pages/Home';
 import { Nav } from './Components/Nav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub , faLinkedin} from '@fortawesome/free-brands-svg-icons'
-// import { Menu } from './Components/Menu';
-import { useRef, createRef, useEffect, useState } from 'react';
-import {Route, Routes, useLocation, useNavigate} from 'react-router-dom'
+import {  useEffect, useState } from 'react';
+import {Route, Routes, useLocation} from 'react-router-dom'
 import { Menu } from './Components/Menu';
 import {Work} from './Pages/Work'
-import { animated, useScroll } from '@react-spring/web'
+import {  useScroll } from '@react-spring/web'
 function App() {
   let location = useLocation()
-  let navigate = useNavigate()
   const {pathname} = location
   const [isTabOpen, setTabOpen] = useState(false)
-  const [windowSize, setWindowSize] = useState(0)
   const [nextPath, setNextPath] = useState("/")
-const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
   const { scrollYProgress } = useScroll()
 
   let handleOpenTab = () => {
-    let app = document.querySelector("#Home")
     let Menu = document.querySelector("#Menu")
-    let Header = document.querySelector("header")
     let burger = document.querySelector('.burger')
     if(Menu) {
 
       if(isTabOpen) {
-          // app.classList.add("moveApp")
           Menu.classList.add("moveMenu")
           burger.classList.add ('invert')
         } else {
@@ -130,7 +124,6 @@ const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     handleOpenTab()
-    setWindowSize(window.innerWidth)
   }) 
   return (
     <main className="App">

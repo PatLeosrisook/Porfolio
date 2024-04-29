@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-import Logo from '../assets/logo.png'
 import { BurgerClose } from "react-burger-icons";
 import '../SCSS/home.css'
 import { NavHashLink } from 'react-router-hash-link';
@@ -11,10 +9,11 @@ export function Nav({setTab, isTabOpen}) {
     return(
         <header>
             <NavHashLink 
+                id='logo'
                 to={"/"} 
                 smooth
                 elementId='Landing'>
-                <img src={Logo} id="logo" />
+                <img src="" id="logo" alt="logo" />
             </NavHashLink>
             <button id="burger"
             onClick={handleClose }

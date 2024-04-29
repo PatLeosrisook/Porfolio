@@ -358,6 +358,7 @@ header #burger .burger.invert, header #burger .burger.invert::after, header #bur
 header #logo {
   width: 50px;
   height: auto;
+  content: url("../assets/logo_mobile.svg");
 }
 header nav {
   display: none;
@@ -434,7 +435,8 @@ header nav {
 }
 @media (min-width: 768px) {
   header #logo {
-    width: 54px;
+    width: 154px;
+    content: url("../assets/logo_desktop.svg");
   }
   #About {
     height: 100vh !important;
@@ -979,6 +981,7 @@ header #burger .burger.invert, header #burger .burger.invert::after, header #bur
 header #logo {
   width: 50px;
   height: auto;
+  content: url("../assets/logo_mobile.svg");
 }
 header nav {
   display: none;
@@ -1055,7 +1058,8 @@ header nav {
 }
 @media (min-width: 768px) {
   header #logo {
-    width: 54px;
+    width: 154px;
+    content: url("../assets/logo_desktop.svg");
   }
   #About {
     height: 100vh !important;

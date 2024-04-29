@@ -1,7 +1,7 @@
 import { Project } from "./Project";
 import 'animate.css';
 
-export function ProjectList({img, Name, Overview, Url, lists}) {
+export function ProjectList({lists}) {
     return(
         <section id="Works">
             {
