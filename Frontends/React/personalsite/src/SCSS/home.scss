@@ -35,8 +35,6 @@ body {
 
 .moveMenu {
     transform:translateY(0px) !important;
-    // border-top-left-radius:0px  !important;
-    // border-bottom-left-radius:0px  !important;
     transition: transform cubic-bezier(.73,0,0,1.03) 0.3s !important;
 }
 .moveHeader {
@@ -45,15 +43,12 @@ body {
 }
 .bg-element {
     position: absolute;
-    
     transform: scale(2);
-    // background: linear-gradient(45deg, $Accent, $Accent-2);
     background-color: $White;
     box-shadow: 0px 0px 9px rgb(141 141 141 / 22%);
     height:130px;
     width:130px;
     z-index: -1;
-    // filter: blur(15px);
 }
 .circular-element {
     border-radius: 100%;
@@ -82,8 +77,6 @@ body {
 .show_element {
     opacity: 1 !important;
     transition: opacity ease 0.7s!important;
-   
-   
 }
 .show_element--delay_1 {
     opacity: 1 !important;
@@ -172,8 +165,6 @@ body {
         gap:40px;
         padding: 0px 20px;
     }
-    
-    
     #Skills_list {
         @include flex();
         gap:20px;
@@ -215,6 +206,7 @@ body {
 
     #About_title {
         @include flex();
+        gap:20px;
         align-items: flex-start;
         p {
             font-size: 2.2rem;
@@ -223,27 +215,15 @@ body {
         }
         #Paragraphs {
             @include flex(column, center, flex-start);
-            gap:5px;
             p {
                 font-size:0.9rem;
                 font-weight: 500;
-                line-height: 19px;
+                line-height: 22px;
             }
+            gap:20px;
         }
         
     }
-    // .skills {
-    //     ul {
-    //         @include flex(column, center ,flex-start);
-    //         padding: 0; 
-    //         list-style: none;
-    //         gap:5px;
-    //         li {
-    //             @include flex(row, center, center);
-    //             gap:5px;
-    //         }
-    //     }
-    // }
 }
 #Contact {
     gap:20px;
@@ -455,11 +435,15 @@ header {
         }
         .About_wrapper {
             gap:40px;
-            padding: 0px 50px;
+            padding: 0px 70px;
         }
         #Skills_list {
+            .skills > p {
+                font-size: 1.5rem;
+            }
             .skills_card {
                 gap:13px;
+                width: 100%;
             }
             .cards {
                 width: 109px;
@@ -571,13 +555,13 @@ header {
     }
     #About {
         #About_title p {
-            font-size: 3.7rem;
+            font-size: 3rem;
 
-        }
-        #Paragraphs {
-            p{
-                font-size: 1rem;
-                line-height: 29px;
+            #Paragraphs {
+                p{
+                    font-size: 1rem;
+                    line-height: 33px;
+                }
             }
         }
         .About_wrapper {

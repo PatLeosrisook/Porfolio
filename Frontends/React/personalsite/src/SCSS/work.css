@@ -221,6 +221,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 20px;
   align-items: flex-start;
 }
 #About #About_title p {
@@ -233,12 +234,12 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 5px;
+  gap: 20px;
 }
 #About #About_title #Paragraphs p {
   font-size: 0.9rem;
   font-weight: 500;
-  line-height: 19px;
+  line-height: 22px;
 }
 
 #Contact {
@@ -461,10 +462,14 @@ header nav {
   }
   #About .About_wrapper {
     gap: 40px;
-    padding: 0px 50px;
+    padding: 0px 70px;
+  }
+  #About #Skills_list .skills > p {
+    font-size: 1.5rem;
   }
   #About #Skills_list .skills_card {
     gap: 13px;
+    width: 100%;
   }
   #About #Skills_list .cards {
     width: 109px;
@@ -556,11 +561,11 @@ header nav {
     width: 1px;
   }
   #About #About_title p {
-    font-size: 3.7rem;
+    font-size: 3rem;
   }
-  #About #Paragraphs p {
+  #About #About_title p #Paragraphs p {
     font-size: 1rem;
-    line-height: 29px;
+    line-height: 33px;
   }
   #About .About_wrapper {
     width: 70%;
@@ -844,6 +849,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 20px;
   align-items: flex-start;
 }
 #About #About_title p {
@@ -856,12 +862,12 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 5px;
+  gap: 20px;
 }
 #About #About_title #Paragraphs p {
   font-size: 0.9rem;
   font-weight: 500;
-  line-height: 19px;
+  line-height: 22px;
 }
 
 #Contact {
@@ -1084,10 +1090,14 @@ header nav {
   }
   #About .About_wrapper {
     gap: 40px;
-    padding: 0px 50px;
+    padding: 0px 70px;
+  }
+  #About #Skills_list .skills > p {
+    font-size: 1.5rem;
   }
   #About #Skills_list .skills_card {
     gap: 13px;
+    width: 100%;
   }
   #About #Skills_list .cards {
     width: 109px;
@@ -1179,11 +1189,11 @@ header nav {
     width: 1px;
   }
   #About #About_title p {
-    font-size: 3.7rem;
+    font-size: 3rem;
   }
-  #About #Paragraphs p {
+  #About #About_title p #Paragraphs p {
     font-size: 1rem;
-    line-height: 29px;
+    line-height: 33px;
   }
   #About .About_wrapper {
     width: 70%;
