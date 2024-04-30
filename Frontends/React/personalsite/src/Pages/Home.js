@@ -13,7 +13,7 @@ export function Home() {
             </div>
             <section  id="Landing">
                 <div id="HeadLine">
-                    <p>Hi, I'm Pat</p>
+                    <p>Hello! I'm a</p>
                     <div id="Job_title">
                         <p className="Job_text">Front</p>
                         <p className="Job_text">End</p>
