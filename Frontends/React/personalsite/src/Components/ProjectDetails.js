@@ -18,13 +18,6 @@ export const details = [
         src: generator
     },
     {
-        id:"Multi_step_form",
-        Title: "Multi-step form",
-        desc:"HTML | SASS | JS",
-        url: "patleosrisook.github.io/Multi-step-form/",
-        src: form
-    },
-    {
         id:"Age_calc",
         Title: "Age Calculator web",
         desc:"HTML | SASS | REACTJS | JS",

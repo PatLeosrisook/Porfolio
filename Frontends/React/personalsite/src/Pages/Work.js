@@ -6,16 +6,15 @@ import 'animate.css';
 export function Work() {  
     return(
         <section id="Work">
-            <div className="shadow-element sq-shadow">
+            {/* <div className="shadow-element sq-shadow">
                 
             </div>
             <div className="shadow-element circle-shadow">
                 
-            </div>
+            </div> */}
             <section id="Work_landing">
                 <div id="Work_wrap">
                     <h1>Works</h1>
-                    <p>Collections of all my hard works</p>
                 </div>
             </section>
             <ProjectList  lists={details}/>

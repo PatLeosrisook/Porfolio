@@ -19,13 +19,14 @@ function App() {
   const { scrollYProgress } = useScroll()
 
   let handleOpenTab = () => {
+    //this handle opening and closing menu 
     let Menu = document.querySelector("#Menu")
     let burger = document.querySelector('.burger')
     if(Menu) {
 
       if(isTabOpen) {
           Menu.classList.add("moveMenu")
-          burger.classList.add ('invert')
+          burger.classList.add ('invert') // change burger colour when menu drops down
         } else {
           Menu.classList.remove("moveMenu")
           burger.classList.remove ('invert')
@@ -45,9 +46,8 @@ function App() {
       let Home = document.querySelector(".Home-link").classList
       let About = document.querySelector(".About-link").classList
       let Contact = document.querySelector(".Contact-link").classList
-        console.log(AboutY)
         if(HomeY <= 0 && HomeY > -500) {
-            Home.add("active")
+            Home.add("active") // change Homee link to active style
 
         } else {
             Home.remove("active")
@@ -76,9 +76,7 @@ function App() {
               if(index >= 1) {
                   link.classList.add(`show_element--delay_${index}`)
                   
-                } else {
-                  
-                }
+                } 
                 link.classList.add(`show_element`)
             })
           }  else {
@@ -104,7 +102,6 @@ function App() {
           Projects.forEach(project => {
             project.classList.remove("animate__zoomOut")
             project.classList.add("animate__zoomIn")
-            // project.classList.add("show_project")
           })
 
         }
@@ -153,7 +150,6 @@ function App() {
             <FontAwesomeIcon icon={faLinkedin} />
           </a>
       </div>
-
     </main>
   );
 }

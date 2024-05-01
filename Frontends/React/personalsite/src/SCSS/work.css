@@ -1290,7 +1290,7 @@ header nav {
   padding-bottom: 80px;
 }
 
-#Work_landing, #Works {
+#Work_landing, #Works, #Work_wrap {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1315,7 +1315,10 @@ header nav {
   height: -moz-fit-content;
   height: fit-content;
   gap: 45px;
-  flex-wrap: wrap;
+  padding-bottom: 150px;
+}
+#Works #Work_wrap {
+  gap: 40px;
 }
 #Works .Project {
   cursor: pointer;
@@ -1349,21 +1352,20 @@ header nav {
 }
 
 @media (min-width: 768px) {
-  .circle-shadow {
-    transform: scale(4.5);
-  }
-  .sq-shadow {
-    width: 120px;
-    height: 120px;
-  }
   #Work_landing h1 {
     font-size: 8rem;
   }
-  #Works {
+  #Works #Work_wrap {
     flex-direction: row;
+    flex-wrap: wrap;
+    width: 90%;
+    justify-content: flex-start;
+    gap: 40px;
+    height: -moz-fit-content;
+    height: fit-content;
   }
   #Works .Project {
-    width: 40%;
+    width: 46%;
   }
 }
 @media (min-width: 1280px) {
