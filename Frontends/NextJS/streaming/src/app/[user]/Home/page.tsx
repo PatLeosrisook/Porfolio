@@ -4,6 +4,9 @@ import { useEffect, useState } from 'react';
 import Media from '../../../Component/Media'
 import RecommendedMedia from '@/Component/RecommendedMedia';
 import {options} from '../../../../public/API'
+import { CAlert, CCarousel, CCarouselCaption, CCarouselItem, CImage } from '@coreui/react';
+import '@coreui/coreui/dist/css/coreui.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 interface ListItem { 
     Title : string,
     src : string, 
@@ -87,22 +90,31 @@ export default function Home() {
     return (
         <section id="Home">
             <section id="trending">
-                <h2>Trending</h2>
-                <section className="lists">
+                <CCarousel indicators controls >
                     {
 
                         popularList.map(list => {
                             // console.log(list)
-                            return <Media 
-                                Title={list.Title}
-                                Year={list.year}
-                                Image={list.src}
-                                Type={list.Type}
-                                isAdult={list.adult}
-                            />
+                            return <CCarouselItem>
+                                        <CImage className="d-block w-100" src={`https://image.tmdb.org/t/p/w200/${list.src}`} />
+                                        <CCarouselCaption>
+                                            <div className="Media-content">
+                                                <div className="sub-content">
+                                                    <p>{list.year}</p>
+                                                    <div className="MediaType">
+                                                        <img src={`/icons/${list.Type}-icon.svg`} alt="media icon"/>
+                                                        <p>{list.Type}</p>
+                                                    </div>
+                                                    <p>{(list.adult) ? "18+":"PG"}</p>
+                                                </div>
+                                                <p className="media-title">{list.Title}</p>
+                                            </div>
+                                        </CCarouselCaption>
+                            </CCarouselItem>
+                          
                         })
                     }
-                </section>
+                </CCarousel>
             </section>
             <section id="recommends">
                 <h2>Recommend for you</h2>

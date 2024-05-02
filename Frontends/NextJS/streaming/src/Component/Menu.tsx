@@ -1,51 +1,44 @@
-'use client';
-import Image from "next/image"
+"use client";
 import Link from "next/link"
-import '../CSS/Dashboard.css'
-import { useRouter } from "next/router"
-
-export default function DashboardLayout({children} : {
-    children : React.ReactNode 
-}) {
-  
-    
+import Image from "next/image"
+import { useSearchParams } from "next/navigation";
+export default function Menu() {
+    const searchParams = useSearchParams()
+    const user = searchParams?.get('user:') //TODO:: find way to remember this 
     return (
-        <section id="Dashboard">
-            <header>
-                <Image src={'/icons/Logo.svg'} width={20} height={20} alt="Logo"/>
-                {/* <ul>
+        <section id="Menu"> 
+              <ul>
                     <li>
                         <Link href={`/${user}/Home`}>
                             <Image src={'/icons/Dashboard.svg'} width={24} height={24} alt="home"/>
+                            <p>Home</p>
                         </Link>
                     </li>
                     <li>
                         <Link href={`/${user}/Movie`}>
                             <Image src={'/icons/Movie-icon.svg'} width={24} height={24} alt="home"/>
+                            <p>Movies</p>
                         </Link>
                     </li>
                     <li>
                         <Link href={`/${user}/TV`}>
                             <Image src={'/icons/Tv-icon.svg'} width={24} height={24} alt="home"/>
+                            <p>TVs</p>
                         </Link>
                     </li>
                     <li>
                         <Link href="">
                             <Image src={'/icons/Saved-icon.svg'} width={24} height={24} alt="home"/>
+                            <p>Saved</p>
                         </Link>
                     </li>
-                </ul> */}
-                <div id="Profile">
-
-                </div>
-            </header>
-            <section id="Content">
-                <div id="SearchBox">
-                    <Image src={'/icons/Search.svg'} width={20} height={20} alt="Search icon" />
-                    <input name="search" placeholder="Search[] here"/>
-                </div>
-                {children}
-            </section>
+                    <li>
+                        <Link href="">
+                            <Image src={'/icons/Saved-icon.svg'} width={24} height={24} alt="home"/>
+                            <p>Profile</p>
+                        </Link>
+                    </li>
+                </ul>
         </section>
     )
 }

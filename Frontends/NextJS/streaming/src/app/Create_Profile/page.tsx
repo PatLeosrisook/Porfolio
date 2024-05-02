@@ -18,7 +18,6 @@ export default function CreateProfile() {
         let profilePic = document.querySelector("#ProfilePic")
         profilePic?.setAttribute("src", "")
         profilePic?.setAttribute("srcset", "")
-        console.log("Change profile", e.target.files[0].name.split(" ").join(""))
         // profilePic.style.backgroundImage = url(``)
         var reader = new FileReader();
     
@@ -29,7 +28,6 @@ export default function CreateProfile() {
           if(event2.target == null) return;
           if(event2.target.result == null) return;
             profilePic?.setAttribute("src", event2.target.result as string)
-            console.log(event2.target.result)
         }
     }
     let handleInputChange = e => {
@@ -44,7 +42,6 @@ export default function CreateProfile() {
         let username_text = document.querySelector('input[name="username"] + p')
         let name = document.querySelector('input[name="name"]')
         let name_text = document.querySelector('input[name="name"] + p')
-        console.log(userData.username, userData.name)
         if(userData.username == undefined || userData.username.length < 3) {
             username.classList.add("error_input")
             username_text.classList.remove("hide_error")
@@ -75,7 +72,7 @@ export default function CreateProfile() {
                 return response.data
             }).then((data) => {
                 console.log(data.message)
-                router.push(`/${userData.username}/Home`)
+                router.push(`/${createQuery('user:',userData.username)}/Home`)
                 
             }).catch((err : string) => {
                 console.log("error:" , err)

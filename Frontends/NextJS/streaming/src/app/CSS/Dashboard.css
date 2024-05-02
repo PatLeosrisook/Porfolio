@@ -101,7 +101,7 @@ header {
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  background-color: #10141E;
+  background-color: #18172C;
 }
 #Registrations #Register_header {
   justify-content: center !important;
@@ -192,23 +192,28 @@ header {
     font-size: 6rem;
   }
 }
+body {
+  background-color: #18172C;
+}
+
 #Dashboard {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: -moz-fit-content;
+  height: fit-content;
   width: 100vw;
 }
 #Dashboard header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: 100vw;
-  background-color: #161D2F;
-  height: 10vh;
+  height: 15vh;
   position: relative;
+  padding: 0px 40px;
   top: 0;
 }
 #Dashboard header ul {
@@ -302,7 +307,7 @@ header {
   justify-content: center;
   width: 80%;
   height: 90%;
-  background-color: #10141E;
+  background-color: #18172C;
 }
 #CreateProfile #Creator_card header {
   display: flex;
