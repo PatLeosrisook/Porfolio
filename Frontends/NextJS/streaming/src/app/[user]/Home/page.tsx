@@ -4,9 +4,10 @@ import { useEffect, useState } from 'react';
 import Media from '../../../Component/Media'
 import RecommendedMedia from '@/Component/RecommendedMedia';
 import {options} from '../../../../public/API'
-import { CAlert, CCarousel, CCarouselCaption, CCarouselItem, CImage } from '@coreui/react';
-import '@coreui/coreui/dist/css/coreui.min.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import Image from 'next/image';
+import Carousels from '../../../Component/carouselContent'
+import Carousel from 'react-bootstrap/Carousel';
+import CarouselsContent from '../../../Component/carouselContent';
 interface ListItem { 
     Title : string,
     src : string, 
@@ -15,6 +16,7 @@ interface ListItem {
     adult: boolean
 }
 export default function Home() {
+
     const [popularList, setPopularList] = useState<Array<ListItem>>([])
     const [recommendedList, setRecommendedList] = useState<Array<ListItem>>([])
     let loadTrending = () => {
@@ -41,27 +43,16 @@ export default function Home() {
             .catch(function (error) {
               console.error(error);
             });
-            // options.url = 'https://api.themoviedb.org/3/tv/popular?language=en-US&page=1'
-            // axios.request(options).then(response  => {
-            //     return response.data.results
-            // }).then(result => {
-            //     result = result.slice(0, 5)
-            //     let list = result.map(r => {
-
-            //     })
-
-            // }).catch(err => {
-            //     console.log(err)
-            // })
+          
     }
     let loadRecommend = () => {
         options.url = "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1"
         axios(options).then(response => {
             return response.data.results
         }).then(result=> {
-            let mid = Math.floor(result.length / 2)
-            result = result.slice(0, mid)
-            console.log("popular" ,result)
+            let mid = 5
+            result = result.slice(0, 5)
+            console.log(result)
             let list : ListItem[] = []
             list = result.map((media) => {
                 return {
@@ -90,47 +81,55 @@ export default function Home() {
     return (
         <section id="Home">
             <section id="trending">
-                <CCarousel indicators controls >
+                <Carousel  id="Carousel">
                     {
-
+                        
                         popularList.map(list => {
-                            // console.log(list)
-                            return <CCarouselItem>
-                                        <CImage className="d-block w-100" src={`https://image.tmdb.org/t/p/w200/${list.src}`} />
-                                        <CCarouselCaption>
-                                            <div className="Media-content">
+                            
+                            return <Carousel.Item >
+                                        <CarouselsContent 
+                                            Title={list.Title}
+                                            Year={list.year}
+                                            IsAdult={list.adult}
+                                            Type={list.Type}
+                                            src={list.src}
+                                        />
+                                        {/* <img src={`https://image.tmdb.org/t/p/w200/${list.src}`}  alt={`${list.Title}`} className="carousel_image" />
+                                        <Carousel.Caption className='trending_media' style={{"backgroundImage" : `url(https://image.tmdb.org/t/p/w200/(${list.src})`}}>
                                                 <div className="sub-content">
-                                                    <p>{list.year}</p>
-                                                    <div className="MediaType">
-                                                        <img src={`/icons/${list.Type}-icon.svg`} alt="media icon"/>
-                                                        <p>{list.Type}</p>
-                                                    </div>
-                                                    <p>{(list.adult) ? "18+":"PG"}</p>
+                                                        <p>{list.year}</p>
+                                                        <div className="MediaType">
+                                                            <img src={`/icons/${list.Type}-icon.svg`} alt="media icon"/>
+                                                            <p>{list.Type}</p>
+                                                        </div>
+                                                        <p>{(list.adult) ? "18+":"PG"}</p>
                                                 </div>
                                                 <p className="media-title">{list.Title}</p>
-                                            </div>
-                                        </CCarouselCaption>
-                            </CCarouselItem>
+                                        </Carousel.Caption> */}
+                            </Carousel.Item>
                           
                         })
                     }
-                </CCarousel>
+                </Carousel>
             </section>
             <section id="recommends">
                 <h2>Recommend for you</h2>
-                <section className="lists">
-                    {
-                        recommendedList.map(list => {
-                            return <RecommendedMedia
-                                    Title={list.Title}
-                                    Year={list.year}
-                                    isAdult={list.adult}
-                                    Type={list.Type}
-                                    src={list.src}
-                            />
-                        })
-                    }
-                </section>
+                <div id="scroller">
+                    <section className="lists">
+                        {
+                            recommendedList.map(list => {
+                                return <RecommendedMedia
+                                        Title={list.Title}
+                                        Year={list.year}
+                                        isAdult={list.adult}
+                                        Type={list.Type}
+                                        src={list.src}
+                                />
+                            })
+                        }
+                    </section>
+
+                </div>
             </section>
         </section>
     )

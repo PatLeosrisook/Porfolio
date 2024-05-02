@@ -7,7 +7,7 @@ export default function Media({Title, Year, Image, Type, isAdult} : {
     isAdult: boolean
 }) {
     let background = {
-        backgroundImage: `url(https://image.tmdb.org/t/p/w200/${Image})`
+        backgroundImage: `url(https://image.tmdb.org/t/p/w1280/${Image})`
     }
     return (
         <article style={background} className="Trending_media">

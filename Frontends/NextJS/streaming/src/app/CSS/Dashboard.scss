@@ -1,12 +1,28 @@
 @use './style';
-@import "../node_modules/@coreui/coreui/scss/coreui";
+// @import "../node_modules/@coreui/coreui/scss/coreui";
+@import '../../../node_modules/bootstrap/scss/bootstrap';
 body {
-    background-color: style.$Dark-blue;
+    background-color: #18172C ;
+}
+.carousel {
+    height: 400px;
+    width: 100vw;
+}
+.carousel-item {
+    // background-image: url("");
+    height: 360px;
+}
+
+.carousel_content {
+    background-size: cover;
+    width: 100% !important;
+    height:100% !important;
 }
 #Dashboard {
     @include style.flex();
     height:fit-content;
     width:100vw;
+    background-color: #18172C ;
     header{
         @include style.flex(row, center, space-between);
         width:100vw;
@@ -38,7 +54,7 @@ body {
         @include style.flex(column,center, flex-start);
         height: 90vh;
         width: 100%;
-        padding: 0 20px;;
+        // padding: 0 20px;;
         #SearchBox {
             height: 60px;
             width:100%;
@@ -61,7 +77,7 @@ body {
         }
     }
     #Home {
-        width: 100%;
+        width: 100vw;
         height: 80%;
     }
     #trending {
@@ -70,18 +86,23 @@ body {
     }
     .lists {
         @include style.flex(row, center, center);
-        height:100%;
+        height:fit-content;
         width: 100%;
-        overflow-x: scroll;
         gap:10px;
     }
     #recommends {
         width: 100vw;
         height:100vh;
+        #scroller {
+            width:100vw;
+            height:fit-content;
+            overflow-x: scroll;
+            overflow-y:hidden
+        }
         .lists {
-            overflow-x: hidden;
-            flex-wrap: wrap;
+            overflow-x: scroll;
             justify-content: flex-start;
+            width:fit-content;
         }
     }
 }
@@ -207,11 +228,11 @@ body {
  gap:10px;
 }
 .RecommendedMedia {
-    width: 40%;
-    height: fit-content;
+    width: 170px;
+    height: 270px;
     
     .Image_wrap {
-        height: 120px;
+        height: 100%;
         width:100%;
     }
     .Media-content {
