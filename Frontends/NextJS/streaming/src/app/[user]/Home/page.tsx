@@ -5,7 +5,6 @@ import Media from '../../../Component/Media'
 import RecommendedMedia from '@/Component/RecommendedMedia';
 import {options} from '../../../../public/API'
 import Image from 'next/image';
-import Carousels from '../../../Component/carouselContent'
 import Carousel from 'react-bootstrap/Carousel';
 import CarouselsContent from '../../../Component/carouselContent';
 interface ListItem { 
@@ -19,6 +18,7 @@ export default function Home() {
 
     const [popularList, setPopularList] = useState<Array<ListItem>>([])
     const [recommendedList, setRecommendedList] = useState<Array<ListItem>>([])
+    const [recommendedSeries, setRecommendedSeries] = useState<Array<ListItem>>([])
     let loadTrending = () => {
           options.url = 'https://api.themoviedb.org/3/trending/all/day?language=en-US'
           axios.request(options)
@@ -38,6 +38,7 @@ export default function Home() {
                         adult: r.adult
                     }
                 })
+                
                 setPopularList((prev ) => [...prev, ...lists])
             })
             .catch(function (error) {
@@ -63,20 +64,45 @@ export default function Home() {
                     adult: media.adult
                 }
             })
+            // list.push({view : 'more'})
             setRecommendedList(prev => [...prev, ...list])
             
         }).catch(e=> {
             console.log("unable to load movie")
         })
     }
+    let loadRecommendedTV = () => {
+        options.url = "https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1"
+        axios(options).then(response => {
+            return response.data.results
+        }).then(result => {
+            result = result.slice(0, 5)
+            console.log(result)
+            let list: ListItem[] = []
+            list = result.map((media) => {
+                return {
+                    Title : media['original_name'],
+                    src: media["poster_path"],
+                    year:  media['first_air_date'].split("-")[0] ,
+                    Type: "Series",
+                    adult: media.adult
+                }
+            })
+            setRecommendedSeries(prev => [...prev, ...list])
+        })
+        .catch(function (error) {
+            console.error(error);
+        });
+    }
     useEffect(() => {
-        if(popularList.length == 0 && recommendedList.length == 0) {
+        if(popularList.length == 0 && recommendedList.length == 0 && recommendedSeries.length == 0) {
 
             loadTrending()
             loadRecommend()
+            loadRecommendedTV()
         }
 
-        console.log("afterr load", popularList, recommendedList)
+        console.log("afterr load", popularList, recommendedList,  recommendedSeries)
     })
     return (
         <section id="Home">
@@ -84,8 +110,10 @@ export default function Home() {
                 <Carousel  id="Carousel">
                     {
                         
-                        popularList.map(list => {
-                            
+                        popularList.map((list , index) => {
+                            {if(index == popularList.length - 1) {
+
+                            }}
                             return <Carousel.Item >
                                         <CarouselsContent 
                                             Title={list.Title}
@@ -94,27 +122,15 @@ export default function Home() {
                                             Type={list.Type}
                                             src={list.src}
                                         />
-                                        {/* <img src={`https://image.tmdb.org/t/p/w200/${list.src}`}  alt={`${list.Title}`} className="carousel_image" />
-                                        <Carousel.Caption className='trending_media' style={{"backgroundImage" : `url(https://image.tmdb.org/t/p/w200/(${list.src})`}}>
-                                                <div className="sub-content">
-                                                        <p>{list.year}</p>
-                                                        <div className="MediaType">
-                                                            <img src={`/icons/${list.Type}-icon.svg`} alt="media icon"/>
-                                                            <p>{list.Type}</p>
-                                                        </div>
-                                                        <p>{(list.adult) ? "18+":"PG"}</p>
-                                                </div>
-                                                <p className="media-title">{list.Title}</p>
-                                        </Carousel.Caption> */}
                             </Carousel.Item>
                           
                         })
                     }
                 </Carousel>
             </section>
-            <section id="recommends">
-                <h2>Recommend for you</h2>
-                <div id="scroller">
+            <section className="recommends">
+                <h2>Recommend movies</h2>
+                <section id="scroller">
                     <section className="lists">
                         {
                             recommendedList.map(list => {
@@ -129,6 +145,24 @@ export default function Home() {
                         }
                     </section>
 
+                </section>
+            </section>
+            <section className='recommends'>
+                <h2>Recommend TV series</h2>
+                <div className='scroller'>
+                    <section className='lists'>
+                        {
+                            recommendedSeries.map(list => {
+                                return <RecommendedMedia
+                                        Title={list.Title}
+                                        Year={list.year}
+                                        isAdult={list.adult}
+                                        Type={list.Type}
+                                        src={list.src}
+                                />
+                            })
+                        }
+                    </section>
                 </div>
             </section>
         </section>

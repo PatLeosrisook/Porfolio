@@ -12163,6 +12163,10 @@ body {
   background-color: #18172C;
 }
 
+html {
+  background-color: #18172C;
+}
+
 .carousel {
   height: 400px;
   width: 100vw;
@@ -12178,6 +12182,20 @@ body {
   height: 100% !important;
 }
 
+.ViewMore {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.ViewMore div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
 #Dashboard {
   display: flex;
   flex-direction: column;
@@ -12186,7 +12204,6 @@ body {
   height: -moz-fit-content;
   height: fit-content;
   width: 100vw;
-  background-color: #18172C;
 }
 #Dashboard header {
   display: flex;
@@ -12263,18 +12280,22 @@ body {
   width: 100%;
   gap: 10px;
 }
-#Dashboard #recommends {
+#Dashboard .recommends {
+  padding-left: 30px;
   width: 100vw;
-  height: 100vh;
+  height: -moz-fit-content;
+  height: fit-content;
+  overflow: hidden;
+  color: white;
 }
-#Dashboard #recommends #scroller {
+#Dashboard .recommends #scroller {
   width: 100vw;
   height: -moz-fit-content;
   height: fit-content;
   overflow-x: scroll;
   overflow-y: hidden;
 }
-#Dashboard #recommends .lists {
+#Dashboard .recommends .lists {
   overflow-x: scroll;
   justify-content: flex-start;
   width: -moz-fit-content;
@@ -12433,15 +12454,22 @@ body {
 }
 
 .RecommendedMedia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 170px;
-  height: 270px;
+  height: -moz-fit-content;
+  height: fit-content;
+  gap: 30px;
 }
 .RecommendedMedia .Image_wrap {
-  height: 100%;
+  height: 240px;
   width: 100%;
 }
 .RecommendedMedia .Media-content {
   position: static;
+  color: white;
 }
 
 .Specified_Type, #Movie, #TV {

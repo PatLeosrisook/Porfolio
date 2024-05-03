@@ -4,6 +4,9 @@
 body {
     background-color: #18172C ;
 }
+html {
+    background-color: #18172C ;
+}
 .carousel {
     height: 400px;
     width: 100vw;
@@ -18,11 +21,19 @@ body {
     width: 100% !important;
     height:100% !important;
 }
+.ViewMore {
+    @include style.flex();
+
+    div {
+        @include style.flex(row, center,center);
+        color: white;
+    }
+}
 #Dashboard {
     @include style.flex();
     height:fit-content;
     width:100vw;
-    background-color: #18172C ;
+    
     header{
         @include style.flex(row, center, space-between);
         width:100vw;
@@ -90,14 +101,17 @@ body {
         width: 100%;
         gap:10px;
     }
-    #recommends {
+    .recommends {
+        padding-left: 30px;
         width: 100vw;
-        height:100vh;
+        height:fit-content;
+        overflow: hidden;
+        color:white;
         #scroller {
             width:100vw;
             height:fit-content;
             overflow-x: scroll;
-            overflow-y:hidden
+            overflow-y:hidden;
         }
         .lists {
             overflow-x: scroll;
@@ -228,15 +242,18 @@ body {
  gap:10px;
 }
 .RecommendedMedia {
-    width: 170px;
-    height: 270px;
+    @include style.flex();
     
+    width: 170px;
+    height: fit-content;
+    gap:30px;
     .Image_wrap {
-        height: 100%;
+        height: 240px;
         width:100%;
     }
     .Media-content {
         position: static;
+        color:white;
     }
 }
 .Specified_Type, #Movie, #TV {
@@ -359,9 +376,7 @@ body {
         .RecommendedMedia {
             width: 11% ;
         }
-        #recommends {
-            
-        }
+       
         .lists {
             padding-right: 220px;
         }
