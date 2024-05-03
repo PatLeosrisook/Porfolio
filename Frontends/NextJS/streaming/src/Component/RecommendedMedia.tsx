@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faBookBookmark, faPlay } from "@fortawesome/free-solid-svg-icons"
 export default function RecommendedMedia({Year, Title, isAdult, Type, src}: {
     Year: string,
     Title: string,
@@ -10,16 +12,22 @@ export default function RecommendedMedia({Year, Title, isAdult, Type, src}: {
             <div style={{background:`url(https://image.tmdb.org/t/p/w200/${src})`, backgroundSize: "cover" }} className="Image_wrap">
 
             </div>
-            <div className="Media-content">
-                <div className="sub-content">
+            <div className="Content">
+                <p className="Content-title">{Title}</p>
+                <div className="Content-detail">
                     <p>{Year}</p>
-                    <div className="MediaType">
-                        <img src={`/icons/${Type}-icon.svg`} />
-                        <p>{Type}</p>
-                    </div>
                     <p>{(isAdult) ? "18+" : "PG"}</p>
                 </div>
-                <p className="media-title">{Title}</p>
+                <div className="Content-action">
+                    <div className="bookmark">
+                        <FontAwesomeIcon icon={faBookBookmark} /> 
+                        <p>Bookmark</p>
+                    </div>
+                    <div className="trailer">
+                        <p>See trailer</p>
+                        <FontAwesomeIcon icon={faPlay}/>
+                    </div>
+                </div>
             </div>
         </article>
     )

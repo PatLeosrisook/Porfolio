@@ -130,7 +130,7 @@ export default function Home() {
             </section>
             <section className="recommends">
                 <h2>Recommend movies</h2>
-                <section id="scroller">
+                <section className="scroller">
                     <section className="lists">
                         {
                             recommendedList.map(list => {

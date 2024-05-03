@@ -12161,6 +12161,7 @@ textarea.form-control-lg {
 }
 body {
   background-color: #18172C;
+  background: none !important;
 }
 
 html {
@@ -12285,10 +12286,11 @@ html {
   width: 100vw;
   height: -moz-fit-content;
   height: fit-content;
+  margin-bottom: 20px;
   overflow: hidden;
   color: white;
 }
-#Dashboard .recommends #scroller {
+#Dashboard .recommends .scroller {
   width: 100vw;
   height: -moz-fit-content;
   height: fit-content;
@@ -12459,17 +12461,54 @@ html {
   align-items: center;
   justify-content: center;
   width: 170px;
-  height: -moz-fit-content;
-  height: fit-content;
-  gap: 30px;
+  height: 380px;
+  gap: 10px;
 }
 .RecommendedMedia .Image_wrap {
   height: 240px;
   width: 100%;
 }
-.RecommendedMedia .Media-content {
-  position: static;
+.RecommendedMedia .Content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.RecommendedMedia .Content-title {
+  font-weight: 700;
+  align-self: flex-start;
+  margin: 0;
+}
+.RecommendedMedia .Content-detail {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
   color: white;
+}
+.RecommendedMedia .Content-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.RecommendedMedia .bookmark, .RecommendedMedia .trailer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 30px;
+  width: 100%;
+}
+.RecommendedMedia .bookmark p, .RecommendedMedia .trailer p {
+  margin: 0;
+}
+.RecommendedMedia .trailer {
+  background: linear-gradient(#FF569D, #B556FF);
 }
 
 .Specified_Type, #Movie, #TV {
@@ -12510,6 +12549,9 @@ html {
     font-size: 2rem;
     font-weight: 500;
   }
+  #Dashboard .recommends:nth-child(1) {
+    background-color: white;
+  }
   #Dashboard .lists {
     gap: 23px;
   }
@@ -12524,7 +12566,7 @@ html {
     width: 31%;
   }
   .RecommendedMedia {
-    width: 31%;
+    width: 200px;
   }
   .RecommendedMedia .Image_wrap {
     height: 269px;

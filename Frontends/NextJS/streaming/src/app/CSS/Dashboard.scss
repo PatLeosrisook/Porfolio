@@ -3,6 +3,7 @@
 @import '../../../node_modules/bootstrap/scss/bootstrap';
 body {
     background-color: #18172C ;
+    background:  none !important;
 }
 html {
     background-color: #18172C ;
@@ -105,9 +106,10 @@ html {
         padding-left: 30px;
         width: 100vw;
         height:fit-content;
+        margin-bottom: 20px;
         overflow: hidden;
         color:white;
-        #scroller {
+        .scroller {
             width:100vw;
             height:fit-content;
             overflow-x: scroll;
@@ -210,7 +212,8 @@ html {
     background-color: rgba(0, 0, 0, 0.442);
     position: absolute;
     z-index: 1;
-   }
+   
+    }
 }
 .Media-content {
      @include style.flex(column, flex-start, center);
@@ -245,15 +248,44 @@ html {
     @include style.flex();
     
     width: 170px;
-    height: fit-content;
-    gap:30px;
+    height: 380px;
+    gap:10px;
     .Image_wrap {
         height: 240px;
         width:100%;
     }
-    .Media-content {
-        position: static;
+    .Content {
+        @include style.flex();
+        width:100%;
+    }
+    .Content-title {
+        font-weight: 700;
+        align-self: flex-start;
+        margin:0;
+    }
+    .Content-detail {
+        @include style.flex(row, center, space-between);
+        width:100%;
         color:white;
+    }
+    .Content-action{
+        @include style.flex();
+        width:100%;
+
+    }
+    .bookmark, .trailer{
+        @include style.flex(row, center, center);
+        gap:10px;
+        height:30px;
+        width:100%;
+        p {
+            margin:0;
+
+        }
+        // width:fit-content;
+    }
+    .trailer {
+        background: linear-gradient(#FF569D, #B556FF);
     }
 }
 .Specified_Type, #Movie, #TV {
@@ -299,7 +331,12 @@ html {
         }
     }
     #Dashboard {
-
+        .recommends {
+            &:nth-child(1) {
+                background-color: white;;
+            }
+            // padding-bottom: 90px;
+        }
         .lists {
             gap: 23px;
         }
@@ -318,7 +355,7 @@ html {
         }
     }
     .RecommendedMedia {
-        width: 31%;
+        width: 200px;
         .Image_wrap {
             height: 269px;
             margin-bottom: 14px;
