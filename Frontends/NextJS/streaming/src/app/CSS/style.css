@@ -2,14 +2,55 @@
 .cta {
   width: 100px;
   height: 30px;
-  background-color: #FC4747;
+  background-color: #FF569D;
   border: none;
   color: white;
   font-weight: 500;
 }
 
+#Menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-3000%);
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #272E6D;
+  z-index: 2;
+}
+#Menu ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  padding: 0;
+  list-style: none;
+}
+#Menu ul a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: white;
+}
+#Menu ul p {
+  margin: 0;
+  font-weight: 500;
+}
+#Menu ul .active {
+  color: #FF569D !important;
+}
+
 .error_input {
-  border-bottom: 1px solid #FC4747 !important;
+  border-bottom: 1px solid #FF569D !important;
 }
 
 .hide_error {
@@ -18,7 +59,7 @@
 
 .error_message {
   font-size: 12px;
-  color: #FC4747;
+  color: #FF569D;
   display: block;
 }
 
@@ -55,7 +96,7 @@ main::after {
   top: 0;
   left: 0;
   z-index: 1;
-  background-color: #161D2F;
+  background-color: #192645;
   opacity: 0.8;
 }
 
@@ -68,6 +109,11 @@ header {
   position: absolute;
   z-index: 2;
   top: 20px;
+}
+
+#Logo {
+  width: 30px;
+  height: 30px;
 }
 
 #Heading {
@@ -114,7 +160,7 @@ header {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  background-color: #161D2F;
+  background-color: #192645;
   min-height: 327px;
   height: -moz-fit-content;
   height: fit-content;
@@ -131,7 +177,7 @@ header {
   height: 40px;
 }
 #Registrations .Register_card a {
-  color: #FC4747;
+  color: #FF569D;
 }
 #Registrations .form_group {
   display: flex;
@@ -142,7 +188,7 @@ header {
   gap: 5px;
 }
 #Registrations .form_group a {
-  color: #FC4747;
+  color: #FF569D;
   align-self: flex-end;
   font-size: 12px;
   font-weight: 400;

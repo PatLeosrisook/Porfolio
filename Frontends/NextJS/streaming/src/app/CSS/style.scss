@@ -5,10 +5,10 @@
     align-items: $align;
     justify-content: $justify;
 }
-$Primary: #FC4747;
+$Primary: #FF569D;
 $Accent : #5A698F;
 $Dark-blue : #18172C;
-$Semi-dark-blue :#161D2F;
+$Semi-dark-blue :#192645;
 $White : #FFFFFF;
 .cta {
     width: 100px;
@@ -17,6 +17,39 @@ $White : #FFFFFF;
     border:none;
     color:white;
     font-weight: 500;
+}
+#Menu {
+    @include flex();
+    transform: translateY(-3000%);
+    ul {
+        @include flex(column, flex-start, center);
+        gap:20px;
+        padding:0;
+        list-style: none;
+        a{
+            @include flex(row, center,center);
+            width:100%;
+            gap:10px;
+            text-decoration: none;
+            font-size:1.2rem;
+            color:white;
+            
+        }
+        p {
+            margin:0;
+            font-weight: 500;
+        }
+        .active {
+            color: $Primary !important;
+        }
+    }
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #272E6D;
+    z-index: 2;
+
 }
 .error_input {
     border-bottom: 1px solid $Primary !important;
@@ -67,6 +100,10 @@ header {
     position: absolute;
     z-index: 2;
     top:20px;
+}
+#Logo {
+    width: 30px;
+    height: 30px;
 }
 #Heading {
     @include flex(column, flex-start, center);

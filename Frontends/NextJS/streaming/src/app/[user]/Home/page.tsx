@@ -7,6 +7,7 @@ import {options} from '../../../../public/API'
 import Image from 'next/image';
 import Carousel from 'react-bootstrap/Carousel';
 import CarouselsContent from '../../../Component/carouselContent';
+
 interface ListItem { 
     Title : string,
     src : string, 
@@ -128,6 +129,7 @@ export default function Home() {
                     }
                 </Carousel>
             </section>
+          
             <section className="recommends">
                 <h2>Recommend movies</h2>
                 <section className="scroller">

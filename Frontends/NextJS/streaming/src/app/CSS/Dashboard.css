@@ -3,14 +3,55 @@
 .cta {
   width: 100px;
   height: 30px;
-  background-color: #FC4747;
+  background-color: #FF569D;
   border: none;
   color: white;
   font-weight: 500;
 }
 
+#Menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-3000%);
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #272E6D;
+  z-index: 2;
+}
+#Menu ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  padding: 0;
+  list-style: none;
+}
+#Menu ul a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: white;
+}
+#Menu ul p {
+  margin: 0;
+  font-weight: 500;
+}
+#Menu ul .active {
+  color: #FF569D !important;
+}
+
 .error_input {
-  border-bottom: 1px solid #FC4747 !important;
+  border-bottom: 1px solid #FF569D !important;
 }
 
 .hide_error {
@@ -19,7 +60,7 @@
 
 .error_message {
   font-size: 12px;
-  color: #FC4747;
+  color: #FF569D;
   display: block;
 }
 
@@ -56,7 +97,7 @@ main::after {
   top: 0;
   left: 0;
   z-index: 1;
-  background-color: #161D2F;
+  background-color: #192645;
   opacity: 0.8;
 }
 
@@ -69,6 +110,11 @@ header {
   position: absolute;
   z-index: 2;
   top: 20px;
+}
+
+#Logo {
+  width: 30px;
+  height: 30px;
 }
 
 #Heading {
@@ -115,7 +161,7 @@ header {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  background-color: #161D2F;
+  background-color: #192645;
   min-height: 327px;
   height: -moz-fit-content;
   height: fit-content;
@@ -132,7 +178,7 @@ header {
   height: 40px;
 }
 #Registrations .Register_card a {
-  color: #FC4747;
+  color: #FF569D;
 }
 #Registrations .form_group {
   display: flex;
@@ -143,7 +189,7 @@ header {
   gap: 5px;
 }
 #Registrations .form_group a {
-  color: #FC4747;
+  color: #FF569D;
   align-self: flex-end;
   font-size: 12px;
   font-weight: 400;
@@ -12169,18 +12215,53 @@ html {
 }
 
 .carousel {
-  height: 400px;
+  height: 100vh;
   width: 100vw;
+  margin-bottom: 30px;
 }
 
 .carousel-item {
-  height: 360px;
+  height: 100%;
+  position: relative;
+}
+.carousel-item::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(24, 23, 44, 0.6862745098);
+  z-index: 0;
+}
+
+.carousel-inner {
+  height: 100%;
 }
 
 .carousel_content {
   background-size: cover;
   width: 100% !important;
   height: 100% !important;
+  position: relative;
+  background-position-y: -270px;
+}
+
+.content {
+  position: absolute;
+  top: 80%;
+  left: 20px;
+  color: white;
+  font-weight: 500;
+  z-index: 1;
+}
+.content p {
+  margin: 0;
+}
+.content .media-title {
+  font-size: 1.3rem;
+  margin: 0;
+  font-weight: 700;
 }
 
 .ViewMore {
@@ -12206,6 +12287,9 @@ html {
   height: fit-content;
   width: 100vw;
 }
+#Dashboard:nth-child(2) {
+  padding-bottom: 50px;
+}
 #Dashboard header {
   display: flex;
   flex-direction: row;
@@ -12213,7 +12297,7 @@ html {
   justify-content: space-between;
   width: 100vw;
   height: 15vh;
-  position: relative;
+  position: fixed;
   padding: 0px 40px;
   top: 0;
 }
@@ -12228,12 +12312,6 @@ html {
 #Dashboard header ul li:last-child {
   margin: 0;
 }
-#Dashboard header #Profile {
-  background-color: White;
-  width: 20px;
-  height: 20px;
-  border-radius: 100%;
-}
 #Dashboard #Content {
   display: flex;
   flex-direction: column;
@@ -12244,7 +12322,9 @@ html {
 }
 #Dashboard #Content #SearchBox {
   height: 60px;
-  width: 100%;
+  width: 70%;
+  background-color: #192645;
+  padding-left: 30px;
 }
 #Dashboard #Content #SearchBox input[name=search] {
   border: none;
@@ -12256,10 +12336,11 @@ html {
 #Dashboard #Content #SearchBox input[name=search]:focus-visible {
   outline: none;
 }
-#Dashboard #Content #SearchBox img {
-  width: 20px;
-  height: 20px;
+#Dashboard #Content #SearchBox svg {
+  width: 14px;
+  height: 14px;
   margin-right: 10px;
+  color: white;
 }
 #Dashboard #Home {
   width: 100vw;
@@ -12555,6 +12636,12 @@ html {
   #Dashboard .lists {
     gap: 23px;
   }
+  .content {
+    left: 60px;
+  }
+  .content .media-title {
+    font-size: 2.3rem;
+  }
   .Media-content p {
     font-weight: 400;
     font-size: 14px;
@@ -12573,56 +12660,33 @@ html {
     margin-bottom: 14px;
   }
 }
-@media (min-width: 1024px) {
-  .RecommendedMedia {
-    width: 18%;
-  }
-}
 @media (min-width: 1440px) {
-  #Dashboard {
-    flex-direction: row;
-    padding: 30px;
-  }
-  #Dashboard header {
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 46px 0;
-    width: 6vw;
-    height: 90vh;
-  }
-  #Dashboard header ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-  }
-  #Dashboard header ul li {
-    margin: 0;
-  }
-  #Dashboard header ul li img {
-    width: 30px;
-    height: 30px;
-  }
   #Dashboard #Content {
     width: 90%;
-  }
-  #Dashboard .lists {
-    padding-right: 200px;
   }
   .Specified_Type .lists, #Movie .lists, #TV .lists {
     padding: 0;
   }
   .RecommendedMedia {
-    width: 15%;
+    width: 240px;
+    height: 490px;
   }
 }
 @media (min-width: 1600px) {
   #Dashboard .RecommendedMedia {
-    width: 11%;
+    width: 260px;
   }
   #Dashboard .lists {
     padding-right: 220px;
+  }
+  #Dashboard .Image_wrap {
+    height: 100%;
+  }
+  .content .media-title {
+    font-size: 4.3rem;
+  }
+  .content p {
+    font-size: 1.5rem;
   }
   .Specified_Type .lists, #Movie .lists, #TV .lists {
     padding: 0;

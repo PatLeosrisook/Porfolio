@@ -3,7 +3,9 @@ import Image from "next/image"
 import Link from "next/link"
 import '../CSS/Dashboard.css'
 import { useRouter } from "next/router"
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBurger } from "@fortawesome/free-solid-svg-icons";
+import { Spiral as Hamburger } from 'hamburger-react'
 export default function DashboardLayout({children} : {
     children : React.ReactNode 
 }) {
@@ -35,15 +37,10 @@ export default function DashboardLayout({children} : {
                         </Link>
                     </li>
                 </ul> */}
-                <div id="Profile">
-
-                </div>
+                <Hamburger color="white" />
             </header>
             <section id="Content">
-                <div id="SearchBox">
-                    <Image src={'/icons/Search.svg'} width={20} height={20} alt="Search icon" />
-                    <input name="search" placeholder="Search[] here"/>
-                </div>
+                
                 {children}
             </section>
         </section>

@@ -16,6 +16,7 @@ export default function CarouselsContent({Title, Type, Year, IsAdult, src} : {
         <div className='carousel_content' style={{'backgroundImage' : `url(https://image.tmdb.org/t/p/w1280/${src})`}}>
             {/* <img src={`https://image.tmdb.org/t/p/w200/${src}`}  alt={`${Title}`} className="carousel_image" /> */}
             <div className='content'>
+                    <p className="media-title">{Title}</p>
                     <div className="sub-content">
                             <p>{Year}</p>
                             <div className="MediaType">
@@ -24,7 +25,6 @@ export default function CarouselsContent({Title, Type, Year, IsAdult, src} : {
                             </div>
                             <p>{(IsAdult) ? "18+":"PG"}</p>
                     </div>
-                    <p className="media-title">{Title}</p>
             </div>
         </div>
     )

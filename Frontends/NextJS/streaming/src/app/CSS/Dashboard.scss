@@ -9,18 +9,50 @@ html {
     background-color: #18172C ;
 }
 .carousel {
-    height: 400px;
+    height: 100vh;
     width: 100vw;
+    margin-bottom: 30px;
 }
 .carousel-item {
     // background-image: url("");
-    height: 360px;
+    height: 100%;
+    position:relative;
+    &::after {
+        content: "";
+        height:100%;
+        width:100%;
+        position: absolute;
+        top:0;
+        left: 0;
+        background-color: #18172caf;
+        z-index: 0;
+    }
 }
-
+.carousel-inner {
+    height: 100%;;
+}
 .carousel_content {
     background-size: cover;
     width: 100% !important;
     height:100% !important;
+    position: relative;
+    background-position-y: -270px;
+}
+.content {
+    position: absolute; 
+    top:80%;
+    left: 20px;
+    color:white;
+    font-weight: 500;
+    z-index: 1;
+    p {
+        margin:0;
+    }
+    .media-title {
+        font-size:1.3rem;
+        margin:0;
+        font-weight: 700;
+    }
 }
 .ViewMore {
     @include style.flex();
@@ -34,13 +66,15 @@ html {
     @include style.flex();
     height:fit-content;
     width:100vw;
-    
+    &:nth-child(2) {
+        padding-bottom: 50px;
+    }
     header{
         @include style.flex(row, center, space-between);
         width:100vw;
         // background-color: style.$Semi-dark-blue;
         height:15vh;
-        position: relative;
+        position: fixed;
         padding: 0px 40px;
         top:0;
         ul {
@@ -55,12 +89,7 @@ html {
                 
             }
         }
-        #Profile {
-            background-color: White;
-            width: 20px;
-            height: 20px;
-            border-radius: 100%;
-        }
+    
     }
     #Content {
         @include style.flex(column,center, flex-start);
@@ -69,7 +98,9 @@ html {
         // padding: 0 20px;;
         #SearchBox {
             height: 60px;
-            width:100%;
+            width:70%;
+            background-color: style.$Semi-dark-blue;
+            padding-left:30px;
             input[name="search"] {
                 border:none;
                 background-color: transparent;
@@ -80,10 +111,11 @@ html {
                     outline : none;
                 }
             }
-            img {
-                width:20px;
-                height:20px;
+            svg {
+                width:14px;
+                height:14px;
                 margin-right:10px;
+                color: white;
             }
             
         }
@@ -109,6 +141,7 @@ html {
         margin-bottom: 20px;
         overflow: hidden;
         color:white;
+        
         .scroller {
             width:100vw;
             height:fit-content;
@@ -341,6 +374,12 @@ html {
             gap: 23px;
         }
     }
+    .content {
+        left: 60px;
+        .media-title {
+            font-size:2.3rem;
+        }
+    }
     .Media-content p {
         font-weight: 400;
         font-size: 14px;
@@ -364,38 +403,16 @@ html {
 
 }
 @media (min-width: 1024px) {
-    .RecommendedMedia {
-        width: 18%;
-    }
+    
 }
 @media(min-width: 1440px) {
     #Dashboard {
-        flex-direction: row;
-        padding: 30px;
-        header {
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 46px 0;
-            width: 6vw;
-            height: 90vh;
-            ul {
-                @include style.flex();
-                gap:20px;
-                li {
-                    margin:0;
-                    img {
-                        width: 30px;
-                        height: 30px;;
-                    }
-                }
-            }
-        }
+     
+      
         #Content {
             width: 90%;
         }
-        .lists {
-            padding-right : 200px;
-        }
+      
     }
     .Specified_Type, #Movie, #TV {
         .lists {
@@ -404,18 +421,30 @@ html {
         
     }
     .RecommendedMedia {
-        width: 15% ;
+        width: 240px ;
+        height: 490px;
     }
 
 }
 @media(min-width: 1600px) {
     #Dashboard {
         .RecommendedMedia {
-            width: 11% ;
+            width: 260px ;
         }
        
         .lists {
             padding-right: 220px;
+        }
+        .Image_wrap {
+            height:100%;
+        }
+    }
+    .content {
+        .media-title{
+            font-size: 4.3rem;;
+        }
+        p {
+            font-size: 1.5rem;
         }
     }
     .Specified_Type, #Movie, #TV {
