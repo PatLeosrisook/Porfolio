@@ -1,8 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBookBookmark, faPlay } from "@fortawesome/free-solid-svg-icons"
-export default function RecommendedMedia({Year, Title, isAdult, Type, src}: {
+import { faBookmark, faPlay } from "@fortawesome/free-solid-svg-icons"
+export default function RecommendedMedia({Year, Title, isAdult, Overview, Type, src}: {
     Year: string,
     Title: string,
+    Overview: string,
     isAdult: boolean,
     Type: string,
     src: string
@@ -18,9 +19,10 @@ export default function RecommendedMedia({Year, Title, isAdult, Type, src}: {
                     <p>{Year}</p>
                     <p>{(isAdult) ? "18+" : "PG"}</p>
                 </div>
+                <p className="overview">{Overview}</p>
                 <div className="Content-action">
                     <div className="bookmark">
-                        <FontAwesomeIcon icon={faBookBookmark} /> 
+                        <FontAwesomeIcon icon={faBookmark} /> 
                         <p>Bookmark</p>
                     </div>
                     <div className="trailer">

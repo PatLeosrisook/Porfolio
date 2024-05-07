@@ -12545,6 +12545,10 @@ html {
   height: 380px;
   gap: 10px;
 }
+.RecommendedMedia .overview {
+  overflow-y: scroll;
+  height: 100px;
+}
 .RecommendedMedia .Image_wrap {
   height: 240px;
   width: 100%;
@@ -12675,6 +12679,10 @@ html {
 @media (min-width: 1600px) {
   #Dashboard .RecommendedMedia {
     width: 260px;
+  }
+  #Dashboard .RecommendedMedia .Content-action {
+    flex-direction: row;
+    justify-content: space-between;
   }
   #Dashboard .lists {
     padding-right: 220px;

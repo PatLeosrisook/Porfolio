@@ -279,7 +279,10 @@ html {
 }
 .RecommendedMedia {
     @include style.flex();
-    
+    .overview {
+        overflow-y: scroll;
+        height:100px;
+    }
     width: 170px;
     height: 380px;
     gap:10px;
@@ -430,6 +433,10 @@ html {
     #Dashboard {
         .RecommendedMedia {
             width: 260px ;
+            .Content-action {
+                flex-direction: row;
+                justify-content: space-between;
+            }
         }
        
         .lists {
@@ -446,6 +453,7 @@ html {
         p {
             font-size: 1.5rem;
         }
+        
     }
     .Specified_Type, #Movie, #TV {
         .lists {

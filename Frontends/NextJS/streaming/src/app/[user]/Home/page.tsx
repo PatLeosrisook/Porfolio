@@ -9,8 +9,10 @@ import Carousel from 'react-bootstrap/Carousel';
 import CarouselsContent from '../../../Component/carouselContent';
 
 interface ListItem { 
+    Id: number,
     Title : string,
     src : string, 
+    Overview: string,
     year : string,
     Type : string,
     adult: boolean
@@ -58,7 +60,9 @@ export default function Home() {
             let list : ListItem[] = []
             list = result.map((media) => {
                 return {
+                    Id: media['id'],
                     Title : media['original_title'],
+                    Overview: media["overview"],
                     src: media["poster_path"],
                     year:  media['release_date'].split("-")[0] ,
                     Type: "movie",
@@ -78,11 +82,12 @@ export default function Home() {
             return response.data.results
         }).then(result => {
             result = result.slice(0, 5)
-            console.log(result)
+            console.log("tv" , result)
             let list: ListItem[] = []
             list = result.map((media) => {
                 return {
                     Title : media['original_name'],
+                    Overview: media['overview'],
                     src: media["poster_path"],
                     year:  media['first_air_date'].split("-")[0] ,
                     Type: "Series",
@@ -118,6 +123,7 @@ export default function Home() {
                             return <Carousel.Item >
                                         <CarouselsContent 
                                             Title={list.Title}
+                                            
                                             Year={list.year}
                                             IsAdult={list.adult}
                                             Type={list.Type}
@@ -138,6 +144,7 @@ export default function Home() {
                             recommendedList.map(list => {
                                 return <RecommendedMedia
                                         Title={list.Title}
+                                        Overview={list.Overview}
                                         Year={list.year}
                                         isAdult={list.adult}
                                         Type={list.Type}
@@ -157,6 +164,7 @@ export default function Home() {
                             recommendedSeries.map(list => {
                                 return <RecommendedMedia
                                         Title={list.Title}
+                                        Overview={list.Overview}
                                         Year={list.year}
                                         isAdult={list.adult}
                                         Type={list.Type}
