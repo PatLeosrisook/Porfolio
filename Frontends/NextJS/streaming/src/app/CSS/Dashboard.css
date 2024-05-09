@@ -1,5 +1,9 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+* {
+  box-sizing: border-box;
+}
+
 .cta {
   width: 100px;
   height: 30px;
@@ -12623,7 +12627,8 @@ html {
   align-items: flex-start;
   justify-content: center;
   gap: 20px;
-  width: 100%;
+  width: -moz-fit-content;
+  width: fit-content;
   height: 100vh;
   color: white;
   overflow-y: scoll;
@@ -12659,6 +12664,9 @@ html {
   }
 }
 @media (min-width: 768px) {
+  #Movie .category_header, #TV .category_header {
+    width: 94vw;
+  }
   #Movie #SearchBox, #TV #SearchBox {
     width: 30%;
   }

@@ -10,6 +10,9 @@ $Accent : #5A698F;
 $Dark-blue : #18172C;
 $Semi-dark-blue :#192645;
 $White : #FFFFFF;
+* {
+    box-sizing: border-box;
+}
 .cta {
     width: 100px;
     height: 30px;

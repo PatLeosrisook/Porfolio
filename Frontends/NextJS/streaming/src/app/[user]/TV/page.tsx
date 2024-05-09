@@ -14,6 +14,7 @@ interface ListItem {
 }
 export default function TV() {
     const [TV, setTV] = useState<ListItem[]>([])
+    const [searched, setSearchedValue] = useState("")
     let loadTV = () => {
         options.url = "https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1"
         axios(options).then(Response => {
@@ -37,12 +38,13 @@ export default function TV() {
         if(TV.length === 0) {
             loadTV()
         }
+        console.log("Searching:" , searched)
     })
     return (
         <section id="TV" className="Specified_Type">
             <header className="category_header">
                 <h1>TV</h1>
-                <Search/>
+                <Search searchedValue={setSearchedValue}/>
             </header>
             <section className="list_wrapper">
                 <section className="lists">

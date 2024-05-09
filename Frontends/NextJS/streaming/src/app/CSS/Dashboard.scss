@@ -346,7 +346,7 @@ html {
 .Specified_Type, #Movie, #TV {
     @include style.flex(column, flex-start, center);
     gap:20px;
-    width:100%;
+    width:fit-content;
     height:100vh;
     color:white;
     overflow-y: scoll;
@@ -381,6 +381,9 @@ html {
 }
 @media(min-width: 768px) {
     #Movie, #TV {
+        .category_header {
+            width:94vw;
+        }
         #SearchBox{
             width: 30%;
             
