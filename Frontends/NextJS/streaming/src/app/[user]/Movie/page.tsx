@@ -15,6 +15,7 @@ import {options} from '../../../../public/API'
 interface ListItem { 
     Title : string,
     src : string, 
+    Overview: string,
     year : string,
     Type : string,
     adult: boolean
@@ -34,12 +35,13 @@ export default function Movie({result} : {
                 return {
                     Title : movie['title'],
                     src: movie["poster_path"],
+                    Overview: movie['overview'],
                     year:  movie['release_date'].split("-")[0],
                     Type: "movie",
                     adult: movie.adult
                 }
             })
-            setMovie(prev => [...prev, ...list])
+            setMovie(list)
         })
     }
     useEffect(() => {
@@ -50,18 +52,21 @@ export default function Movie({result} : {
     return (
         <section id="Movie" className='Specified_Type'>
             <h1>Movie</h1>
-            <section className="lists">
-            {
-                Movie.map(movie => {
-                    return <RecommendedMedia
-                                Title={movie.Title}
-                                Year={movie.year}
-                                Type="movie"
-                                isAdult={movie.adult}
-                                src={movie.src}
-                            />
-                })
-            }
+            <section className="list_wrapper">
+                <section className="lists">
+                {
+                    Movie.map(movie => {
+                        return <RecommendedMedia
+                                    Title={movie.Title}
+                                    Year={movie.year}
+                                    Overview={movie.Overview}
+                                    Type="movie"
+                                    isAdult={movie.adult}
+                                    src={movie.src}
+                                />
+                    })
+                }
+                </section>
             </section>
         </section>
     )

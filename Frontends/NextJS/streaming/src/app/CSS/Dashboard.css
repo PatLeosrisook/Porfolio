@@ -12241,10 +12241,10 @@ html {
 
 .carousel_content {
   background-size: cover;
+  background-repeat: no-repeat;
   width: 100% !important;
   height: 100% !important;
   position: relative;
-  background-position-y: -270px;
 }
 
 .content {
@@ -12319,28 +12319,6 @@ html {
   justify-content: flex-start;
   height: 90vh;
   width: 100%;
-}
-#Dashboard #Content #SearchBox {
-  height: 60px;
-  width: 70%;
-  background-color: #192645;
-  padding-left: 30px;
-}
-#Dashboard #Content #SearchBox input[name=search] {
-  border: none;
-  background-color: transparent;
-  height: 100%;
-  width: 80%;
-  font-size: 16px;
-}
-#Dashboard #Content #SearchBox input[name=search]:focus-visible {
-  outline: none;
-}
-#Dashboard #Content #SearchBox svg {
-  width: 14px;
-  height: 14px;
-  margin-right: 10px;
-  color: white;
 }
 #Dashboard #Home {
   width: 100vw;
@@ -12477,6 +12455,34 @@ html {
   height: 50px;
 }
 
+#TV #SearchBox, #Movie #SearchBox {
+  height: 40px;
+  width: 70%;
+  border-radius: 30px;
+  background-color: #192645;
+  padding-left: 20px;
+}
+#TV #SearchBox input[name=search], #Movie #SearchBox input[name=search] {
+  border: none;
+  background-color: transparent;
+  height: 100%;
+  width: 80%;
+  font-size: 16px;
+  border-radius: 3px;
+}
+#TV #SearchBox input[name=search]:focus-visible, #Movie #SearchBox input[name=search]:focus-visible {
+  outline: none;
+}
+#TV #SearchBox svg, #Movie #SearchBox svg {
+  width: 14px;
+  height: 14px;
+  margin-right: 10px;
+  color: white;
+}
+#TV .category_header, #Movie .category_header {
+  position: static;
+}
+
 .Trending_media {
   position: relative;
   background-size: cover;
@@ -12536,7 +12542,7 @@ html {
   gap: 10px;
 }
 
-.RecommendedMedia {
+.RecommendedMedia, .ViewMore {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12545,27 +12551,27 @@ html {
   height: 380px;
   gap: 10px;
 }
-.RecommendedMedia .overview {
+.RecommendedMedia .overview, .ViewMore .overview {
   overflow-y: scroll;
   height: 100px;
 }
-.RecommendedMedia .Image_wrap {
+.RecommendedMedia .Image_wrap, .ViewMore .Image_wrap {
   height: 240px;
   width: 100%;
 }
-.RecommendedMedia .Content {
+.RecommendedMedia .Content, .ViewMore .Content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
 }
-.RecommendedMedia .Content-title {
+.RecommendedMedia .Content-title, .ViewMore .Content-title {
   font-weight: 700;
   align-self: flex-start;
   margin: 0;
 }
-.RecommendedMedia .Content-detail {
+.RecommendedMedia .Content-detail, .ViewMore .Content-detail {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -12573,14 +12579,14 @@ html {
   width: 100%;
   color: white;
 }
-.RecommendedMedia .Content-action {
+.RecommendedMedia .Content-action, .ViewMore .Content-action {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
 }
-.RecommendedMedia .bookmark, .RecommendedMedia .trailer {
+.RecommendedMedia .bookmark, .RecommendedMedia .trailer, .ViewMore .bookmark, .ViewMore .trailer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -12589,11 +12595,26 @@ html {
   height: 30px;
   width: 100%;
 }
-.RecommendedMedia .bookmark p, .RecommendedMedia .trailer p {
+.RecommendedMedia .bookmark p, .RecommendedMedia .trailer p, .ViewMore .bookmark p, .ViewMore .trailer p {
   margin: 0;
 }
-.RecommendedMedia .trailer {
+.RecommendedMedia .trailer, .ViewMore .trailer {
   background: linear-gradient(#FF569D, #B556FF);
+}
+
+.ViewMore {
+  border: 1px solid white;
+  margin-right: 60px;
+}
+.ViewMore div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.ViewMore p {
+  margin: 0;
 }
 
 .Specified_Type, #Movie, #TV {
@@ -12603,15 +12624,33 @@ html {
   justify-content: center;
   gap: 20px;
   width: 100%;
-  height: 90%;
+  height: 100vh;
+  color: white;
   overflow-y: scoll;
 }
-.Specified_Type .RecommendedMedia, #Movie .RecommendedMedia, #TV .RecommendedMedia {
-  width: 48%;
+.Specified_Type h1, .Specified_Type .h1, #Movie h1, #Movie .h1, #TV h1, #TV .h1 {
+  padding-left: 10px;
+}
+.Specified_Type .list_wrapper, #Movie .list_wrapper, #TV .list_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 .Specified_Type .lists, #Movie .lists, #TV .lists {
+  flex-direction: column;
   justify-content: flex-start;
-  flex-wrap: wrap;
+  height: 50vh;
+  gap: 60px;
+}
+.Specified_Type .RecommendedMedia, #Movie .RecommendedMedia, #TV .RecommendedMedia {
+  width: 90%;
+  height: -moz-fit-content;
+  height: fit-content;
+  color: white;
 }
 
 @media (min-width: 375px) {
@@ -12620,6 +12659,9 @@ html {
   }
 }
 @media (min-width: 768px) {
+  #Movie #SearchBox, #TV #SearchBox {
+    width: 30%;
+  }
   #CreateProfile #Creator_card {
     height: 80%;
     max-width: 640px;
@@ -12630,15 +12672,14 @@ html {
     width: 126px;
     height: 38px;
   }
-  .Specified_Type h1, .Specified_Type .h1 {
-    font-size: 2rem;
-    font-weight: 500;
-  }
   #Dashboard .recommends:nth-child(1) {
     background-color: white;
   }
   #Dashboard .lists {
     gap: 23px;
+  }
+  #Dashboard #trending {
+    margin-bottom: 90px;
   }
   .content {
     left: 60px;
@@ -12653,18 +12694,74 @@ html {
   .Media-content .media-title {
     font-size: 20px;
   }
+  .Specified_Type .lists, #Movie .lists, #TV .lists {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 85%;
+  }
   .Specified_Type .RecommendedMedia, #Movie .RecommendedMedia, #TV .RecommendedMedia {
-    width: 31%;
+    width: 200px;
   }
   .RecommendedMedia {
     width: 200px;
+    height: 500px;
+  }
+  .RecommendedMedia .Content {
+    height: 240px;
   }
   .RecommendedMedia .Image_wrap {
     height: 269px;
     margin-bottom: 14px;
   }
 }
+@media (min-width: 835px) {
+  .Specified_Type .lists, #Movie .lists, #TV .lists {
+    gap: 53px;
+  }
+}
+@media (min-width: 1024px) {
+  .carousel_content {
+    background-position-y: -270px;
+  }
+  .ViewMore {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .ViewMore div {
+    position: relative;
+    z-index: 2;
+  }
+  .ViewMore::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    top: 100%;
+    left: 0;
+    transition: top ease 0.3s;
+    z-index: 1;
+  }
+  .ViewMore:hover::after {
+    top: 0;
+    transition: top ease 0.3s;
+  }
+  .ViewMore:hover div {
+    color: #192645;
+  }
+  .Specified_Type .lists, #Movie .lists, #TV .lists {
+    width: 100%;
+    padding-left: 50px;
+  }
+}
 @media (min-width: 1440px) {
+  #Movie .category_header, #TV .category_header {
+    padding-right: 130px;
+  }
+  #Movie #SearchBox, #TV #SearchBox {
+    width: 20%;
+  }
   #Dashboard #Content {
     width: 90%;
   }
@@ -12686,9 +12783,6 @@ html {
   }
   #Dashboard .lists {
     padding-right: 220px;
-  }
-  #Dashboard .Image_wrap {
-    height: 100%;
   }
   .content .media-title {
     font-size: 4.3rem;

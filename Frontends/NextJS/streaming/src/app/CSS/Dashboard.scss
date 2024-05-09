@@ -33,10 +33,11 @@ html {
 }
 .carousel_content {
     background-size: cover;
+    background-repeat: no-repeat;
     width: 100% !important;
     height:100% !important;
     position: relative;
-    background-position-y: -270px;
+    
 }
 .content {
     position: absolute; 
@@ -96,29 +97,7 @@ html {
         height: 90vh;
         width: 100%;
         // padding: 0 20px;;
-        #SearchBox {
-            height: 60px;
-            width:70%;
-            background-color: style.$Semi-dark-blue;
-            padding-left:30px;
-            input[name="search"] {
-                border:none;
-                background-color: transparent;
-                height:100%;
-                width:80%;
-                font-size:16px;
-                &:focus-visible {
-                    outline : none;
-                }
-            }
-            svg {
-                width:14px;
-                height:14px;
-                margin-right:10px;
-                color: white;
-            }
-            
-        }
+       
     }
     #Home {
         width: 100vw;
@@ -229,6 +208,36 @@ html {
     }
     
 }
+#TV, #Movie {
+    #SearchBox {
+        height: 40px;
+        width:70%;
+        border-radius: 30px;
+        background-color: style.$Semi-dark-blue;
+        padding-left:20px;
+        input[name="search"] {
+            border:none;
+            background-color: transparent;
+            height:100%;
+            width:80%;
+            font-size:16px;
+            border-radius: 3px;
+            &:focus-visible {
+                outline : none;
+            }
+        }
+        svg {
+            width:14px;
+            height:14px;
+            margin-right:10px;
+            color: white;
+        }
+        
+    }
+    .category_header {
+        position: static;
+    }
+}
 .Trending_media {
     position: relative;
    background-size: cover;
@@ -277,7 +286,7 @@ html {
  width:fit-content;
  gap:10px;
 }
-.RecommendedMedia {
+.RecommendedMedia, .ViewMore {
     @include style.flex();
     .overview {
         overflow-y: scroll;
@@ -324,20 +333,43 @@ html {
         background: linear-gradient(#FF569D, #B556FF);
     }
 }
+.ViewMore {
+    border:1px solid white;
+    margin-right: 60px;
+    div {
+        @include style.flex(row, center,center);
+        gap:10px;
+    }
+    p {margin:0}
+}
+
 .Specified_Type, #Movie, #TV {
     @include style.flex(column, flex-start, center);
     gap:20px;
     width:100%;
-    height:90%;
+    height:100vh;
+    color:white;
     overflow-y: scoll;
-    .RecommendedMedia {
-        width: 48%;;
+    h1 {
+        padding-left:10px;
     }
-    .lists{
+    .list_wrapper {
+        @include style.flex();
+        width: 100vw;
+        height: fit-content;
+    }
+    .lists {
+        flex-direction: column;
         justify-content: flex-start;
-        flex-wrap: wrap;
-
+        height: 50vh;
+        gap:60px;
     }
+    .RecommendedMedia {
+        width: 90%;
+        height: fit-content;
+        color:white;
+    }
+   
 }
 @media(min-width: 375px) {
     #CreateProfile{
@@ -348,6 +380,12 @@ html {
     
 }
 @media(min-width: 768px) {
+    #Movie, #TV {
+        #SearchBox{
+            width: 30%;
+            
+        }
+    }
     #CreateProfile {
         #Creator_card {
             height: 80%;
@@ -360,12 +398,6 @@ html {
             }
         }
     }
-    .Specified_Type {
-        h1 {
-            font-size: 2rem;
-            font-weight: 500;
-        }
-    }
     #Dashboard {
         .recommends {
             &:nth-child(1) {
@@ -375,6 +407,9 @@ html {
         }
         .lists {
             gap: 23px;
+        }
+        #trending {
+            margin-bottom: 90px;
         }
     }
     .content {
@@ -390,14 +425,25 @@ html {
     .Media-content .media-title {
         font-size: 20px;
     }
-    .Specified_Type , #Movie , #TV  {
+    .Specified_Type, #Movie, #TV {
+        
+        .lists {
+            flex-direction: row;
+            flex-wrap: wrap;
+            // column-gap: 30px;
+            width:85%;
+        }
         .RecommendedMedia {
 
-            width: 31%;
+            width: 200px;
         }
     }
     .RecommendedMedia {
         width: 200px;
+        height: 500px;
+        .Content {
+            height: 240px;;
+        }
         .Image_wrap {
             height: 269px;
             margin-bottom: 14px;
@@ -405,10 +451,64 @@ html {
     }
 
 }
+@media(min-width: 835px) {
+    .Specified_Type, #Movie, #TV {
+        .lists {
+            gap:53px;
+        }
+    }
+}
 @media (min-width: 1024px) {
-    
+   .carousel_content {
+    background-position-y: -270px;
+   } 
+   .ViewMore {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    div {
+        position: relative;
+        z-index: 2;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        top:100%;
+        left: 0; 
+        transition: top ease 0.3s;
+        z-index: 1;
+    }
+    &:hover {
+        &::after{
+            top:0;
+            transition: top ease 0.3s;
+        }
+        div {
+            color: style.$Semi-dark-blue;
+
+        }
+    }
+   }
+   .Specified_Type, #Movie, #TV {
+    .lists {
+        width: 100%;
+        padding-left: 50px;
+    }
+   }
 }
 @media(min-width: 1440px) {
+    #Movie, #TV {
+        .category_header {
+
+            padding-right:130px;
+        }
+        #SearchBox {
+            width:20%;
+        }
+    }
     #Dashboard {
      
       
@@ -442,9 +542,7 @@ html {
         .lists {
             padding-right: 220px;
         }
-        .Image_wrap {
-            height:100%;
-        }
+        
     }
     .content {
         .media-title{

@@ -1,12 +1,13 @@
 'use client';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import Media from '../../../Component/Media'
 import RecommendedMedia from '@/Component/RecommendedMedia';
 import {options} from '../../../../public/API'
 import Image from 'next/image';
 import Carousel from 'react-bootstrap/Carousel';
 import CarouselsContent from '../../../Component/carouselContent';
+import ViewMore from '@/app/[user]/Home/ViewMore';
 
 interface ListItem { 
     Id: number,
@@ -20,8 +21,8 @@ interface ListItem {
 export default function Home() {
 
     const [popularList, setPopularList] = useState<Array<ListItem>>([])
-    const [recommendedList, setRecommendedList] = useState<Array<ListItem>>([])
-    const [recommendedSeries, setRecommendedSeries] = useState<Array<ListItem>>([])
+    const [recommendedList, setRecommendedList] = useState<Array<ReactNode>>([])
+    const [recommendedSeries, setRecommendedSeries] = useState<Array<ReactNode>>([])
     let loadTrending = () => {
           options.url = 'https://api.themoviedb.org/3/trending/all/day?language=en-US'
           axios.request(options)
@@ -50,42 +51,47 @@ export default function Home() {
           
     }
     let loadRecommend = () => {
-        options.url = "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1"
+        options.url = 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1'
         axios(options).then(response => {
             return response.data.results
         }).then(result=> {
-            let mid = 5
-            result = result.slice(0, 5)
+            result = result.filter(media => media['release_date'].split("-")[0] >= 2000)
+            result = result.slice(0, 15)
             console.log(result)
-            let list : ListItem[] = []
+            let list : ReactNode[] = []
             list = result.map((media) => {
-                return {
-                    Id: media['id'],
-                    Title : media['original_title'],
-                    Overview: media["overview"],
-                    src: media["poster_path"],
-                    year:  media['release_date'].split("-")[0] ,
-                    Type: "movie",
-                    adult: media.adult
-                }
+                return <RecommendedMedia
+                    Title={media['original_title']}
+                    Overview={media['overview']}
+                    Year={media['release_date'].split("-")[0]}
+                    isAdult={media.adult}
+                    Type={"Movie"}
+                    src={media["poster_path"]}
+                />
+               
             })
+            list.push(<ViewMore forwardLink='Movie'/>)
             // list.push({view : 'more'})
-            setRecommendedList(prev => [...prev, ...list])
+            setRecommendedList(list)
             
         }).catch(e=> {
             console.log("unable to load movie")
         })
     }
     let loadRecommendedTV = () => {
+        if(recommendedList.length > 0) {
+            return; 
+        }
         options.url = "https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1"
         axios(options).then(response => {
             return response.data.results
         }).then(result => {
-            result = result.slice(0, 5)
-            console.log("tv" , result)
-            let list: ListItem[] = []
-            list = result.map((media) => {
-                return {
+            result = result.filter(media => media['first_air_date'].split("-")[0] >= 2018)
+            result = result.slice(0, 15)
+            // let list: ListItem[] = []
+            let list = new Map()
+            result.forEach(media => {
+                let item = {
                     Title : media['original_name'],
                     Overview: media['overview'],
                     src: media["poster_path"],
@@ -93,8 +99,31 @@ export default function Home() {
                     Type: "Series",
                     adult: media.adult
                 }
+                list.set(media['id'], item )
             })
-            setRecommendedSeries(prev => [...prev, ...list])
+            let uniqueList = Array.from(list.values())
+            let listComponent = uniqueList.map(list => {
+                return <RecommendedMedia
+                        Title={list.Title}
+                        Overview={list.Overview}
+                        Year={list.year}
+                        isAdult={list.adult}
+                        Type={list.Type}
+                        src={list.src}
+                    />
+            })
+            listComponent.push(<ViewMore forwardLink='TV'/>)
+            //  result.map((media) => {
+            //     return {
+            //         Title : media['original_name'],
+            //         Overview: media['overview'],
+            //         src: media["poster_path"],
+            //         year:  media['first_air_date'].split("-")[0] ,
+            //         Type: "Series",
+            //         adult: media.adult
+            //     }
+            // })
+            setRecommendedSeries(listComponent)
         })
         .catch(function (error) {
             console.error(error);
@@ -102,14 +131,15 @@ export default function Home() {
     }
     useEffect(() => {
         if(popularList.length == 0 && recommendedList.length == 0 && recommendedSeries.length == 0) {
-
+            console.log("init...")
             loadTrending()
             loadRecommend()
             loadRecommendedTV()
+            
         }
 
         console.log("afterr load", popularList, recommendedList,  recommendedSeries)
-    })
+    },[])
     return (
         <section id="Home">
             <section id="trending">
@@ -140,18 +170,7 @@ export default function Home() {
                 <h2>Recommend movies</h2>
                 <section className="scroller">
                     <section className="lists">
-                        {
-                            recommendedList.map(list => {
-                                return <RecommendedMedia
-                                        Title={list.Title}
-                                        Overview={list.Overview}
-                                        Year={list.year}
-                                        isAdult={list.adult}
-                                        Type={list.Type}
-                                        src={list.src}
-                                />
-                            })
-                        }
+                        {recommendedList}
                     </section>
 
                 </section>
@@ -160,18 +179,7 @@ export default function Home() {
                 <h2>Recommend TV series</h2>
                 <div className='scroller'>
                     <section className='lists'>
-                        {
-                            recommendedSeries.map(list => {
-                                return <RecommendedMedia
-                                        Title={list.Title}
-                                        Overview={list.Overview}
-                                        Year={list.year}
-                                        isAdult={list.adult}
-                                        Type={list.Type}
-                                        src={list.src}
-                                />
-                            })
-                        }
+                       {recommendedSeries}
                     </section>
                 </div>
             </section>
