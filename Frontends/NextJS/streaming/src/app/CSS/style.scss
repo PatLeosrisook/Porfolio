@@ -23,7 +23,7 @@ $White : #FFFFFF;
 }
 #Menu {
     @include flex();
-    transform: translateY(-3000%);
+    transform: translateY(-300%);
     ul {
         @include flex(column, flex-start, center);
         gap:20px;
@@ -53,6 +53,11 @@ $White : #FFFFFF;
     background-color: #272E6D;
     z-index: 2;
 
+    transition: transform ease 0.4s;
+}
+.openMenu {
+    transform: translateY(0) !important;
+    transition: transform ease 0.4s;
 }
 .error_input {
     border-bottom: 1px solid $Primary !important;

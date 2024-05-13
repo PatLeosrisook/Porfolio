@@ -14,6 +14,7 @@ interface ListItem {
 }
 export default function TV() {
     const [TV, setTV] = useState<ListItem[]>([])
+    const [filteredList, setFilteredList] = useState<ListItem[]>([])
     const [searched, setSearchedValue] = useState("")
     let loadTV = () => {
         options.url = "https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1"
@@ -37,18 +38,35 @@ export default function TV() {
     useEffect(() => {
         if(TV.length === 0) {
             loadTV()
+        } else {
+            if(searched !== "") {
+                // find the search input
+                let filteredResult = TV.filter(tv => tv.Title.toLowerCase().startsWith(searched.toLowerCase()))
+                setFilteredList(filteredResult)
+            } else {
+                setTV(TV)
+            }
         }
-        console.log("Searching:" , searched)
-    })
+    },[searched, TV])
     return (
         <section id="TV" className="Specified_Type">
             <header className="category_header">
                 <h1>TV</h1>
-                <Search searchedValue={setSearchedValue}/>
+                <Search searchedValue={setSearchedValue} placeholder="Search series name here:"/>
             </header>
             <section className="list_wrapper">
                 <section className="lists">
                     {
+                        (searched.length > 0) ? filteredList.map(search => {
+                            return <RecommendedMedia
+                            Title={search.Title}
+                            Year={search.Year}
+                            Overview={search.Overview}
+                            Type={search.Type}
+                            src={search.src}
+                            isAdult={search.adult}
+                        />
+                        }) : 
                         TV.map(tv => {
                             return <RecommendedMedia
                                     Title={tv.Title}

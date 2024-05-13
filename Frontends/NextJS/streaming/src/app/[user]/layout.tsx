@@ -6,13 +6,26 @@ import { useRouter } from "next/router"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBurger } from "@fortawesome/free-solid-svg-icons";
 import { Spiral as Hamburger } from 'hamburger-react'
+import Menu from "@/Component/Menu";
+import { useEffect, useState } from "react";
 export default function DashboardLayout({children} : {
     children : React.ReactNode 
 }) {
-  
-    
+    const [isToggled, setIsTogged] = useState(false)
+    let handleOpenMenu = (toggled : Boolean) => {
+        let menu = document.querySelector("#Menu")
+        console.log("Menu is", isToggled)
+        if(isToggled) {
+            menu?.classList.add('openMenu')
+
+        } else {
+            menu?.classList.remove('openMenu')
+        }
+    }
+   
     return (
         <section id="Dashboard">
+            <Menu handleOpenMenu={handleOpenMenu} />
             <header>
                 <Image src={'/icons/Logo.svg'} width={20} height={20} alt="Logo"/>
                 {/* <ul>
@@ -37,7 +50,7 @@ export default function DashboardLayout({children} : {
                         </Link>
                     </li>
                 </ul> */}
-                <Hamburger color="white" />
+                <Hamburger color="white" toggle={setIsTogged} toggled={isToggled}   />
             </header>
             <section id="Content">
                 

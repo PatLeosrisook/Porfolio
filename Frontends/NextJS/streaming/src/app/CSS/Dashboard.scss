@@ -77,6 +77,7 @@ html {
         height:15vh;
         position: fixed;
         padding: 0px 40px;
+        z-index: 10;
         top:0;
         ul {
             padding: 0;
@@ -95,7 +96,7 @@ html {
     #Content {
         @include style.flex(column,center, flex-start);
         height: 90vh;
-        width: 100%;
+        width: 90vw;
         // padding: 0 20px;;
        
     }
@@ -236,6 +237,7 @@ html {
     }
     .category_header {
         position: static;
+        z-index: 0;
     }
 }
 .Trending_media {
@@ -298,6 +300,8 @@ html {
     .Image_wrap {
         height: 240px;
         width:100%;
+        background-size: contain;
+        background-repeat: no-repeat;
     }
     .Content {
         @include style.flex();
@@ -346,16 +350,19 @@ html {
 .Specified_Type, #Movie, #TV {
     @include style.flex(column, flex-start, center);
     gap:20px;
-    width:fit-content;
+    width:100%;
     height:100vh;
     color:white;
     overflow-y: scoll;
     h1 {
         padding-left:10px;
     }
+    .category_header {
+        width:100%;
+    }
     .list_wrapper {
         @include style.flex();
-        width: 100vw;
+        width: 100%;
         height: fit-content;
     }
     .lists {
@@ -363,6 +370,7 @@ html {
         justify-content: flex-start;
         height: 50vh;
         gap:60px;
+        width:100%;
     }
     .RecommendedMedia {
         width: 90%;
@@ -385,7 +393,7 @@ html {
             width:94vw;
         }
         #SearchBox{
-            width: 30%;
+            width: 300px;
             
         }
     }
@@ -499,6 +507,9 @@ html {
     .lists {
         width: 100%;
         padding-left: 50px;
+    }
+    .RecommendedMedia {
+        width: 174px;;
     }
    }
 }

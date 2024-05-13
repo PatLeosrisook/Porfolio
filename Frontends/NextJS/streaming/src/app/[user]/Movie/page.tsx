@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import type { InferGetServerSidePropsType, GetServerSideProps } from 'next' // probably on the page that call this method.
 import RecommendedMedia from '@/Component/RecommendedMedia';
 import {options} from '../../../../public/API'
+import Search from '@/Component/Search';
 // export async function getServerSideProps() {
 //     const result = await getMovie();
 
@@ -24,6 +25,8 @@ export default function Movie({result} : {
     result : ResultType
 }) {
     const [Movie,setMovie] = useState<Array<ListItem>>([])
+    const [filteredList, setFilteredList] = useState<Array<ListItem>>([])
+    const [searched, setSearchedValue] = useState("")
     let loadMovie = () => {
         options.url = 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1'
         axios(options).then(response =>{
@@ -47,14 +50,35 @@ export default function Movie({result} : {
     useEffect(() => {
         if(Movie.length == 0) {
             loadMovie()
+        } else {
+            if(searched !== "") {
+                // find the search input
+                let filteredResult = Movie.filter(movie => movie.Title.toLowerCase().startsWith(searched.toLowerCase()))
+                setFilteredList(filteredResult)
+            } else {
+                setMovie(Movie)
+            }
         }
     })
     return (
         <section id="Movie" className='Specified_Type'>
-            <h1>Movie</h1>
+            <header className="category_header">
+                <h1>Movie</h1>
+                <Search searchedValue={setSearchedValue} placeholder='Search movie name here:'/>
+            </header>
             <section className="list_wrapper">
                 <section className="lists">
                 {
+                    (searched.length > 0) ? filteredList.map(search => {
+                        return <RecommendedMedia
+                        Title={search.Title}
+                        Year={search.Year}
+                        Overview={search.Overview}
+                        Type={search.Type}
+                        src={search.src}
+                        isAdult={search.adult}
+                    />
+                    }) : 
                     Movie.map(movie => {
                         return <RecommendedMedia
                                     Title={movie.Title}
