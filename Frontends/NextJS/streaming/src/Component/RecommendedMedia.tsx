@@ -1,5 +1,8 @@
+'use client';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBookmark, faPlay } from "@fortawesome/free-solid-svg-icons"
+import { faBookmark as Bookedmarked, faPlay } from "@fortawesome/free-solid-svg-icons"
+import { faBookmark as unBookedmark } from "@fortawesome/free-regular-svg-icons"
+import { useState } from "react";
 export default function RecommendedMedia({Year, Title, isAdult, Overview, Type, src}: {
     Year: string,
     Title: string,
@@ -8,6 +11,11 @@ export default function RecommendedMedia({Year, Title, isAdult, Overview, Type, 
     Type: string,
     src: string
 }) {
+    const [booked, setBooked] = useState()
+    let handleBookmarked = () => {
+        //TODO:: this will then save the id of the current movie to user's database.
+    }
+
     return (
         <article className="RecommendedMedia">
             <div style={{background:`url(https://image.tmdb.org/t/p/w1280/${src})`, backgroundSize: "cover" }} className="Image_wrap">
@@ -22,7 +30,7 @@ export default function RecommendedMedia({Year, Title, isAdult, Overview, Type, 
                 <p className="overview">{Overview}</p>
                 <div className="Content-action">
                     <div className="bookmark">
-                        <FontAwesomeIcon icon={faBookmark} /> 
+                        <FontAwesomeIcon icon={unBookedmark} /> 
                         <p>Bookmark</p>
                     </div>
                     <div className="trailer">

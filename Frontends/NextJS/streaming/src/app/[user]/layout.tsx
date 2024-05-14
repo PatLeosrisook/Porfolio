@@ -13,16 +13,20 @@ export default function DashboardLayout({children} : {
 }) {
     const [isToggled, setIsTogged] = useState(false)
     let handleOpenMenu = (toggled : Boolean) => {
-        let menu = document.querySelector("#Menu")
         console.log("Menu is", isToggled)
-        if(isToggled) {
-            menu?.classList.add('openMenu')
-
-        } else {
-            menu?.classList.remove('openMenu')
-        }
+        setIsTogged(!isToggled)
+        
     }
-   
+   useEffect(() => {
+    let menu = document.querySelector("#Menu")
+    console.log(isToggled)
+    if(isToggled) {
+        menu?.classList.add('openMenu')
+
+    } else {
+        menu?.classList.remove('openMenu')
+    }
+   })
     return (
         <section id="Dashboard">
             <Menu handleOpenMenu={handleOpenMenu} />
@@ -50,7 +54,7 @@ export default function DashboardLayout({children} : {
                         </Link>
                     </li>
                 </ul> */}
-                <Hamburger color="white" toggle={setIsTogged} toggled={isToggled}   />
+                <Hamburger color="white" toggle={setIsTogged} toggled={isToggled}  onToggle={handleOpenMenu} />
             </header>
             <section id="Content">
                 

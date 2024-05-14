@@ -12554,6 +12554,15 @@ html {
   gap: 10px;
 }
 
+.RecommendedMedia .bookmark, .RecommendedMedia .trailer {
+  cursor: pointer;
+  transition: color ease 0.4s;
+}
+.RecommendedMedia .bookmark:hover {
+  color: #FF569D;
+  transition: color ease 0.4s;
+}
+
 .RecommendedMedia, .ViewMore {
   display: flex;
   flex-direction: column;

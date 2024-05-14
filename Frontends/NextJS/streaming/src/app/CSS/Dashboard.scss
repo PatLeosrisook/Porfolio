@@ -288,6 +288,18 @@ html {
  width:fit-content;
  gap:10px;
 }
+.RecommendedMedia {
+    .bookmark , .trailer {
+        cursor: pointer;
+        transition: color ease 0.4s
+    }
+    .bookmark {
+        &:hover{
+            color: style.$Primary;
+            transition: color ease 0.4s
+        }
+    }
+}
 .RecommendedMedia, .ViewMore {
     @include style.flex();
     .overview {
