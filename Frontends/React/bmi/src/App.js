@@ -5,8 +5,8 @@ import { faBirthdayCake, faBowlFood, faDumbbell, faGenderless, faMarsAndVenus, f
 import foodPortrait from './assets/FoodByMonika.jpg'
 function App() {
   return (
-    <section className="App relative">
-    <div className='bg-gradient-to-br from-slate-50 to-blue-300 w-[683px] h-[683px] rounded-full absolute -left-[162px] -top-[180px] z-0'>
+    <section className="App relative overflow-hidden">
+    <div className='bg-gradient-to-br from-slate-50 to-blue-50 w-[683px] h-[683px] rounded-full absolute -left-[162px] -top-[180px] z-0'>
 
     </div>
     <header className='w-full h-[15vh]'>
@@ -54,6 +54,7 @@ function App() {
             </div>
         </article>
       </section>
+
       <section id="BMI" className='h-fit w-full min-h-screen bg-gradient-to-b from-slate-50 to-sky-100 flex flex-col items-center justify-center'>
           <div className="flex flex-col items-center justify-center bg-slate-50 p-[20px] mb-[10px] ">
             <img src={foodPortrait} alt="Image of a food" className='h-[auto] w-[100vw]'/>
@@ -94,7 +95,8 @@ function App() {
             </div>
       </div>
       </section>
-      <section id="limitation h-full w-full  bg-gradient-to-b from-slate-50 to-sky-100">
+
+      <section className="limitation h-fit w-screen bg-gradient-to-b from-slate-50 to-sky-100 py-[20px] ">
         {/* Header */}
         <div className='flex flex-col items-center justify-center w-screen'>
           <h2 className='text-left text-3xl font-semi-bold'>Limitation of BMI</h2>
@@ -106,11 +108,11 @@ function App() {
             be beneficial to use.</p>
         </div>
         {/* list */}
-        <div className='flex flex-col items-center justify-center'>
-          <div className='flex flex-col items-start justify-center w-[90%] rounded-md h-fit p-[20px] shadow-md'>
+        <div className='flex flex-col items-center justify-center gap-[20px]'>
+          <div className='flex flex-col items-start justify-center w-[90%] rounded-md h-fit p-[20px] shadow-md bg-white gap-[6px]'>
             <header className='card_header flex flex-row items-center justify-center gap-[20px]'>
-              <FontAwesomeIcon icon={faMarsAndVenus} /> 
-              <p>Gender</p>
+              <FontAwesomeIcon icon={faMarsAndVenus} className='text-rose-400'/> 
+              <p className='font-bold'>Gender</p>
             </header>
             <p className='text-left text-sm'>The development and body fat
               composition of girls and boys vary
@@ -119,20 +121,20 @@ function App() {
               when evaluating their BMI.</p>
           </div>
 
-          <div className='flex flex-col items-start justify-center w-[90%] rounded-md h-fit p-[20px] shadow-md'>
+          <div className='flex flex-col items-start justify-center w-[90%] rounded-md h-fit p-[20px] shadow-md bg-white gap-[6px]'>
             <header className='card_header flex flex-row items-center justify-center gap-[20px]'>
-              <FontAwesomeIcon icon={faBirthdayCake} /> 
-              <p>Age</p>
+              <FontAwesomeIcon icon={faBirthdayCake}  className='text-teal-300'/> 
+              <p className='font-bold'>Age</p>
             </header>
             <p className='text-left text-sm'>In aging individuals, increased body
             fat and muscle loss may cause BMI
             to underestimate body fat content.</p>
           </div>
 
-          <div className='flex flex-col items-start justify-center w-[90%] rounded-md h-fit p-[20px] shadow-md'>
+          <div className='flex flex-col items-start justify-center w-[90%] rounded-md h-fit p-[20px] shadow-md bg-white gap-[6px]'>
             <header className='card_header flex flex-row items-center justify-center gap-[20px]'>
-              <FontAwesomeIcon icon={faDumbbell} /> 
-              <p>Muscle</p>
+              <FontAwesomeIcon icon={faDumbbell} className='text-violet-600' /> 
+              <p className='font-bold'>Muscle</p>
             </header>
             <p className='text-left text-sm'>BMI may misclassify muscular
             individuals as overweight or obese,
@@ -140,10 +142,10 @@ function App() {
             from fat.</p>
           </div>
 
-          <div className='flex flex-col items-start justify-center w-[90%] rounded-md h-fit p-[20px] shadow-md'>
+          <div className='flex flex-col items-start justify-center w-[90%] rounded-md h-fit p-[20px] shadow-md bg-white gap-[6px]'>
             <header className='card_header flex flex-row items-center justify-center gap-[20px]'>
-              <FontAwesomeIcon icon={faPersonPregnant} /> 
-              <p>Pregnancy</p>
+              <FontAwesomeIcon icon={faPersonPregnant} className='text-yellow-300' /> 
+              <p className='font-bold'>Pregnancy</p>
             </header>
             <p className='text-left text-sm'>Expectant mothers experience
               weight gain due to their growing
@@ -153,10 +155,10 @@ function App() {
               mother and child.</p>
           </div>
 
-          <div className='flex flex-col items-start justify-center w-[90%] rounded-md h-fit p-[20px] shadow-md'>
+          <div className='flex flex-col items-start justify-center w-[90%] rounded-md h-fit p-[20px] shadow-md bg-white gap-[6px]'>
             <header className='card_header flex flex-row items-center justify-center gap-[20px]'>
-              <FontAwesomeIcon icon={faPeopleGroup} /> 
-              <p>Race</p>
+              <FontAwesomeIcon icon={faPeopleGroup} className='text-pink-400' /> 
+              <p className='font-bold'>Race</p>
             </header>
             <p className='text-left text-sm'>Certain health concerns may affect
               individuals of some Black and Asian
