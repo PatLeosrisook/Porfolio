@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import placeholderImage from '../../../public/Images/PlaceHolderAvatar.png'
 import Image from "next/image";
 import { useRouter, useSearchParams } from 'next/navigation';
-import createQuery from '../../Component/createQuery';
+import {createQuery} from '../../Component/createQuery';
 import axios from 'axios'
 interface User {
     username: String, 
@@ -66,9 +66,13 @@ export default function CreateProfile() {
         return isValid
     }
     let handleCreateProfile = () => {
+        let username = document.querySelector('input[name="username"]')
+        let username_text = document.querySelector('input[name="username"] + p')
+        let name = document.querySelector('input[name="name"]')
+        let name_text = document.querySelector('input[name="name"] + p')
         if(validation()) {
             //Check if username exists 
-            axios.post("http://localhost:3000/api/data", {username : userData.username, Type: "CreateProfile", email: searchParams?.get('email'), name: userData.name}).then(response => {
+            axios.post("http://localhost:3000/api/createProfile", {username : userData.username, Type: "CreateProfile", email: searchParams?.get('email'), name: userData.name}).then(response => {
                 return response.data
             }).then((data) => {
                 console.log(data.message)
@@ -76,7 +80,7 @@ export default function CreateProfile() {
                 
             }).catch((err : string) => {
                 console.log("error:" , err)
-                isValid = false 
+                // isValid = false 
                 username?.classList.add('error_input')
                 username_text?.classList.remove("hide_error")
                 username_text.textContent = err

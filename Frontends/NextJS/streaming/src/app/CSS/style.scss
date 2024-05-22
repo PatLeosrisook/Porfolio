@@ -147,7 +147,7 @@ header {
     .Register_card {
         padding:20px;
         @include flex(column, flex-start, flex-start);
-        background-color: $Semi-dark-blue;
+        // background-color: $Semi-dark-blue;
         min-height: 327px;
         height: fit-content;
         min-width:263px;;

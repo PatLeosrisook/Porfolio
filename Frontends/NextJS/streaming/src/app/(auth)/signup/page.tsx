@@ -141,7 +141,7 @@ export default function SignUp() {
                 Email: formData['email'],
                 Password: formData['password']
             }
-            return axios.post('http://localhost:3000/api/data', data, {
+            return axios.post('http://localhost:3000/api/signup', data, {
                 headers: {
                   'Content-Type': 'application/json',
                 },

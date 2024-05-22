@@ -10,7 +10,7 @@ export default function RegisterLayout({children} : {
         <section id="Registrations">
             <header id="Register_header">
                 <Link href="/">
-                    <Image src={'/icons/Movie.svg'} width={20} height={20} alt="Logo" />
+                    <Image src={'/icons/Logo.svg'} width={20} height={20} alt="Logo" />
                 </Link>
             </header>
             <form className="Register_card">

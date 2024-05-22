@@ -137,14 +137,13 @@ html {
 }
 #CreateProfile{
     @include style.flex();
-    background-color: #f2f2f2;
+    background-color: style.$Dark-blue;
     height:100vh;
     width:100vw;
     #Creator_card {
         @include style.flex();
         width: 80%;
         height:90%;
-        background-color: style.$Dark-blue;
         header {
             @include style.flex(row,center,center);
             height:10%;
