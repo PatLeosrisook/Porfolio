@@ -171,7 +171,6 @@ header {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  background-color: #192645;
   min-height: 327px;
   height: -moz-fit-content;
   height: fit-content;
@@ -12379,7 +12378,7 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #f2f2f2;
+  background-color: #18172C;
   height: 100vh;
   width: 100vw;
 }
@@ -12390,7 +12389,6 @@ html {
   justify-content: center;
   width: 80%;
   height: 90%;
-  background-color: #18172C;
 }
 #CreateProfile #Creator_card header {
   display: flex;

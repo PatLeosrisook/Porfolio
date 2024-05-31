@@ -56,7 +56,7 @@ export default function Login() {
             Password: value.Password
         }
 
-        axios.post('http://localhost:3000/api/data', data).then(response => {
+        axios.post('http://localhost:3000/api/signin', data).then(response => {
             console.log("logged in ")
             router.push('/Dashboard/Home')
         }).catch(error => {
