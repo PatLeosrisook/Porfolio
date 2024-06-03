@@ -12686,6 +12686,8 @@ html {
 @media (min-width: 768px) {
   #Movie .category_header, #TV .category_header {
     width: 94vw;
+    justify-content: flex-start;
+    gap: 20px;
   }
   #Movie #SearchBox, #TV #SearchBox {
     width: 300px;
@@ -12805,13 +12807,6 @@ html {
   }
 }
 @media (min-width: 1600px) {
-  #Dashboard .RecommendedMedia {
-    width: 260px;
-  }
-  #Dashboard .RecommendedMedia .Content-action {
-    flex-direction: row;
-    justify-content: space-between;
-  }
   #Dashboard .lists {
     padding-right: 220px;
   }
@@ -12825,6 +12820,13 @@ html {
     padding: 0;
   }
   .Specified_Type .RecommendedMedia, #Movie .RecommendedMedia, #TV .RecommendedMedia {
-    width: 12%;
+    width: 250px;
+  }
+  .Specified_Type .RecommendedMedia .Image_wrap, #Movie .RecommendedMedia .Image_wrap, #TV .RecommendedMedia .Image_wrap {
+    height: 370px;
+  }
+  .Specified_Type .RecommendedMedia .Content-action, #Movie .RecommendedMedia .Content-action, #TV .RecommendedMedia .Content-action {
+    flex-direction: row;
+    justify-content: space-between;
   }
 }/*# sourceMappingURL=Dashboard.css.map */
