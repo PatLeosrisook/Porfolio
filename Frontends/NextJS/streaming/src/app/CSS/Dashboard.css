@@ -178,6 +178,7 @@ header {
   width: 80vw;
   max-width: 393px;
   gap: 20px;
+  color: white;
 }
 #Registrations .Register_card p {
   font-size: 14px;
@@ -209,6 +210,9 @@ header {
   background-color: transparent;
   width: 100%;
   height: 37px;
+}
+#Registrations input:placeholder {
+  color: white;
 }
 #Registrations input:focus-visible {
   outline: none;
