@@ -30,7 +30,7 @@ export default function Login() {
         let email = document.querySelector("input[type='Email']")
         let pass = document.querySelector("input[type='password']")
         let isValid = false ;
-        if(value.Email.length == 0 || value.Email !== "a@gmail.com" ) {
+        if(value.Email.length == 0 ) {
             email?.classList.add('error_input')
             setEmailError("Incorrect email")
             isValid = false 
@@ -40,7 +40,7 @@ export default function Login() {
             isValid = true
             
         }
-        if(value.Password.length == 0 || value.Password !== 'a') {
+        if(value.Password.length == 0) {
             pass?.classList.add('error_input')
             setPasswordError("Incorrect Password")
             isValid = false
@@ -50,22 +50,25 @@ export default function Login() {
             isValid = true
 
         }
-        let data = {
-            Type: "Signin",
-            Email: value.Email,
-            Password: value.Password
-        }
 
-        axios.post('http://localhost:3000/api/signin', data).then(response => {
-            console.log("logged in ")
-            router.push('/Dashboard/Home')
-        }).catch(error => {
-            console.log("Error", error)
-        })
-        if(value.Email == "a@gmail.com" && value.Password === 'a' && isValid) {
-            // continue to dashboard 
-            console.log("valid")
-        } 
+        if(isValid) {
+
+            let data = {
+                email: value.Email,
+                password: value.Password
+            }
+    
+            axios.post('/api/users/login', data).then(response => {
+                console.log("logged in ")
+                axios.get('/api/users/me').then(response => {
+                    router.push(`/${response.data.data.username}/Home`)
+                }).catch(err => {
+                    console.log("Fetching username failed", err)
+                })
+            }).catch(error => {
+                console.log("Error", error)
+            })
+        }
     }
     useEffect(() => {
         console.log(value)

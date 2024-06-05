@@ -6,20 +6,22 @@ import axios from "axios";
 interface form {
     email: string,
     password: string,
+    username: string,
     confirm_password: string, 
     email_error: string,
     password_error: string, 
-    confirm_password_error: string,
+    username_error: string,
 }
 export default function SignUp() {
     const router = useRouter()
     const [formData, setFormData] = useState<form>({
         email: "",
         password: "", 
+        username: "",
         confirm_password : "", 
         email_error: "",
         password_error: "",
-        confirm_password_error: "",
+        username_error: "",
     })
     let handleChange = (e : React.ChangeEvent<HTMLInputElement>) => {
         // console.log(e.target.value, e)
@@ -42,14 +44,14 @@ export default function SignUp() {
         let isValid = false
         let email = document.querySelector("input[type='email']")
         let password = document.querySelector("input[type='Password']")
-        let confirmPassword = document.querySelector("input[name='Confirm Password']")
+        let username = document.querySelector("input[name='username']")
         if(formData.email.length < 1) {
             // invalid email
             email?.classList.add("error_input")
             isValid = false
             setFormData(prevState => ({
                 ...prevState, 
-                email_error: "invalid email"
+                email_error: "Please enter an email"
             }))
         } else {
             setFormData(prevState => ({
@@ -66,7 +68,7 @@ export default function SignUp() {
             isValid = false
             setFormData(prevState => ({
                 ...prevState, 
-                password_error: "invalid password"
+                password_error: "Please enter a password"
             }))
         } else {
             setFormData(prevState => ({
@@ -77,45 +79,25 @@ export default function SignUp() {
             isValid = true
             //remove
         }
-        if(formData['confirm_password'].length < 1) {
+        if(formData.username.length < 1) {
             // invalid confirmation
-            confirmPassword?.classList.add("error_input")
+            username?.classList.add("error_input")
             isValid = false
             setFormData(prevState => ({
                 ...prevState, 
-                confirm_password_error: "invalid password"
+                username_error: "Please enter a username"
             }))
         } else {
             //remove
-            confirmPassword?.classList.remove("error_input")
+            username?.classList.remove("error_input")
             setFormData(prevState => ({
                 ...prevState, 
-                confirm_password_error: ""
+                username_error: ""
             }))
             isValid = true
         }
 
-        if(formData.email.length > 0 && formData.password.length > 0 && formData.confirm_password.length> 0) {
-            if(formData.password !== formData.confirm_password) {
-                setFormData(prevState => ({
-                    ...prevState, 
-                    password_error: "Password don't match",
-                    confirm_password_error: "Password don't match",
-                }))
-                confirmPassword?.classList.add("error_input")
-                password?.classList.add("error_input")
-                isValid = false
-            } else {
-                confirmPassword?.classList.remove("error_input")
-                password?.classList.remove("error_input")
-                setFormData(prevState => ({
-                    ...prevState, 
-                    password_error: "",
-                    confirm_password_error: "",
-                }))
-
-                isValid = true
-            }
+        if(formData.email.length > 0 && formData.password.length > 0 && formData.username.length> 0) {
             if(formData.email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g) == null) {
                 setFormData(prevState => ({
                     ...prevState, 
@@ -132,21 +114,25 @@ export default function SignUp() {
                 }))
                 isValid = true
             }
+        } else {
+           
         }
 
         if(isValid) {
             //go to create account
             let data = {
-                Type: "Signup", 
-                Email: formData['email'],
-                Password: formData['password']
+                // Type: "Signup", 
+                username: formData.username,
+                email: formData['email'],
+                password: formData['password']
             }
-            return axios.post('http://localhost:3000/api/signup', data, {
+            return axios.post('/api/users/signup', data, {
                 headers: {
                   'Content-Type': 'application/json',
                 },
               }).then(response => {
                 // push new email to db
+                console.log("return from signup", response)
                 email?.classList.remove("error_input")
                 setFormData(prevState => ({
                     ...prevState, 
@@ -172,16 +158,16 @@ export default function SignUp() {
         <>
             <h2>Create account</h2>
             <div className="form_group">
+                <input onChange={e=> handleChange(e)}  name="username" type="text" placeholder="username"/>
+                <p className="error_message">{formData.username_error}</p>
+            </div>
+            <div className="form_group">
                 <input onChange={e=> handleChange(e)}  name="email" type="email" placeholder="Email address"/>
                 <p className="error_message">{formData.email_error}</p>
             </div>
             <div className="form_group">
                 <input onChange={e=> handleChange(e)}  name="password" type="Password" placeholder="Password"/>
                 <p className="error_message">{formData.password_error}</p>
-            </div>
-            <div className="form_group">
-                <input onChange={e=> handleChange(e)}  name="Confirm Password" type="Password" placeholder="Confirm Password"/>
-                <p className="error_message">{formData.confirm_password_error}</p>
             </div>
             <button onClick={e => handleSubmit(e)} className="cta register_cta">Create an account</button>
             <p>Already have an accout? <Link href="/login">Login</Link></p>

@@ -402,6 +402,8 @@ html {
     #Movie, #TV {
         .category_header {
             width:94vw;
+            justify-content: flex-start;
+            gap:20px;
         }
         #SearchBox{
             width: 300px;
@@ -555,14 +557,8 @@ html {
 
 }
 @media(min-width: 1600px) {
+    
     #Dashboard {
-        .RecommendedMedia {
-            width: 260px ;
-            .Content-action {
-                flex-direction: row;
-                justify-content: space-between;
-            }
-        }
        
         .lists {
             padding-right: 220px;
@@ -583,8 +579,17 @@ html {
             padding:  0;;
 
         }
+
         .RecommendedMedia {
-            width: 12%;
+            width: 250px;
+            .Image_wrap {
+                height:370px;
+            }
+            .Content-action {
+                flex-direction: row;
+                justify-content: space-between;
+            }
         }
+       
     }
 }
