@@ -1,6 +1,7 @@
 // this is where you prevent user from  entering page without login
 import {NextResponse} from 'next/server';
 import type {NextRequest} from 'next/server';
+import User from "@/models/userModel";
 export function middleware(request:NextRequest) {
     // we have public path like login and sign up 
     // there are protective path like profile
@@ -27,6 +28,10 @@ export function middleware(request:NextRequest) {
      const token = request.cookies.get('token')?.value || '';
      if(isPublic && token) {
         //if in public paht and have token menaing user is logged in
+        if(!User.hasAccount) {
+          // direct to create account page`
+          return NextResponse.redirect(new URL('/create_profile', request.nextUrl));
+        }
          return NextResponse.redirect(new URL('/', request.nextUrl));
      }
      if(!isPublic &&!token) {

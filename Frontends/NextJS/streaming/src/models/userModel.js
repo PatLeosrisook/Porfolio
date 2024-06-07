@@ -22,6 +22,10 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
+    hasAccount : {
+        type: Boolean,
+        default: false
+    },
     forgetPasswordToken: String, 
     forgetPasswordTokenExpiry: Date,
     verifyToken: String,
