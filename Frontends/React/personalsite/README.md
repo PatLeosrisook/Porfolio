@@ -1,5 +1,5 @@
 # About this project
-It's my personal portfolio where I put all my other works in here (that is not on my resume). 
+This is my personal portfolio website where I showcase my other projects as well as showcase my abilities to create a responsive and interactive website using the technologies below.
 
 ## Technologies 
 - HTML
@@ -7,5 +7,5 @@ It's my personal portfolio where I put all my other works in here (that is not o
 - ReactJS
 - JavaScript
 
-## Status 
-Currently making some change so if you want to see the project please clone this project to your local computer and  direct to this folder on your terminal then run `npm install` and  `npm start`
+## How to view the project
+Please visit [this website to see it live](https://www.patkleo.dev)
