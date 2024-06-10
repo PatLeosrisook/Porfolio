@@ -3,7 +3,10 @@ import Link from "next/link";
 import {useEffect, useState} from 'react'
 import { useRouter } from "next/navigation"; 
 import axios from "axios";
+import Image from "next/image";
+import placeholderImage from '../../../../public/Images/PlaceHolderAvatar.png'
 interface form {
+    profilePicture: string,
     email: string,
     password: string,
     username: string,
@@ -15,6 +18,7 @@ interface form {
 export default function SignUp() {
     const router = useRouter()
     const [formData, setFormData] = useState<form>({
+        profilePicture:"",
         email: "",
         password: "", 
         username: "",
@@ -122,6 +126,7 @@ export default function SignUp() {
             //go to create account
             let data = {
                 // Type: "Signup", 
+                avatar: formData.profilePicture,
                 username: formData.username,
                 email: formData['email'],
                 password: formData['password']
@@ -152,11 +157,39 @@ export default function SignUp() {
             console.log("not valid")
         }
     }
+    let handleChangeProfilePic = (e) => {
+        let profilePic = document.querySelector("#ProfilePic")
+        profilePic?.setAttribute("src", "")
+        profilePic?.setAttribute("srcset", "")
+        // profilePic.style.backgroundImage = url(``)
+        var reader = new FileReader();
+    
+        
+        reader.readAsDataURL(e.target.files[0]); // read file as data url
+    
+        reader.onload = (event2) => { // called once readAsDataURL is completed
+          if(event2.target == null) return;
+          if(event2.target.result == null) return;
+            profilePic?.setAttribute("src", event2.target.result as string)
+            setFormData(prevState => ({
+                ...prevState, 
+                profilePicture: event2.target!.result as string
+            }))
+        }
+    }
     useEffect(() => {
+        console.log('data sent from sign up', formData) 
     })
     return(
         <>
             <h2>Create account</h2>
+            <div  id="Avatar">
+                    <Image src={placeholderImage} alt="Placeholder image" id="ProfilePic" width={20} height={20}/>
+                    <label htmlFor="selectFile">
+                        Choose picture
+                    </label>
+                    <input onChange={e => handleChangeProfilePic(e)} name="selectFile" id="selectFile" type="file"/>
+            </div>
             <div className="form_group">
                 <input onChange={e=> handleChange(e)}  name="username" type="text" placeholder="username"/>
                 <p className="error_message">{formData.username_error}</p>

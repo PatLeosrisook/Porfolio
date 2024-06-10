@@ -4,7 +4,7 @@ import Image from "next/image"
 import { useSearchParams } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
-import { faPerson, faTicket, faTv, faHome, faBookmark, faSignOut} from "@fortawesome/free-solid-svg-icons";
+import { faGear, faTicket, faTv, faHome, faBookmark, faSignOut} from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import {useRouter} from 'next/navigation';
 export default function Menu({handleOpenMenu} : {handleOpenMenu: Function}) {
@@ -59,8 +59,8 @@ export default function Menu({handleOpenMenu} : {handleOpenMenu: Function}) {
                     </li>
                     <li>
                         <Link onClick={handleSelect}  href="">
-                            <FontAwesomeIcon icon={faPerson} />
-                            <p>Profile</p>
+                            <FontAwesomeIcon icon={faGear} />
+                            <p>Account</p>
                         </Link>
                     </li>
                     <li>

@@ -152,7 +152,7 @@ header {
     }
     .Register_card {
         padding:20px;
-        @include flex(column, flex-start, flex-start);
+        @include flex(column, center, flex-start);
         // background-color: $Semi-dark-blue;
         min-height: 327px;
         height: fit-content;
@@ -176,6 +176,30 @@ header {
             color: $Primary;
             
         }
+    }
+    #Avatar {
+        @include flex();
+        gap:10px;
+        label{
+            @include flex();
+            width: 160px;
+            height: 40px;
+            border-radius: 3px;
+            cursor: pointer;
+            background-color: $Accent;
+
+        }
+    }
+    #ProfilePic {
+        @include flex();
+
+        border: 1px solid white;
+        width: 100px;
+        height:100px;
+        border-radius: 100%;
+    }
+    input[type='file'] {
+        display: none;
     }
     .form_group {
         @include flex(column, flex-start, center);

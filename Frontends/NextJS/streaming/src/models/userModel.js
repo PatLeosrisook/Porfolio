@@ -3,6 +3,10 @@ import mongoose from 'mongoose';
 //create schema for mongoose 
 
 const userSchema = new mongoose.Schema({
+    avatar: {
+        type: String,
+        default: false
+    },
     username: {
         type: String,
         required: [true, "Please enter a username"],

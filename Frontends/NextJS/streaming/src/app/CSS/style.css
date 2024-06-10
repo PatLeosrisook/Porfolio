@@ -174,7 +174,7 @@ header a {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
   min-height: 327px;
   height: -moz-fit-content;
@@ -198,6 +198,37 @@ header a {
 }
 #Registrations .Register_card a {
   color: #FF569D;
+}
+#Registrations #Avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+#Registrations #Avatar label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 40px;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: #5A698F;
+}
+#Registrations #ProfilePic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+}
+#Registrations input[type=file] {
+  display: none;
 }
 #Registrations .form_group {
   display: flex;

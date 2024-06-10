@@ -7,14 +7,11 @@ connect();
 export async function POST(req: NextRequest) {
     try {
         const reqBody = await req.json(); 
-        const {username, email, password} = reqBody;
-
-        console.log("Signing up:" ,reqBody)
+        const {avatar, username, email, password} = reqBody;
 
         //check if user already exists
         const user = await User.findOne({email});
         if(user) {
-            console.log("OH")
             return NextResponse.json({message: "User already exists"})
         }
 
@@ -23,6 +20,7 @@ export async function POST(req: NextRequest) {
         const hashedPassword = await bycrypt.hash(password, salt);
 
         const newUser = new User({
+            avatar, 
             username,
             email,
             password:  hashedPassword

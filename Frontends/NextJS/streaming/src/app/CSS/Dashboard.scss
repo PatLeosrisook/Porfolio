@@ -152,30 +152,7 @@ html {
         h1 {
             font-size:12px;
         }
-        #Avatar {
-            @include style.flex();
-            gap:10px;
-            label{
-                @include style.flex();
-                width: 160px;
-                height: 40px;
-                border-radius: 3px;
-                cursor: pointer;
-                background-color: style.$Accent;
-    
-            }
-        }
-        #ProfilePic {
-            @include style.flex();
-
-            border: 1px solid white;
-            width: 100px;
-            height:100px;
-            border-radius: 100%;
-        }
-        input[type='file'] {
-            display: none;
-        }
+       
         
     }
     #User_info {
