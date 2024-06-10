@@ -216,6 +216,12 @@ html {
         z-index: 0;
     }
 }
+#Account {
+    @include style.flex(row, center, center);
+    width:100vw;
+    height:100vh;
+    
+}
 .Trending_media {
     position: relative;
    background-size: cover;

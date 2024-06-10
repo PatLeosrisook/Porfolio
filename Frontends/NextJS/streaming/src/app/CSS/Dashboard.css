@@ -121,6 +121,10 @@ header {
   z-index: 2;
   top: 20px;
 }
+header a {
+  color: white;
+  font-weight: 600;
+}
 
 #Logo {
   width: 30px;
@@ -135,6 +139,7 @@ header {
   gap: 10px;
   width: 70vw;
   position: relative;
+  color: white;
   z-index: 2;
 }
 #Heading h1, #Heading .h1 {
@@ -143,6 +148,7 @@ header {
 }
 #Heading p {
   line-height: 24px;
+  font-weight: 400;
 }
 #Heading #register_cta {
   width: 126px;
@@ -169,7 +175,7 @@ header {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
   min-height: 327px;
   height: -moz-fit-content;
@@ -180,6 +186,10 @@ header {
   gap: 20px;
   color: white;
 }
+#Registrations .Register_card .card_title {
+  font-size: 22px;
+  font-weight: 500;
+}
 #Registrations .Register_card p {
   font-size: 14px;
 }
@@ -189,6 +199,37 @@ header {
 }
 #Registrations .Register_card a {
   color: #FF569D;
+}
+#Registrations #Avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+#Registrations #Avatar label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 40px;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: #5A698F;
+}
+#Registrations #ProfilePic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+}
+#Registrations input[type=file] {
+  display: none;
 }
 #Registrations .form_group {
   display: flex;
@@ -210,8 +251,14 @@ header {
   background-color: transparent;
   width: 100%;
   height: 37px;
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
 }
-#Registrations input:placeholder {
+#Registrations input::-moz-placeholder {
+  color: white;
+}
+#Registrations input::placeholder {
   color: white;
 }
 #Registrations input:focus-visible {
@@ -12405,37 +12452,6 @@ html {
 #CreateProfile #Creator_card h1, #CreateProfile #Creator_card .h1 {
   font-size: 12px;
 }
-#CreateProfile #Creator_card #Avatar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-#CreateProfile #Creator_card #Avatar label {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 160px;
-  height: 40px;
-  border-radius: 3px;
-  cursor: pointer;
-  background-color: #5A698F;
-}
-#CreateProfile #Creator_card #ProfilePic {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid white;
-  width: 100px;
-  height: 100px;
-  border-radius: 100%;
-}
-#CreateProfile #Creator_card input[type=file] {
-  display: none;
-}
 #CreateProfile #User_info {
   display: flex;
   flex-direction: column;
@@ -12495,6 +12511,15 @@ html {
 #TV .category_header, #Movie .category_header {
   position: static;
   z-index: 0;
+}
+
+#Account {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
 }
 
 .Trending_media {

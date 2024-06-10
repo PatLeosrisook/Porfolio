@@ -29,10 +29,6 @@ export function middleware(request:NextRequest) {
     //  console.log("USEr model" , User)
      if(isPublic && token) {
         //if in public paht and have token menaing user is logged in
-        // if(!User.hasAccount) {
-        //   // direct to create account page`
-        //   return NextResponse.redirect(new URL('/create_profile', request.nextUrl));
-        // }
          return NextResponse.redirect(new URL('/', request.nextUrl));
      }
      if(!isPublic &&!token) {
