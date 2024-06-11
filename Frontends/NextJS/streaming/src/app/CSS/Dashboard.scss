@@ -75,7 +75,7 @@ html {
         width:100vw;
         // background-color: style.$Semi-dark-blue;
         height:15vh;
-        position: fixed;
+        position: sticky;
         padding: 0px 40px;
         z-index: 10;
         top:0;
@@ -217,10 +217,26 @@ html {
     }
 }
 #Account {
-    @include style.flex(row, center, center);
+    @include style.flex(column, center, flex-start);
     width:100vw;
     height:100vh;
-    
+    #Side_menu {
+        @include style.flex(column, flex-start, center);
+        width: 100vw;
+        height: 10vh;
+    }
+    #Setting_links {
+        @include style.flex(row, center, center) ; 
+        width: fit-content;
+        height: fit-content;
+        list-style: none;;
+        padding:0;
+        a {
+            text-decoration: none; 
+            color:white;
+            font-weight: 400;
+        }
+    }
 }
 .Trending_media {
     position: relative;
