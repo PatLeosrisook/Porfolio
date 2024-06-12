@@ -75,7 +75,7 @@ html {
         width:100vw;
         // background-color: style.$Semi-dark-blue;
         height:15vh;
-        position: sticky;
+        position: absolute;
         padding: 0px 40px;
         z-index: 10;
         top:0;
@@ -217,25 +217,102 @@ html {
     }
 }
 #Account {
-    @include style.flex(column, center, flex-start);
-    width:100vw;
+    @include style.flex(column, flex-start, flex-start);
+    width:100%;
     height:100vh;
+    position: relative;
+    top:15vh;
+    section {
+        @include style.flex();
+        width: 90%;
+        height: fit-content;
+        gap:20px;
+    }
     #Side_menu {
         @include style.flex(column, flex-start, center);
-        width: 100vw;
+        width: fit-content;
         height: 10vh;
     }
     #Setting_links {
-        @include style.flex(row, center, center) ; 
-        width: fit-content;
-        height: fit-content;
-        list-style: none;;
-        padding:0;
-        a {
-            text-decoration: none; 
-            color:white;
-            font-weight: 400;
+            @include style.flex(row, center, center) ; 
+            width: fit-content;
+            height: fit-content;
+            list-style: none;;
+            gap:20px;
+            padding:0;
+            a {
+                text-decoration: none; 
+                color:#2F4986;
+                font-weight: 400;
+                z-index: 2;
+            }
+            li {
+                position: relative;
+            }
+            .active_subLink {
+                color:white;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: -7px;
+                    left: 0;
+                    width: 100%;
+                    height: 4px;
+                    background: linear-gradient(to right , #FF569D , #B556FF);
+                    z-index: 0;
+                }
+            }
+            
+    }
+    #Profile_setting {
+        width: 100%;
+
+    }
+    #Avatar_Setting{
+        @include style.flex(row, center ,center);
+        gap:20px;
+        // margin-bottom: 30px;;
+        width: 100%;;
+        img {
+            width: 80px;
+            height:80px;
         }
+        input::file-selector-button {
+            background:linear-gradient(to right, #FF569D, #B556FF);
+            border:none;
+        }
+        
+    }
+    .form_group {
+        @include style.flex(row, center ,space-between);
+        height: 50px;
+        // margin-bottom: 30px;;
+        width: 100%;;
+        border-bottom: 1px solid #2F4986;
+        input {
+            width: 70%;
+            height: 100%;
+            border:none; 
+            background-color: transparent;
+            &::placeholder {
+                color:#2F4986;
+                font-weight: 500;
+            }
+            
+        }
+        
+        svg{
+            width:20px;
+            height:20px;
+            color:white;
+        }
+    }
+    .save_change {
+        background: linear-gradient(to right, #FF569D, #B556FF);
+        border:none;
+        width: 100%;
+        height: 50px;
+        font-weight: 400;
     }
 }
 .Trending_media {

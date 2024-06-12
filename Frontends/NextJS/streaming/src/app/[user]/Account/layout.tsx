@@ -5,7 +5,7 @@ export default function AccountLayout({children} : {children : ReactNode}) {
         <section id="Account">
             <section id="Side_menu">
                 <ul id="Setting_links">
-                    <li><a href="">Profile</a></li>
+                    <li><a href="" className="active_subLink">Profile</a></li>
                     <li><a href="">Account</a></li>
                 </ul>
             </section>
