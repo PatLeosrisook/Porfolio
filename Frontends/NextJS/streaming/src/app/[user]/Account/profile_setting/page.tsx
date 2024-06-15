@@ -23,7 +23,7 @@ export default function Account() {
     }
     return (
         <section id="Profile_setting">
-            <section>
+            <section id="Profile_wrapper">
                 <div  id="Avatar_Setting">
                         <Image src={placeholderImage} alt="Placeholder image" id="ProfilePic" width={20} height={20}/>
                         {/* <label htmlFor="selectFile">

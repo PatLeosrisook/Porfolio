@@ -58,7 +58,7 @@ export default function Menu({handleOpenMenu} : {handleOpenMenu: Function}) {
                         </Link>
                     </li>
                     <li>
-                        <Link onClick={handleSelect}  href={`/${currentUser}/Account`}>
+                        <Link onClick={handleSelect}  href={`/${currentUser}/Account/profile_setting`}>
                             <FontAwesomeIcon icon={faGear} />
                             <p>Account</p>
                         </Link>

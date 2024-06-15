@@ -12523,15 +12523,16 @@ html {
   position: relative;
   top: 15vh;
 }
-#Account section {
+#Account #Profile_wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 90%;
+  width: 100%;
   height: -moz-fit-content;
   height: fit-content;
   gap: 20px;
+  padding: 0 10px;
 }
 #Account #Side_menu {
   display: flex;
@@ -12589,8 +12590,12 @@ html {
   width: 100%;
 }
 #Account #Avatar_Setting img {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
+}
+#Account #Avatar_Setting input {
+  color: white;
+  font-weight: 400;
 }
 #Account #Avatar_Setting input::file-selector-button {
   background: linear-gradient(to right, #FF569D, #B556FF);
@@ -12630,6 +12635,7 @@ html {
   width: 100%;
   height: 50px;
   font-weight: 400;
+  color: white;
 }
 
 .Trending_media {
