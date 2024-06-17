@@ -518,6 +518,22 @@ html {
             margin-bottom: 90px;
         }
     }
+    #Account {
+        #Profile_setting {
+            @include style.flex();
+        }
+        #Profile_wrapper {
+            width: 80%;
+            max-width: 600px;
+        }
+
+        #Avatar_Setting {
+            justify-content: flex-start;
+        }
+        .form_group{
+            margin-bottom: 79px;
+        }
+    }
     .content {
         left: 60px;
         .media-title {

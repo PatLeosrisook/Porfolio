@@ -12856,6 +12856,22 @@ html {
   #Dashboard #trending {
     margin-bottom: 90px;
   }
+  #Account #Profile_setting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #Account #Profile_wrapper {
+    width: 80%;
+    max-width: 600px;
+  }
+  #Account #Avatar_Setting {
+    justify-content: flex-start;
+  }
+  #Account .form_group {
+    margin-bottom: 79px;
+  }
   .content {
     left: 60px;
   }
