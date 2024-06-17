@@ -629,6 +629,12 @@ html {
         flex-direction: row;
         #Setting_links {
             flex-direction: column;
+            .active_subLink::before {
+                width:4px;
+                height:100%;
+                top: 0;
+                left: -10px;
+            }
         }
     }
 }

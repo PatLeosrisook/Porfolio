@@ -12956,6 +12956,12 @@ html {
   #Account #Setting_links {
     flex-direction: column;
   }
+  #Account #Setting_links .active_subLink::before {
+    width: 4px;
+    height: 100%;
+    top: 0;
+    left: -10px;
+  }
 }
 @media (min-width: 1440px) {
   #Movie .category_header, #TV .category_header {
