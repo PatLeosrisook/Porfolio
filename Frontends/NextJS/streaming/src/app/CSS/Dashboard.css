@@ -12949,6 +12949,14 @@ html {
     width: 174px;
   }
 }
+@media (min-width: 1280px) {
+  #Account {
+    flex-direction: row;
+  }
+  #Account #Setting_links {
+    flex-direction: column;
+  }
+}
 @media (min-width: 1440px) {
   #Movie .category_header, #TV .category_header {
     padding-right: 130px;
