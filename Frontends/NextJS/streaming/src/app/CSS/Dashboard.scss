@@ -246,6 +246,17 @@ html {
                 color:#2F4986;
                 font-weight: 400;
                 z-index: 2;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: -7px;
+                    left: 0;
+                    width: 0%;
+                    height: 4px;
+                    background: linear-gradient(to right , #FF569D , #B556FF);
+                    z-index: 0;
+                    transition: width 0.3s ease;
+                }
             }
             li {
                 position: relative;
@@ -261,6 +272,7 @@ html {
                     height: 4px;
                     background: linear-gradient(to right , #FF569D , #B556FF);
                     z-index: 0;
+                    transition: width 0.3s ease;
                 }
             }
             

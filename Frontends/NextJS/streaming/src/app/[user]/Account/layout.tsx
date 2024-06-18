@@ -8,7 +8,13 @@ import axios from "axios";
 export default function AccountLayout({children} : {children : ReactNode}) {
     const [currentUser, setCurrentUser] = useState<String>("") // if user going to select
     let handleLink = (e : any, selectedLink: string) => {
-        let selectedElement = document.getElementsByClassName(selectedLink)[0]
+        if(selectedLink == "Profile") {
+            document.querySelector(`.${selectedLink}`)?.classList.add('active_subLink')
+            document.querySelector(`.Account`)?.classList.remove('active_subLink')
+        } else {
+            document.querySelector(`.${selectedLink}`)?.classList.add('active_subLink')
+            document.querySelector(`.Profile`)?.classList.remove('active_subLink')
+        }
         
 
     }
