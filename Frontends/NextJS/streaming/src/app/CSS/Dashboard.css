@@ -12562,6 +12562,17 @@ html {
   font-weight: 400;
   z-index: 2;
 }
+#Account #Setting_links a::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: linear-gradient(to right, #FF569D, #B556FF);
+  z-index: 0;
+  transition: width 0.3s ease;
+}
 #Account #Setting_links li {
   position: relative;
 }
@@ -12577,6 +12588,7 @@ html {
   height: 4px;
   background: linear-gradient(to right, #FF569D, #B556FF);
   z-index: 0;
+  transition: width 0.3s ease;
 }
 #Account #Profile_setting {
   width: 100%;
@@ -12623,6 +12635,9 @@ html {
 #Account .form_group input::placeholder {
   color: #2F4986;
   font-weight: 500;
+}
+#Account .form_group input:focus {
+  outline: none;
 }
 #Account .form_group svg {
   width: 20px;

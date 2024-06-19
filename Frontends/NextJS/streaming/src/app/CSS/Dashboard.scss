@@ -315,6 +315,9 @@ html {
                 color:#2F4986;
                 font-weight: 500;
             }
+            &:focus {
+                outline:none;
+            }
             
         }
         

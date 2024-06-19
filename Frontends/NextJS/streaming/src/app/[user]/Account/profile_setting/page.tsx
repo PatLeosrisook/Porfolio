@@ -3,7 +3,7 @@ import placeholderImage from '../../../../../public/Images/PlaceHolderAvatar.png
 import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPen } from '@fortawesome/free-solid-svg-icons'
-export default function Account() {
+export default function Account({currentUser} : {currentUser: string}) {
 
     let handleChangeProfilePic = (e) => {
         let profilePic = document.querySelector("#ProfilePic")
@@ -32,7 +32,7 @@ export default function Account() {
                         <input onChange={e => handleChangeProfilePic(e)} name="selectFile" id="selectFile" type="file"/>
                 </div>
                 <div className='form_group'>
-                    <input type='text' placeholder='username'/>
+                    <input type='text' placeholder={currentUser}/>
                     <FontAwesomeIcon icon={faPen} />
                 </div>
                 <button className='save_change'>
