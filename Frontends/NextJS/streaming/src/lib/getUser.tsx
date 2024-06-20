@@ -1,8 +1,8 @@
-export async function getStaticProps() {
+import axios from "axios"
+export async function getUser() {
     let user = await axios.get('/api/users/me')
+    
     return {
-        props: {
             currentUser: user.data.data.username
-        }
     }
 }
