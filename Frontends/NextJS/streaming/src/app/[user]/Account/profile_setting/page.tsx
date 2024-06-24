@@ -4,9 +4,13 @@ import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPen } from '@fortawesome/free-solid-svg-icons'
 import { getUser } from '@/lib/getUser'
-import { useEffect } from 'react'
+import { useEffect,useState } from 'react'
 export default function Account() {
-
+    const [user, setCurrentUser] = useState("")
+    const [name, setName] = useState("")
+    const currentUser = async() => {
+        return await getUser()
+    };
     let handleChangeProfilePic = (e) => {
         let profilePic = document.querySelector("#ProfilePic")
         profilePic?.setAttribute("src", "")
@@ -23,8 +27,14 @@ export default function Account() {
             profilePic?.setAttribute("src", event2.target.result as string)
         }
     }
+    let handleNameChange = (e) => {
+        setName(e.target.value)
+    }
     useEffect(() => {
-        console.log(getUser().currentUser)
+        currentUser().then((user) => {
+            setCurrentUser(user.currentUser)
+            console.log(user)
+        })
     })
     return (
         <section id="Profile_setting">
@@ -37,7 +47,7 @@ export default function Account() {
                         <input onChange={e => handleChangeProfilePic(e)} name="selectFile" id="selectFile" type="file"/>
                 </div>
                 <div className='form_group'>
-                    <input type='text' placeholder={"Pat"}/>
+                    <input type='text' placeholder={user}/>
                     <FontAwesomeIcon icon={faPen} />
                 </div>
                 <button className='save_change'>
