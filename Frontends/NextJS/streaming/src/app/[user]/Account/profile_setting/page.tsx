@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPen } from '@fortawesome/free-solid-svg-icons'
 import { getUser } from '@/lib/getUser'
 import { useEffect,useState } from 'react'
+import axios from 'axios'
 export default function Account() {
     const [user, setCurrentUser] = useState("")
     const [name, setName] = useState("")
@@ -30,6 +31,15 @@ export default function Account() {
     let handleNameChange = (e) => {
         setName(e.target.value)
     }
+    let handleUpdate = () => {
+        if(user !== "") {
+            axios.post('/api/users/update_profile', {user, name}).then(response => {
+                console.log("Return from update profile", response)
+            }).catch(err => {
+                console.log("Error", err)
+            })
+        }
+    }
     useEffect(() => {
         currentUser().then((user) => {
             setCurrentUser(user.currentUser)
@@ -47,10 +57,10 @@ export default function Account() {
                         <input onChange={e => handleChangeProfilePic(e)} name="selectFile" id="selectFile" type="file"/>
                 </div>
                 <div className='form_group'>
-                    <input type='text' placeholder={user}/>
+                    <input type='text' placeholder={user} onChange={e => handleNameChange(e)}/>
                     <FontAwesomeIcon icon={faPen} />
                 </div>
-                <button className='save_change'>
+                <button onClick={handleUpdate} className='save_change'>
                 save change
                 </button>
             </section>
