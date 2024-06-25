@@ -10,7 +10,10 @@ export async function POST(req: NextRequest) {
         const userExists = await User.findOne({username: data.user});
         if(userExists) {
             console.log("User already exists")
+            const updatedUser = await User.updateOne({'username': data.user},{$set: {'username' : data.name}})
+            return NextResponse.json({message: "User updated" + updatedUser})
         }
+        return NextResponse.json({message: "User does not exist"})
     } catch (error) {
         return NextResponse.json({error: error.message}, {status: 500});   
     }
