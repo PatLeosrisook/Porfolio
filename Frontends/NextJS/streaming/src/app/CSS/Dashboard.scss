@@ -305,11 +305,11 @@ html {
         height: 50px;
         // margin-bottom: 30px;;
         width: 100%;;
-        border-bottom: 1px solid #2F4986;
         input {
             width: 70%;
             height: 100%;
             border:none; 
+            border-bottom: 1px solid #2F4986;
             background-color: transparent;
             &::placeholder {
                 color:#2F4986;
@@ -326,6 +326,8 @@ html {
             height:20px;
             color:white;
         }
+        
+        margin-bottom: 20px;
     }
     .save_change {
         background: linear-gradient(to right, #FF569D, #B556FF);
@@ -334,6 +336,27 @@ html {
         height: 50px;
         font-weight: 400;
         color:white;
+    }
+    .update_password {
+        @include style.flex();
+        width:100%;
+        height: fit-content;
+    }
+    #Account_setting {
+        @include style.flex(column, flex-start, center);
+        color:white;
+        .form_group {
+            @include style.flex(column, flex-start, center);
+            input {
+                height: 60px;
+                width:100%;
+
+            }
+
+            height: fit-content;
+            width: 90vw;
+            ;
+        }
     }
 }
 .Trending_media {

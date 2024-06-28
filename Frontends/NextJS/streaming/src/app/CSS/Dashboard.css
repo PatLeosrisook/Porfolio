@@ -12620,12 +12620,13 @@ html {
   justify-content: space-between;
   height: 50px;
   width: 100%;
-  border-bottom: 1px solid #2F4986;
+  margin-bottom: 20px;
 }
 #Account .form_group input {
   width: 70%;
   height: 100%;
   border: none;
+  border-bottom: 1px solid #2F4986;
   background-color: transparent;
 }
 #Account .form_group input::-moz-placeholder {
@@ -12651,6 +12652,35 @@ html {
   height: 50px;
   font-weight: 400;
   color: white;
+}
+#Account .update_password {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+#Account #Account_setting {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  color: white;
+}
+#Account #Account_setting .form_group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 90vw;
+}
+#Account #Account_setting .form_group input {
+  height: 60px;
+  width: 100%;
 }
 
 .Trending_media {
