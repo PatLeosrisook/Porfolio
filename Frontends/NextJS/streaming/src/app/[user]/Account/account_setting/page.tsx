@@ -7,15 +7,33 @@ export default function account_setting() {
         return await getUser()
     }
     const [email, setEmail] = useState("")
+    const [password, setPassword] = useState({
+        oldPassword: "",
+        newPassword: "",
+        confirmPassword: ""
+    })
+    
     useEffect(() => {
 
         currentEmail().then((email) => {
             setEmail(email.currentEmail)
         })
     })
-
+    const handleChange = () => {
+        let name = e.target.name
+        
+        setPassword(prevState => ({
+           ...prevState, 
+            [name]: e.target.value
+        }));
+    }
     const handleSaveChange = async() => {
-        await axios('/api/users/update_profile')
+        const {newPassword, confirmPassword} = password
+        if(newPassword === confirmPassword) { 
+            await axios.post('/api/users/update_profile', {oldPassword: password.oldPassword, password: password.newPassword, email})
+        } else {
+            
+        }
     }
     return ( 
         <section id="Account_setting">
@@ -27,9 +45,9 @@ export default function account_setting() {
             </div>
             <div className="form_group update_password" >
                 <label htmlFor="password">Password</label>
-                <input type="password" placeholder={"Old password"} />
-                <input type="password" placeholder={"New password"} />
-                <input type="password" placeholder={"Confirm new password"} />
+                <input type="password" onChange={e => handleChange(e)} name="OldPassword" placeholder={"Old password"} />
+                <input type="password" onChange={e => handleChange(e)} name="NewPassword" placeholder={"New password"} />
+                <input type="password" onChange={e => handleChange(e)} name="ConfirmPassword" placeholder={"Confirm new password"} />
             </div>
             <button className='save_change'>save change</button>
         </section>
