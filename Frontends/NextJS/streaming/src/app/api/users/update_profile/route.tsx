@@ -4,13 +4,11 @@ import User from '@/models/userModel'
 export async function POST(req: NextRequest) {
     try {
         //TODO:: send updated user info to user.
-        const data = await req.json();
+        const {user , name, email, oldPassword, newPassword} = await req.json();
         
-        console.log("Send from update" ,data)
-        const userExists = await User.findOne({username: data.user});
+        const userExists = await User.findOne({username: user});
         if(userExists) {
-            console.log("User already exists")
-            const updatedUser = await User.updateOne({'username': data.user},{$set: {'username' : data.name}})
+            const updatedUser = await User.updateOne({'username': user},{$set: {'username' : name}})
             return NextResponse.json({message: "User updated" + updatedUser})
         }
         return NextResponse.json({message: "User does not exist"})
