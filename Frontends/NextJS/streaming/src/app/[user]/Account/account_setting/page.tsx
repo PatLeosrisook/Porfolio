@@ -27,12 +27,18 @@ export default function account_setting() {
             [name]: e.target.value
         }));
     }
+    const handleEmailChange = e => {
+        setEmail(e.target.value)
+    }
     const handleSaveChange = async() => {
         const {newPassword, confirmPassword} = password
-        if(newPassword === confirmPassword) { 
-            await axios.post('/api/users/update_profile', {oldPassword: password.oldPassword, password: password.newPassword, email})
-        } else {
-            
+        //TODO:: send current user name to update_profile too
+        if(newPassword === confirmPassword && newPassword.length > 0) { 
+            // await axios.post('/api/users/update_profile', {oldPassword: password.oldPassword, password: password.newPassword, email})
+        } 
+        if(email.length > 0) {
+            console.log("email not empty")
+            await axios.post('/api/users/update_profile', {email})
         }
     }
     return ( 
@@ -41,7 +47,7 @@ export default function account_setting() {
 
             <div className="form_group">
                 <label htmlFor="email">Email</label>
-                <input type="email" name='email' placeholder={email} />
+                <input onChange={e=>handleEmailChange(e)} type="email" name='email' placeholder={email} />
             </div>
             <div className="form_group update_password" >
                 <label htmlFor="password">Password</label>
@@ -49,7 +55,7 @@ export default function account_setting() {
                 <input type="password" onChange={e => handleChange(e)} name="NewPassword" placeholder={"New password"} />
                 <input type="password" onChange={e => handleChange(e)} name="ConfirmPassword" placeholder={"Confirm new password"} />
             </div>
-            <button className='save_change'>save change</button>
+            <button onClick={handleSaveChange} className='save_change'>save change</button>
         </section>
     )
 }
