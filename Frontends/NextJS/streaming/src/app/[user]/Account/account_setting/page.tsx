@@ -2,24 +2,27 @@
 import { getUser } from '@/lib/getUser'
 import axios from 'axios';
 import { useEffect, useState } from 'react'
-export default function account_setting() {
-    const currentEmail = async() => {
+export default function Account_setting() {
+    const [user, setUser] = useState("")
+    const currentUser = async() => {
         return await getUser()
     }
     const [email, setEmail] = useState("")
+    const [currentEmail, setCurrentEmail] = useState("")
     const [password, setPassword] = useState({
         oldPassword: "",
         newPassword: "",
         confirmPassword: ""
     })
     
-    useEffect(() => {
-
-        currentEmail().then((email) => {
-            setEmail(email.currentEmail)
+    useEffect( () => {
+        currentUser().then((user) => {
+            setUser(user.currentUser)
+            setCurrentEmail(user.currentEmail)
         })
+       
     })
-    const handleChange = () => {
+    const handleChange = (e) => {
         let name = e.target.name
         
         setPassword(prevState => ({
@@ -38,16 +41,22 @@ export default function account_setting() {
         } 
         if(email.length > 0) {
             console.log("email not empty")
-            await axios.post('/api/users/update_profile', {email})
+            await axios.post('/api/users/update_profile', {email, user})
         }
     }
+    useEffect(() => {
+        currentUser().then((email) => {
+            setUser(email.currentUser)
+            setCurrentEmail(email.currentUser)
+        })
+    },[])
     return ( 
         <section id="Account_setting">
             <p>Account setting</p>
 
             <div className="form_group">
                 <label htmlFor="email">Email</label>
-                <input onChange={e=>handleEmailChange(e)} type="email" name='email' placeholder={email} />
+                <input onChange={e=>handleEmailChange(e)} type="email" name='email' placeholder={currentEmail} />
             </div>
             <div className="form_group update_password" >
                 <label htmlFor="password">Password</label>
