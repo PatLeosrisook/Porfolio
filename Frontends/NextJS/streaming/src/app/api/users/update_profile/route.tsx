@@ -15,22 +15,22 @@ export async function POST(req: NextRequest) {
                 return NextResponse.json({message: "User updated" + updatedUser})
             }
             if(email && oldPassword && newPassword) {
-                console.log("email, oldPassword, newPassword not empty")
+                console.log("email, oldPassword, newPassword not empty", email, oldPassword, newPassword)
                 
                 const updatedEmail = await User.updateOne({'username': user},{$set: {'email' : email}})
                 //check password
-                // const isPasswordCorrect = await User.findOne({username: user, password:  oldPassword})
+                
                 return NextResponse.json({message: "User updated" + updatedUser})
                 }
             if(email) {
-                console.log("only email not empty")
                 const getUser = await User.findOne({username: user})
-                console.log("This is the user" + getUser)
-                // const updatedEmail = await User.updateOne({'username': user},{$set: {'email' : email}})
+                const updatedEmail = await User.updateOne({'username': user},{$set: {'email' : email}})
+                return NextResponse.json({message: "User updated" })
 
             }
             if(oldPassword && newPassword) {
-
+                const isPasswordCorrect = await User.findOne({username: user, password:  oldPassword})
+                console.log("Is password correct: " + isPasswordCorrect)
             }
         }
         return NextResponse.json({message: "User does not exist"})

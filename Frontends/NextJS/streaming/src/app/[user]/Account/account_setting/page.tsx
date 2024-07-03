@@ -10,9 +10,9 @@ export default function Account_setting() {
     const [email, setEmail] = useState("")
     const [currentEmail, setCurrentEmail] = useState("")
     const [password, setPassword] = useState({
-        oldPassword: "",
-        newPassword: "",
-        confirmPassword: ""
+        OldPassword: "",
+        NewPassword: "",
+        ConfirmPassword: ""
     })
     
     useEffect( () => {
@@ -34,10 +34,12 @@ export default function Account_setting() {
         setEmail(e.target.value)
     }
     const handleSaveChange = async() => {
-        const {newPassword, confirmPassword} = password
+        const {NewPassword, ConfirmPassword} = password
         //TODO:: send current user name to update_profile too
-        if(newPassword === confirmPassword && newPassword.length > 0) { 
-            // await axios.post('/api/users/update_profile', {oldPassword: password.oldPassword, password: password.newPassword, email})
+        console.log(":fjKDL", password)
+        if(NewPassword === ConfirmPassword && NewPassword.length > 0) { 
+            console.log("new password and confirm password not empty")
+            await axios.post('/api/users/update_profile', {oldPassword: password.OldPassword, password: password.NewPassword, user})
         } 
         if(email.length > 0) {
             console.log("email not empty")
@@ -47,7 +49,7 @@ export default function Account_setting() {
     useEffect(() => {
         currentUser().then((email) => {
             setUser(email.currentUser)
-            setCurrentEmail(email.currentUser)
+            setCurrentEmail(email.currentEmail)
         })
     },[])
     return ( 
