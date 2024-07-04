@@ -39,7 +39,7 @@ export default function Account_setting() {
         console.log(":fjKDL", password)
         if(NewPassword === ConfirmPassword && NewPassword.length > 0) { 
             console.log("new password and confirm password not empty")
-            await axios.post('/api/users/update_profile', {oldPassword: password.OldPassword, password: password.NewPassword, user})
+            await axios.post('/api/users/update_profile', {oldPassword: password.OldPassword, newPassword: password.NewPassword, user})
         } 
         if(email.length > 0) {
             console.log("email not empty")
