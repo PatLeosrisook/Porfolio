@@ -24,16 +24,18 @@ export async function POST(req: NextRequest) {
                 // return NextResponse.json({message: "User updated" + updatedUser})
                 }
             if(email) {
-                const getUser = await User.findOne({username: user})
                 const updatedEmail = await User.updateOne({'username': user},{$set: {'email' : email}})
                 return NextResponse.json({message: "User updated" })
 
             }
             if(oldPassword && newPassword) {
-                console.log("oldPassword, newPassword not empty", oldPassword)
-                //TODO:: have to unhash old password from db first 
-                const isPasswordCorrect = await User.findOne({username: user, password:  oldPassword})
-                console.log("Is password correct: " + isPasswordCorrect)
+                let isValidPassword = await bycrypt.compare(oldPassword, userExists?.password)
+                if(isValidPassword) {
+                    const salt = await bycrypt.genSalt(10);
+                    const hashedPassword = await bycrypt.hash(newPassword, salt);
+                    let updatedPassword = await User.updateOne({'username': user},{$set: {'password' :  hashedPassword }})
+                    return NextResponse.json({message: "Password updated"})
+                }
             }
         }
         return NextResponse.json({message: "User does not exist"})
