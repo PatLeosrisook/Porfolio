@@ -43,7 +43,6 @@ export default function Account() {
     useEffect(() => {
         currentUser().then((user) => {
             setCurrentUser(user.currentUser)
-            console.log(user)
         })
     })
     return (

@@ -12681,8 +12681,9 @@ html {
 #Account #Account_setting .form_group input {
   height: 60px;
   width: 100%;
+  color: white;
+  font-weight: 400;
 }
-
 .Trending_media {
   position: relative;
   background-size: cover;

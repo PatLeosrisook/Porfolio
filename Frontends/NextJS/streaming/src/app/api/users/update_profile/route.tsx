@@ -16,17 +16,10 @@ export async function POST(req: NextRequest) {
                 return NextResponse.json({message: "User updated" + updatedUser})
             }
             if(email && oldPassword && newPassword) {
-                console.log("email, oldPassword, newPassword not empty", email, oldPassword, newPassword)
                 
-                // const updatedEmail = await User.updateOne({'username': user},{$set: {'email' : email}})
-                //check password
-                
-                // return NextResponse.json({message: "User updated" + updatedUser})
-                }
+            }
             if(email) {
-                const updatedEmail = await User.updateOne({'username': user},{$set: {'email' : email}})
-                return NextResponse.json({message: "User updated" })
-
+                await User.updateOne({'username': user},{$set: {'email' : email}})
             }
             if(oldPassword && newPassword) {
                 let isValidPassword = await bycrypt.compare(oldPassword, userExists?.password)
@@ -34,8 +27,8 @@ export async function POST(req: NextRequest) {
                     const salt = await bycrypt.genSalt(10);
                     const hashedPassword = await bycrypt.hash(newPassword, salt);
                     let updatedPassword = await User.updateOne({'username': user},{$set: {'password' :  hashedPassword }})
-                    return NextResponse.json({message: "Password updated"})
                 }
+                return NextResponse.json({message: "account updated"})
             }
         }
         return NextResponse.json({message: "User does not exist"})

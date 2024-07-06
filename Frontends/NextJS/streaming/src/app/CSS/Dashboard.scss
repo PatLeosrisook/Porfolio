@@ -350,7 +350,12 @@ html {
             input {
                 height: 60px;
                 width:100%;
+                color:white;
+                font-weight: 400;
+                &::placeholder {
+                    // color:white;
 
+                }
             }
 
             height: fit-content;

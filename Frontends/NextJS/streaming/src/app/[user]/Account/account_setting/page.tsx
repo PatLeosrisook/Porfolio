@@ -54,7 +54,7 @@ export default function Account_setting() {
     },[])
     return ( 
         <section id="Account_setting">
-            <p>Account setting</p>
+            <h1>Account setting</h1>
 
             <div className="form_group">
                 <label htmlFor="email">Email</label>
