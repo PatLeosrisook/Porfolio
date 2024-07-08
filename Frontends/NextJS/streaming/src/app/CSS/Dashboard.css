@@ -12873,6 +12873,9 @@ html {
   #CreateProfile #User_info {
     gap: 70px;
   }
+  #Account .form_group {
+    margin-bottom: 40px;
+  }
 }
 @media (min-width: 768px) {
   #Movie .category_header, #TV .category_header {
@@ -12998,6 +13001,13 @@ html {
 @media (min-width: 1280px) {
   #Account {
     flex-direction: row;
+    justify-content: space-evenly;
+  }
+  #Account #Account_setting, #Account #Profile_setting {
+    width: 50%;
+  }
+  #Account #Account_setting .form_group, #Account #Profile_setting .form_group {
+    width: 100%;
   }
   #Account #Setting_links {
     flex-direction: column;
