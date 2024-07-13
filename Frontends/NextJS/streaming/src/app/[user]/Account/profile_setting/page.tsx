@@ -47,6 +47,7 @@ export default function Account() {
     })
     return (
         <section id="Profile_setting">
+            <h1>Profile setting</h1>
             <section id="Profile_wrapper">
                 <div  id="Avatar_Setting">
                         <Image src={placeholderImage} alt="Placeholder image" id="ProfilePic" width={20} height={20}/>
@@ -56,8 +57,8 @@ export default function Account() {
                         <input onChange={e => handleChangeProfilePic(e)} name="selectFile" id="selectFile" type="file"/>
                 </div>
                 <div className='form_group'>
-                    <input type='text' placeholder={user} onChange={e => handleNameChange(e)}/>
-                    <FontAwesomeIcon icon={faPen} />
+                    <label htmlFor="username">Change username</label>
+                    <input type='text' name="username" placeholder={user} onChange={e => handleNameChange(e)}/>
                 </div>
                 <button onClick={handleUpdate} className='save_change'>
                 save change

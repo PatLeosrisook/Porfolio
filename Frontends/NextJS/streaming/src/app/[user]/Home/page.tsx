@@ -31,11 +31,11 @@ export default function Home() {
                 return response.data.results
             }).then(result => {
                 result = result.slice(0, 5)
-                console.log(result)
+                console.log("Trending result: " ,result)
                 let lists : ListItem[] = []
                 lists = result.map(r => {
                     return {
-                        Title : r['original_title'],
+                        Title : r['original_title'] || r['original_name'],
                         src: r["poster_path"],
                         year: (r.hasOwnProperty('release_date')) ? r['release_date'].split("-")[0] : r['first_air_date'].split("-")[0],
                         Type: r["media_type"],
@@ -167,7 +167,10 @@ export default function Home() {
             </section>
           
             <section className="recommends">
-                <h2>Recommend movies</h2>
+                <div className='overview-header'>
+                    <h2>Recommend movies</h2>
+                    <ViewMore forwardLink='Movie'/>
+                </div>
                 <section className="scroller">
                     <section className="lists">
                         {recommendedList}

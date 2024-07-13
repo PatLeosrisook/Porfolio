@@ -1,6 +1,8 @@
 'use client';
 import { useEffect } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFilm, faFaceGrinStars } from '@fortawesome/free-solid-svg-icons';
 import '../app/CSS/Dashboard.css'
 export default function CarouselsContent({Title, Type, Year, IsAdult, src} : {
     Title: string,
@@ -20,8 +22,8 @@ export default function CarouselsContent({Title, Type, Year, IsAdult, src} : {
                     <div className="sub-content">
                             <p>{Year}</p>
                             <div className="MediaType">
-                                <img src={`/icons/${Type}-icon.svg`} alt="media icon"/>
-                                <p>{Type}</p>
+                                <FontAwesomeIcon icon={(Type === 'movie')? faFilm : faFaceGrinStars} />
+                                <p>{(Type === "movie") ? "Movie" : "Series"}</p>
                             </div>
                             <p>{(IsAdult) ? "18+":"PG"}</p>
                     </div>

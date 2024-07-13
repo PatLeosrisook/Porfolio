@@ -12274,6 +12274,10 @@ html {
   background-color: #18172C;
 }
 
+* {
+  font-weight: 400;
+}
+
 .carousel {
   height: 100vh;
   width: 100vw;
@@ -12329,12 +12333,24 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 130px;
+  height: 50px;
+  border-radius: 30px;
 }
 .ViewMore div {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  color: white;
+}
+.ViewMore div:hover {
+  cursor: pointer;
+}
+
+#Loading_screen {
+  height: 100vh;
+  width: 100vw;
   color: white;
 }
 
@@ -12422,6 +12438,16 @@ html {
   justify-content: flex-start;
   width: -moz-fit-content;
   width: fit-content;
+}
+#Dashboard .overview-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-bottom: 20px;
 }
 
 #CreateProfile {
@@ -12523,6 +12549,9 @@ html {
   position: relative;
   top: 15vh;
 }
+#Account h1, #Account .h1 {
+  color: white;
+}
 #Account #Profile_wrapper {
   display: flex;
   flex-direction: column;
@@ -12590,9 +12619,6 @@ html {
   z-index: 0;
   transition: width 0.3s ease;
 }
-#Account #Profile_setting {
-  width: 100%;
-}
 #Account #Avatar_Setting {
   display: flex;
   flex-direction: row;
@@ -12626,24 +12652,62 @@ html {
   width: 70%;
   height: 100%;
   border: none;
-  border-bottom: 1px solid #2F4986;
+  border-bottom: 1px solid #F2F2F2;
   background-color: transparent;
 }
 #Account .form_group input::-moz-placeholder {
-  color: #2F4986;
+  color: #5A698F;
   font-weight: 500;
 }
 #Account .form_group input::placeholder {
-  color: #2F4986;
+  color: #5A698F;
   font-weight: 500;
 }
 #Account .form_group input:focus {
   outline: none;
+  border-bottom: 2px solid #FF569D;
 }
-#Account .form_group svg {
+#Account #Profile_setting {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+}
+#Account #Profile_setting .input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+#Account #Profile_setting .input svg {
   width: 20px;
   height: 20px;
   color: white;
+}
+#Account #Profile_setting .form_group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  color: white;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  border-bottom: 1px solid #f2f2f2;
+}
+#Account #Profile_setting .form_group label {
+  font-weight: 400;
+  font-size: 16px;
+}
+#Account #Profile_setting .form_group input {
+  height: 50px;
+  border: none;
+  color: white;
+  font-weight: 400;
 }
 #Account .save_change {
   background: linear-gradient(to right, #FF569D, #B556FF);
@@ -12677,6 +12741,9 @@ html {
   height: -moz-fit-content;
   height: fit-content;
   width: 90vw;
+}
+#Account #Account_setting .form_group label {
+  font-weight: 400;
 }
 #Account #Account_setting .form_group input {
   height: 60px;
@@ -12743,16 +12810,7 @@ html {
   gap: 10px;
 }
 
-.RecommendedMedia .bookmark, .RecommendedMedia .trailer {
-  cursor: pointer;
-  transition: color ease 0.4s;
-}
-.RecommendedMedia .bookmark:hover {
-  color: #FF569D;
-  transition: color ease 0.4s;
-}
-
-.RecommendedMedia, .ViewMore {
+.RecommendedMedia {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12761,29 +12819,29 @@ html {
   height: 380px;
   gap: 10px;
 }
-.RecommendedMedia .overview, .ViewMore .overview {
+.RecommendedMedia .overview {
   overflow-y: scroll;
   height: 100px;
 }
-.RecommendedMedia .Image_wrap, .ViewMore .Image_wrap {
+.RecommendedMedia .Image_wrap {
   height: 240px;
   width: 100%;
   background-size: contain;
   background-repeat: no-repeat;
 }
-.RecommendedMedia .Content, .ViewMore .Content {
+.RecommendedMedia .Content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
 }
-.RecommendedMedia .Content-title, .ViewMore .Content-title {
+.RecommendedMedia .Content-title {
   font-weight: 700;
   align-self: flex-start;
   margin: 0;
 }
-.RecommendedMedia .Content-detail, .ViewMore .Content-detail {
+.RecommendedMedia .Content-detail {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -12791,14 +12849,14 @@ html {
   width: 100%;
   color: white;
 }
-.RecommendedMedia .Content-action, .ViewMore .Content-action {
+.RecommendedMedia .Content-action {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
 }
-.RecommendedMedia .bookmark, .RecommendedMedia .trailer, .ViewMore .bookmark, .ViewMore .trailer {
+.RecommendedMedia .bookmark, .RecommendedMedia .trailer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -12806,12 +12864,18 @@ html {
   gap: 10px;
   height: 30px;
   width: 100%;
+  cursor: pointer;
+  transition: color ease 0.4s;
 }
-.RecommendedMedia .bookmark p, .RecommendedMedia .trailer p, .ViewMore .bookmark p, .ViewMore .trailer p {
+.RecommendedMedia .bookmark p, .RecommendedMedia .trailer p {
   margin: 0;
 }
-.RecommendedMedia .trailer, .ViewMore .trailer {
+.RecommendedMedia .trailer {
   background: linear-gradient(#FF569D, #B556FF);
+}
+.RecommendedMedia .bookmark:hover {
+  color: #FF569D;
+  transition: color ease 0.4s;
 }
 
 .ViewMore {
@@ -13001,10 +13065,11 @@ html {
 @media (min-width: 1280px) {
   #Account {
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 60px;
   }
   #Account #Account_setting, #Account #Profile_setting {
-    width: 50%;
+    width: 30%;
   }
   #Account #Account_setting .form_group, #Account #Profile_setting .form_group {
     width: 100%;
@@ -13012,11 +13077,17 @@ html {
   #Account #Setting_links {
     flex-direction: column;
   }
+  #Account #Setting_links a::before {
+    width: 4px;
+    height: 0;
+    transition: height 0.3s ease;
+  }
   #Account #Setting_links .active_subLink::before {
     width: 4px;
     height: 100%;
     top: 0;
     left: -10px;
+    transition: height 0.3s ease;
   }
 }
 @media (min-width: 1440px) {

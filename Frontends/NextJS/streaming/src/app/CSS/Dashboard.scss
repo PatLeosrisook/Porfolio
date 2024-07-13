@@ -8,6 +8,9 @@ body {
 html {
     background-color: #18172C ;
 }
+* {
+    font-weight: 400;
+}
 .carousel {
     height: 100vh;
     width: 100vw;
@@ -57,11 +60,21 @@ html {
 }
 .ViewMore {
     @include style.flex();
-
+    width: 130px;
+    height: 50px;
+    border-radius: 30px;;
     div {
         @include style.flex(row, center,center);
         color: white;
+        &:hover{
+            cursor: pointer;
+        }
     }
+}
+#Loading_screen{
+    height: 100vh;
+    width:100vw;
+    color:white;
 }
 #Dashboard {
     @include style.flex();
@@ -133,6 +146,12 @@ html {
             justify-content: flex-start;
             width:fit-content;
         }
+    }
+    .overview-header {
+        @include style.flex(row, center ,space-between);
+        width:100%;
+        height: fit-content;
+        margin-bottom:20px;
     }
 }
 #CreateProfile{
@@ -222,6 +241,9 @@ html {
     height:100vh;
     position: relative;
     top:15vh;
+    h1 {
+        color:white;
+    }
     #Profile_wrapper {
         @include style.flex();
         width: 100%;
@@ -277,10 +299,7 @@ html {
             }
             
     }
-    #Profile_setting {
-        width: 100%;
-
-    }
+   
     #Avatar_Setting{
         @include style.flex(row, center ,center);
         gap:20px;
@@ -309,25 +328,53 @@ html {
             width: 70%;
             height: 100%;
             border:none; 
-            border-bottom: 1px solid #2F4986;
+            border-bottom: 1px solid #F2F2F2;
             background-color: transparent;
             &::placeholder {
-                color:#2F4986;
+                color: style.$Accent;
                 font-weight: 500;
             }
             &:focus {
                 outline:none;
+                border-bottom: 2px solid style.$Primary;
             }
             
         }
         
-        svg{
-            width:20px;
-            height:20px;
-            color:white;
-        }
+       
         
         margin-bottom: 20px;
+    }
+    #Profile_setting {
+        @include style.flex(column, flex-start, center);
+        width: 100%;
+        .input {
+            @include style.flex(row, center, space-between);
+            width:100%;
+            height:fit-content;
+            svg{
+                width:20px;
+                height:20px;
+                color:white;
+            }
+        }
+        .form_group {
+            @include style.flex(column, flex-start, center);
+            color:white;
+            width:100%;
+            height:fit-content;
+            label{
+                font-weight: 400;
+                font-size:16px;
+            }
+            input {
+                height:50px;
+                border:none;
+                color:white;
+                font-weight: 400;
+            }
+            border-bottom: 1px solid #f2f2f2;
+        }
     }
     .save_change {
         background: linear-gradient(to right, #FF569D, #B556FF);
@@ -347,6 +394,9 @@ html {
         color:white;
         .form_group {
             @include style.flex(column, flex-start, center);
+            label {
+                font-weight: 400;
+            }
             input {
                 height: 60px;
                 width:100%;
@@ -412,19 +462,9 @@ html {
  width:fit-content;
  gap:10px;
 }
-.RecommendedMedia {
-    .bookmark , .trailer {
-        cursor: pointer;
-        transition: color ease 0.4s
-    }
-    .bookmark {
-        &:hover{
-            color: style.$Primary;
-            transition: color ease 0.4s
-        }
-    }
-}
-.RecommendedMedia, .ViewMore {
+
+   
+.RecommendedMedia{
     @include style.flex();
     .overview {
         overflow-y: scroll;
@@ -463,6 +503,9 @@ html {
         gap:10px;
         height:30px;
         width:100%;
+
+        cursor: pointer;
+        transition: color ease 0.4s;
         p {
             margin:0;
 
@@ -472,7 +515,15 @@ html {
     .trailer {
         background: linear-gradient(#FF569D, #B556FF);
     }
+
+    .bookmark {
+        &:hover{
+            color: style.$Primary;
+            transition: color ease 0.4s
+        }
+    }
 }
+
 .ViewMore {
     border:1px solid white;
     margin-right: 60px;
@@ -675,20 +726,36 @@ html {
 @media(min-width: 1280px) {
     #Account {
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: center;
+        gap:60px;
         #Account_setting, #Profile_setting {
-            width: 50%;
+            width: 30%;
             .form_group { 
                 width:100%;
             }
         }
+        #Profile_setting {
+            .input {
+
+            }
+        }
         #Setting_links {
             flex-direction: column;
-            .active_subLink::before {
-                width:4px;
-                height:100%;
-                top: 0;
-                left: -10px;
+            a {
+                &::before {
+                    width:4px;
+                    height:0;
+                    transition: height 0.3s ease;
+                }
+            }
+            .active_subLink {
+                &::before {
+                    width:4px;
+                    height:100%;
+                    top: 0;
+                    left: -10px;
+                    transition: height 0.3s ease;
+                }
             }
         }
     }
