@@ -25,7 +25,7 @@ export default function Login() {
         }));
     }
 
-    let handleSubmit = (e : React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    let handleSubmit = async (e : React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault()
         let email = document.querySelector("input[type='Email']")
         let pass = document.querySelector("input[type='password']")
@@ -58,7 +58,7 @@ export default function Login() {
                 password: value.Password
             }
     
-            axios.post('/api/users/login', data).then(response => {
+            await axios.post('/api/users/login', data).then(response => {
                 console.log("logged in ")
                 axios.get('/api/users/me').then(response => {
                     router.push(`/${response.data.data.username}/Home`)
