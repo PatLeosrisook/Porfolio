@@ -12348,10 +12348,11 @@ html {
   cursor: pointer;
 }
 
-#Loading_screen {
+#Loading_screen, .Loading_screen {
   height: 100vh;
   width: 100vw;
   color: white;
+  background-color: #B556FF;
 }
 
 #Dashboard {
