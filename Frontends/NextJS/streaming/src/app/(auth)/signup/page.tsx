@@ -202,7 +202,7 @@ export default function SignUp() {
                 <input onChange={e=> handleChange(e)}  name="password" type="Password" placeholder="Password"/>
                 <p className="error_message">{formData.password_error}</p>
             </div>
-            <button onClick={e => handleSubmit(e)} className="cta register_cta">Create an account</button>
+            <button onClick={e => handleSubmit(e)} className="button-style register_cta">Create an account</button>
             <p>Already have an accout? <Link href="/login">Login</Link></p>
         </>
     )

@@ -12,6 +12,19 @@
   font-weight: 500;
 }
 
+.button-style {
+  background: linear-gradient(to right, #FF569D, #B556FF);
+  border: none;
+  width: 100%;
+  height: 50px;
+  font-weight: 400;
+  color: white;
+}
+.button-style:hover {
+  background: linear-gradient(to right, #FF569D 100%, #B556FF);
+  transition: background ease 0.4s;
+}
+
 #Menu {
   display: flex;
   flex-direction: column;

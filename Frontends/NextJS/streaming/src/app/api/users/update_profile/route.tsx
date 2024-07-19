@@ -4,14 +4,10 @@ import bycrypt from 'bcryptjs'
 import User from '@/models/userModel'
 export async function POST(req: NextRequest) {
     try {
-        //TODO:: send updated user info to user.
         const {user , name, email, oldPassword, newPassword} = await req.json();
-        console.log("Sending to update", email)
         const userExists = await User.findOne({username: user});
         if(userExists) {
-            console.log("User exists")
             if(name) {
-                console.log("Name not empty")
                 const updatedUser = await User.updateOne({'username': user},{$set: {'username' : name}})
                 return NextResponse.json({message: "User updated" + updatedUser})
             }

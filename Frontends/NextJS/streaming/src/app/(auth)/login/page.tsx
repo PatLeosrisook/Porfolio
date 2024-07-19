@@ -85,7 +85,7 @@ export default function Login() {
                 <p className="error_message">{passwordError}</p>
                 <Link href="/forgot-password">forgot password</Link>
             </div>
-            <button onClick={e => handleSubmit(e)} className="cta register_cta">Login to your account</button>
+            <button onClick={e => handleSubmit(e)} className="button-style ">Login to your account</button>
             <p>Don't have an account? <Link href="/signup">Sign up</Link></p>
         </>
     )

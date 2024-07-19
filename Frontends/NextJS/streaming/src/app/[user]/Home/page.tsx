@@ -56,7 +56,7 @@ export default function Home() {
             return response.data.results
         }).then(result=> {
             result = result.filter(media => media['release_date'].split("-")[0] >= 2000)
-            result = result.slice(0, 15)
+            result = result.slice(0, 5)
             console.log(result)
             let list : ReactNode[] = []
             list = result.map((media) => {
@@ -70,7 +70,6 @@ export default function Home() {
                 />
                
             })
-            list.push(<ViewMore forwardLink='Movie'/>)
             // list.push({view : 'more'})
             setRecommendedList(list)
             
@@ -87,10 +86,11 @@ export default function Home() {
             return response.data.results
         }).then(result => {
             result = result.filter(media => media['first_air_date'].split("-")[0] >= 2018)
-            result = result.slice(0, 15)
+            result = result.slice(0, 5)
             // let list: ListItem[] = []
             let list = new Map()
-            result.forEach(media => {
+            result.forEach((media, index) => {
+                
                 let item = {
                     Title : media['original_name'],
                     Overview: media['overview'],

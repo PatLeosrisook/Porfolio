@@ -63,14 +63,23 @@ html {
     width: 130px;
     height: 50px;
     border-radius: 30px;;
+    margin-right: 20px;
+    border: 1px solid white;
     div {
         @include style.flex(row, center,center);
         color: white;
+        gap:10px;
         &:hover{
             cursor: pointer;
         }
     }
+    p {
+        margin:0;
+        font-size: 12px;;
+    }
 }
+
+
 #Loading_screen,.Loading_screen{
     height: 100vh;
     width:100vw;
@@ -525,15 +534,7 @@ html {
     }
 }
 
-.ViewMore {
-    border:1px solid white;
-    margin-right: 60px;
-    div {
-        @include style.flex(row, center,center);
-        gap:10px;
-    }
-    p {margin:0}
-}
+
 
 .Specified_Type, #Movie, #TV {
     @include style.flex(column, flex-start, center);
@@ -730,7 +731,7 @@ html {
         justify-content: center;
         gap:60px;
         #Account_setting, #Profile_setting {
-            width: 30%;
+            width: 60%;
             .form_group { 
                 width:100%;
             }

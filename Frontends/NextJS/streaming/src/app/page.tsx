@@ -13,13 +13,13 @@ export default function Home() {
   return (
     <main>
       <header>
-        <Image src={`/icons/Movie.svg`} width={20} height={20} alt="Background image" />
+        <Image src={`/icons/Logo.svg`} width={20} height={20} alt="Background image" />
         <Link href="/login">Login</Link>
       </header>
       <article id="Heading">
         <h1>Stream me</h1>
         <p>Free streaming service. Watch anywhere and watch anything you want.</p>
-        <button onClick={handleNavigate} id="register_cta" className="cta">Register</button>
+        <button onClick={handleNavigate} id="register_cta" className="button-style">Register</button>
       </article>
     </main>
   );
