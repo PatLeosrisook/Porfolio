@@ -125,17 +125,11 @@ html {
     }
     #Home {
         width: 100vw;
-        height: 80%;
+        height: fit-content;
     }
     #trending {
         width: fit-content;
         height:fit-content;
-    }
-    .lists {
-        @include style.flex(row, center, center);
-        height:fit-content;
-        width: 100%;
-        gap:10px;
     }
     .recommends {
         padding-left: 30px;
@@ -152,9 +146,14 @@ html {
             overflow-y:hidden;
         }
         .lists {
+            @include style.flex(row, center, center);
+            height:fit-content;
+            width: 100%;
+            gap:10px;
             overflow-x: scroll;
             justify-content: flex-start;
             width:fit-content;
+            padding-right: 40px;
         }
     }
     .overview-header {
@@ -476,22 +475,33 @@ html {
    
 .RecommendedMedia{
     @include style.flex();
+    position: relative;
     .overview {
         overflow-y: scroll;
         height:100px;
     }
-    width: 170px;
+    width: 230px;
     height: 380px;
     gap:10px;
     .Image_wrap {
-        height: 240px;
+        height: 100%;
         width:100%;
         background-size: contain;
         background-repeat: no-repeat;
+        position: relative;
+        
     }
     .Content {
         @include style.flex();
         width:100%;
+        height: 100%;
+        padding: 0 10px;
+        position: absolute;
+        background-color: #0c12209a;
+        top: 0%;
+        z-index: 2;
+        opacity: 0;;
+        transition: top ease 0.4s;
     }
     .Content-title {
         font-weight: 700;
@@ -504,26 +514,26 @@ html {
         color:white;
     }
     .Content-action{
-        @include style.flex();
+        @include style.flex(row, center ,space-between);
         width:100%;
-
+        // padding: 0 20px;
     }
     .bookmark, .trailer{
         @include style.flex(row, center, center);
         gap:10px;
-        height:30px;
-        width:100%;
+        height:40px;
+        width:40px;
 
         cursor: pointer;
         transition: color ease 0.4s;
         p {
-            margin:0;
-
+            display: none;
         }
         // width:fit-content;
     }
     .trailer {
-        background: linear-gradient(#FF569D, #B556FF);
+        background: linear-gradient(to right, #FF569D, #B556FF);
+        border-radius: 100%;;
     }
 
     .bookmark {
@@ -532,6 +542,15 @@ html {
             transition: color ease 0.4s
         }
     }
+    &:hover {
+        
+        .Content {
+            // top:0;
+            opacity: 1;
+            transition:  opacity ease 0.2s;
+        }
+    }
+    
 }
 
 
@@ -556,14 +575,14 @@ html {
     }
     .lists {
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: center;
         height: 50vh;
         gap:60px;
         width:100%;
     }
     .RecommendedMedia {
-        width: 90%;
-        height: fit-content;
+        width: 100%;
+        height: 100%;
         color:white;
     }
    
@@ -661,17 +680,6 @@ html {
             width: 200px;
         }
     }
-    .RecommendedMedia {
-        width: 200px;
-        height: 500px;
-        .Content {
-            height: 240px;;
-        }
-        .Image_wrap {
-            height: 269px;
-            margin-bottom: 14px;
-        }
-    }
 
 }
 @media(min-width: 835px) {
@@ -761,6 +769,37 @@ html {
             }
         }
     }
+    #Dashboard {
+        .recommends {
+            .lists {
+                width: 100%;
+            }
+
+        }
+    }
+    .RecommendedMedia {
+        width:100%;
+        
+        &:hover{
+            // background-color: #262447;
+            .Image_wrap {
+                // z-index: 3;
+                // transform: scale(1.5);
+                // transition: transform ease 0.5s;
+            }
+            .Content {
+                opacity: 1;
+                display: flex;
+                transition: opacity ease 0.5s;
+                z-index: 3;
+            }
+            &::before {
+                transform: scale(1.5);
+                transition: transform ease 0.5s;
+                z-index: 2;
+            }
+        }
+    }
 }
 @media(min-width: 1440px) {
     #Movie, #TV {
@@ -786,10 +825,7 @@ html {
         }
         
     }
-    .RecommendedMedia {
-        width: 240px ;
-        height: 490px;
-    }
+   
 
 }
 @media(min-width: 1600px) {
@@ -818,13 +854,6 @@ html {
 
         .RecommendedMedia {
             width: 250px;
-            .Image_wrap {
-                height:370px;
-            }
-            .Content-action {
-                flex-direction: row;
-                justify-content: space-between;
-            }
         }
        
     }

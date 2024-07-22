@@ -4,11 +4,10 @@ import { ReactNode, useEffect, useState } from 'react';
 import Media from '../../../Component/Media'
 import RecommendedMedia from '@/Component/RecommendedMedia';
 import {options} from '../../../../public/API'
-import Image from 'next/image';
 import Carousel from 'react-bootstrap/Carousel';
 import CarouselsContent from '../../../Component/carouselContent';
 import ViewMore from '@/app/[user]/Home/ViewMore';
-
+import { getUser } from '@/lib/getUser';
 interface ListItem { 
     Id: number,
     Title : string,
@@ -19,7 +18,7 @@ interface ListItem {
     adult: boolean
 }
 export default function Home() {
-
+    const [currentUser, setCurrentUser] = useState('')
     const [popularList, setPopularList] = useState<Array<ListItem>>([])
     const [recommendedList, setRecommendedList] = useState<Array<ReactNode>>([])
     const [recommendedSeries, setRecommendedSeries] = useState<Array<ReactNode>>([])
@@ -112,34 +111,27 @@ export default function Home() {
                         src={list.src}
                     />
             })
-            listComponent.push(<ViewMore forwardLink='TV'/>)
-            //  result.map((media) => {
-            //     return {
-            //         Title : media['original_name'],
-            //         Overview: media['overview'],
-            //         src: media["poster_path"],
-            //         year:  media['first_air_date'].split("-")[0] ,
-            //         Type: "Series",
-            //         adult: media.adult
-            //     }
-            // })
             setRecommendedSeries(listComponent)
         })
         .catch(function (error) {
             console.error(error);
         });
     }
-    useEffect(() => {
+    let setUser = async()=> {
+        let user = await getUser()
+        setCurrentUser(user.currentUser)
+    }
+    useEffect(  () => {
         if(popularList.length == 0 && recommendedList.length == 0 && recommendedSeries.length == 0) {
             console.log("init...")
             loadTrending()
             loadRecommend()
             loadRecommendedTV()
-            
+            setUser()
+            console.log("afterr load", currentUser)
         }
 
-        console.log("afterr load", popularList, recommendedList,  recommendedSeries)
-    },[])
+    })
     return (
         <section id="Home">
             <section id="trending">
@@ -169,7 +161,7 @@ export default function Home() {
             <section className="recommends">
                 <div className='overview-header'>
                     <h2>Recommend movies</h2>
-                    <ViewMore forwardLink='Movie'/>
+                    <ViewMore user={currentUser} forwardLink='Movie'/>
                 </div>
                 <section className="scroller">
                     <section className="lists">
@@ -179,7 +171,11 @@ export default function Home() {
                 </section>
             </section>
             <section className='recommends'>
-                <h2>Recommend TV series</h2>
+                <div className='overview-header'>
+                    <h2>Recommend TV series</h2>
+                    <ViewMore user={currentUser} forwardLink='TV'/>
+                </div>
+                
                 <div className='scroller'>
                     <section className='lists'>
                        {recommendedSeries}

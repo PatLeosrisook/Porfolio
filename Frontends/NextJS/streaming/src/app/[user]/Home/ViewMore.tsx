@@ -2,10 +2,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { useRouter } from 'next/navigation'
-export default function ViewMore({forwardLink} : {forwardLink : string}) {
+import { getUser } from '@/lib/getUser';
+export default function ViewMore({forwardLink, user} : {forwardLink : string, user: string}) {
     const router = useRouter()
     let handleClick = () => {
-        router.push(`/User/${forwardLink}`)
+        router.push(`/${user}/${forwardLink}`)
     }
     return(
         <article className="ViewMore" onClick={handleClick}>

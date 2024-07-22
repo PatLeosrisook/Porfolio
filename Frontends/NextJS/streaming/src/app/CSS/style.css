@@ -36,7 +36,7 @@
   width: 100vw;
   height: 100vh;
   background-color: #272E6D;
-  z-index: 2;
+  z-index: 5;
   transition: transform ease 0.4s;
 }
 #Menu ul {
