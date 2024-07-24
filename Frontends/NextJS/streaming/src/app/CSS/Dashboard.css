@@ -13146,4 +13146,9 @@ html {
   .Specified_Type .RecommendedMedia, #Movie .RecommendedMedia, #TV .RecommendedMedia {
     width: 250px;
   }
+}
+@media (min-width: 1800px) {
+  .RecommendedMedia {
+    height: 590px;
+  }
 }/*# sourceMappingURL=Dashboard.css.map */
