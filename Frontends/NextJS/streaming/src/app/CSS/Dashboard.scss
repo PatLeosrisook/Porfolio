@@ -857,9 +857,18 @@ html {
         }
        
     }
+    .RecommendedMedia {
+        .Content-title {
+            font-size:1.4rem;
+        }
+    }
 }
 @media(min-width: 1800px) {
     .RecommendedMedia {
         height: 590px;
+        .Content {
+            justify-content: flex-end;
+            padding-bottom: 40px;
+        }
     }
 }
