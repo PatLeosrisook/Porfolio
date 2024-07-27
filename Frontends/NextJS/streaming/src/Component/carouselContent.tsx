@@ -15,7 +15,7 @@ export default function CarouselsContent({Title, Type, Year, IsAdult, src} : {
         // document.querySelector('.carousel_content').style.backgroundImage = `url(https://image.tmdb.org/t/p/w200/${src})`
     })
     return (
-        <div className='carousel_content' style={{'backgroundImage' : `url(https://image.tmdb.org/t/p/w1280/${src})`}}>
+        <div className='carousel_content' style={{'backgroundImage' : `url(https://image.tmdb.org/t/p/original/${src})`}}>
             {/* <img src={`https://image.tmdb.org/t/p/w200/${src}`}  alt={`${Title}`} className="carousel_image" /> */}
             <div className='content'>
                     <p className="media-title">{Title}</p>

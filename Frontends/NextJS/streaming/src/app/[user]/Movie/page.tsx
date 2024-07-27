@@ -5,46 +5,82 @@ import { useEffect, useState } from 'react';
 import type { InferGetServerSidePropsType, GetServerSideProps } from 'next' // probably on the page that call this method.
 import RecommendedMedia from '@/Component/RecommendedMedia';
 import {options} from '../../../../public/API'
-import Search from '@/Component/Search';
-// export async function getServerSideProps() {
-//     const result = await getMovie();
-
-//     return {
-//         props: { result }
-//     };
-// }
+import Carousel from 'react-bootstrap/Carousel';
+import CarouselsContent from '../../../Component/carouselContent';
+import GenreOverview from '@/Component/GenreOverview';
 interface ListItem { 
+    id: number,
     Title : string,
     src : string, 
+    genre: number,
     Overview: string,
     year : string,
     Type : string,
     adult: boolean
 }
+enum MovieGenres{
+    Action = 28,
+    Adventure = 12,
+    Comedy = 35,
+    Crime = 80,
+    Fantasy = 14,
+    Horror = 27,
+    Mystery = 9648,
+    Romance = 10749,
+    ScienceFiction = 878,
+    Thriller = 53,
+}
 export default function Movie({result} : {
     result : ResultType
 }) {
     const [Movie,setMovie] = useState<Array<ListItem>>([])
+    const [trendingMovie, setTrendingMovie] = useState<Array<ListItem>>([])
     const [filteredList, setFilteredList] = useState<Array<ListItem>>([])
     const [searched, setSearchedValue] = useState("")
+    const apiEndpoints = [
+        "https://api.themoviedb.org/3/trending/movie/day?language=en-US",
+        "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
+    ]
     let loadMovie = () => {
-        options.url = 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1'
-        axios(options).then(response =>{
-            return response.data.results
-        }).then((result : any )=> {
-            result = result.slice(0, 40)
-            console.log(result,result[0].title)
-            let list = result.map(movie => {
-                return {
-                    Title : movie['title'],
-                    src: movie["poster_path"],
-                    Overview: movie['overview'],
-                    year:  movie['release_date'].split("-")[0],
-                    Type: "movie",
-                    adult: movie.adult
+        const requests = apiEndpoints.map(url => {
+            options.url = url
+            return axios(options)
+        })
+        
+        Promise.all(requests).then(response => {
+            response.forEach((res, index) => {
+                if(index == 0) {
+                   let trendingMovie = res.data.results.map((movie) => {
+                        return {
+                            id: movie['id'],
+                            Title : movie['title'],
+                            src: movie["poster_path"],
+                            genre: movie['genre_ids'][0],
+                            Overview: movie['overview'],
+                            year:  movie['release_date'].split("-")[0],
+                            Type: "movie",
+                            adult: movie.adult
+                        }
+                    })
+                    setTrendingMovie(trendingMovie)
+
+                } else {
+                    console.log("The rest", res.data.results)
+                    let playingMovie = res.data.results.map((movie) => {
+                        return {
+                            id: movie['id'],
+                            Title : movie['title'],
+                            src: movie["poster_path"],
+                            genre: movie['genre_ids'][0],
+                            Overview: movie['overview'],
+                            year:  movie['release_date'].split("-")[0],
+                            Type: "movie",
+                            adult: movie.adult
+                        }
+                    })
+                    setMovie(playingMovie)
                 }
             })
-            setMovie(list)
         })
     }
     useEffect(() => {
@@ -59,38 +95,39 @@ export default function Movie({result} : {
                 setMovie(Movie)
             }
         }
+        console.log("MOVIE", Movie[0])
     })
     return (
-        <section id="Movie" className='Specified_Type'>
-            <header className="category_header">
+        <section id="Movie" className='media-dashboard'>
+            {/* <header className="category_header">
                 <h1>Movie</h1>
                 <Search searchedValue={setSearchedValue} placeholder='Search movie name here:'/>
-            </header>
-            <section className="list_wrapper">
-                <section className="lists">
-                {
-                    (searched.length > 0) ? filteredList.map(search => {
-                        return <RecommendedMedia
-                        Title={search.Title}
-                        Year={search.Year}
-                        Overview={search.Overview}
-                        Type={search.Type}
-                        src={search.src}
-                        isAdult={search.adult}
-                    />
-                    }) : 
-                    Movie.map(movie => {
-                        return <RecommendedMedia
-                                    Title={movie.Title}
-                                    Year={movie.year}
-                                    Overview={movie.Overview}
-                                    Type="movie"
-                                    isAdult={movie.adult}
-                                    src={movie.src}
-                                />
-                    })
-                }
-                </section>
+            </header> */}
+            <section className='trending-section'>
+                <Carousel  id="Carousel">
+                    {/* {
+                        
+                        popularList.map((list , index) => {
+                            {if(index == popularList.length - 1) {
+
+                            }}
+                            return <Carousel.Item >
+                                        <CarouselsContent 
+                                            Title={list.Title}
+                                            
+                                            Year={list.year}
+                                            IsAdult={list.adult}
+                                            Type={list.Type}
+                                            src={list.src}
+                                        />
+                            </Carousel.Item>
+                          
+                        })
+                    } */}
+                </Carousel>
+            </section>
+            <section className='other-genre'>
+                    <GenreOverview Genre={"Action"} lists={Movie.filter(movie => movie.id === 28)} />
             </section>
         </section>
     )

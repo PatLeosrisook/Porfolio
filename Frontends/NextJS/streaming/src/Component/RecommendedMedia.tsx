@@ -3,7 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBookmark as Bookedmarked, faPlay } from "@fortawesome/free-solid-svg-icons"
 import { faBookmark as unBookedmark } from "@fortawesome/free-regular-svg-icons"
 import { useState } from "react";
-export default function RecommendedMedia({Year, Title, isAdult, Overview, Type, src}: {
+export default function RecommendedMedia({id, Year, Title, isAdult, Overview, Type, src}: {
+    id:number,
     Year: string,
     Title: string,
     Overview: string,
