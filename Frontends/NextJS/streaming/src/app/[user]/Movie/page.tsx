@@ -94,8 +94,8 @@ export default function Movie({result} : {
             } else {
                 setMovie(Movie)
             }
+            console.log("MOVIE", Movie.filter(movie => movie.genre === 28))
         }
-        console.log("MOVIE", Movie[0])
     })
     return (
         <section id="Movie" className='media-dashboard'>
@@ -127,7 +127,7 @@ export default function Movie({result} : {
                 </Carousel>
             </section>
             <section className='other-genre'>
-                    <GenreOverview Genre={"Action"} lists={Movie.filter(movie => movie.id === 28)} />
+                    <GenreOverview Genre={"Action"} lists={Movie.filter(movie => movie.genre === 28)} />
             </section>
         </section>
     )

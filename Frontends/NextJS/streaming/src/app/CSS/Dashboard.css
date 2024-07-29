@@ -12914,43 +12914,22 @@ html {
   transition: opacity ease 0.2s;
 }
 
-.Specified_Type, #Movie, #TV {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 20px;
-  width: 100%;
+.media-dashboard {
+  width: 100vw;
   height: 100vh;
-  color: white;
-  overflow-y: scoll;
-}
-.Specified_Type h1, .Specified_Type .h1, #Movie h1, #Movie .h1, #TV h1, #TV .h1 {
-  padding-left: 10px;
-}
-.Specified_Type .category_header, #Movie .category_header, #TV .category_header {
-  width: 100%;
-}
-.Specified_Type .list_wrapper, #Movie .list_wrapper, #TV .list_wrapper {
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: -moz-fit-content;
-  height: fit-content;
 }
-.Specified_Type .lists, #Movie .lists, #TV .lists {
-  flex-direction: column;
-  justify-content: center;
-  height: 50vh;
-  gap: 60px;
+.media-dashboard .trending-section {
   width: 100%;
+  height: 100vh;
 }
-.Specified_Type .RecommendedMedia, #Movie .RecommendedMedia, #TV .RecommendedMedia {
+.media-dashboard .other-genre {
+  height: 100vh;
   width: 100%;
-  height: 100%;
-  color: white;
 }
 
 @media (min-width: 375px) {
