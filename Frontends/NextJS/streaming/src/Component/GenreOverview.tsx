@@ -9,18 +9,20 @@ export default function GenreOverview({Genre, lists, link} : {Genre: string, lis
                 </div>
             </section>
             <section className="genre-list">
-                {lists.map(movie => {
-                    return <RecommendedMedia
-                        Title={movie.Title}
-                        Year={movie.Year}
-                        Overview={movie.Overview}
-                        Type={movie.Type}
-                        src={movie.src}
-                        isAdult={movie.adult}
-                        id={movie.id}
-                        key={movie.id}
-                    /> 
-                })}
+                <div className="genre-scroller">
+                    {lists.map(movie => {
+                        return <RecommendedMedia
+                            Title={movie.Title}
+                            Year={movie.Year}
+                            Overview={movie.Overview}
+                            Type={movie.Type}
+                            src={movie.src}
+                            isAdult={movie.adult}
+                            id={movie.id}
+                            key={movie.id}
+                        /> 
+                    })}
+                </div>
             </section>
         </section>
     )

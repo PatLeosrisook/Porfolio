@@ -12837,6 +12837,9 @@ html {
   align-items: center;
   justify-content: center;
   position: relative;
+  transform: scale(0.9);
+  border-radius: 20px;
+  overflow: hidden;
   width: 230px;
   height: 380px;
   gap: 10px;
@@ -12916,12 +12919,12 @@ html {
 
 .media-dashboard {
   width: 100vw;
-  height: 100vh;
-  overflow-y: scroll;
+  height: -moz-fit-content;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .media-dashboard .trending-section {
   width: 100%;
@@ -12930,6 +12933,29 @@ html {
 .media-dashboard .other-genre {
   height: 100vh;
   width: 100%;
+}
+.media-dashboard .genre-list {
+  width: 100vw;
+  height: -moz-fit-content;
+  height: fit-content;
+  overflow-x: scroll;
+}
+.media-dashboard .genre-scroller {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.media-dashboard .genre-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  width: 100%;
+  color: white;
 }
 
 @media (min-width: 375px) {

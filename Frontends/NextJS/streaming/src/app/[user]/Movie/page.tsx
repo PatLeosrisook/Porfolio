@@ -42,6 +42,8 @@ export default function Movie({result} : {
         "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
     ]
     let loadMovie = () => {
+
+        //TODO:: dynamically load movie data by genre
         const requests = apiEndpoints.map(url => {
             options.url = url
             return axios(options)
@@ -65,7 +67,6 @@ export default function Movie({result} : {
                     setTrendingMovie(trendingMovie)
 
                 } else {
-                    console.log("The rest", res.data.results)
                     let playingMovie = res.data.results.map((movie) => {
                         return {
                             id: movie['id'],
@@ -94,8 +95,8 @@ export default function Movie({result} : {
             } else {
                 setMovie(Movie)
             }
-            console.log("MOVIE", Movie.filter(movie => movie.genre === 28))
         }
+        console.log("MOive", Movie)
     })
     return (
         <section id="Movie" className='media-dashboard'>
@@ -128,6 +129,8 @@ export default function Movie({result} : {
             </section>
             <section className='other-genre'>
                     <GenreOverview Genre={"Action"} lists={Movie.filter(movie => movie.genre === 28)} />
+                    <GenreOverview Genre={"Adventure"} lists={Movie.filter(movie => movie.genre === 12)} />
+                    <GenreOverview Genre={"Comedy"} lists={Movie.filter(movie => movie.genre === 35)} />
             </section>
         </section>
     )
