@@ -37,9 +37,11 @@ export default function Movie({result} : {
     const [trendingMovie, setTrendingMovie] = useState<Array<ListItem>>([])
     const [filteredList, setFilteredList] = useState<Array<ListItem>>([])
     const [searched, setSearchedValue] = useState("")
+    const [genres, setGenres] = useState([])
     const apiEndpoints = [
         "https://api.themoviedb.org/3/trending/movie/day?language=en-US",
         "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
+        "https://api.themoviedb.org/3/genre/movie/list?language=en"
     ]
     let loadMovie = () => {
 
@@ -66,7 +68,7 @@ export default function Movie({result} : {
                     })
                     setTrendingMovie(trendingMovie)
 
-                } else {
+                } else if(index == 1)  {
                     let playingMovie = res.data.results.map((movie) => {
                         return {
                             id: movie['id'],
@@ -80,14 +82,28 @@ export default function Movie({result} : {
                         }
                     })
                     setMovie(playingMovie)
+                } else {
+                    console.log("Genres", res.data.genres)
+                    setGenres(res.data.genres)
                 }
             })
+        })
+    }
+    let loadGenres = () => {
+        return genres.map(genre => {
+            let movie = Movie.filter(movie => movie.genre === genre.id)
+            console.log("filtered movie", movie)
+            if(movie.length >= 4) {
+
+                return <GenreOverview key={genre.id} lists={movie} Genre={genre.name}/>
+            }
         })
     }
     useEffect(() => {
         if(Movie.length == 0) {
             loadMovie()
         } else {
+            console.log("Genress", loadGenres())
             if(searched !== "") {
                 // find the search input
                 let filteredResult = Movie.filter(movie => movie.Title.toLowerCase().startsWith(searched.toLowerCase()))
@@ -96,7 +112,6 @@ export default function Movie({result} : {
                 setMovie(Movie)
             }
         }
-        console.log("MOive", Movie)
     })
     return (
         <section id="Movie" className='media-dashboard'>
@@ -128,9 +143,12 @@ export default function Movie({result} : {
                 </Carousel>
             </section>
             <section className='other-genre'>
-                    <GenreOverview Genre={"Action"} lists={Movie.filter(movie => movie.genre === 28)} />
+                    {/* <GenreOverview Genre={"Action"} lists={Movie.filter(movie => movie.genre === 28)} />
                     <GenreOverview Genre={"Adventure"} lists={Movie.filter(movie => movie.genre === 12)} />
-                    <GenreOverview Genre={"Comedy"} lists={Movie.filter(movie => movie.genre === 35)} />
+                    <GenreOverview Genre={"Comedy"} lists={Movie.filter(movie => movie.genre === 35)} /> */}
+                    {
+                        loadGenres()
+                    }
             </section>
         </section>
     )
