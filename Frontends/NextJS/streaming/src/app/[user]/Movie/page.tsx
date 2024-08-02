@@ -8,6 +8,8 @@ import {options} from '../../../../public/API'
 import Carousel from 'react-bootstrap/Carousel';
 import CarouselsContent from '../../../Component/carouselContent';
 import GenreOverview from '@/Component/GenreOverview';
+import {useContext} from 'react'
+import userContext from "@/helper/userContext"
 interface ListItem { 
     id: number,
     Title : string,
@@ -33,6 +35,7 @@ enum MovieGenres{
 export default function Movie({result} : {
     result : ResultType
 }) {
+    const {currentUser} = useContext(userContext)
     const [Movie,setMovie] = useState<Array<ListItem>>([])
     const [trendingMovie, setTrendingMovie] = useState<Array<ListItem>>([])
     const [filteredList, setFilteredList] = useState<Array<ListItem>>([])
@@ -81,9 +84,9 @@ export default function Movie({result} : {
                             adult: movie.adult
                         }
                     })
+                    let limitedList = playingMovie.slice(0,4)
                     setMovie(playingMovie)
                 } else {
-                    console.log("Genres", res.data.genres)
                     setGenres(res.data.genres)
                 }
             })
@@ -92,14 +95,14 @@ export default function Movie({result} : {
     let loadGenres = () => {
         return genres.map(genre => {
             let movie = Movie.filter(movie => movie.genre === genre.id)
-            console.log("filtered movie", movie)
             if(movie.length >= 4) {
 
-                return <GenreOverview key={genre.id} lists={movie} Genre={genre.name}/>
+                return <GenreOverview key={genre.id} lists={movie} link={""} Genre={genre.name}/>
             }
         })
     }
     useEffect(() => {
+        console.log("In movie", currentUser)
         if(Movie.length == 0) {
             loadMovie()
         } else {
@@ -143,9 +146,6 @@ export default function Movie({result} : {
                 </Carousel>
             </section>
             <section className='other-genre'>
-                    {/* <GenreOverview Genre={"Action"} lists={Movie.filter(movie => movie.genre === 28)} />
-                    <GenreOverview Genre={"Adventure"} lists={Movie.filter(movie => movie.genre === 12)} />
-                    <GenreOverview Genre={"Comedy"} lists={Movie.filter(movie => movie.genre === 35)} /> */}
                     {
                         loadGenres()
                     }

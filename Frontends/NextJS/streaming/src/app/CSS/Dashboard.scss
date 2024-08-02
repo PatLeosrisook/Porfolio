@@ -588,39 +588,6 @@ html {
     }
 }
 
-
-// .Specified_Type, #Movie, #TV {
-//     @include style.flex(column, flex-start, center);
-//     gap:20px;
-//     width:100%;
-//     height:100vh;
-//     color:white;
-//     overflow-y: scoll;
-//     h1 {
-//         padding-left:10px;
-//     }
-//     .category_header {
-//         width:100%;
-//     }
-//     .list_wrapper {
-//         @include style.flex();
-//         width: 100%;
-//         height: fit-content;
-//     }
-//     .lists {
-//         flex-direction: column;
-//         justify-content: center;
-//         height: 50vh;
-//         gap:60px;
-//         width:100%;
-//     }
-//     .RecommendedMedia {
-//         width: 100%;
-//         height: 100%;
-//         color:white;
-//     }
-   
-// }
 @media(min-width: 375px) {
     #CreateProfile{
         #User_info {
