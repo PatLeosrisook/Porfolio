@@ -30,6 +30,7 @@ export default function DashboardLayout({children} : {
         menu?.classList.remove('openMenu')
     }
     loggedInUser();
+    console.log("Current User", currentUser)
    })
     return (
         <section id="Dashboard">
