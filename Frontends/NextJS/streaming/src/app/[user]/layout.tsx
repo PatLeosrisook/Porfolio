@@ -7,19 +7,14 @@ import { Spiral as Hamburger } from 'hamburger-react'
 import Menu from "@/Component/Menu";
 import { useEffect, useState } from "react";
 import { getUser } from "@/lib/getUser";
-import userContext from '@/helper/userContext'
+import userContext, {UserProvider} from '@/helper/userContext'
 export default function DashboardLayout({children} : {
     children : React.ReactNode 
 }) {
     // let userContext = createContext("")
-    const[currentUser, setCurrentUser] = useState("")
     const [isToggled, setIsTogged] = useState(false)
     let handleOpenMenu = (toggled : Boolean) => {
         setIsTogged(!isToggled)
-    }
-    let loggedInUser = async() => {
-        let user = await getUser();
-        setCurrentUser(user.currentUser)
     }
    useEffect(() => {
     let menu = document.querySelector("#Menu")
@@ -29,7 +24,6 @@ export default function DashboardLayout({children} : {
     } else {
         menu?.classList.remove('openMenu')
     }
-    loggedInUser();
    })
     return (
         <section id="Dashboard">
@@ -39,9 +33,9 @@ export default function DashboardLayout({children} : {
                 <Hamburger color="white" toggle={setIsTogged} toggled={isToggled}  onToggle={handleOpenMenu} />
             </header>
             <section id="Content">
-                <userContext.Provider value={currentUser}>
+                <UserProvider>
                     {children}
-                </userContext.Provider>
+                </UserProvider>
             </section>
         </section>
     )

@@ -35,7 +35,7 @@ enum MovieGenres{
 export default function Movie({result} : {
     result : ResultType
 }) {
-    const {currentUser} = useContext(userContext)
+    const currentUser = useContext(userContext)
     const [Movie,setMovie] = useState<Array<ListItem>>([])
     const [trendingMovie, setTrendingMovie] = useState<Array<ListItem>>([])
     const [filteredList, setFilteredList] = useState<Array<ListItem>>([])
@@ -97,7 +97,7 @@ export default function Movie({result} : {
             let movie = Movie.filter(movie => movie.genre === genre.id)
             if(movie.length >= 4) {
 
-                return <GenreOverview key={genre.id} lists={movie} link={""} Genre={genre.name}/>
+                return <GenreOverview key={genre.id} lists={movie} link={`/${currentUser}/${genre.name}`} Genre={genre.name}/>
             }
         })
     }
@@ -106,7 +106,6 @@ export default function Movie({result} : {
         if(Movie.length == 0) {
             loadMovie()
         } else {
-            console.log("Genress", loadGenres())
             if(searched !== "") {
                 // find the search input
                 let filteredResult = Movie.filter(movie => movie.Title.toLowerCase().startsWith(searched.toLowerCase()))
