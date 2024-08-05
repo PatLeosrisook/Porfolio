@@ -552,6 +552,7 @@ html {
             // top:0;
             opacity: 1;
             transition:  opacity ease 0.2s;
+            color:white;
         }
     }
     
@@ -724,15 +725,15 @@ html {
         }
     }
    }
-   .Specified_Type, #Movie, #TV {
-    .lists {
-        width: 100%;
-        padding-left: 50px;
+    #Movie, #TV {
+        .lists {
+            width: 100%;
+            padding-left: 50px;
+        }
+        .RecommendedMedia {
+            width: 250px;;
+        }
     }
-    .RecommendedMedia {
-        width: 174px;;
-    }
-   }
 }
 @media(min-width: 1280px) {
     #Account {
@@ -826,7 +827,18 @@ html {
         }
         
     }
-   
+   .media-dashboard {
+        .genre-list {
+            width: 100%;
+        }
+        .genre {
+        width: 100%
+       }
+       .other-genre {
+        width:90vw;
+       }
+   }
+  
 
 }
 @media(min-width: 1600px) {

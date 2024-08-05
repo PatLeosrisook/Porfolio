@@ -1,11 +1,15 @@
 import RecommendedMedia from "./RecommendedMedia"
+import Link from "next/link"
 export default function GenreOverview({Genre, lists, link} : {Genre: string, lists: any, link: string}) {
+    let handleNavigate = (e) => {
+
+    }
     return (
         <section className="genre">
             <section className="genre-header">
                 <h3>{Genre}</h3>
                 <div className="link-genre">
-                    view more
+                    <Link href={link}>view more</Link>
                 </div>
             </section>
             <section className="genre-list">

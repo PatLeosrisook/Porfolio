@@ -12915,6 +12915,7 @@ html {
 .RecommendedMedia:hover .Content {
   opacity: 1;
   transition: opacity ease 0.2s;
+  color: white;
 }
 
 .media-dashboard {
@@ -13068,12 +13069,12 @@ html {
   .ViewMore:hover div {
     color: #192645;
   }
-  .Specified_Type .lists, #Movie .lists, #TV .lists {
+  #Movie .lists, #TV .lists {
     width: 100%;
     padding-left: 50px;
   }
-  .Specified_Type .RecommendedMedia, #Movie .RecommendedMedia, #TV .RecommendedMedia {
-    width: 174px;
+  #Movie .RecommendedMedia, #TV .RecommendedMedia {
+    width: 250px;
   }
 }
 @media (min-width: 1280px) {
@@ -13133,6 +13134,15 @@ html {
   }
   .Specified_Type .lists, #Movie .lists, #TV .lists {
     padding: 0;
+  }
+  .media-dashboard .genre-list {
+    width: 100%;
+  }
+  .media-dashboard .genre {
+    width: 100%;
+  }
+  .media-dashboard .other-genre {
+    width: 90vw;
   }
 }
 @media (min-width: 1600px) {

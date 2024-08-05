@@ -97,7 +97,7 @@ export default function Movie({result} : {
             let movie = Movie.filter(movie => movie.genre === genre.id)
             if(movie.length >= 4) {
 
-                return <GenreOverview key={genre.id} lists={movie} link={`/${currentUser}/${genre.name}`} Genre={genre.name}/>
+                return <GenreOverview key={genre.id} lists={movie} link={`/${currentUser}/Movie/${genre.name}`} Genre={genre.name}/>
             }
         })
     }
