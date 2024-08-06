@@ -84,7 +84,6 @@ export default function Movie({result} : {
                             adult: movie.adult
                         }
                     })
-                    let limitedList = playingMovie.slice(0,4)
                     setMovie(playingMovie)
                 } else {
                     setGenres(res.data.genres)
@@ -95,8 +94,8 @@ export default function Movie({result} : {
     let loadGenres = () => {
         return genres.map(genre => {
             let movie = Movie.filter(movie => movie.genre === genre.id)
-            if(movie.length >= 4) {
-
+            if(movie.length >= 5) {
+                movie = movie.slice(0, 5)
                 return <GenreOverview key={genre.id} lists={movie} link={`/${currentUser}/Movie/${genre.name}`} Genre={genre.name}/>
             }
         })
@@ -123,10 +122,10 @@ export default function Movie({result} : {
             </header> */}
             <section className='trending-section'>
                 <Carousel  id="Carousel">
-                    {/* {
+                    {
                         
-                        popularList.map((list , index) => {
-                            {if(index == popularList.length - 1) {
+                        trendingMovie.map((list , index) => {
+                            {if(index == trendingMovie.length - 1) {
 
                             }}
                             return <Carousel.Item >
@@ -141,7 +140,7 @@ export default function Movie({result} : {
                             </Carousel.Item>
                           
                         })
-                    } */}
+                    }
                 </Carousel>
             </section>
             <section className='other-genre'>

@@ -12926,6 +12926,7 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  gap: 83px;
 }
 .media-dashboard .trending-section {
   width: 100%;
@@ -13143,6 +13144,7 @@ html {
   }
   .media-dashboard .other-genre {
     width: 90vw;
+    max-width: 1350px;
   }
 }
 @media (min-width: 1600px) {
@@ -13167,6 +13169,7 @@ html {
 }
 @media (min-width: 1800px) {
   .RecommendedMedia {
+    width: 360px;
     height: 590px;
   }
   .RecommendedMedia .Content {
