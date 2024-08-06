@@ -1,12 +1,11 @@
 
-import { useRouter } from 'next/router';
+'use client';
 import { useEffect, useState } from 'react';
-export default function Genre() {
-    const router = useRouter() 
-    const {genre} = router.query
+export default function Genre({searchParams}) {
+    const movieList = searchParams.genre
 
     useEffect(() => {
-        
+        console.log("IN SPEC GENRE", JSON.parse(movieList), )
     })
     return(
         <section>

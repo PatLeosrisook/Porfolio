@@ -1,20 +1,19 @@
 import RecommendedMedia from "./RecommendedMedia"
 import Link from "next/link"
-import { useRouter } from "next/router"
-export default function GenreOverview({Genre, lists, link} : {Genre: string, lists: any, link: string}) {
-    const router = useRouter()
+export default function GenreOverview({Genre, lists, link, fullList} : {Genre: string, lists: any, link: string, fullList: any}) {
+
     let handleNavigate = (e) => {
-        router.push({
-            pathname: link,
-            query: { genre: JSON.stringify(lists) }
-        })
+        
     }
     return (
         <section className="genre">
             <section className="genre-header">
                 <h3>{Genre}</h3>
                 <div onClick={handleNavigate} className="link-genre">
-                    View more
+                    <Link href={{
+                        pathname: link, 
+                        query: { genre: JSON.stringify(fullList) }
+                    }}>View more</Link>
                 </div>
             </section>
             <section className="genre-list">
