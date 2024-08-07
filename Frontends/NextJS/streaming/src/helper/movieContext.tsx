@@ -1,12 +1,7 @@
 'use client';
-import {getMovie} from '../../../utils/getMovie'
 import axios from 'axios'
 import { useEffect, useState,useContext, createContext } from 'react';
-import type { InferGetServerSidePropsType, GetServerSideProps } from 'next' // probably on the page that call this method.
-import RecommendedMedia from '@/Component/RecommendedMedia';
-import {options} from '../../../../public/API'
-import Carousel from 'react-bootstrap/Carousel';
-import CarouselsContent from '../../../Component/carouselContent';
+import {options} from '../../public/API'
 import GenreOverview from '@/Component/GenreOverview';
 import userContext from "@/helper/userContext"
 interface ListItem { 
@@ -19,15 +14,13 @@ interface ListItem {
     Type : string,
     adult: boolean
 }
-export default function Movie({result} : {
-    result : ResultType
-}) {
+const MovieContext = createContext([])
+export const MovieContextProvider = ({children} : {children : React.ReactNode}) => {
     const currentUser = useContext(userContext)
     const [Movie,setMovie] = useState<Array<ListItem>>([])
     const [trendingMovie, setTrendingMovie] = useState<Array<ListItem>>([])
-    const [filteredList, setFilteredList] = useState<Array<ListItem>>([])
-    const [searched, setSearchedValue] = useState("")
     const [genres, setGenres] = useState([])
+    const [genreComponents, setGenreComponents] = useState<React.ReactNode>(null);
     const apiEndpoints = [
         "https://api.themoviedb.org/3/trending/movie/day?language=en-US",
         "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
@@ -79,60 +72,37 @@ export default function Movie({result} : {
         })
     }
     let loadGenres = () => {
-        return genres.map(genre => {
+        let genresComponents = genres.map(genre => {
             let movie = Movie.filter(movie => movie.genre === genre.id)
             if(movie.length >= 5) {
                 movie = movie.slice(0, 5)
                 return (
-                <GenreOverview key={genre.id} lists={movie} fullList={Movie.filter(mov => mov.genre === genre.id)}link={`/${currentUser}/Movie/${genre.name}`} Genre={genre.name}/>
+                    <GenreOverview key={genre.id} lists={movie} fullList={Movie.filter(mov => mov.genre === genre.id)}link={`/${currentUser}/Movie/${genre.name}`} Genre={genre.name}/>
                 )
             }
         })
+        setGenreComponents(genresComponents) // send this through context 
     }
     useEffect(() => {
-        //BUG:: Maybe need to integrate context into this first before testing on sub page
         if(Movie.length == 0) {
             loadMovie()
         } else {
-            if(searched !== "") {
-                // find the search input
-                let filteredResult = Movie.filter(movie => movie.Title.toLowerCase().startsWith(searched.toLowerCase()))
-                setFilteredList(filteredResult)
-            } else {
-                setMovie(Movie)
-            }
+            // if(searched !== "") {
+            //     // find the search input
+            //     let filteredResult = Movie.filter(movie => movie.Title.toLowerCase().startsWith(searched.toLowerCase()))
+            //     setFilteredList(filteredResult)
+            // } else {
+            //     setMovie(Movie)
+            // }
+            loadGenres()
         }
     })
-    return (
-        <section id="Movie" className='media-dashboard'>
-            <section className='trending-section'>
-                <Carousel  id="Carousel">
-                    {
-                        
-                        trendingMovie.map((list , index) => {
-                            {if(index == trendingMovie.length - 1) {
 
-                            }}
-                            return <Carousel.Item >
-                                        <CarouselsContent 
-                                            Title={list.Title}
-                                            
-                                            Year={list.year}
-                                            IsAdult={list.adult}
-                                            Type={list.Type}
-                                            src={list.src}
-                                        />
-                            </Carousel.Item>
-                          
-                        })
-                    }
-                </Carousel>
-            </section>
-            <section className='other-genre'>
-                    {
-                        loadGenres()
-                    }
-            </section>
-        </section>
+    return (
+        <MovieContext.Provider value={[genreComponents, Movie, currentUser, trendingMovie]}>
+            {children}
+        </MovieContext.Provider>
     )
 }
+
+export default MovieContext
