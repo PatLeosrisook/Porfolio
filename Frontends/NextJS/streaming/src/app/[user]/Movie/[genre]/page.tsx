@@ -7,7 +7,7 @@ export default function Genre({searchParams}) {
     const movieList = searchParams.genre
 
     useEffect(() => {
-        console.log("IN SPEC GENRE", JSON.parse(movieList), "CONTEXT",Movie)
+        console.log("IN SPEC GENRE", JSON.parse(movieList), "CONTEXT")
     })
     return(
         <section>

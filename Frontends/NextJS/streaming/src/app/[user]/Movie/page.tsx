@@ -9,6 +9,8 @@ import Carousel from 'react-bootstrap/Carousel';
 import CarouselsContent from '../../../Component/carouselContent';
 import GenreOverview from '@/Component/GenreOverview';
 import userContext from "@/helper/userContext"
+
+import MovieContext from '@/helper/movieContext';
 interface ListItem { 
     id: number,
     Title : string,
@@ -22,6 +24,7 @@ interface ListItem {
 export default function Movie({result} : {
     result : ResultType
 }) {
+    const {genreComponents} = useContext(MovieContext)
     const currentUser = useContext(userContext)
     const [Movie,setMovie] = useState<Array<ListItem>>([])
     const [trendingMovie, setTrendingMovie] = useState<Array<ListItem>>([])

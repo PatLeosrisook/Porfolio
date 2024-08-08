@@ -96,7 +96,7 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
             // }
             loadGenres()
         }
-    })
+    },[])
 
     return (
         <MovieContext.Provider value={[genreComponents, Movie, currentUser, trendingMovie]}>
