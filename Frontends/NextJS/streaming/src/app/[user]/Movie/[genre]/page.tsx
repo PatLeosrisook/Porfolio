@@ -1,13 +1,13 @@
 
 'use client';
 import { useEffect, useState , useContext} from 'react';
-import { MovieContextProvider } from '@/helper/movieContext';
+import MovieContext  from '@/helper/movieContext';
 export default function Genre({searchParams}) {
-    // const  Movie  = useContext(MovieContextProvider)
+    const  [genreComponents, Movie, currentUser, trendingMovie] = useContext(MovieContext)
     const movieList = searchParams.genre
 
     useEffect(() => {
-        console.log("IN SPEC GENRE", JSON.parse(movieList), "CONTEXT")
+        console.log("IN SPEC GENRE", JSON.parse(movieList), "CONTEXT", Movie)
     })
     return(
         <section>
