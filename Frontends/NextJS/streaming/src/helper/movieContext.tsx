@@ -70,6 +70,10 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
                 }
             })
         })
+
+        for(let i = 2; i <= 5; i ++) {
+            // TODO:: load 5 pages of movies for each genre
+        }
     }
     let loadGenres = () => {
         let genresComponents = genres.map(genre => {
