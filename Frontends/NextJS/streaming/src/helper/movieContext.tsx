@@ -70,10 +70,33 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
                 }
             })
         })
-
-        for(let i = 2; i <= 5; i ++) {
+        let baseUrl = "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page="
+        let moviePages = []
+        for(let i = 2; i <= 10; i ++) {
             // TODO:: load 5 pages of movies for each genre
+            moviePages.push(baseUrl + i)
         }
+        let movieApi = moviePages.map(url => {
+            options.url = url
+            return axios(options)
+        })
+        Promise.all(movieApi).then(response => {
+           response.forEach(res => {
+            let movies = res.data.results.map((movie) => {
+                return {
+                    id: movie['id'],
+                    Title : movie['title'],
+                    src: movie["poster_path"],
+                    genre: movie['genre_ids'][0],
+                    Overview: movie['overview'],
+                    year:  movie['release_date'].split("-")[0],
+                    Type: "movie",
+                    adult: movie.adult
+                }
+            })
+            setMovie(prevState => [...prevState,...movies]) // merge new movies with existing movies 
+           }) 
+        })
     }
     let loadGenres = () => {
         let genresComponents = genres.map(genre => {
