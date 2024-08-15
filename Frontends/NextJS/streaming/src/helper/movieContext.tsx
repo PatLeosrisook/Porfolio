@@ -97,8 +97,10 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
             setMovie(prevState => [...prevState,...movies]) // merge new movies with existing movies 
            }) 
         })
+
     }
     let loadGenres = () => {
+        console.log(":GENRREE", genres)
         let genresComponents = genres.map(genre => {
             let movie = Movie.filter(movie => movie.genre === genre.id)
             if(movie.length >= 5) {
