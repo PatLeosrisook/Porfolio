@@ -12960,6 +12960,81 @@ html {
   color: white;
 }
 
+.genre-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-content: flex-start;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  color: white;
+  padding-top: 110px;
+}
+.genre-page .genre-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.genre-page .RecommendedMedia {
+  width: 171px;
+  height: 256px;
+}
+.genre-page .genre-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.genre-page .genre-search-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background-color: #192645;
+  border-radius: 30px;
+  overflow: hidden;
+}
+.genre-page .genre-search-container input {
+  width: 50%;
+  height: 100%;
+  border: none;
+  color: white;
+  background-color: transparent;
+}
+.genre-page .genre-search-container input:focus {
+  outline: none;
+}
+.genre-page .genre-search-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  width: 100%;
+  height: 100%;
+  transform: translateX(56px);
+  transition: width ease 0.4s;
+}
+.genre-page .genre-search-wrapper:hover {
+  cursor: pointer;
+}
+.genre-page .expand-genre-search {
+  width: 80% !important;
+  transition: width ease 0.4s;
+}
+.genre-page .expand-genre-search .genre-search-wrapper {
+  transform: translateX(0);
+}
+
 @media (min-width: 375px) {
   #CreateProfile #User_info {
     gap: 70px;

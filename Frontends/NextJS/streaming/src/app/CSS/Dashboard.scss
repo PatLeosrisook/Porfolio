@@ -590,6 +590,66 @@ html {
     }
 }
 
+.genre-page {
+    @include style.flex(); 
+    justify-content: flex-start;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    color:white;
+    padding-top: 110px;
+    .genre-list {
+        @include style.flex(row, center,center);
+        flex-wrap:wrap;
+
+    }
+    .RecommendedMedia {
+        width: 171px;
+        height: 256px;
+    }
+    .genre-header {
+        @include style.flex(); 
+        width:100%;
+        height: fit-content;
+    }
+    .genre-search-container {
+       @include style.flex(row, center, center);
+       width: 60px;
+       height:60px;
+       background-color: style.$Semi-dark-blue;
+     
+       border-radius: 30px;
+       overflow:hidden;
+       input {
+        width: 50%;
+        height: 100%;
+        border:none;
+        color:white;
+        background-color: transparent;
+        &:focus {
+            outline:none;
+        }
+       }
+    }
+    .genre-search-wrapper {
+        @include style.flex(row ,center,center);
+        gap:50px;
+        width: 100%;
+        height:100%;
+        transform: translateX(56px);
+        transition: width ease 0.4s;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    .expand-genre-search {
+        width:80% !important;
+        transition: width ease 0.4s;
+        .genre-search-wrapper {
+            transform: translateX(0);
+        }
+    }
+}
 @media(min-width: 375px) {
     #CreateProfile{
         #User_info {

@@ -20,15 +20,12 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
     const [Movie,setMovie] = useState<Array<ListItem>>([])
     const [trendingMovie, setTrendingMovie] = useState<Array<ListItem>>([])
     const [genres, setGenres] = useState([])
-    const [genreComponents, setGenreComponents] = useState<React.ReactNode>(null);
+    const [genreComponents, setGenreComponents] = useState<Array<React.ReactNode>>([]);
     const apiEndpoints = [
         "https://api.themoviedb.org/3/trending/movie/day?language=en-US",
-        "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
         "https://api.themoviedb.org/3/genre/movie/list?language=en"
     ]
-    let loadMovie = () => {
-
-        //TODO:: dynamically load movie data by genre
+    let init = () => {
         const requests = apiEndpoints.map(url => {
             options.url = url
             return axios(options)
@@ -51,28 +48,17 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
                     })
                     setTrendingMovie(trendingMovie)
 
-                } else if(index == 1)  {
-                    let playingMovie = res.data.results.map((movie) => {
-                        return {
-                            id: movie['id'],
-                            Title : movie['title'],
-                            src: movie["poster_path"],
-                            genre: movie['genre_ids'][0],
-                            Overview: movie['overview'],
-                            year:  movie['release_date'].split("-")[0],
-                            Type: "movie",
-                            adult: movie.adult
-                        }
-                    })
-                    setMovie(playingMovie)
                 } else {
                     setGenres(res.data.genres)
                 }
             })
         })
+    }
+    let loadMovie = () => {
+       
         let baseUrl = "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page="
         let moviePages = []
-        for(let i = 2; i <= 10; i ++) {
+        for(let i = 1; i <= 10; i ++) {
             // TODO:: load 5 pages of movies for each genre
             moviePages.push(baseUrl + i)
         }
@@ -100,7 +86,7 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
 
     }
     let loadGenres = () => {
-        console.log(":GENRREE", genres)
+        
         let genresComponents = genres.map(genre => {
             let movie = Movie.filter(movie => movie.genre === genre.id)
             if(movie.length >= 5) {
@@ -114,8 +100,12 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
     }
     useEffect(() => {
         if(Movie.length == 0) {
-            loadMovie()
-        } else {
+            init();
+            loadMovie();
+        } if(genreComponents.length == 0 ) {
+
+            loadGenres()
+        }else {
             // if(searched !== "") {
             //     // find the search input
             //     let filteredResult = Movie.filter(movie => movie.Title.toLowerCase().startsWith(searched.toLowerCase()))
@@ -123,12 +113,11 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
             // } else {
             //     setMovie(Movie)
             // }
-            loadGenres()
         }
-    },[])
+    },[]);
 
     return (
-        <MovieContext.Provider value={[genreComponents, Movie, currentUser, trendingMovie]}>
+        <MovieContext.Provider value={[genreComponents, Movie, currentUser, trendingMovie, genres]}>
             {children}
         </MovieContext.Provider>
     )
