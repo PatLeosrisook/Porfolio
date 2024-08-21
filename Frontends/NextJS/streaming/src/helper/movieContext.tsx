@@ -96,6 +96,7 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
                 )
             }
         })
+        console.log("LFJIDJF", genresComponents)
         setGenreComponents(genresComponents) // send this through context 
     }
     useEffect(() => {
@@ -107,14 +108,15 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
             loadGenres()
         }else {
             // if(searched !== "") {
-            //     // find the search input
-            //     let filteredResult = Movie.filter(movie => movie.Title.toLowerCase().startsWith(searched.toLowerCase()))
-            //     setFilteredList(filteredResult)
-            // } else {
-            //     setMovie(Movie)
-            // }
-        }
-    },[]);
+                //     // find the search input
+                //     let filteredResult = Movie.filter(movie => movie.Title.toLowerCase().startsWith(searched.toLowerCase()))
+                //     setFilteredList(filteredResult)
+                // } else {
+                    //     setMovie(Movie)
+                    // }
+                }
+                console.log("GENREEEEEE", genreComponents, Movie)
+    },[Movie,genreComponents]);
 
     return (
         <MovieContext.Provider value={[genreComponents, Movie, currentUser, trendingMovie, genres]}>

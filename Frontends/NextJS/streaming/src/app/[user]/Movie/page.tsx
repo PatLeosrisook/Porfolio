@@ -32,7 +32,7 @@ export default function Movie({result} : {
                             {if(index == trendingMovie.length - 1) {
 
                             }}
-                            return <Carousel.Item >
+                            return <Carousel.Item key={list.id}>
                                         <CarouselsContent 
                                             Title={list.Title}
                                             

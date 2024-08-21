@@ -12976,8 +12976,18 @@ html {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
+  width: 92%;
+}
+.genre-page #genre-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 .genre-page .RecommendedMedia {
   width: 171px;
@@ -12997,14 +13007,15 @@ html {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 60px;
-  height: 60px;
+  width: 80%;
+  height: 40px;
   background-color: #192645;
+  max-width: 250px;
   border-radius: 30px;
   overflow: hidden;
 }
 .genre-page .genre-search-container input {
-  width: 50%;
+  width: 60%;
   height: 100%;
   border: none;
   color: white;
@@ -13021,18 +13032,10 @@ html {
   gap: 50px;
   width: 100%;
   height: 100%;
-  transform: translateX(56px);
   transition: width ease 0.4s;
 }
 .genre-page .genre-search-wrapper:hover {
   cursor: pointer;
-}
-.genre-page .expand-genre-search {
-  width: 80% !important;
-  transition: width ease 0.4s;
-}
-.genre-page .expand-genre-search .genre-search-wrapper {
-  transform: translateX(0);
 }
 
 @media (min-width: 375px) {
@@ -13197,6 +13200,10 @@ html {
     transition: transform ease 0.5s;
     z-index: 2;
   }
+  .genre-page .RecommendedMedia {
+    width: 254px;
+    height: 411px;
+  }
 }
 @media (min-width: 1440px) {
   #Movie .category_header, #TV .category_header {
@@ -13214,12 +13221,17 @@ html {
   .media-dashboard .genre-list {
     width: 100%;
   }
+  .media-dashboard .genre-scroller {
+    width: 100%;
+  }
   .media-dashboard .genre {
     width: 100%;
   }
   .media-dashboard .other-genre {
     width: 90vw;
-    max-width: 1350px;
+  }
+  .genre-page .RecommendedMedia {
+    width: 100% !important;
   }
 }
 @media (min-width: 1600px) {

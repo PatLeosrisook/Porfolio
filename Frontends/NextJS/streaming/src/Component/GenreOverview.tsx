@@ -12,7 +12,6 @@ export default function GenreOverview({Genre, lists, link, fullList} : {Genre: s
                 <div onClick={handleNavigate} className="link-genre">
                     <Link href={{
                         pathname: link, 
-                        query: { genre: JSON.stringify(fullList) }
                     }}>View more</Link>
                 </div>
             </section>
