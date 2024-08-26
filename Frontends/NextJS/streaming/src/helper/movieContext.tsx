@@ -66,8 +66,29 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
             options.url = url
             return axios(options)
         })
-        Promise.all(movieApi).then(response => {
-           response.forEach(res => {
+        // Promise.all(movieApi).then(response => {
+        //    response.forEach(res => {
+        //     let movies = res.data.results.map((movie) => {
+        //         return {
+        //             id: movie['id'],
+        //             Title : movie['title'],
+        //             src: movie["poster_path"],
+        //             genre: movie['genre_ids'][0],
+        //             Overview: movie['overview'],
+        //             year:  movie['release_date'].split("-")[0],
+        //             Type: "movie",
+        //             adult: movie.adult
+        //         }
+        //     })
+        //     setMovie(prevState => [...prevState,...movies]) // merge new movies with existing movies 
+        //    }) 
+        // }).catch(error => {
+        //     console.log("Something went wrong with getting movies", error.message, error)
+        // })
+
+        axios.get('/api/multiple-data')
+        .then((res) => {
+            console.log('Combined Data:', res.data);
             let movies = res.data.results.map((movie) => {
                 return {
                     id: movie['id'],
@@ -80,11 +101,10 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
                     adult: movie.adult
                 }
             })
-            setMovie(prevState => [...prevState,...movies]) // merge new movies with existing movies 
-           }) 
-        }).catch(error => {
-            console.log("Something went wrong with getting movies", error.message, error)
         })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 
     }
     let loadGenres = () => {
