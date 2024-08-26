@@ -58,7 +58,7 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
        
         let baseUrl = "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page="
         let moviePages = []
-        for(let i = 1; i <= 10; i ++) {
+        for(let i = 1; i <= 3; i ++) {
             // TODO:: load 5 pages of movies for each genre
             moviePages.push(baseUrl + i)
         }
@@ -82,6 +82,8 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
             })
             setMovie(prevState => [...prevState,...movies]) // merge new movies with existing movies 
            }) 
+        }).catch(error => {
+            console.log("Something went wrong with getting movies", error.message, error)
         })
 
     }
@@ -114,9 +116,9 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
                 // } else {
                     //     setMovie(Movie)
                     // }
-                }
+        }
                 console.log("GENREEEEEE", genreComponents, Movie)
-    },[Movie,genreComponents]);
+    });
 
     return (
         <MovieContext.Provider value={[genreComponents, Movie, currentUser, trendingMovie, genres]}>

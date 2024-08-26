@@ -68,7 +68,7 @@ export default function Genre({searchParams}) {
                         src={movie.src}
                         isAdult={movie.adult}
                         id={movie.id}
-                       key={`${movie.title}-${movie.id}`}
+                    //    key={`${movie.title}-${movie.id}`}
 
                     /> 
                     })}
