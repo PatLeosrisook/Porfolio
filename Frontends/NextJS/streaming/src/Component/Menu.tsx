@@ -33,14 +33,9 @@ export default function Menu({handleOpenMenu} : {handleOpenMenu: Function}) {
     return (
         <section id="Menu"> 
               <ul>
+                  
                     <li>
-                        <Link onClick={handleSelect}  className="active" href={`/${currentUser}/Home`}>
-                            <FontAwesomeIcon icon={faHome} />
-                            <p>Home</p>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link onClick={handleSelect}  href={`/${currentUser}/Movie`}>
+                        <Link onClick={handleSelect} className="active"  href={`/${currentUser}/Movie`}>
                             <FontAwesomeIcon icon={faTicket} />
                             <p>Movies</p>
                         </Link>

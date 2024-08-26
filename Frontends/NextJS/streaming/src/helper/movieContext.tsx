@@ -96,7 +96,7 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
                 )
             }
         })
-        console.log("LFJIDJF", genresComponents)
+        // console.log("LFJIDJF", genresComponents)
         setGenreComponents(genresComponents) // send this through context 
     }
     useEffect(() => {

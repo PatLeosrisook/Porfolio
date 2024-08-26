@@ -61,7 +61,7 @@ export default function Genre({searchParams}) {
                 <section className='genre-list'>
                     {genreMovie.map(movie => {
                         return <RecommendedMedia
-                        Title={movie.title}
+                        Title={movie.Title}
                         Year={movie.year}
                         Overview={movie.Overview}
                         Type={movie.Type}

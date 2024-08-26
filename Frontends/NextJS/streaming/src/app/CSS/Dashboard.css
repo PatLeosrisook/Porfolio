@@ -13231,7 +13231,7 @@ html {
     width: 90vw;
   }
   .genre-page .RecommendedMedia {
-    width: 100% !important;
+    width: 20% !important;
   }
 }
 @media (min-width: 1600px) {

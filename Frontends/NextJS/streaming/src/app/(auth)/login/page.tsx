@@ -61,7 +61,8 @@ export default function Login() {
             await axios.post('/api/users/login', data).then(response => {
                 console.log("logged in ")
                 axios.get('/api/users/me').then(response => {
-                    router.push(`/${response.data.data.username}/Home`)
+                    console.log("Redirecting .......")
+                    router.push(`/${response.data.data.username}/Movie`)
                 }).catch(err => {
                     console.log("Fetching username failed", err)
                 })
