@@ -1,5 +1,5 @@
 <h1 >Hello!</h1>
-I'm Pat, 25 years old based in Bangkok, Thailand and this is my repository. It contains all my frontend projects I worked on behind the scene during my day job. These projects are made using either Pure HTML, CSS and JS or with ReactJS. 
+I'm Pat, 26 years old based in Bangkok, Thailand and this is my repository. It contains all my frontend projects I worked on behind the scene during my day job. These projects are made using either Pure HTML, CSS and JS or with ReactJS. 
 <br/>
 <h2>New stacks</h2>
 I'm currently learning new technologies to add more onto my tech stack. These are: 
