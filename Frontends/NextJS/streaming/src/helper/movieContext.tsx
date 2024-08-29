@@ -1,5 +1,5 @@
 'use client';
-import axios from 'axios'
+import axios, { all } from 'axios'
 import { useEffect, useState,useContext, createContext } from 'react';
 import {options} from '../../public/API'
 import GenreOverview from '@/Component/GenreOverview';
@@ -62,12 +62,12 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
             // TODO:: load 5 pages of movies for each genre
             moviePages.push(baseUrl + i)
         }
-        let movieApi = moviePages.map(url => {
-            options.url = url
-            return axios(options)
-        })
-        Promise.all(movieApi).then(response => {
-           response.forEach(res => {
+        // let movieApi = moviePages.map(url => {
+        //     options.url = url
+        //     return axios(options)
+        // })
+        options.url = baseUrl + '1'
+        axios(options).then(res => {
             let movies = res.data.results.map((movie) => {
                 return {
                     id: movie['id'],
@@ -80,11 +80,30 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
                     adult: movie.adult
                 }
             })
-            setMovie(prevState => [...prevState,...movies]) // merge new movies with existing movies 
-           }) 
-        }).catch(error => {
-            console.log("Something went wrong with getting movies", error.message, error)
+
+            setMovie(movies);
         })
+       
+        
+        // Promise.all(movieApi).then(response => {
+        //    response.forEach(res => {
+        //     let movies = res.data.results.map((movie) => {
+        //         return {
+        //             id: movie['id'],
+        //             Title : movie['title'],
+        //             src: movie["poster_path"],
+        //             genre: movie['genre_ids'][0],
+        //             Overview: movie['overview'],
+        //             year:  movie['release_date'].split("-")[0],
+        //             Type: "movie",
+        //             adult: movie.adult
+        //         }
+        //     })
+        //     setMovie(prevState => [...prevState,...movies]) // merge new movies with existing movies 
+        //    }) 
+        // }).catch(error => {
+        //     console.log("Something went wrong with getting movies", error.message, error)
+        // })
 
     }
     let loadGenres = () => {
@@ -117,8 +136,8 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
                     //     setMovie(Movie)
                     // }
         }
-                console.log("GENREEEEEE", genreComponents, Movie)
-    });
+
+    },[Movie]);
 
     return (
         <MovieContext.Provider value={[genreComponents, Movie, currentUser, trendingMovie, genres]}>
