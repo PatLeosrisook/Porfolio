@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const fetch = require('node-fetch');
+const axios = require('axios');
 
 const app = express();
 app.use(cors());
@@ -20,7 +20,7 @@ app.get('/api/multiple-data', async (req, res) => {
     // Fetch data from each API using a for loop
     for (let url of apiUrls) {
         //TODO:: gonna need to add authentication header here
-      const response = await fetch(url);
+      const response = await axios(url);
       const data = await response.json();
       results.push(data); // Collect each API response
     }
