@@ -113,7 +113,7 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
             if(movie.length >= 5) {
                 movie = movie.slice(0, 5)
                 return (
-                    <GenreOverview key={genre.id} lists={movie} fullList={Movie.filter(mov => mov.genre === genre.id)}link={`/${currentUser}/Movie/${genre.name}`} Genre={genre.name}/>
+                    <GenreOverview key={genre.id} lists={movie} fullList={movie}link={`/${currentUser}/Movie/${genre.name}`} Genre={genre.name}/>
                 )
             }
         })
@@ -121,10 +121,11 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
         setGenreComponents(genresComponents) // send this through context 
     }
     useEffect(() => {
+        console.log("At movie", currentUser)
         if(Movie.length == 0) {
             init();
             loadMovie();
-        } if(genreComponents.length == 0 ) {
+        } if(genreComponents.length == 0  && currentUser !== null) {
 
             loadGenres()
         }else {
@@ -137,7 +138,7 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
                     // }
         }
 
-    },[Movie]);
+    },[currentUser]);
 
     return (
         <MovieContext.Provider value={[genreComponents, Movie, currentUser, trendingMovie, genres]}>

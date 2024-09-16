@@ -17,7 +17,7 @@ export default function GenreOverview({Genre, lists, link, fullList} : {Genre: s
             </section>
             <section className="genre-list">
                 <div className="genre-scroller">
-                    {lists.map(movie => {
+                    {fullList.map(movie => {
                         return <RecommendedMedia
                             Title={movie.Title}
                             Year={movie.Year}

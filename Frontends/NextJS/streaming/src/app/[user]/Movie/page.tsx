@@ -5,6 +5,10 @@ import CarouselsContent from '../../../Component/carouselContent';
 
 
 import MovieContext from '@/helper/movieContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import Search from '@/Component/Search';
+import DropDown from '@/Component/DropDown';
 interface ListItem { 
     id: number,
     Title : string,
@@ -47,9 +51,43 @@ export default function Movie({result} : {
                     }
                 </Carousel>
             </section>
-            <section className='other-genre'>
-                 {genreComponents}
+            <section id="movie-content">
+                <section className='content-header'>
+                    <section className='content-fileter'>
+                        <h2>Movies</h2>
+                        <div className='utils'>
+                            <button className='cta'>Filter</button>
+                            <div className='search-box'>
+                                <FontAwesomeIcon icon={faSearch}/>
+                                <input type='text' placeholder='Search movie name'/>
+                            </div>
+                        </div>
+                    </section>
+                    <section className='content-advance-filter'>
+                        <DropDown lists={[
+                            {name: "Action" , 
+                             value: "Action",
+                             id: 1
+                            },
+                            {name: "Adventure" , 
+                             value: "Adventure",
+                             id: 2
+                            },
+                            {name: "Horror" , 
+                             value: "Horror",
+                             id: 3
+                            },
+                            {name: "Romantic" , 
+                             value: "Romantic",
+                             id: 4
+                            },
+                        ]}
+                    </section>
+                </section>
             </section>
+            {/* <section className='other-genre'>
+                 {genreComponents}
+            </section> */}
         </section>
     )
 }

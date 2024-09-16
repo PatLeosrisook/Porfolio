@@ -7,6 +7,7 @@ import MovieContext  from '@/helper/movieContext';
 import RecommendedMedia from '@/Component/RecommendedMedia';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faClose } from '@fortawesome/free-solid-svg-icons';
+import Pagination from '@/Component/Paginations';
 export default function Genre({searchParams}) {
     const  [genreComponents, Movie, currentUser, trendingMovie, genres] = useContext(MovieContext)
     const [genreMovie, setGenreMovie] = useState([]);
@@ -39,16 +40,18 @@ export default function Genre({searchParams}) {
         setGenreMovie(currentMovie);
     }
 
+
     useEffect(() => {
+        console.log("IN genre", currentUser)
         if(genreMovie.length == 0) {
 
             loadMovieData()
         }
-    },[genreMovie])
+    })
     return(
         <section className='genre-page'>
             <section className='genre-header'>
-                <h1>{router}</h1>
+                <h1>All movies</h1>
                 <div className='genre-search-container'>
                     <div className='genre-search-wrapper'>
                         <FontAwesomeIcon icon={faSearch}/>
@@ -59,7 +62,7 @@ export default function Genre({searchParams}) {
             </section>
             <section id="genre-list-container">
                 <section className='genre-list'>
-                    {genreMovie.map(movie => {
+                    {Movie.map(movie => {
                         return <RecommendedMedia
                         Title={movie.Title}
                         Year={movie.year}
@@ -74,6 +77,7 @@ export default function Genre({searchParams}) {
                     })}
                 </section>
             </section>
+            <Pagination currentPage={1} totalPages={1}/>
         </section>
     )
 }

@@ -12947,8 +12947,7 @@ html {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: -moz-fit-content;
-  width: fit-content;
+  width: 100%;
 }
 .media-dashboard .genre-header {
   display: flex;
@@ -13038,6 +13037,41 @@ html {
   cursor: pointer;
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.pagination button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: 1px solid #0070f3;
+  background-color: white;
+  color: #0070f3;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.pagination button.active {
+  background-color: #0070f3;
+  color: white;
+}
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.pagination button:hover:not(.active):not(:disabled) {
+  background-color: #0070f3;
+  color: white;
+}
+.pagination .ellipsis {
+  margin: 0 5px;
+  padding: 5px 10px;
+  color: #888;
+  cursor: default;
+}
+
 @media (min-width: 375px) {
   #CreateProfile #User_info {
     gap: 70px;
@@ -13103,14 +13137,6 @@ html {
   .Media-content .media-title {
     font-size: 20px;
   }
-  .Specified_Type .lists, #Movie .lists, #TV .lists {
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 85%;
-  }
-  .Specified_Type .RecommendedMedia, #Movie .RecommendedMedia, #TV .RecommendedMedia {
-    width: 200px;
-  }
 }
 @media (min-width: 835px) {
   .Specified_Type .lists, #Movie .lists, #TV .lists {
@@ -13147,13 +13173,6 @@ html {
   }
   .ViewMore:hover div {
     color: #192645;
-  }
-  #Movie .lists, #TV .lists {
-    width: 100%;
-    padding-left: 50px;
-  }
-  #Movie .RecommendedMedia, #TV .RecommendedMedia {
-    width: 250px;
   }
 }
 @media (min-width: 1280px) {
@@ -13244,23 +13263,15 @@ html {
   .content p {
     font-size: 1.5rem;
   }
-  .Specified_Type .lists, #Movie .lists, #TV .lists {
-    padding: 0;
-  }
-  .Specified_Type .RecommendedMedia, #Movie .RecommendedMedia, #TV .RecommendedMedia {
-    width: 250px;
-  }
   .RecommendedMedia .Content-title {
     font-size: 1.4rem;
   }
+  .genre-page .RecommendedMedia {
+    width: 100%;
+  }
 }
 @media (min-width: 1800px) {
-  .RecommendedMedia {
-    width: 360px;
-    height: 590px;
-  }
-  .RecommendedMedia .Content {
-    justify-content: flex-end;
-    padding-bottom: 40px;
+  .genre-page .RecommendedMedia {
+    width: 100%;
   }
 }/*# sourceMappingURL=Dashboard.css.map */
