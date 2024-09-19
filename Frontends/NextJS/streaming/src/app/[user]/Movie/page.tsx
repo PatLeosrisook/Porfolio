@@ -30,8 +30,7 @@ export default function Movie({result} : {
         <section id="Movie" className='media-dashboard'>
             <section className='trending-section'>
                 <Carousel  id="Carousel">
-                    {
-                        
+                    {    
                         trendingMovie.map((list , index) => {
                             {if(index == trendingMovie.length - 1) {
 
@@ -53,7 +52,7 @@ export default function Movie({result} : {
             </section>
             <section id="movie-content">
                 <section className='content-header'>
-                    <section className='content-fileter'>
+                    <section className='content-filter'>
                         <h2>Movies</h2>
                         <div className='utils'>
                             <button className='cta'>Filter</button>
@@ -64,7 +63,7 @@ export default function Movie({result} : {
                         </div>
                     </section>
                     <section className='content-advance-filter'>
-                        <DropDown lists={[
+                        {/* <DropDown lists={[
                             {name: "Action" , 
                              value: "Action",
                              id: 1
@@ -81,8 +80,11 @@ export default function Movie({result} : {
                              value: "Romantic",
                              id: 4
                             },
-                        ]}
+                        ]} */}
                     </section>
+                </section>
+                <section className='content-body'>
+                    {/* where movies are */}
                 </section>
             </section>
             {/* <section className='other-genre'>

@@ -691,7 +691,40 @@ html {
       cursor: default;
     }
   }
-  
+#movie-content {
+    @include style.flex(column, center , flex-start);
+    width: 100vw;
+    min-height: 100vh;
+    height: fit-content;
+    .content-header{
+        @include style.flex();
+        width:100%;
+        height:fit-content;
+        color:white;
+    }
+    .content-filter {
+        @include style.flex(row, center ,space-between);
+        width:100%;
+        height: fit-content;
+    }  
+    .utils {
+        @include style.flex(row, center ,center);
+        width:80%;
+        gap:40px;
+    } 
+    input { 
+        border:none;
+        background-color: transparent;
+        &:focus {
+            outline: none;
+        }
+    }
+    .search-box {
+        @include style.flex(row, center,center);
+        border-bottom: 1px solid white;
+        // width: 40%;
+    }
+}
 @media(min-width: 375px) {
     #CreateProfile{
         #User_info {

@@ -13072,6 +13072,58 @@ html {
   cursor: default;
 }
 
+#movie-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100vw;
+  min-height: 100vh;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+#movie-content .content-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  color: white;
+}
+#movie-content .content-filter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+#movie-content .utils {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  gap: 40px;
+}
+#movie-content input {
+  border: none;
+  background-color: transparent;
+}
+#movie-content input:focus {
+  outline: none;
+}
+#movie-content .search-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid white;
+}
+
 @media (min-width: 375px) {
   #CreateProfile #User_info {
     gap: 70px;
