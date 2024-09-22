@@ -2,7 +2,7 @@
 import { useEffect, useState,useContext, createContext } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import CarouselsContent from '../../../Component/carouselContent';
-
+import RecommendedMedia from '@/Component/RecommendedMedia';
 
 import MovieContext from '@/helper/movieContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -81,10 +81,42 @@ export default function Movie({result} : {
                              id: 4
                             },
                         ]} */}
+                        <select name="category" aria-placeholder='Genre'>
+                            <option value="" disabled>Select genre</option>
+                            <option value="Action" >Action</option>
+                            <option value="Adventure" >Adventure</option>
+                            <option value="Romantic" >Romantic</option>
+                        </select>
+                        <select name="year">
+                            <option value="" disabled>Select year</option>
+                            <option value="2016" >2016</option>
+                            <option value="2017" >2017</option>
+                            <option value="2018" >2018</option>
+                            <option value="2019" >2019</option>
+                            <option value="2020" >2020</option>
+                            <option value="2021" >2021</option>
+                            <option value="2022" >2022</option>
+                            <option value="2023" >2023</option>
+                            <option value="2024" >2024</option>
+                        </select>
                     </section>
                 </section>
                 <section className='content-body'>
                     {/* where movies are */}
+                    <section id="content-wrapper">
+                            {
+                                Movie.map(movie => {
+                                    return <RecommendedMedia 
+                                            Title={movie.title}
+                                            Year={movie.year}
+                                            Overview={movie.overview}
+                                            Type={movie.type}
+                                            src={movie.poster_path}
+                                            isAdult={movie.adult}
+                                    />
+                                })
+                            }
+                    </section>
                 </section>
             </section>
             {/* <section className='other-genre'>

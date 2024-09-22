@@ -699,6 +699,7 @@ html {
     .content-header{
         @include style.flex();
         width:100%;
+        gap:14px;
         height:fit-content;
         color:white;
     }
@@ -723,6 +724,24 @@ html {
         @include style.flex(row, center,center);
         border-bottom: 1px solid white;
         // width: 40%;
+    }
+    .show-advance-filter {
+        @include style.flex(row, center , center);
+        transform: translateY(0px);
+        transition: transform ease 0.4s;
+    }
+    .content-advance-filter {
+        display: none; 
+        gap:10px;
+        width:100%;
+        transform: translateY(-30px);
+        transition: transform ease 0.4s;
+       select {
+        border: none;
+        width: 50%;
+        height: 40px;
+        background-color: style.$Semi-dark-blue;
+       } 
     }
 }
 @media(min-width: 375px) {
