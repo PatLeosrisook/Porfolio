@@ -63,24 +63,6 @@ export default function Movie({result} : {
                         </div>
                     </section>
                     <section className='content-advance-filter'>
-                        {/* <DropDown lists={[
-                            {name: "Action" , 
-                             value: "Action",
-                             id: 1
-                            },
-                            {name: "Adventure" , 
-                             value: "Adventure",
-                             id: 2
-                            },
-                            {name: "Horror" , 
-                             value: "Horror",
-                             id: 3
-                            },
-                            {name: "Romantic" , 
-                             value: "Romantic",
-                             id: 4
-                            },
-                        ]} */}
                         <select name="category" aria-placeholder='Genre'>
                             <option value="" disabled>Select genre</option>
                             <option value="Action" >Action</option>
