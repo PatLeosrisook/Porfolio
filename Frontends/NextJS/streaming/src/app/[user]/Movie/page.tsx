@@ -3,7 +3,7 @@ import { useEffect, useState,useContext, createContext } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import CarouselsContent from '../../../Component/carouselContent';
 import RecommendedMedia from '@/Component/RecommendedMedia';
-
+import getGenre from '@/helper/getMovieGenre'
 import MovieContext from '@/helper/movieContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -23,14 +23,24 @@ export default function Movie({result} : {
     result : ResultType
 }) {
     const [genreComponents, Movie, currentUser, trendingMovie] = useContext(MovieContext)
+    const [FilteredMovie, setFilteredMovie] = useState<Array<ListItem>>([])
+    const [selectedCategory, setSelectedCategory] = useState(null)
     function toggleFilter() { 
         let filterbtn = document.querySelector('.filter-btn')
         let advance_filter = document.querySelector('.content-advance-filter')
         advance_filter!.classList.toggle('show-advance-filter')
     }
+    async function handleSelectCategory( e : Event) {
+        let genre =  await getGenre(e.target.value)
+        setSelectedCategory( genre.id) 
+    }
+    function handleSelectYear(e : Event) {
+        let year = Movie.filter(movie => movie.year === e.target.value)
+        
+    }
     useEffect(() => {
     
-    },[Movie, trendingMovie]);
+    },[FilteredMovie]);
     return (
         <section id="Movie" className='media-dashboard'>
             <section className='trending-section'>
@@ -67,15 +77,17 @@ export default function Movie({result} : {
                             </div>
                         </div>
                     </section>
-                    <section className='content-advance-filter'>
+                    <section onChange={e => handleSelectCategory(e)} className='content-advance-filter'>
                         <select name="category" aria-placeholder='Genre'>
                             <option value="" disabled>Select genre</option>
+                            <option value="All">All</option>
                             <option value="Action" >Action</option>
                             <option value="Adventure" >Adventure</option>
                             <option value="Romantic" >Romantic</option>
                         </select>
-                        <select name="year">
+                        <select onChange={e => handleSelectYear(e)} name="year">
                             <option value="" disabled>Select year</option>
+                            <option value="Any">Any</option>
                             <option value="2016" >2016</option>
                             <option value="2017" >2017</option>
                             <option value="2018" >2018</option>
@@ -91,18 +103,19 @@ export default function Movie({result} : {
                 <section className='content-body'>
                     {/* where movies are */}
                     <section id="content-wrapper">
-                            {
-                                Movie.map(movie => {
-                                    return <RecommendedMedia 
-                                            Title={movie.title}
-                                            Year={movie.year}
-                                            Overview={movie.overview}
-                                            Type={movie.type}
-                                            src={movie.poster_path}
-                                            isAdult={movie.adult}
-                                    />
-                                })
-                            }
+                        {Movie.map(movie => {
+                            return <RecommendedMedia
+                            Title={movie.Title}
+                            Year={movie.year}
+                            Overview={movie.Overview}
+                            Type={movie.Type}
+                            src={movie.src}
+                            isAdult={movie.adult}
+                            id={movie.id}
+                        //    key={`${movie.title}-${movie.id}`}
+
+                        /> 
+                        })}
                     </section>
                 </section>
             </section>

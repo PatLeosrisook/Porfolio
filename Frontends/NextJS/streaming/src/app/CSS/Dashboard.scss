@@ -484,8 +484,10 @@ html {
         overflow-y: scroll;
         height:100px;
     }
-    width: 230px;
-    height: 380px;
+    // width: 230px;
+    // height: 380px;
+    width: 50%;
+    height: 230px;
     gap:10px;
     .Image_wrap {
         height: 100%;
@@ -564,7 +566,7 @@ html {
     height: fit-content;
     
     @include style.flex(column, center , flex-start);
-    gap:83px;
+    gap:40px;
     .trending-section {
         width:100%;
         height:100vh;
@@ -694,6 +696,7 @@ html {
 #movie-content {
     @include style.flex(column, center , flex-start);
     width: 100vw;
+    gap:20px;
     min-height: 100vh;
     height: fit-content;
     .content-header{
@@ -702,12 +705,24 @@ html {
         gap:14px;
         height:fit-content;
         color:white;
+        padding: 0 10px;
     }
     .content-filter {
         @include style.flex(column, flex-start ,center);
         width:100%;
         height: fit-content;
     }  
+    .content-body {
+        width: 100%;
+        height: 100vh;
+        overflow-y:scroll;
+    }
+    #content-wrapper {
+        @include style.flex(row, center,center);
+        flex-wrap: wrap;
+        width:100%;
+        height: fit-content;
+    }
     .utils {
         @include style.flex(row, center ,space-between);
         width:100%;
@@ -838,7 +853,10 @@ html {
             justify-content: center;
         }
     }
-
+    .RecommendedMedia { 
+        width: 30%;
+        height: 340px;
+    }
 }
 @media(min-width: 835px) {
     .Specified_Type, #Movie, #TV {
@@ -880,6 +898,10 @@ html {
 
         }
     }
+   }
+   .RecommendedMedia {
+    width: 18% ;
+    height: 282px;
    }
 
 }
@@ -928,8 +950,6 @@ html {
         }
     }
     .RecommendedMedia {
-        width:100%;
-        
         &:hover{
             // background-color: #262447;
             .Image_wrap {
@@ -1033,6 +1053,8 @@ html {
        
     // }
     .RecommendedMedia {
+        width: 25%;
+        height: 580px;
         .Content-title {
             font-size:1.4rem;
         }

@@ -12840,8 +12840,8 @@ html {
   transform: scale(0.9);
   border-radius: 20px;
   overflow: hidden;
-  width: 230px;
-  height: 380px;
+  width: 50%;
+  height: 230px;
   gap: 10px;
 }
 .RecommendedMedia .overview {
@@ -12926,7 +12926,7 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 83px;
+  gap: 40px;
 }
 .media-dashboard .trending-section {
   width: 100%;
@@ -13078,6 +13078,7 @@ html {
   align-items: center;
   justify-content: flex-start;
   width: 100vw;
+  gap: 20px;
   min-height: 100vh;
   height: -moz-fit-content;
   height: fit-content;
@@ -13092,12 +13093,28 @@ html {
   height: -moz-fit-content;
   height: fit-content;
   color: white;
+  padding: 0 10px;
 }
 #movie-content .content-filter {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+#movie-content .content-body {
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+}
+#movie-content #content-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   width: 100%;
   height: -moz-fit-content;
   height: fit-content;
@@ -13225,6 +13242,10 @@ html {
     width: fit-content;
     justify-content: center;
   }
+  .RecommendedMedia {
+    width: 30%;
+    height: 340px;
+  }
 }
 @media (min-width: 835px) {
   .Specified_Type .lists, #Movie .lists, #TV .lists {
@@ -13262,6 +13283,10 @@ html {
   .ViewMore:hover div {
     color: #192645;
   }
+  .RecommendedMedia {
+    width: 18%;
+    height: 282px;
+  }
 }
 @media (min-width: 1280px) {
   #Account {
@@ -13291,9 +13316,6 @@ html {
     transition: height 0.3s ease;
   }
   #Dashboard .recommends .lists {
-    width: 100%;
-  }
-  .RecommendedMedia {
     width: 100%;
   }
   .RecommendedMedia:hover .Content {
@@ -13350,6 +13372,10 @@ html {
   }
   .content p {
     font-size: 1.5rem;
+  }
+  .RecommendedMedia {
+    width: 25%;
+    height: 580px;
   }
   .RecommendedMedia .Content-title {
     font-size: 1.4rem;
