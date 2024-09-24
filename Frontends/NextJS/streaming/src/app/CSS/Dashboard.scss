@@ -726,15 +726,11 @@ html {
         border-bottom: 1px solid white;
         // width: 40%;
     }
-    .show-advance-filter {
-        @include style.flex(row, center , center);
-        transform: translateY(0px);
-        transition: transform ease 0.4s;
-    }
+    
     .content-advance-filter {
         display: none; 
         gap:10px;
-        width:100%;
+        width:90%;
         transform: translateY(-30px);
         transition: transform ease 0.4s;
        select {
@@ -743,6 +739,13 @@ html {
         height: 40px;
         background-color: style.$Semi-dark-blue;
        } 
+    }
+    .show-advance-filter {
+        transform: translateY(0px);
+        transition: transform ease 0.4s;
+        @include style.flex(row, center , center);
+        display:flex !important;
+        
     }
 }
 @media(min-width: 375px) {

@@ -13125,18 +13125,10 @@ html {
   justify-content: center;
   border-bottom: 1px solid white;
 }
-#movie-content .show-advance-filter {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  transform: translateY(0px);
-  transition: transform ease 0.4s;
-}
 #movie-content .content-advance-filter {
   display: none;
   gap: 10px;
-  width: 100%;
+  width: 90%;
   transform: translateY(-30px);
   transition: transform ease 0.4s;
 }
@@ -13145,6 +13137,15 @@ html {
   width: 50%;
   height: 40px;
   background-color: #192645;
+}
+#movie-content .show-advance-filter {
+  transform: translateY(0px);
+  transition: transform ease 0.4s;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  display: flex !important;
 }
 
 @media (min-width: 375px) {

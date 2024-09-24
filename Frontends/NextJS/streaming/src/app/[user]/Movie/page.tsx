@@ -23,6 +23,11 @@ export default function Movie({result} : {
     result : ResultType
 }) {
     const [genreComponents, Movie, currentUser, trendingMovie] = useContext(MovieContext)
+    function toggleFilter() { 
+        let filterbtn = document.querySelector('.filter-btn')
+        let advance_filter = document.querySelector('.content-advance-filter')
+        advance_filter!.classList.toggle('show-advance-filter')
+    }
     useEffect(() => {
     
     },[Movie, trendingMovie]);
@@ -55,7 +60,7 @@ export default function Movie({result} : {
                     <section className='content-filter'>
                         <h2>Movies</h2>
                         <div className='utils'>
-                            <button className='cta'>Filter</button>
+                            <button onClick={toggleFilter} className='cta filter-btn'>Filter</button>
                             <div className='search-box'>
                                 <FontAwesomeIcon icon={faSearch}/>
                                 <input type='text' placeholder='Search movie name'/>
