@@ -80,31 +80,44 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
                     adult: movie.adult
                 }
             })
-
+            console.log("Movie 1 : " , movies)
             setMovie(movies);
         })
-       
-        
-        // Promise.all(movieApi).then(response => {
-        //    response.forEach(res => {
-        //     let movies = res.data.results.map((movie) => {
-        //         return {
-        //             id: movie['id'],
-        //             Title : movie['title'],
-        //             src: movie["poster_path"],
-        //             genre: movie['genre_ids'][0],
-        //             Overview: movie['overview'],
-        //             year:  movie['release_date'].split("-")[0],
-        //             Type: "movie",
-        //             adult: movie.adult
-        //         }
-        //     })
-        //     setMovie(prevState => [...prevState,...movies]) // merge new movies with existing movies 
-        //    }) 
-        // }).catch(error => {
-        //     console.log("Something went wrong with getting movies", error.message, error)
-        // })
+       options.url = baseUrl + '2'
+       axios(options).then(res => {
+        let movies = res.data.results.map((movie) => {
+            return {
+                id: movie['id'],
+                Title : movie['title'],
+                src: movie["poster_path"],
+                genre: movie['genre_ids'][0],
+                Overview: movie['overview'],
+                year:  movie['release_date'].split("-")[0],
+                Type: "movie",
+                adult: movie.adult
+            }
+        })
+        console.log("Movie 2 : " , movies)
+        setMovie(prev => (prev.concat(movies)))
+       })
 
+       options.url = baseUrl + '4'
+       axios(options).then(res => {
+        let movies = res.data.results.map((movie) => {
+            return {
+                id: movie['id'],
+                Title : movie['title'],
+                src: movie["poster_path"],
+                genre: movie['genre_ids'][0],
+                Overview: movie['overview'],
+                year:  movie['release_date'].split("-")[0],
+                Type: "movie",
+                adult: movie.adult
+            }
+        })
+        console.log("Movie 4 : " , movies)
+        setMovie(prev => (prev.concat(movies)))
+       })
     }
     let loadGenres = () => {
         
@@ -123,6 +136,7 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
     useEffect(() => {
         console.log("At movie", currentUser)
         if(Movie.length == 0) {
+            
             init();
             loadMovie();
         } if(genreComponents.length == 0  && currentUser !== null) {
@@ -138,7 +152,7 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
                     // }
         }
 
-    },[currentUser]);
+    },[]);
 
     return (
         <MovieContext.Provider value={[genreComponents, Movie, currentUser, trendingMovie, genres]}>

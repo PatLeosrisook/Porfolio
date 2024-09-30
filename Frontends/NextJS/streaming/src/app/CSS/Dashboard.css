@@ -12368,6 +12368,33 @@ html {
   font-size: 12px;
 }
 
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.swiper-slide {
+  width: 60%;
+}
+
 #Loading_screen, .Loading_screen {
   height: 100vh;
   width: 100vw;
@@ -13101,6 +13128,7 @@ html {
   align-items: flex-start;
   justify-content: center;
   width: 100%;
+  color: white;
   height: -moz-fit-content;
   height: fit-content;
 }
@@ -13150,6 +13178,7 @@ html {
   transition: transform ease 0.4s;
 }
 #movie-content .content-advance-filter select {
+  color: white;
   border: none;
   width: 50%;
   height: 40px;
@@ -13333,6 +13362,9 @@ html {
     width: 254px;
     height: 411px;
   }
+  #movie-content .content-advance-filter {
+    width: 30%;
+  }
 }
 @media (min-width: 1440px) {
   #Movie .category_header, #TV .category_header {
@@ -13364,6 +13396,13 @@ html {
   }
 }
 @media (min-width: 1600px) {
+  #movie-content #content-wrapper {
+    justify-content: flex-start;
+  }
+  #movie-content .RecommendedMedia {
+    width: 16%;
+    height: 358px;
+  }
   #Dashboard .lists {
     padding-right: 220px;
   }
@@ -13380,6 +13419,26 @@ html {
   .RecommendedMedia .Content-title {
     font-size: 1.4rem;
   }
+  .RecommendedMedia .overview {
+    height: -moz-fit-content;
+    height: fit-content;
+    font-size: 1.2rem;
+  }
+  .RecommendedMedia .Content-title {
+    font-size: 1.4rem;
+  }
+  .RecommendedMedia .Content-detail {
+    justify-content: flex-start;
+    font-size: 1.2rem;
+    gap: 10px;
+  }
+  .RecommendedMedia .bookmark, .RecommendedMedia .trailer {
+    height: 55px;
+    width: 55px;
+  }
+  .RecommendedMedia svg {
+    height: 1.2em;
+  }
   .genre-page .RecommendedMedia {
     width: 100%;
   }
@@ -13387,5 +13446,10 @@ html {
 @media (min-width: 1800px) {
   .genre-page .RecommendedMedia {
     width: 100%;
+  }
+}
+@media (min-width: 2500px) {
+  #movie-content .RecommendedMedia {
+    height: 533px;
   }
 }/*# sourceMappingURL=Dashboard.css.map */

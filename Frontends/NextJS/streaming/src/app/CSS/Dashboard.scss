@@ -79,6 +79,43 @@ html {
     }
 }
 
+// Swiper
+.swiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+  
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .swiper-slide {
+    width: 60%;
+  }
+  
+//   .swiper-slide:nth-child(2n) {
+//     width: 40%;
+//   }
+  
+//   .swiper-slide:nth-child(3n) {
+//     width: 20%;
+//   }
+
+// 
 
 #Loading_screen,.Loading_screen{
     height: 100vh;
@@ -710,6 +747,7 @@ html {
     .content-filter {
         @include style.flex(column, flex-start ,center);
         width:100%;
+        color:white;
         height: fit-content;
     }  
     .content-body {
@@ -749,6 +787,7 @@ html {
         transform: translateY(-30px);
         transition: transform ease 0.4s;
        select {
+        color: white;
         border: none;
         width: 50%;
         height: 40px;
@@ -903,7 +942,7 @@ html {
     width: 18% ;
     height: 282px;
    }
-
+  
 }
 @media(min-width: 1280px) {
     #Account {
@@ -969,6 +1008,7 @@ html {
                 z-index: 2;
             }
         }
+      
     }
     .genre-page {
         .RecommendedMedia{
@@ -976,6 +1016,12 @@ html {
             height: 411px;
         }
     }
+    #movie-content {
+        
+        .content-advance-filter {
+            width: 30%;
+        }
+       }
 }
 @media(min-width: 1440px) {
     #Movie, #TV {
@@ -1021,10 +1067,19 @@ html {
         width: 20% !important;;
     }
   }
+ 
 
 }
 @media(min-width: 1600px) {
-    
+    #movie-content {
+        #content-wrapper {
+            justify-content: flex-start;
+        }
+        .RecommendedMedia {
+            width: 16%;
+            height: 358px;
+        }
+    }
     #Dashboard {
        
         .lists {
@@ -1058,6 +1113,26 @@ html {
         .Content-title {
             font-size:1.4rem;
         }
+
+        .overview {
+            height: fit-content;
+            font-size: 1.2rem;
+        }
+        .Content-title {
+            font-size: 1.4rem;
+        }
+        .Content-detail {
+            justify-content: flex-start;
+            font-size: 1.2rem;
+            gap: 10px;
+        }
+        .bookmark , .trailer {
+            height: 55px;
+            width: 55px;
+        }
+        svg {
+            height :1.2em;
+        }
     }
     .genre-page {
         .RecommendedMedia{
@@ -1078,6 +1153,13 @@ html {
         .RecommendedMedia {
             width: 100%;
         
+        }
+    }
+}
+@media(min-width: 2500px) {
+    #movie-content {
+        .RecommendedMedia {
+            height:533px ;
         }
     }
 }
