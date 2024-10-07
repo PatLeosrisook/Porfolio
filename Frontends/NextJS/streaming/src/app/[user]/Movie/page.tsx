@@ -10,11 +10,11 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import Search from '@/Component/Search';
 import DropDown from '@/Component/DropDown';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
+// import { Swiper, SwiperSlide } from 'swiper/react';
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
+// // Import Swiper styles
+// import 'swiper/css';
+// import 'swiper/css/pagination';
 
 // import './styles.css';
 
@@ -190,7 +190,7 @@ export default function Movie({result} : {
                         /> 
                         })}
                     </section>
-                    {
+                    {/* {
                         (FilteredMovie.length > 0) ? FilteredMovie.map((movie : ListItem, index : number)=> {
                             return <RecommendedMedia
                             Title={movie.Title}
@@ -219,7 +219,7 @@ export default function Movie({result} : {
 
                         /> 
                         })
-                    }
+                    } */}
                 </section>
             </section>
             {/* <section className='other-genre'>
