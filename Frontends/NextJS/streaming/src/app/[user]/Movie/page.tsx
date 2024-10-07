@@ -7,8 +7,7 @@ import getGenre from '@/helper/getMovieGenre'
 import MovieContext from '@/helper/movieContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import Search from '@/Component/Search';
-import DropDown from '@/Component/DropDown';
+import Image from 'next/image';
 
 // import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -37,6 +36,7 @@ export default function Movie({result} : {
     const [FilteredMovie, setFilteredMovie] = useState<Array<ListItem>>([])
     const [selectedCategory, setSelectedCategory] = useState(null)
     const [selectedYear, setSelectedYear] = useState(null)
+    const [searchedTerm, setSearchedTerm] = useState("")
     const [currentGenre, setCurrentGenre] = useState([])
     function toggleFilter() { 
         let filterbtn = document.querySelector('.filter-btn')
@@ -61,21 +61,34 @@ export default function Movie({result} : {
             setSelectedYear(e.target.value)
         }
     }
+    function handleSearch(e : Event) {
+        setSearchedTerm(e.target.value);
+    }
     useEffect(() => {
-        let filter = null
-        if(selectedCategory && selectedYear) {
-            filter = Movie.filter(movie => (movie.genre === selectedCategory && movie.year === selectedYear))
-        } else if (selectedCategory) {
+        let filter = []
+        if(selectedCategory && selectedYear && searchedTerm) {
+            filter = Movie.filter(movie => (movie.genre === selectedCategory && movie.year === selectedYear && movie.Title.startsWith(searchedTerm)));
+        } else if (selectedCategory && selectedYear) {
+            filter = Movie.filter(movie => movie.genre === selectedCategory && movie.year === selectedYear)
+        } else if(selectedYear && searchedTerm) {
+            filter = Movie.filter(movie => movie.year === selectedYear && movie.Title.startsWith(searchedTerm))
+        } else if(selectedCategory && searchedTerm) {
+            filter = Movie.filter(movie => movie.genre === selectedCategory && movie.Title.startsWith(searchedTerm))
+        } else if(selectedCategory) {
             filter = Movie.filter(movie => movie.genre === selectedCategory)
+            
         } else if(selectedYear) {
             filter = Movie.filter(movie => movie.year === selectedYear)
+
+        } else if(searchedTerm) {
+            filter = Movie.filter(movie => movie.Title.startsWith(searchedTerm))
         } else {
             // reset list? 
-            filter = null 
+            filter = []
         }
-        console.log("Filtered", filter)
+        console.log("Filtered", filter, FilteredMovie)
         setFilteredMovie(filter)
-    },[selectedCategory, selectedYear]);
+    },[selectedCategory, selectedYear, searchedTerm]);
     return (
         <section id="Movie" className='media-dashboard'>
             <section className='trending-section'>
@@ -138,7 +151,7 @@ export default function Movie({result} : {
                             <button onClick={toggleFilter} className='cta filter-btn'>Filter</button>
                             <div className='search-box'>
                                 <FontAwesomeIcon icon={faSearch}/>
-                                <input type='text' placeholder='Search movie name'/>
+                                <input onChange={e => handleSearch(e)} type='text' placeholder='Search movie name'/>
                             </div>
                         </div>
                     </section>
@@ -173,53 +186,52 @@ export default function Movie({result} : {
                 <section className='content-body'>
                     {/* where movies are */}
                     <section id="content-wrapper">
-                        {/* key here will use index temporarily. */}
-                        {/* TODO:: Fig bug here */}
-                        {Movie.map((movie : ListItem, index : number) => {
-                            return <RecommendedMedia
-                            Title={movie.Title}
-                            Year={movie.year}
-                            Overview={movie.Overview}
-                            Type={movie.Type}
-                            src={movie.src}
-                            isAdult={movie.adult}
-                            id={movie.id}
-                            key={index}
-                        //    key={`${movie.title}-${movie.id}`}
 
-                        /> 
-                        })}
+                        {  
+                            (selectedCategory === null && selectedYear === null && searchedTerm.length == 0) ?  Movie.map((movie : ListItem, index : number) => {
+                                return <RecommendedMedia
+                                Title={movie.Title}
+                                Year={movie.year}
+                                Overview={movie.Overview}
+                                Type={movie.Type}
+                                src={movie.src}
+                                key={index}
+                                isAdult={movie.adult}
+                                id={movie.id}
+                            //    key={`${movie.title}-${movie.id}`}
+
+                            /> 
+                            }) :
+                            
+                            (FilteredMovie.length > 0) ? FilteredMovie.map((movie : ListItem, index : number)=> {
+                                return <RecommendedMedia
+                                Title={movie.Title}
+                                Year={movie.year}
+                                Overview={movie.Overview}
+                                Type={movie.Type}
+                                src={movie.src}
+                                isAdult={movie.adult}
+                                id={movie.id}
+                                key={index}
+                            //    key={`${movie.title}-${movie.id}`}
+
+                            /> }) :
+
+                            <section className='empty-state'>
+                                <Image 
+                                    src="/icons/EmptyState.svg"
+                                    alt="Empty state icon"
+                                    width={120}
+                                    height={120}
+                                /> 
+                                <p>Not found</p>
+                                <p>Try searching for another category or year.</p>
+                            </section>
+                            
+                           
+                        }
                     </section>
-                    {/* {
-                        (FilteredMovie.length > 0) ? FilteredMovie.map((movie : ListItem, index : number)=> {
-                            return <RecommendedMedia
-                            Title={movie.Title}
-                            Year={movie.year}
-                            Overview={movie.Overview}
-                            Type={movie.Type}
-                            src={movie.src}
-                            isAdult={movie.adult}
-                            id={movie.id}
-                            key={index}
-                        //    key={`${movie.title}-${movie.id}`}
-
-                        /> }) : 
-
-                        Movie.map((movie : ListItem, index : number) => {
-                            return <RecommendedMedia
-                            Title={movie.Title}
-                            Year={movie.year}
-                            Overview={movie.Overview}
-                            Type={movie.Type}
-                            src={movie.src}
-                            key={index}
-                            isAdult={movie.adult}
-                            id={movie.id}
-                        //    key={`${movie.title}-${movie.id}`}
-
-                        /> 
-                        })
-                    } */}
+               
                 </section>
             </section>
             {/* <section className='other-genre'>

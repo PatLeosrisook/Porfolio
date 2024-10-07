@@ -801,6 +801,15 @@ html {
         display:flex !important;
         
     }
+    .empty-state {
+        @include style.flex();
+        width: fit-content;
+        height:fit-content;
+        color:white;
+        p:nth-of-type(1) {
+            font-size: 1.4rem;
+        }
+    }
 }
 @media(min-width: 375px) {
     #CreateProfile{
