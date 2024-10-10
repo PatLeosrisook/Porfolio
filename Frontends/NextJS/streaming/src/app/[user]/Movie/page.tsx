@@ -143,7 +143,7 @@ export default function Movie({result} : {
               }
                 </Swiper> */}
             </section>
-            <section id="movie-content">
+            <section className="media-content">
                 <section className='content-header'>
                     <section className='content-filter'>
                         <h2>Movies</h2>
@@ -185,7 +185,7 @@ export default function Movie({result} : {
                 </section>
                 <section className='content-body'>
                     {/* where movies are */}
-                    <section id="content-wrapper">
+                    <section className="content-wrapper">
 
                         {  
                             (selectedCategory === null && selectedYear === null && searchedTerm.length == 0) ?  Movie.map((movie : ListItem, index : number) => {
@@ -234,9 +234,6 @@ export default function Movie({result} : {
                
                 </section>
             </section>
-            {/* <section className='other-genre'>
-                 {genreComponents}
-            </section> */}
         </section>
     )
 }
