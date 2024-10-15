@@ -47,7 +47,7 @@ export default function Menu({handleOpenMenu} : {handleOpenMenu: Function}) {
                         </Link>
                     </li>
                     <li>
-                        <Link onClick={handleSelect}  href="">
+                        <Link onClick={handleSelect}  href={`/${currentUser}/watchlist`}>
                             <FontAwesomeIcon icon={faBookmark} />
                             <p>Saved</p>
                         </Link>

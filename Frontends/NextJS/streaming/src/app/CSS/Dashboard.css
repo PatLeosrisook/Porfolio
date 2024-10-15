@@ -13206,6 +13206,24 @@ html {
   font-size: 1.4rem;
 }
 
+#watchlist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  color: white;
+}
+#watchlist #watchlist-cate {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  width: 100%;
+}
+
 @media (min-width: 375px) {
   #CreateProfile #User_info {
     gap: 70px;

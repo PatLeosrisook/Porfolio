@@ -812,6 +812,18 @@ html {
         }
     }
 }
+
+#watchlist {
+    @include style.flex();
+    width: 100vw;
+    height: 100vh;
+    color:white;
+    #watchlist-cate {
+        @include style.flex(row, center, flex-start);
+        gap:20px;
+        width: 100%;
+    }
+}
 @media(min-width: 375px) {
     #CreateProfile{
         #User_info {
