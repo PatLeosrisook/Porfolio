@@ -179,7 +179,7 @@ export default function TV() {
         <section className="media-content">
             <section className='content-header'>
                 <section className='content-filter'>
-                    <h2>Movies</h2>
+                    <h2>Tv Shows</h2>
                     <div className='utils'>
                         <button onClick={toggleFilter} className='cta filter-btn'>Filter</button>
                         <div className='search-box'>

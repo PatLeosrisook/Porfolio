@@ -13132,21 +13132,6 @@ html {
   height: -moz-fit-content;
   height: fit-content;
 }
-.media-content .content-body {
-  width: 100%;
-  height: 100vh;
-  overflow-y: scroll;
-}
-.media-content .content-wrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 100%;
-  height: -moz-fit-content;
-  height: fit-content;
-}
 .media-content .utils {
   display: flex;
   flex-direction: row;
@@ -13206,6 +13191,41 @@ html {
   font-size: 1.4rem;
 }
 
+.content-body {
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80vw;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.empty-state p:nth-of-type(1) {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.empty-state p:nth-of-type(2) {
+  font-size: 0.8rem;
+  color: #0070f3;
+}
+
 #watchlist {
   display: flex;
   flex-direction: column;
@@ -13213,6 +13233,7 @@ html {
   justify-content: center;
   width: 100vw;
   height: 100vh;
+  padding: 0 5px;
   color: white;
 }
 #watchlist #watchlist-cate {
@@ -13222,6 +13243,17 @@ html {
   justify-content: flex-start;
   gap: 20px;
   width: 100%;
+}
+#watchlist #watchlist-cate p {
+  font-size: 1rem;
+  color: #1a3269;
+  cursor: pointer;
+  transition: color ease 0.4s, font-size ease 0.4s;
+}
+#watchlist #watchlist-cate .selected {
+  font-size: 1.4rem;
+  color: white;
+  transition: color ease 0.4s, font-size ease 0.4s;
 }
 
 @media (min-width: 375px) {
@@ -13305,6 +13337,26 @@ html {
     width: 30%;
     height: 340px;
   }
+  #watchlist {
+    justify-content: flex-start;
+    padding: 200px 27px 0px 27px;
+  }
+  #watchlist #watchlist-cate p {
+    font-size: 1.5rem;
+  }
+  #watchlist #watchlist-cate .selected {
+    font-size: 2rem;
+  }
+  .empty-state img {
+    width: 200px;
+    height: 200px;
+  }
+  .empty-state p:nth-of-type(1) {
+    font-size: 1.8rem;
+  }
+  .empty-state p:nth-of-type(2) {
+    font-size: 1.2rem;
+  }
 }
 @media (min-width: 835px) {
   .Specified_Type .lists, #Movie .lists, #TV .lists {
@@ -13345,6 +13397,9 @@ html {
   .RecommendedMedia {
     width: 18%;
     height: 282px;
+  }
+  #watchlist {
+    padding-top: 110px;
   }
 }
 @media (min-width: 1280px) {

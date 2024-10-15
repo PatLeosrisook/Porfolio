@@ -750,18 +750,7 @@ html {
         color:white;
         height: fit-content;
     }  
-    .content-body {
-    
-        width: 100%;
-        height: 100vh;
-        overflow-y:scroll;
-    }
-    .content-wrapper {
-        @include style.flex(row, center,center);
-        flex-wrap: wrap;
-        width:100%;
-        height: fit-content;
-    }
+   
     .utils {
         @include style.flex(row, center ,space-between);
         width:100%;
@@ -812,16 +801,64 @@ html {
         }
     }
 }
-
+.content-body {
+    
+    width: 100%;
+    height: 100vh;
+    overflow-y:scroll;
+}
+.content-wrapper {
+    @include style.flex(row, center,center);
+    flex-wrap: wrap;
+    width:100%;
+    height: fit-content;
+}
+.empty-state {
+    @include style.flex();
+    width: 80vw;
+    height: fit-content;
+    p {
+        &:nth-of-type(1) {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+        &:nth-of-type(2) {
+            font-size: 0.8rem;
+            color:#0070f3;
+            
+        }
+    }
+}
 #watchlist {
     @include style.flex();
     width: 100vw;
     height: 100vh;
+    padding: 0 5px;
     color:white;
+    // .content-body {
+    //     width: 100vw;
+    //     height: 100vh;;
+    // }
+    // .content-wrapper {
+    //     width: 100%;
+    //     height: 100%;
+    // }
     #watchlist-cate {
         @include style.flex(row, center, flex-start);
         gap:20px;
         width: 100%;
+
+        p {
+            font-size: 1rem;
+            color:#1a3269; 
+            cursor: pointer;
+            transition: color ease 0.4s, font-size ease 0.4s
+        }
+        .selected {
+            font-size: 1.4rem; 
+            color:white;
+            transition: color ease 0.4s, font-size ease 0.4s
+        }
     }
 }
 @media(min-width: 375px) {
@@ -918,6 +955,33 @@ html {
         width: 30%;
         height: 340px;
     }
+    #watchlist {
+        justify-content: flex-start;
+        padding: 200px 27px 0px 27px;
+        #watchlist-cate {
+            p {
+                font-size: 1.5rem;
+            }
+            .selected {
+                font-size: 2rem;
+            }
+        }
+    }
+    .empty-state {
+        img {
+            width: 200px;
+            height: 200px;
+        
+        }
+        p {
+            &:nth-of-type(1) {
+                font-size: 1.8rem;
+            }
+            &:nth-of-type(2) {
+                font-size: 1.2rem;
+            }
+        }
+    }
 }
 @media(min-width: 835px) {
     .Specified_Type, #Movie, #TV {
@@ -964,7 +1028,9 @@ html {
     width: 18% ;
     height: 282px;
    }
-  
+   #watchlist {
+    padding-top: 110px;
+   }
 }
 @media(min-width: 1280px) {
     #Account {

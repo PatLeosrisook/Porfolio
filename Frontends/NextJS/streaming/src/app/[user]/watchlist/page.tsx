@@ -1,21 +1,41 @@
 'use client';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import EmptyState from "@/Component/EmptyState";
 export default function WatchList() {
     const [currentCategory, setCurrentCategory] = useState("Movies");
     const [list, setList] = useState([])
+    
+    function handleCategoryChange(e : Event) {
+        let current = e.target.getAttribute('class'); 
+        setCurrentCategory(current.split(" ")[0])
+    }
+    function loadWatchlist() {
+        // fetch watchlist from API
+        // setList(response data)
+    }
+    useEffect(() => {
+        let currentCate = document.querySelector(`.${currentCategory}`)
+        if(currentCategory == "cate-movie") {
+            document.querySelector('.cate-tv')?.classList.remove('selected')
+            currentCate?.classList.add('selected')
+        } else {
+            document.querySelector('.cate-movie')?.classList.remove('selected')
+            currentCate?.classList.add('selected')
+        }
+        loadWatchlist() // load watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly
+    },[currentCategory])
     return(
         <section id="watchlist">
             <section id="watchlist-cate">
-                <p>Movies</p>
-                <p>Tv Shows</p>
+                <p onClick={e=>handleCategoryChange(e)} className="cate-movie selected">Movies</p>
+                <p onClick={e=>handleCategoryChange(e)} className="cate-tv">Tv Shows</p>
             </section>
             <section className="content-body">
                 <section className="content-wrapper">
                     {
                         (list.length > 0) ? list : 
                         <EmptyState
-                            src={""}
+                            src={"No_fav.svg"}
                             alt="Empty watch list icon"
                             width={120}
                             height={120}
