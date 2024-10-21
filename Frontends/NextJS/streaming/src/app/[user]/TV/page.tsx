@@ -11,6 +11,7 @@ import Image from 'next/image';
 import axios from 'axios';
 import { options } from '../../../../public/API';
 interface ListItem { 
+    id : number,
     Title : string,
     src : string, 
     genre: number,
@@ -101,6 +102,7 @@ export default function TV() {
             
             let list : ListItem[]  = result.map(tv => {
                 return {
+                    id: tv['id'],
                     Title: tv['name'],
                     year: tv["first_air_date"].split("-")[0],
                     genre: tv['genre_ids'][0],
@@ -110,6 +112,7 @@ export default function TV() {
                     src: tv["poster_path"]
                 }
             })
+            console.log(list, "Re")
             setTV(list)
         })
     }
@@ -218,6 +221,7 @@ export default function TV() {
                     {  
                         (selectedCategory === null && selectedYear === null && searchedTerm.length == 0) ?  TV.map((movie : ListItem, index : number) => {
                             return <RecommendedMedia
+                            id={movie.id}
                             Title={movie.Title}
                             Year={movie.year}
                             Overview={movie.Overview}
@@ -225,7 +229,7 @@ export default function TV() {
                             src={movie.src}
                             key={index}
                             isAdult={movie.adult}
-                            id={movie.id}
+                            
                         //    key={`${movie.title}-${movie.id}`}
 
                         /> 

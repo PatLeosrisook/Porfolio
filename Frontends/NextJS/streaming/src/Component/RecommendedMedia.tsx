@@ -15,6 +15,7 @@ export default function RecommendedMedia({id, Year, Title, isAdult, Overview, Ty
     const [booked, setBooked] = useState()
     let handleBookmarked = () => {
         //TODO:: this will then save the id of the current movie to user's database.
+        alert('bookmarked', id)
     }
 
     return (
@@ -30,7 +31,7 @@ export default function RecommendedMedia({id, Year, Title, isAdult, Overview, Ty
                 </div>
                 <p className="overview">{Overview}</p>
                 <div className="Content-action">
-                    <div className="bookmark">
+                    <div onClick={handleBookmarked} className="bookmark">
                         <FontAwesomeIcon icon={unBookedmark} /> 
                         <p>Bookmark</p>
                     </div>

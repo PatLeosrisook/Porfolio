@@ -13233,7 +13233,7 @@ html {
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  padding: 0 5px;
+  padding: 110px 41px;
   color: white;
 }
 #watchlist #watchlist-cate {
@@ -13399,7 +13399,7 @@ html {
     height: 282px;
   }
   #watchlist {
-    padding-top: 110px;
+    padding-top: 228px;
   }
 }
 @media (min-width: 1280px) {
