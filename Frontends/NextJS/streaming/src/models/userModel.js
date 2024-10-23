@@ -17,6 +17,16 @@ const userSchema = new mongoose.Schema({
         required: [true, "Please enter an email"],
         unique: true
     },
+    watchlist: [
+        {
+          title: String,
+          type: { type: String, enum: ['movie', 'tvshow'] },
+          genre: [String],
+          releaseDate: Date,
+          rating: Number,
+          addedAt: { type: Date, default: Date.now }
+        }
+      ],
     password: {
         type: String,
         required: [true, "Please enter a password"],

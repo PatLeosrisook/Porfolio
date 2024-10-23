@@ -15,7 +15,7 @@ export default function RecommendedMedia({id, Year, Title, isAdult, Overview, Ty
     const [booked, setBooked] = useState()
     let handleBookmarked = () => {
         //TODO:: this will then save the id of the current movie to user's database.
-        alert('bookmarked', id)
+        console.log(id)
     }
 
     return (

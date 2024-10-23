@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import EmptyState from "@/Component/EmptyState";
 export default function WatchList() {
-    const [currentCategory, setCurrentCategory] = useState("Movies");
+    const [currentCategory, setCurrentCategory] = useState("cate-movie");
     const [list, setList] = useState([])
     
     function handleCategoryChange(e : Event) {
