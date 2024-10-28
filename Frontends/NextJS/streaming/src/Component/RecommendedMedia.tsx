@@ -3,19 +3,45 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBookmark as Bookedmarked, faPlay } from "@fortawesome/free-solid-svg-icons"
 import { faBookmark as unBookedmark } from "@fortawesome/free-regular-svg-icons"
 import { useState } from "react";
-export default function RecommendedMedia({id, Year, Title, isAdult, Overview, Type, src}: {
+import axios from "axios";
+import GetUser from "@/helper/getUser";
+import { options } from "../../public/API";
+export default function RecommendedMedia({id, Year, Title, isAdult, Overview, Type, src, userEmail}: {
     id:number,
     Year: string,
     Title: string,
     Overview: string,
     isAdult: boolean,
     Type: string,
-    src: string
+    src: string,
+    userEmail: string
 }) {
     const [booked, setBooked] = useState()
     let handleBookmarked = () => {
         //TODO:: this will then save the id of the current movie to user's database.
-        console.log(id)
+        console.log(id, userEmail)
+        let movie = {
+            id: id, 
+            Title: Title, 
+            Overview: Overview,
+            Type: Type, 
+            src: src,
+            isAdult: isAdult,
+            addedAt: new Date()
+        }
+        let data = {
+            email: userEmail,
+            movie: movie
+        }
+        options.method = "POST"
+        options.url = "/api/user/watchlist/add"
+        //TODO:: return 405 error : 
+        axios.post('/api/users/watchlist/add', data, {headers: options.headers}).then(response => {
+            console.log("Add watchlist", response)
+        }).catch(error => {
+            console.log("OH, something went wrong", error)
+        })
+
     }
 
     return (

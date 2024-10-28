@@ -7,6 +7,7 @@ import getGenre from '@/helper/getMovieGenre'
 import MovieContext from '@/helper/movieContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { useUser } from '@/helper/userContext';
 import Image from 'next/image';
 
 // import { Swiper, SwiperSlide } from 'swiper/react';
@@ -32,7 +33,8 @@ interface ListItem {
 export default function Movie({result} : {
     result : ResultType
 }) {
-    const [genreComponents, Movie, currentUser, trendingMovie, genres] = useContext(MovieContext)
+    const { currentUser, currentEmail } = useUser();
+    const [genreComponents, Movie, trendingMovie, genres] = useContext(MovieContext)
     const [FilteredMovie, setFilteredMovie] = useState<Array<ListItem>>([])
     const [selectedCategory, setSelectedCategory] = useState(null)
     const [selectedYear, setSelectedYear] = useState(null)
@@ -65,6 +67,7 @@ export default function Movie({result} : {
         setSearchedTerm(e.target.value);
     }
     useEffect(() => {
+        console.log("FROM MOVBIEE", currentEmail, currentUser);
         let filter = []
         if(selectedCategory && selectedYear && searchedTerm) {
             filter = Movie.filter(movie => (movie.genre === selectedCategory && movie.year === selectedYear && movie.Title.startsWith(searchedTerm)));
@@ -86,9 +89,8 @@ export default function Movie({result} : {
             // reset list? 
             filter = []
         }
-        console.log("Filtered", filter, FilteredMovie)
         setFilteredMovie(filter)
-    },[selectedCategory, selectedYear, searchedTerm]);
+    },[selectedCategory, selectedYear, searchedTerm, currentEmail, currentUser]);
     return (
         <section id="Movie" className='media-dashboard'>
             <section className='trending-section'>
@@ -198,6 +200,7 @@ export default function Movie({result} : {
                                 key={index}
                                 isAdult={movie.adult}
                                 id={movie.id}
+                                userEmail={currentEmail}
                             //    key={`${movie.title}-${movie.id}`}
 
                             /> 

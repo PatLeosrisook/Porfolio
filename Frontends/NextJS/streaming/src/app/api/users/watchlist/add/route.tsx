@@ -1,6 +1,7 @@
 
 import { NextRequest, NextResponse } from "next/server";
 export default async function handler(req : NextRequest, res : NextResponse) {
+    console.log("Hnalder add watch")
     const { email, movie } = req.body; // Use email instead of userId
 
   try {

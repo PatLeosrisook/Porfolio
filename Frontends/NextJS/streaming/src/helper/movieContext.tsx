@@ -3,7 +3,6 @@ import axios, { all } from 'axios'
 import { useEffect, useState,useContext, createContext } from 'react';
 import {options} from '../../public/API'
 import GenreOverview from '@/Component/GenreOverview';
-import userContext from "@/helper/userContext"
 interface ListItem { 
     id: number,
     Title : string,
@@ -16,7 +15,6 @@ interface ListItem {
 }
 const MovieContext = createContext([])
 export const MovieContextProvider = ({children} : {children : React.ReactNode}) => {
-    const currentUser = useContext(userContext)
     const [Movie,setMovie] = useState<Array<ListItem>>([])
     const [trendingMovie, setTrendingMovie] = useState<Array<ListItem>>([])
     const [genres, setGenres] = useState([])
@@ -134,12 +132,12 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
         setGenreComponents(genresComponents) // send this through context 
     }
     useEffect(() => {
-        console.log("At movie", currentUser)
+
         if(Movie.length == 0) {
             
             init();
             loadMovie();
-        } if(genreComponents.length == 0  && currentUser !== null) {
+        } if(genreComponents.length == 0 ) {
 
             loadGenres()
         }else {
@@ -155,7 +153,7 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
     },[]);
 
     return (
-        <MovieContext.Provider value={[genreComponents, Movie, currentUser, trendingMovie, genres]}>
+        <MovieContext.Provider value={[genreComponents, Movie,trendingMovie, genres]}>
             {children}
         </MovieContext.Provider>
     )

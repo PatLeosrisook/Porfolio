@@ -1,10 +1,11 @@
 'use client';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import EmptyState from "@/Component/EmptyState";
+
 export default function WatchList() {
     const [currentCategory, setCurrentCategory] = useState("cate-movie");
     const [list, setList] = useState([])
-    
+
     function handleCategoryChange(e : Event) {
         let current = e.target.getAttribute('class'); 
         setCurrentCategory(current.split(" ")[0])
@@ -14,6 +15,7 @@ export default function WatchList() {
         // setList(response data)
     }
     useEffect(() => {
+
         let currentCate = document.querySelector(`.${currentCategory}`)
         if(currentCategory == "cate-movie") {
             document.querySelector('.cate-tv')?.classList.remove('selected')

@@ -7,7 +7,7 @@ import { Spiral as Hamburger } from 'hamburger-react'
 import Menu from "@/Component/Menu";
 import { useEffect, useState } from "react";
 import { getUser } from "@/lib/getUser";
-import userContext, {UserProvider} from '@/helper/userContext'
+import  {UserProvider} from '@/helper/userContext'
 export default function DashboardLayout({children} : {
     children : React.ReactNode 
 }) {
@@ -26,6 +26,7 @@ export default function DashboardLayout({children} : {
     }
    })
     return (
+    <UserProvider >
         <section id="Dashboard">
             <Menu handleOpenMenu={handleOpenMenu} />
             <header>
@@ -33,10 +34,9 @@ export default function DashboardLayout({children} : {
                 <Hamburger color="white" toggle={setIsTogged} toggled={isToggled}  onToggle={handleOpenMenu} />
             </header>
             <section id="Content">
-                <UserProvider>
                     {children}
-                </UserProvider>
             </section>
         </section>
+    </UserProvider>
     )
 }
