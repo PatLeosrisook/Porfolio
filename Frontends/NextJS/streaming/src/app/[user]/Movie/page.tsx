@@ -9,16 +9,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useUser } from '@/helper/userContext';
 import Image from 'next/image';
-
-// import { Swiper, SwiperSlide } from 'swiper/react';
-
-// // Import Swiper styles
-// import 'swiper/css';
-// import 'swiper/css/pagination';
-
-// import './styles.css';
-
-// import required modules
 import { Pagination } from 'swiper/modules';
 interface ListItem { 
     id: number,
@@ -198,6 +188,7 @@ export default function Movie({result} : {
                                 Type={movie.Type}
                                 src={movie.src}
                                 key={index}
+                                Genre={movie.genre}
                                 isAdult={movie.adult}
                                 id={movie.id}
                                 userEmail={currentEmail}

@@ -6,10 +6,11 @@ import { useState } from "react";
 import axios from "axios";
 import GetUser from "@/helper/getUser";
 import { options } from "../../public/API";
-export default function RecommendedMedia({id, Year, Title, isAdult, Overview, Type, src, userEmail}: {
+export default function RecommendedMedia({id, Year, Title, isAdult, Genre,  Overview, Type, src, userEmail}: {
     id:number,
     Year: string,
     Title: string,
+    Genre: number,
     Overview: string,
     isAdult: boolean,
     Type: string,
@@ -19,13 +20,14 @@ export default function RecommendedMedia({id, Year, Title, isAdult, Overview, Ty
     const [booked, setBooked] = useState()
     let handleBookmarked = () => {
         //TODO:: this will then save the id of the current movie to user's database.
-        console.log(id, userEmail)
         let movie = {
             id: id, 
-            Title: Title, 
-            Overview: Overview,
-            Type: Type, 
+            title: Title, 
+            overview: Overview,
+            type: Type, 
             src: src,
+            genre: Genre,
+            year: Year,
             isAdult: isAdult,
             addedAt: new Date()
         }
@@ -36,8 +38,14 @@ export default function RecommendedMedia({id, Year, Title, isAdult, Overview, Ty
         options.method = "POST"
         options.url = "/api/user/watchlist/add"
         //TODO:: return 405 error : 
-        axios.post('/api/users/watchlist/add', data, {headers: options.headers}).then(response => {
-            console.log("Add watchlist", response)
+        axios({
+            method: options.method,
+            url: '/api/users/watchlist/add', // Set the actual URL here
+            data: data, // The data for the POST request
+            headers: options.headers
+        
+        }).then(response => {
+            //TODO:: React toast here 
         }).catch(error => {
             console.log("OH, something went wrong", error)
         })

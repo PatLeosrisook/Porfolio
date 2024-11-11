@@ -53,17 +53,13 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
         })
     }
     let loadMovie = () => {
-       
+        //TODO:: get user watchlist here?
         let baseUrl = "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page="
         let moviePages = []
         for(let i = 1; i <= 3; i ++) {
             // TODO:: load 5 pages of movies for each genre
             moviePages.push(baseUrl + i)
         }
-        // let movieApi = moviePages.map(url => {
-        //     options.url = url
-        //     return axios(options)
-        // })
         options.url = baseUrl + '1'
         axios(options).then(res => {
             let movies = res.data.results.map((movie) => {
@@ -95,7 +91,6 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
                 adult: movie.adult
             }
         })
-        console.log("Movie 2 : " , movies)
         setMovie(prev => (prev.concat(movies)))
        })
 
@@ -113,7 +108,6 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
                 adult: movie.adult
             }
         })
-        console.log("Movie 4 : " , movies)
         setMovie(prev => (prev.concat(movies)))
        })
     }

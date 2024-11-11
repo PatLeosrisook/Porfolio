@@ -1,10 +1,14 @@
-
+import {connect} from "@/dbConfig/dbConfig"
 import { NextRequest, NextResponse } from "next/server";
-export default async function handler(req : NextRequest, res : NextResponse) {
-    console.log("Hnalder add watch")
-    const { email, movie } = req.body; // Use email instead of userId
+import User from "@/models/userModel"
+connect();
+export async function POST(req : NextRequest, res : NextResponse) {
+
 
   try {
+    const reqBody = await req.json(); 
+    const { email, movie } = reqBody; // Use email instead of userId
+    console.log("Hnalder add watch", email, movie)
     // Find the user by email and update their watchlist
     const updatedUser = await User.findOneAndUpdate(
       { email }, // Find the user by email
@@ -14,7 +18,7 @@ export default async function handler(req : NextRequest, res : NextResponse) {
             title: movie.title,
             type: movie.type,
             genre: movie.genre,
-            releaseDate: movie.releaseDate,
+            year: movie.year,
             rating: movie.rating,
             addedAt: new Date(),
           }
@@ -24,13 +28,13 @@ export default async function handler(req : NextRequest, res : NextResponse) {
     );
 
     if (!updatedUser) {
-      return res.status(404).json({ message: 'User not found' });
+      return NextResponse.json({error: "User not found"}, {status: 404})
     }
 
-    return res.status(200).json({ message: 'Movie added to watchlist', watchlist: updatedUser.watchlist });
+    return NextResponse.json({ message: 'Movie added to watchlist'}, {status: 200})
   } catch (error) {
     console.error('Error adding movie to watchlist:', error);
-    return res.status(500).json({ message: 'Internal server error' });
+    return NextResponse.json({error: error.message}, {status: 500});   
   }
 }
 

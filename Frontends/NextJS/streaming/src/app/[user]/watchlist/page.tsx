@@ -1,8 +1,10 @@
 'use client';
 import { useState, useEffect, useContext } from "react";
 import EmptyState from "@/Component/EmptyState";
-
+import axios from "axios";
+import { useUser } from '@/helper/userContext';
 export default function WatchList() {
+    const { currentUser, currentEmail } = useUser();
     const [currentCategory, setCurrentCategory] = useState("cate-movie");
     const [list, setList] = useState([])
 
@@ -13,6 +15,15 @@ export default function WatchList() {
     function loadWatchlist() {
         // fetch watchlist from API
         // setList(response data)
+       axios.get('/api/users/watchlist/get', {
+        params: {
+            email: currentEmail
+        }
+    }).then(response => {
+
+       }).catch(error => {
+        console.log("Error fetching watchlist")
+       })
     }
     useEffect(() => {
 
