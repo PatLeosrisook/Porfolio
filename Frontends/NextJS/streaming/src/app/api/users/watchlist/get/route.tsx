@@ -1,9 +1,11 @@
 import { NextRequest, NextResponse } from "next/server"
 import User from "@/models/userModel";
+import { connect } from "@/dbConfig/dbConfig";
+connect();
 export async function GET(req : NextRequest) {
 
     try {
-        console.log("Fetching watchlist from database....")
+        console.log("Fetching watchlist from database....", req)
         const reqBody = await req.json();
         console.log(reqBody);
         const {email} = reqBody
