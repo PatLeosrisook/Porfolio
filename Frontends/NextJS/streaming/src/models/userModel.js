@@ -19,11 +19,14 @@ const userSchema = new mongoose.Schema({
     },
     watchlist: [
         {
+          id: Number,
           title: String,
+          overview: String, 
           type: { type: String, enum: ['movie', 'tvshow'] },
-          genre: [String],
-          releaseDate: Date,
-          rating: Number,
+          src: String,
+          genre: Number,
+          year: String,
+          isAdult: Boolean,
           addedAt: { type: Date, default: Date.now }
         }
       ],

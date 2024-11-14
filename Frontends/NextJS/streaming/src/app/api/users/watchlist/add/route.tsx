@@ -8,7 +8,12 @@ export async function POST(req : NextRequest, res : NextResponse) {
   try {
     const reqBody = await req.json(); 
     const { email, movie } = reqBody; // Use email instead of userId
-    console.log("Hnalder add watch", email, movie)
+    const getUser = await User.findOne({email: email})
+    const isMovieExist = getUser.watchlist.some(storedMovie => storedMovie.id === movie.id);
+    if (isMovieExist) {
+      return NextResponse.json({message: "Movie already added"}, {status: 500})
+    } 
+    
     // Find the user by email and update their watchlist
     const updatedUser = await User.findOneAndUpdate(
       { email }, // Find the user by email

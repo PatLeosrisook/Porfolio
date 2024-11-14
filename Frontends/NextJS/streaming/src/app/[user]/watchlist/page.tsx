@@ -2,11 +2,12 @@
 import { useState, useEffect, useContext } from "react";
 import EmptyState from "@/Component/EmptyState";
 import axios from "axios";
+import RecommendedMedia from "@/Component/RecommendedMedia";
 import { useUser } from '@/helper/userContext';
 export default function WatchList() {
     const { currentUser, currentEmail } = useUser();
     const [currentCategory, setCurrentCategory] = useState("cate-movie");
-    const [list, setList] = useState([])
+    const [list, setList] = useState<Array>([])
 
     function handleCategoryChange(e : Event) {
         let current = e.target.getAttribute('class'); 
@@ -21,7 +22,7 @@ export default function WatchList() {
         }
     }).then(response => {
         console.log("Succeessss", response)
-        // setList(response.data.watchlist)
+        setList(response.data.watchlist)
        }).catch(error => {
         console.log("Error fetching watchlist")
        })
@@ -47,7 +48,18 @@ export default function WatchList() {
             <section className="content-body">
                 <section className="content-wrapper">
                     {
-                        (list.length > 0) ? list : 
+                        (list.length > 0) ? list.map(item => {
+                            <RecommendedMedia
+                                Title={item.title}
+                                Year={item.year}
+                                Overview={item.overview}
+                                IsAdult={item.adult}
+                                Type={item.type}
+                                src={item.src}
+                                key={item.id}
+                                Genre={item.genre}
+                            />
+                        }) : 
                         <EmptyState
                             src={"No_fav.svg"}
                             alt="Empty watch list icon"

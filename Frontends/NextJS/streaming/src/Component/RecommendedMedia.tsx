@@ -47,7 +47,7 @@ export default function RecommendedMedia({id, Year, Title, isAdult, Genre,  Over
         }).then(response => {
             //TODO:: React toast here 
         }).catch(error => {
-            console.log("OH, something went wrong", error)
+            console.log("OH, something went wrong", error.message)
         })
 
     }
