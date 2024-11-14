@@ -20,7 +20,8 @@ export default function WatchList() {
             email: currentEmail
         }
     }).then(response => {
-
+        console.log("Succeessss", response)
+        // setList(response.data.watchlist)
        }).catch(error => {
         console.log("Error fetching watchlist")
        })
@@ -36,7 +37,7 @@ export default function WatchList() {
             currentCate?.classList.add('selected')
         }
         loadWatchlist() // load watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly
-    },[currentCategory])
+    },[currentCategory, currentEmail])
     return(
         <section id="watchlist">
             <section id="watchlist-cate">

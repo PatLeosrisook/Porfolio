@@ -15,11 +15,13 @@ export async function POST(req : NextRequest, res : NextResponse) {
       {
         $push: {
           watchlist: {
+            id:movie.id,
             title: movie.title,
             type: movie.type,
+            src: movie.src,
+            overview: movie.overview, 
             genre: movie.genre,
             year: movie.year,
-            rating: movie.rating,
             addedAt: new Date(),
           }
         }
