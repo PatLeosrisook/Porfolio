@@ -104,36 +104,7 @@ export default function Movie({result} : {
                         })
                     }
                 </Carousel>
-                {/* <Swiper
-                slidesPerView={'auto'}
-                centeredSlides={true}
-                spaceBetween={30}
-                pagination={{
-                clickable: true,
-                }}
-                modules={[Pagination]}
-                className="mySwiper"
-                id="Carousel"
-            >
-              {
-                trendingMovie.map((list , index) => {
-                    {if(index == trendingMovie.length - 1) {
-
-                    }}
-                    return <SwiperSlide key={list.id}>
-                                <CarouselsContent 
-                                    Title={list.Title}
-                                    
-                                    Year={list.year}
-                                    IsAdult={list.adult}
-                                    Type={list.Type}
-                                    src={list.src}
-                                />
-                    </SwiperSlide>
-                  
-                })
-              }
-                </Swiper> */}
+            
             </section>
             <section className="media-content">
                 <section className='content-header'>
@@ -156,9 +127,6 @@ export default function Movie({result} : {
                                     return <option key={genre.id} value={genre.name}>{genre.name}</option>
                                 })
                             }
-                            {/* <option value="Action" >Action</option>
-                            <option value="Adventure" >Adventure</option>
-                            <option value="Romantic" >Romantic</option> */}
                         </select>
                         <select onChange={e => handleSelectYear(e)} name="year">
                             <option value="" disabled>Select year</option>

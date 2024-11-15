@@ -12368,33 +12368,6 @@ html {
   font-size: 12px;
 }
 
-.swiper {
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-  /* Center slide text vertically */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.swiper-slide {
-  width: 60%;
-}
-
 #Loading_screen, .Loading_screen {
   height: 100vh;
   width: 100vw;
@@ -13192,16 +13165,15 @@ html {
 }
 
 .content-body {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
-  overflow-y: scroll;
 }
 
 .content-wrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   width: 100%;
   height: -moz-fit-content;
@@ -13233,7 +13205,8 @@ html {
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  padding: 110px 41px;
+  padding: 0 41px;
+  padding-top: 110px;
   color: white;
 }
 #watchlist #watchlist-cate {

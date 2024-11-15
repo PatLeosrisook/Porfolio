@@ -15,20 +15,18 @@ export default function WatchList() {
     }
     function loadWatchlist() {
         // fetch watchlist from API
-        // setList(response data)
        axios.get('/api/users/watchlist/get', {
         params: {
             email: currentEmail
         }
     }).then(response => {
-        console.log("Succeessss", response)
         setList(response.data.watchlist)
        }).catch(error => {
         console.log("Error fetching watchlist")
        })
     }
     useEffect(() => {
-
+        
         let currentCate = document.querySelector(`.${currentCategory}`)
         if(currentCategory == "cate-movie") {
             document.querySelector('.cate-tv')?.classList.remove('selected')
@@ -37,8 +35,11 @@ export default function WatchList() {
             document.querySelector('.cate-movie')?.classList.remove('selected')
             currentCate?.classList.add('selected')
         }
-        loadWatchlist() // load watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly
-    },[currentCategory, currentEmail])
+        if(list.length == 0) {
+
+            loadWatchlist() // load watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly
+        }
+    },[currentCategory, currentEmail, list])
     return(
         <section id="watchlist">
             <section id="watchlist-cate">
@@ -49,7 +50,7 @@ export default function WatchList() {
                 <section className="content-wrapper">
                     {
                         (list.length > 0) ? list.map(item => {
-                            <RecommendedMedia
+                            return <RecommendedMedia
                                 Title={item.title}
                                 Year={item.year}
                                 Overview={item.overview}

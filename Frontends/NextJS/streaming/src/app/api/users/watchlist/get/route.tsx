@@ -7,10 +7,8 @@ export async function GET(req : NextRequest) {
     try {
         const email = req.nextUrl.searchParams.get('email');
         const user = await User.findOne({email: email} , 'email watchlist')
-        console.log("Fetching watchlist, here's the email: ", email, typeof user.email)
         if(user.email) {
             // get watchlist 
-            console.log("user watchlsit:", user.watchlist)
             return NextResponse.json({message: "Returning watchlist", watchlist: user.watchlist}, {status: 200})
         } else {
             // user doesn't exist
