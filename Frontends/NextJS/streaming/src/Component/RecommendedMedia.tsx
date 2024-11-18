@@ -2,11 +2,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBookmark as Bookedmarked, faPlay } from "@fortawesome/free-solid-svg-icons"
 import { faBookmark as unBookedmark } from "@fortawesome/free-regular-svg-icons"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import GetUser from "@/helper/getUser";
 import { options } from "../../public/API";
-export default function RecommendedMedia({id, Year, Title, isAdult, Genre,  Overview, Type, src, userEmail}: {
+export default function RecommendedMedia({id, Year, Title, isAdult, Genre,  Overview, Type, src, userEmail, presetBookMarked}: {
     id:number,
     Year: string,
     Title: string,
@@ -15,8 +15,10 @@ export default function RecommendedMedia({id, Year, Title, isAdult, Genre,  Over
     isAdult: boolean,
     Type: string,
     src: string,
-    userEmail: string
+    userEmail: string,
+    presetBookmarked: boolean,
 }) {
+    let hasMounted = useRef(false)
     const [booked, setBooked] = useState(false)
     let handleBookmarked = () => {
         //TODO:: this will then save the id of the current movie to user's database.
@@ -30,6 +32,7 @@ export default function RecommendedMedia({id, Year, Title, isAdult, Genre,  Over
                 src: src,
                 genre: Genre,
                 year: Year,
+                isBooked: true,
                 isAdult: isAdult,
                 addedAt: new Date()
             }
@@ -39,7 +42,6 @@ export default function RecommendedMedia({id, Year, Title, isAdult, Genre,  Over
             }
             options.method = "POST"
             options.url = "/api/user/watchlist/add"
-            //TODO:: return 405 error : 
             axios({
                 method: options.method,
                 url: '/api/users/watchlist/add', // Set the actual URL here
@@ -76,7 +78,11 @@ export default function RecommendedMedia({id, Year, Title, isAdult, Genre,  Over
         setBooked(!booked);
     }
     useEffect(() => {
-        handleBookmarked();
+        if(hasMounted.current && booked) {
+            handleBookmarked();
+        } else {
+            hasMounted.current = true;
+        }
     },[booked])
 
     return (
@@ -92,8 +98,11 @@ export default function RecommendedMedia({id, Year, Title, isAdult, Genre,  Over
                 </div>
                 <p className="overview">{Overview}</p>
                 <div className="Content-action">
-                    <div onClick={handleBookmarked} className="bookmark">
-                        <FontAwesomeIcon icon={unBookedmark} /> 
+                    <div onClick={toggleBookmarked} className="bookmark">
+                        {
+                            (booked || presetBookMarked) ? <FontAwesomeIcon icon={Bookedmarked} /> : <FontAwesomeIcon icon={unBookedmark} /> 
+                        }
+                        
                         <p>Bookmark</p>
                     </div>
                     <div className="trailer">

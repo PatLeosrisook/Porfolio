@@ -27,6 +27,7 @@ const userSchema = new mongoose.Schema({
           genre: Number,
           year: String,
           isAdult: Boolean,
+          isBooked: Boolean,
           addedAt: { type: Date, default: Date.now }
         }
       ],

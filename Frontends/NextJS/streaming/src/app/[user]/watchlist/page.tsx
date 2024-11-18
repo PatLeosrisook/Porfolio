@@ -57,6 +57,7 @@ export default function WatchList() {
                                 IsAdult={item.adult}
                                 Type={item.type}
                                 src={item.src}
+                                presetBookmarked={item.isBooked}
                                 key={item.id}
                                 Genre={item.genre}
                             />

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import User from "@/models/userModel";
-export default async function DELETE(res : NextResponse, req : NextRequest) {
+export async function DELETE(res : NextResponse, req : NextRequest) {
 
     try{
         const email = req.nextUrl.searchParams.get('email');
@@ -13,6 +13,6 @@ export default async function DELETE(res : NextResponse, req : NextRequest) {
         } 
         return NextResponse.json({message: "User not found"}, {status: 404})
     } catch(err) {
-
+        return NextResponse.json({Message: "unable to delete watchlist"}, {status: 500})
     }
 }
