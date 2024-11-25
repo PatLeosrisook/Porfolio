@@ -2,27 +2,52 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBookmark as Bookedmarked, faPlay } from "@fortawesome/free-solid-svg-icons"
 import { faBookmark as unBookedmark } from "@fortawesome/free-regular-svg-icons"
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import GetUser from "@/helper/getUser";
 import { options } from "../../public/API";
-export default function RecommendedMedia({id, Year, Title, isAdult, Genre,  Overview, Type, src, userEmail, presetBookMarked}: {
-    id:number,
-    Year: string,
-    Title: string,
-    Genre: number,
-    Overview: string,
-    isAdult: boolean,
-    Type: string,
-    src: string,
-    userEmail: string,
-    presetBookmarked: boolean,
-}) {
-    let hasMounted = useRef(false)
-    const [booked, setBooked] = useState(false)
-    let handleBookmarked = () => {
-        //TODO:: this will then save the id of the current movie to user's database.
-        if(booked) {
+export default class RecommendedMedia extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            booked: null,
+        };
+
+        this.hasMounted = false;
+
+        this.handleBookmarked = this.handleBookmarked.bind(this);
+        this.toggleBookmarked = this.toggleBookmarked.bind(this);
+    }
+    componentDidMount() {
+        // if (this.props.presetBookmarked) {
+        //     // Set bookmark state without adding to DB since it's already there.
+        //     this.setState({ booked: this.props.presetBookmarked });
+        // } else {
+        //     this.setState({ booked: false });
+        // }
+        // this.hasMounted = true;
+    }
+    //TODO:: Convert this to class
+    componentDidUpdate(prevProps, prevState) {
+        // if (this.hasMounted && this.state.booked !== prevState.booked) {
+        //     this.handleBookmarked();
+        // }
+    }
+     handleBookmarked = () => {
+        const {
+            id,
+            Year,
+            Title,
+            Overview,
+            Type,
+            src,
+            Genre,
+            isAdult,
+            userEmail,
+        } = this.props;
+      
+        if(this.state.booked) {
 
             let movie = {
                 id: id, 
@@ -53,7 +78,9 @@ export default function RecommendedMedia({id, Year, Title, isAdult, Genre,  Over
             }).catch(error => {
                 console.log("OH, something went wrong", error.message)
             })
-        } else {
+        }
+        if(this.state.booked == false) {
+
             let movie = {
                 id: id
             }
@@ -74,16 +101,22 @@ export default function RecommendedMedia({id, Year, Title, isAdult, Genre,  Over
         }
 
     }
-    let toggleBookmarked = () => {
+    toggleBookmarked = () => {
+        console.log("toggling")
         setBooked(!booked);
     }
-    useEffect(() => {
-        if(hasMounted.current && booked) {
-            handleBookmarked();
-        } else {
-            hasMounted.current = true;
-        }
-    },[booked])
+    // useEffect(() => {
+    //     if(hasMounted.current && (booked !== null)) {
+    //         handleBookmarked();
+    //     } else {
+    //         hasMounted.current = true;
+    //         setBooked(false);
+    //     }
+    //     if(presetBookmarked) {
+    //         // set bookmark state without adding to db since it's already there? or being removed
+    //         setBooked(presetBookmarked)
+    //     }
+    // },[booked,presetBookmarked]);
 
     return (
         <article className="RecommendedMedia">
@@ -100,7 +133,7 @@ export default function RecommendedMedia({id, Year, Title, isAdult, Genre,  Over
                 <div className="Content-action">
                     <div onClick={toggleBookmarked} className="bookmark">
                         {
-                            (booked || presetBookMarked) ? <FontAwesomeIcon icon={Bookedmarked} /> : <FontAwesomeIcon icon={unBookedmark} /> 
+                            (booked || presetBookmarked) ? <FontAwesomeIcon icon={Bookedmarked} /> : <FontAwesomeIcon icon={unBookedmark} /> 
                         }
                         
                         <p>Bookmark</p>

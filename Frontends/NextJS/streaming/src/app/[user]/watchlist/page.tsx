@@ -26,7 +26,6 @@ export default function WatchList() {
        })
     }
     useEffect(() => {
-        
         let currentCate = document.querySelector(`.${currentCategory}`)
         if(currentCategory == "cate-movie") {
             document.querySelector('.cate-tv')?.classList.remove('selected')
@@ -49,12 +48,14 @@ export default function WatchList() {
             <section className="content-body">
                 <section className="content-wrapper">
                     {
+
                         (list.length > 0) ? list.map(item => {
+        
                             return <RecommendedMedia
                                 Title={item.title}
                                 Year={item.year}
                                 Overview={item.overview}
-                                IsAdult={item.adult}
+                                isAdult={item.adult}
                                 Type={item.type}
                                 src={item.src}
                                 presetBookmarked={item.isBooked}
