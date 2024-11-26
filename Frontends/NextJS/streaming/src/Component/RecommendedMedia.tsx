@@ -6,7 +6,25 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import GetUser from "@/helper/getUser";
 import { options } from "../../public/API";
-export default class RecommendedMedia extends React.Component {
+
+interface RecommendedMediaProps {
+    id: number;
+    Year: string;
+    Title: string;
+    Genre: number;
+    Overview: string;
+    isAdult: boolean;
+    Type: string;
+    src: string;
+    userEmail: string;
+    presetBookmarked: boolean;
+}
+
+// Define the state type
+interface RecommendedMediaState {
+    booked: boolean | null;
+}
+export default class RecommendedMedia extends React.Component<RecommendedMediaProps, RecommendedMediaState> {
     constructor(props) {
         super(props);
 
@@ -14,25 +32,24 @@ export default class RecommendedMedia extends React.Component {
             booked: null,
         };
 
-        this.hasMounted = false;
-
         this.handleBookmarked = this.handleBookmarked.bind(this);
         this.toggleBookmarked = this.toggleBookmarked.bind(this);
     }
     componentDidMount() {
-        // if (this.props.presetBookmarked) {
-        //     // Set bookmark state without adding to DB since it's already there.
-        //     this.setState({ booked: this.props.presetBookmarked });
-        // } else {
-        //     this.setState({ booked: false });
-        // }
-        // this.hasMounted = true;
+        if (this.props.presetBookmarked) {
+            // Set bookmark state without adding to DB since it's already there.
+            this.setState({ booked: this.props.presetBookmarked });
+        } else {
+            this.setState({ booked: false });
+        }
+       
     }
-    //TODO:: Convert this to class
     componentDidUpdate(prevProps, prevState) {
         // if (this.hasMounted && this.state.booked !== prevState.booked) {
-        //     this.handleBookmarked();
-        // }
+            // }
+        if(this.state.booked !== prevState.booked) {
+            this.handleBookmarked();
+        }
     }
      handleBookmarked = () => {
         const {
@@ -102,48 +119,40 @@ export default class RecommendedMedia extends React.Component {
 
     }
     toggleBookmarked = () => {
-        console.log("toggling")
-        setBooked(!booked);
+        this.setState((prevState) => ({
+            booked: !prevState.booked
+        }));
     }
-    // useEffect(() => {
-    //     if(hasMounted.current && (booked !== null)) {
-    //         handleBookmarked();
-    //     } else {
-    //         hasMounted.current = true;
-    //         setBooked(false);
-    //     }
-    //     if(presetBookmarked) {
-    //         // set bookmark state without adding to db since it's already there? or being removed
-    //         setBooked(presetBookmarked)
-    //     }
-    // },[booked,presetBookmarked]);
 
-    return (
-        <article className="RecommendedMedia">
-            <div style={{backgroundImage:`url(https://image.tmdb.org/t/p/w1280/${src})`, backgroundSize: "cover" }} className="Image_wrap">
-
-            </div>
-            <div className="Content">
-                <p className="Content-title">{Title}</p>
-                <div className="Content-detail">
-                    <p>{Year}</p>
-                    <p>{(isAdult) ? "18+" : "PG"}</p>
+    render() {
+        return (
+            <article className="RecommendedMedia">
+                <div style={{backgroundImage:`url(https://image.tmdb.org/t/p/w1280/${this.props.src})`, backgroundSize: "cover" }} className="Image_wrap">
+    
                 </div>
-                <p className="overview">{Overview}</p>
-                <div className="Content-action">
-                    <div onClick={toggleBookmarked} className="bookmark">
-                        {
-                            (booked || presetBookmarked) ? <FontAwesomeIcon icon={Bookedmarked} /> : <FontAwesomeIcon icon={unBookedmark} /> 
-                        }
-                        
-                        <p>Bookmark</p>
+                <div className="Content">
+                    <p className="Content-title">{this.props.Title}</p>
+                    <div className="Content-detail">
+                        <p>{this.props.Year}</p>
+                        <p>{(this.props.isAdult) ? "18+" : "PG"}</p>
                     </div>
-                    <div className="trailer">
-                        <p>See trailer</p>
-                        <FontAwesomeIcon icon={faPlay}/>
+                    <p className="overview">{this.props.Overview}</p>
+                    <div className="Content-action">
+                        <div onClick={this.toggleBookmarked} className="bookmark">
+                            {
+                                (this.state.booked || this.props.presetBookmarked) ? <FontAwesomeIcon icon={Bookedmarked} /> : <FontAwesomeIcon icon={unBookedmark} /> 
+                            }
+                            
+                            <p>Bookmark</p>
+                        </div>
+                        <div className="trailer">
+                            <p>See trailer</p>
+                            <FontAwesomeIcon icon={faPlay}/>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </article>
-    )
+            </article>
+        )
+    }
+  
 }
