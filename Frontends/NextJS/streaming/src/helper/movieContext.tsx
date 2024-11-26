@@ -2,7 +2,8 @@
 import axios, { all } from 'axios'
 import { useEffect, useState,useContext, createContext } from 'react';
 import {options} from '../../public/API'
-import GenreOverview from '@/Component/GenreOverview';
+import GenreOverview from '@/Component/GenreOverview'
+import { useUser } from '@/helper/userContext';;
 interface ListItem { 
     id: number,
     Title : string,
@@ -15,17 +16,20 @@ interface ListItem {
 }
 const MovieContext = createContext([])
 export const MovieContextProvider = ({children} : {children : React.ReactNode}) => {
+    const { currentUser, currentEmail } = useUser();
     const [Movie,setMovie] = useState<Array<ListItem>>([])
     const [trendingMovie, setTrendingMovie] = useState<Array<ListItem>>([])
     const [genres, setGenres] = useState([])
     const [genreComponents, setGenreComponents] = useState<Array<React.ReactNode>>([]);
+    const [watchlist, setWatchlist] = useState<Array<ListItem>>([])
     const apiEndpoints = [
         "https://api.themoviedb.org/3/trending/movie/day?language=en-US",
         "https://api.themoviedb.org/3/genre/movie/list?language=en"
     ]
     let init = () => {
-        const requests = apiEndpoints.map(url => {
+        const requests = apiEndpoints.map((url, index) => {
             options.url = url
+           
             return axios(options)
         })
         

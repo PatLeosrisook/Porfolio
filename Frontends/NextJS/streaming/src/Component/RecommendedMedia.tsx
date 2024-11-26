@@ -105,16 +105,16 @@ export default class RecommendedMedia extends React.Component<RecommendedMediaPr
                 email: userEmail, 
                 movie: movie
             }
-            axios({
-                method: "DELETE",
-                url: '/api/users/watchlist/delete',
-                data: data,
-                headers: options.headers
-            }).then(response => {
-                console.log("Deleted")
-            }).catch(err=> {
-                console.log("Error deleteing", err.message)
-            })
+            // axios({
+            //     method: "DELETE",
+            //     url: '/api/users/watchlist/delete',
+            //     data: data,
+            //     headers: options.headers
+            // }).then(response => {
+            //     console.log("Deleted")
+            // }).catch(err=> {
+            //     console.log("Error deleteing", err.message)
+            // })
         }
 
     }

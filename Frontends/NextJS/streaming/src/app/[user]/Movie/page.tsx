@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useUser } from '@/helper/userContext';
 import Image from 'next/image';
-import { Pagination } from 'swiper/modules';
+import axios from 'axios';
 interface ListItem { 
     id: number,
     Title : string,
@@ -29,7 +29,37 @@ export default function Movie({result} : {
     const [selectedCategory, setSelectedCategory] = useState(null)
     const [selectedYear, setSelectedYear] = useState(null)
     const [searchedTerm, setSearchedTerm] = useState("")
-    const [currentGenre, setCurrentGenre] = useState([])
+    const [watchlist, setWatchlist] = useState<Array<Number>>([])
+    let LoadedMovie = Movie.map((movie : ListItem, index : number) => {
+        return <RecommendedMedia
+        Title={movie.Title}
+        Year={movie.year}
+        Overview={movie.Overview}
+        Type={movie.Type}
+        src={movie.src}
+        key={index}
+        presetBookmarked={(watchlist.includes(movie.id) ? true : false)}
+        Genre={movie.genre}
+        isAdult={movie.adult}
+        id={movie.id}
+        userEmail={currentEmail}
+    //    key={`${movie.title}-${movie.id}`}
+
+    /> })
+    function init() {
+        axios.get('/api/users/watchlist/get', {
+            params: {
+                email: currentEmail
+            }
+        }).then(response => {
+            let watchlistID = response.data.watchlist.map(list => {
+                return list.id
+            })
+            setWatchlist(watchlistID)
+        }).catch(error => {
+        console.log("Error fetching watchlist")
+        })
+    }
     function toggleFilter() { 
         let filterbtn = document.querySelector('.filter-btn')
         let advance_filter = document.querySelector('.content-advance-filter')
@@ -57,7 +87,10 @@ export default function Movie({result} : {
         setSearchedTerm(e.target.value);
     }
     useEffect(() => {
-        console.log("FROM MOVBIEE", currentEmail, currentUser);
+        if(currentEmail && watchlist.length == 0) {
+
+            init();
+        }
         let filter = []
         if(selectedCategory && selectedYear && searchedTerm) {
             filter = Movie.filter(movie => (movie.genre === selectedCategory && movie.year === selectedYear && movie.Title.startsWith(searchedTerm)));
@@ -79,8 +112,9 @@ export default function Movie({result} : {
             // reset list? 
             filter = []
         }
+        console.log("Current wtachlist", watchlist)
         setFilteredMovie(filter)
-    },[selectedCategory, selectedYear, searchedTerm, currentEmail, currentUser]);
+    },[selectedCategory, selectedYear, searchedTerm, currentEmail, currentUser,watchlist]);
     return (
         <section id="Movie" className='media-dashboard'>
             <section className='trending-section'>
@@ -148,22 +182,7 @@ export default function Movie({result} : {
                     <section className="content-wrapper">
 
                         {  
-                            (selectedCategory === null && selectedYear === null && searchedTerm.length == 0) ?  Movie.map((movie : ListItem, index : number) => {
-                                return <RecommendedMedia
-                                Title={movie.Title}
-                                Year={movie.year}
-                                Overview={movie.Overview}
-                                Type={movie.Type}
-                                src={movie.src}
-                                key={index}
-                                Genre={movie.genre}
-                                isAdult={movie.adult}
-                                id={movie.id}
-                                userEmail={currentEmail}
-                            //    key={`${movie.title}-${movie.id}`}
-
-                            /> 
-                            }) :
+                            (selectedCategory === null && selectedYear === null && searchedTerm.length == 0) ?  LoadedMovie :
                             
                             (FilteredMovie.length > 0) ? FilteredMovie.map((movie : ListItem, index : number)=> {
                                 return <RecommendedMedia
