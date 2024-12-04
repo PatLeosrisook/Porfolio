@@ -97,24 +97,25 @@ export default class RecommendedMedia extends React.Component<RecommendedMediaPr
             })
         }
         if(this.state.booked == false) {
-
+            console.log("Booked = false ")
             let movie = {
                 id: id
             }
-            let data = {
-                email: userEmail, 
-                movie: movie
-            }
-            // axios({
-            //     method: "DELETE",
-            //     url: '/api/users/watchlist/delete',
-            //     data: data,
-            //     headers: options.headers
-            // }).then(response => {
-            //     console.log("Deleted")
-            // }).catch(err=> {
-            //     console.log("Error deleteing", err.message)
-            // })
+            const config = {
+                headers: {
+                  Authorization: options.headers.Authorization, // Sending the token in the header
+                },
+                params: {
+                  email: userEmail,
+                  movie: movie
+                }
+              };
+            axios.delete('/api/users/watchlist/delete', config ).then(response => {
+                console.log(response, "Deleted ")
+            }).catch(err => {
+                console.log("Can't delete")
+            })
+           
         }
 
     }
@@ -140,7 +141,7 @@ export default class RecommendedMedia extends React.Component<RecommendedMediaPr
                     <div className="Content-action">
                         <div onClick={this.toggleBookmarked} className="bookmark">
                             {
-                                (this.state.booked || this.props.presetBookmarked) ? <FontAwesomeIcon icon={Bookedmarked} /> : <FontAwesomeIcon icon={unBookedmark} /> 
+                                (this.state.booked && this.props.presetBookmarked) ? <FontAwesomeIcon icon={Bookedmarked} /> : <FontAwesomeIcon icon={unBookedmark} /> 
                             }
                             
                             <p>Bookmark</p>

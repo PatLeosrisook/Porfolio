@@ -5,6 +5,7 @@ export async function DELETE(res : NextResponse, req : NextRequest) {
     try{
         const email = req.nextUrl.searchParams.get('email');
         const user = await User.findOne({email: email} , 'email watchlist')
+        console.log("Delete server: ", user ,email)
         if(user.email) {
             // delete watchlist 
             user.watchlist = user.watchlist.filter(movie => movie.id!== req.body.movie.id);
