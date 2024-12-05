@@ -13471,23 +13471,21 @@ html {
     font-size: 1.5rem;
   }
   .RecommendedMedia {
-    width: 25%;
-    height: 580px;
+    width: 220px;
+    height: 359px;
   }
   .RecommendedMedia .Content-title {
     font-size: 1.4rem;
   }
   .RecommendedMedia .overview {
-    height: -moz-fit-content;
-    height: fit-content;
-    font-size: 1.2rem;
+    height: 20%;
+    font-size: 1rem;
   }
   .RecommendedMedia .Content-title {
     font-size: 1.4rem;
   }
   .RecommendedMedia .Content-detail {
     justify-content: flex-start;
-    font-size: 1.2rem;
     gap: 10px;
   }
   .RecommendedMedia .bookmark, .RecommendedMedia .trailer {

@@ -4,11 +4,8 @@ import User from "@/models/userModel";
 connect();
 export async function DELETE( req : NextRequest) {
     try{
-        const reqBody = await req.json();
-        console.log("DELELLTE MOVIE", reqBody); 
+        const reqBody = await req.json(); 
         const {email, movie} = reqBody
-
-        console.log("Email:", email, "Movie:", movie);
 
         if (!email || !movie) {
             return NextResponse.json(

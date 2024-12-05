@@ -1143,34 +1143,24 @@ html {
         }
         
     }
-    // .Specified_Type, #Movie, #TV {
-    //     .lists {
-    //         padding:  0;;
 
-    //     }
-
-    //     .RecommendedMedia {
-    //         width: 250px;
-    //     }
-       
-    // }
     .RecommendedMedia {
-        width: 25%;
-        height: 580px;
+        width: 220px;
+        height: 359px;
         .Content-title {
             font-size:1.4rem;
         }
 
         .overview {
-            height: fit-content;
-            font-size: 1.2rem;
+            height: 20%;
+            font-size: 1rem;
         }
         .Content-title {
             font-size: 1.4rem;
         }
         .Content-detail {
             justify-content: flex-start;
-            font-size: 1.2rem;
+            // font-size: 1.2rem;
             gap: 10px;
         }
         .bookmark , .trailer {

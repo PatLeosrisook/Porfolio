@@ -55,7 +55,6 @@ export default class RecommendedMedia extends React.Component<RecommendedMediaPr
         }
     }
      handleBookmarked = async () => {
-        console.log("STATUS OF BOOKING", this.state.booked);
         const {
             id,
             Year,
@@ -127,6 +126,9 @@ export default class RecommendedMedia extends React.Component<RecommendedMediaPr
 
     }
     toggleBookmarked = () => {
+        if(this.props.presetBookmarked !== null) {
+            // this.props.presetBookmarked = null
+        }
         this.setState((prevState) => ({
             booked: !prevState.booked
         }));
@@ -147,10 +149,9 @@ export default class RecommendedMedia extends React.Component<RecommendedMediaPr
                     <p className="overview">{this.props.Overview}</p>
                     <div className="Content-action">
                         <div onClick={this.toggleBookmarked} className="bookmark">
-                            {
-                                (this.state.booked || this.props.presetBookmarked) ? <FontAwesomeIcon icon={Bookedmarked} /> : <FontAwesomeIcon icon={unBookedmark} /> 
-                            }
-                            
+                            <FontAwesomeIcon icon={
+                               (this.props.presetBookmarked || this.state.booked) ? Bookedmarked : unBookedmark
+                            } />
                             <p>Bookmark</p>
                         </div>
                         <div className="trailer">
