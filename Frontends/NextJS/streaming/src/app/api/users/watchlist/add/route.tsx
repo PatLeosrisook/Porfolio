@@ -4,7 +4,7 @@ import User from "@/models/userModel"
 connect();
 export async function POST(req : NextRequest, res : NextResponse) {
 
-
+  console.log("ADD MOVIE")
   try {
     const reqBody = await req.json(); 
     const { email, movie } = reqBody; // Use email instead of userId

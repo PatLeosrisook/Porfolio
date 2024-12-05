@@ -29,19 +29,20 @@ export default class RecommendedMedia extends React.Component<RecommendedMediaPr
         super(props);
 
         this.state = {
-            booked: null,
+            booked: (this.props.presetBookmarked) ? true : false,
         };
 
         this.handleBookmarked = this.handleBookmarked.bind(this);
         this.toggleBookmarked = this.toggleBookmarked.bind(this);
     }
     componentDidMount() {
-        if (this.props.presetBookmarked) {
-            // Set bookmark state without adding to DB since it's already there.
-            this.setState({ booked: this.props.presetBookmarked });
-        } else {
-            this.setState({ booked: false });
-        }
+        // if (this.props.presetBookmarked) {
+        //     // Set bookmark state without adding to DB since it's already there.
+        //     this.setState({ booked: this.props.presetBookmarked });
+        // } else {
+        //     this.setState({ booked: false });
+        // }
+        console.log("MOUNTED,", this.state.booked)
        
     }
     componentDidUpdate(prevProps, prevState) {
@@ -51,7 +52,8 @@ export default class RecommendedMedia extends React.Component<RecommendedMediaPr
             this.handleBookmarked();
         }
     }
-     handleBookmarked = () => {
+     handleBookmarked = async () => {
+        console.log("STATUS OF BOOKING", this.state.booked);
         const {
             id,
             Year,
@@ -101,20 +103,26 @@ export default class RecommendedMedia extends React.Component<RecommendedMediaPr
             let movie = {
                 id: id
             }
-            const config = {
-                headers: {
-                  Authorization: options.headers.Authorization, // Sending the token in the header
-                },
-                params: {
-                  email: userEmail,
-                  movie: movie
-                }
-              };
-            axios.delete('/api/users/watchlist/delete', config ).then(response => {
-                console.log(response, "Deleted ")
-            }).catch(err => {
-                console.log("Can't delete")
+            let data = {
+                email: userEmail,
+                movie: movie
+            }
+            // options.method = "DELETE"
+            // options.url = "/api/user/watchlist/delete"
+         
+            await axios
+            .delete('/api/users/watchlist/delete', {
+              params: {
+                email: userEmail,
+                movie: movie, // Assuming `movie` is a string (e.g., movie ID or title)
+              },
             })
+            .then((response) => {
+              console.log(response, "Deleted");
+            })
+            .catch((err) => {
+              console.log("Can't delete");
+            });
            
         }
 
