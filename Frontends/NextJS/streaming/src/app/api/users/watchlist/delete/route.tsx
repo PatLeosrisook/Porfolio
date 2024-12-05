@@ -3,10 +3,10 @@ import { connect } from "@/dbConfig/dbConfig";
 import User from "@/models/userModel";
 connect();
 export async function DELETE( req : NextRequest) {
-    console.log("DELELLTE MOVIE", req)
     try{
-        const email = req.nextUrl.searchParams.get('email');
-        const movie = req.nextUrl.searchParams.get('movie');
+        const reqBody = await req.json();
+        console.log("DELELLTE MOVIE", reqBody); 
+        const {email, movie} = reqBody
 
         console.log("Email:", email, "Movie:", movie);
 
@@ -16,16 +16,17 @@ export async function DELETE( req : NextRequest) {
                 { status: 400 }
             );
         }
-        // const email = req.nextUrl.searchParams.get('email');
-        // const user = await User.findOne({email: email} , 'email watchlist')
-        // console.log("Delete server: ", user ,email)
-        // if(user.email) {
-        //     // delete watchlist 
-        //     user.watchlist = user.watchlist.filter(movie => movie.id!== req.body.movie.id);
-        //     await user.save();
-        //     return NextResponse.json({message: "Unsaved movie"})
-        // } 
-        return NextResponse.json({message: "User not found"}, {status: 404})
+        const user = await User.findOne({email: email})
+        
+
+        if(!user) {
+            return NextResponse.json({message: "User does not exist"}, {status: 404})
+        }
+        let deleteWatchlist = user.watchlist.filter(currentMovie => currentMovie.id == movie.id)
+        user.watchlist = user.watchlist.filter(list => list.id !== movie.id)
+        await user.save();
+        return NextResponse.json({message: `Unfavourite ${deleteWatchlist.title}`})
+
     } catch(err) {
         console.log("ERR in DELETE", err.message, err)
         return NextResponse.json({Message: "unable to delete watchlist"}, {status: 500})

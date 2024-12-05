@@ -23,6 +23,7 @@ interface RecommendedMediaProps {
 // Define the state type
 interface RecommendedMediaState {
     booked: boolean | null;
+    reRender: boolean;
 }
 export default class RecommendedMedia extends React.Component<RecommendedMediaProps, RecommendedMediaState> {
     constructor(props) {
@@ -30,6 +31,7 @@ export default class RecommendedMedia extends React.Component<RecommendedMediaPr
 
         this.state = {
             booked: (this.props.presetBookmarked) ? true : false,
+            reRender: false,
         };
 
         this.handleBookmarked = this.handleBookmarked.bind(this);
@@ -107,22 +109,19 @@ export default class RecommendedMedia extends React.Component<RecommendedMediaPr
                 email: userEmail,
                 movie: movie
             }
-            // options.method = "DELETE"
-            // options.url = "/api/user/watchlist/delete"
-         
-            await axios
-            .delete('/api/users/watchlist/delete', {
-              params: {
-                email: userEmail,
-                movie: movie, // Assuming `movie` is a string (e.g., movie ID or title)
-              },
+            options.method = "DELETE"
+            axios({
+                method: options.method,
+                url: '/api/users/watchlist/delete', // Set the actual URL here
+                data: data, // The data for the POST request
+                headers: options.headers
+            
+            }).then(response => {
+                console.log(response.data)
+                window.location.reload();
+            }).catch(error => {
+                console.log("OH, something went wrong", error.message)
             })
-            .then((response) => {
-              console.log(response, "Deleted");
-            })
-            .catch((err) => {
-              console.log("Can't delete");
-            });
            
         }
 
@@ -149,7 +148,7 @@ export default class RecommendedMedia extends React.Component<RecommendedMediaPr
                     <div className="Content-action">
                         <div onClick={this.toggleBookmarked} className="bookmark">
                             {
-                                (this.state.booked && this.props.presetBookmarked) ? <FontAwesomeIcon icon={Bookedmarked} /> : <FontAwesomeIcon icon={unBookedmark} /> 
+                                (this.state.booked || this.props.presetBookmarked) ? <FontAwesomeIcon icon={Bookedmarked} /> : <FontAwesomeIcon icon={unBookedmark} /> 
                             }
                             
                             <p>Bookmark</p>

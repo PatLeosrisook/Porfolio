@@ -57,6 +57,8 @@ export default function WatchList() {
                                 Overview={item.overview}
                                 isAdult={item.adult}
                                 Type={item.type}
+                                userEmail={currentEmail}
+                                id={item.id}
                                 src={item.src}
                                 presetBookmarked={item.isBooked}
                                 key={item.id}
