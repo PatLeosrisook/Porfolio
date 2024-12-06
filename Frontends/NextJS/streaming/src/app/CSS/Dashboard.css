@@ -13164,6 +13164,10 @@ html {
   font-size: 1.4rem;
 }
 
+.Toastify {
+  position: absolute;
+}
+
 .content-body {
   width: 100vw;
   height: 100vh;

@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useUser } from '@/helper/userContext';
 import Image from 'next/image';
+import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 interface ListItem { 
     id: number,
@@ -117,6 +118,18 @@ export default function Movie({result} : {
     },[selectedCategory, selectedYear, searchedTerm, currentEmail, currentUser,watchlist]);
     return (
         <section id="Movie" className='media-dashboard'>
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
             <section className='trending-section'>
                 <Carousel  id="Carousel">
                     {    

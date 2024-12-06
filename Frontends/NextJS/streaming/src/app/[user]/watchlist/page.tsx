@@ -4,6 +4,7 @@ import EmptyState from "@/Component/EmptyState";
 import axios from "axios";
 import RecommendedMedia from "@/Component/RecommendedMedia";
 import { useUser } from '@/helper/userContext';
+import { ToastContainer } from 'react-toastify';
 export default function WatchList() {
     const { currentUser, currentEmail } = useUser();
     const [currentCategory, setCurrentCategory] = useState("cate-movie");
@@ -20,6 +21,8 @@ export default function WatchList() {
             email: currentEmail
         }
     }).then(response => {
+        // let shows = response.data.watchlist.filter(tv => tv.type == '')
+        console.log(response.data.watchlist)
         setList(response.data.watchlist)
        }).catch(error => {
         console.log("Error fetching watchlist")
@@ -41,6 +44,18 @@ export default function WatchList() {
     },[currentCategory, currentEmail, list])
     return(
         <section id="watchlist">
+            <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                />
             <section id="watchlist-cate">
                 <p onClick={e=>handleCategoryChange(e)} className="cate-movie selected">Movies</p>
                 <p onClick={e=>handleCategoryChange(e)} className="cate-tv">Tv Shows</p>

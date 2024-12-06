@@ -3,13 +3,15 @@ import { NextRequest, NextResponse } from "next/server";
 import User from "@/models/userModel"
 connect();
 export async function POST(req : NextRequest, res : NextResponse) {
-
-  console.log("ADD MOVIE")
   try {
     const reqBody = await req.json(); 
+    console.log("ADD movie", reqBody)
     const { email, movie } = reqBody; // Use email instead of userId
-    const getUser = await User.findOne({email: email})
-    const isMovieExist = getUser.watchlist.some(storedMovie => storedMovie.id === movie.id);
+    const user = await User.findOne({email: email})
+    if(!user) {
+      return NextResponse.json( {message: "User does not exist"}, {status: 500})
+    }
+    const isMovieExist = user.watchlist.some(storedMovie => storedMovie.id === movie.id);
     if (isMovieExist) {
       return NextResponse.json({message: "Movie already added"}, {status: 500})
     } 

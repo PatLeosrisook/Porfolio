@@ -8,8 +8,10 @@ import MovieContext from '@/helper/movieContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
+import { useUser } from '@/helper/userContext';
 import axios from 'axios';
 import { options } from '../../../../public/API';
+import { ToastContainer } from 'react-toastify';
 interface ListItem { 
     id : number,
     Title : string,
@@ -21,6 +23,7 @@ interface ListItem {
     adult: boolean
 }
 export default function TV() {
+    const {currentEmail} = useUser();
     const [TV, setTV] = useState<ListItem[]>([])
     const [trendingTv, setTrendingTv] = useState<Array<ListItem>>([])
     const [FilteredMovie, setFilteredMovie] = useState<Array<ListItem>>([])
@@ -157,6 +160,18 @@ export default function TV() {
     },[selectedCategory, selectedYear, searchedTerm])
     return (
         <section id="Tv" className='media-dashboard'>
+            <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                />
         <section className='trending-section'>
             <Carousel  id="Carousel">
                 {    
@@ -227,6 +242,7 @@ export default function TV() {
                             Overview={movie.Overview}
                             Type={movie.Type}
                             src={movie.src}
+                            userEmail={currentEmail}
                             key={index}
                             isAdult={movie.adult}
                             

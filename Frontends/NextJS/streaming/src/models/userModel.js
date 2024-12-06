@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema({
           id: Number,
           title: String,
           overview: String, 
-          type: { type: String, enum: ['movie', 'tvshow'] },
+          type: { type: String, enum: ['movie', 'TV'] },
           src: String,
           genre: Number,
           year: String,

@@ -6,7 +6,8 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import GetUser from "@/helper/getUser";
 import { options } from "../../public/API";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 interface RecommendedMediaProps {
     id: number;
     Year: string;
@@ -95,6 +96,7 @@ export default class RecommendedMedia extends React.Component<RecommendedMediaPr
             
             }).then(response => {
                 //TODO:: React toast here 
+                toast(`Added ${movie.title} to watchlist`)
             }).catch(error => {
                 console.log("OH, something went wrong", error.message)
             })
@@ -117,7 +119,12 @@ export default class RecommendedMedia extends React.Component<RecommendedMediaPr
             
             }).then(response => {
                 console.log(response.data)
-                window.location.reload();
+                toast(`Media removed from watchlist`)
+                // this.setState(prev => ({
+                //     reRender: !prev.reRender
+                // }))
+                // window.location.reload();
+                this.forceUpdate();
             }).catch(error => {
                 console.log("OH, something went wrong", error.message)
             })
@@ -137,6 +144,7 @@ export default class RecommendedMedia extends React.Component<RecommendedMediaPr
     render() {
         return (
             <article className="RecommendedMedia">
+              
                 <div style={{backgroundImage:`url(https://image.tmdb.org/t/p/w1280/${this.props.src})`, backgroundSize: "cover" }} className="Image_wrap">
     
                 </div>
