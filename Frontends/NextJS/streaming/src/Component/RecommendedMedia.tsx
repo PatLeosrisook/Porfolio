@@ -6,7 +6,7 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import GetUser from "@/helper/getUser";
 import { options } from "../../public/API";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 interface RecommendedMediaProps {
     id: number;
@@ -19,6 +19,7 @@ interface RecommendedMediaProps {
     src: string;
     userEmail: string;
     presetBookmarked: boolean;
+    updateWatchlist: Function;
 }
 
 // Define the state type
@@ -95,7 +96,6 @@ export default class RecommendedMedia extends React.Component<RecommendedMediaPr
                 headers: options.headers
             
             }).then(response => {
-                //TODO:: React toast here 
                 toast(`Added ${movie.title} to watchlist`)
             }).catch(error => {
                 console.log("OH, something went wrong", error.message)
@@ -123,8 +123,9 @@ export default class RecommendedMedia extends React.Component<RecommendedMediaPr
                 // this.setState(prev => ({
                 //     reRender: !prev.reRender
                 // }))
-                // window.location.reload();
-                this.forceUpdate();
+                this.props.updateWatchlist(id)
+                window.location.reload();
+                // this.forceUpdate();
             }).catch(error => {
                 console.log("OH, something went wrong", error.message)
             })

@@ -28,6 +28,11 @@ export default function WatchList() {
         console.log("Error fetching watchlist")
        })
     }
+    function updateList(id) {
+    //    setList(prev=> {
+    //     prev.filter(item => item.id !== id)
+    //    })
+    }
     useEffect(() => {
         let currentCate = document.querySelector(`.${currentCategory}`)
         if(currentCategory == "cate-movie") {
@@ -41,7 +46,8 @@ export default function WatchList() {
 
             loadWatchlist() // load watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly
         }
-    },[currentCategory, currentEmail, list])
+        console.log("UDPATE LIST", list)
+    },[currentCategory, currentEmail])
     return(
         <section id="watchlist">
             <ToastContainer
@@ -71,6 +77,7 @@ export default function WatchList() {
                                 Year={item.year}
                                 Overview={item.overview}
                                 isAdult={item.adult}
+                                updateWatchlist={updateList}
                                 Type={item.type}
                                 userEmail={currentEmail}
                                 id={item.id}
