@@ -17,7 +17,6 @@ export default function Login() {
     const[emailError, setEmailError] = useState<string>("")
     const[passwordError, setPasswordError] = useState<string>("")
     let handleChange = (e : React.ChangeEvent<HTMLInputElement>) => {
-        // console.log(e.target.value, e)
         let name = e.target.name;
         setValue(prevState => ({
             ...prevState, 
@@ -59,9 +58,7 @@ export default function Login() {
             }
     
             await axios.post('/api/users/login', data).then(response => {
-                console.log("logged in ")
                 axios.get('/api/users/me').then(response => {
-                    console.log("Redirecting .......")
                     router.push(`/${response.data.data.username}/Movie`)
                 }).catch(err => {
                     console.log("Fetching username failed", err)
@@ -72,7 +69,6 @@ export default function Login() {
         }
     }
     useEffect(() => {
-        console.log(value)
     })
     return (
         <>

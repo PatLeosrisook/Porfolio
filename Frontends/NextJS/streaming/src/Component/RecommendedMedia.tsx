@@ -40,13 +40,6 @@ export default class RecommendedMedia extends React.Component<RecommendedMediaPr
         this.toggleBookmarked = this.toggleBookmarked.bind(this);
     }
     componentDidMount() {
-        // if (this.props.presetBookmarked) {
-        //     // Set bookmark state without adding to DB since it's already there.
-        //     this.setState({ booked: this.props.presetBookmarked });
-        // } else {
-        //     this.setState({ booked: false });
-        // }
-        console.log("MOUNTED,", this.state.booked)
        
     }
     componentDidUpdate(prevProps, prevState) {
@@ -102,7 +95,6 @@ export default class RecommendedMedia extends React.Component<RecommendedMediaPr
             })
         }
         if(this.state.booked == false) {
-            console.log("Booked = false ")
             let movie = {
                 id: id
             }
@@ -118,14 +110,9 @@ export default class RecommendedMedia extends React.Component<RecommendedMediaPr
                 headers: options.headers
             
             }).then(response => {
-                console.log(response.data)
+                
                 toast(`Media removed from watchlist`)
-                // this.setState(prev => ({
-                //     reRender: !prev.reRender
-                // }))
                 this.props.updateWatchlist(id)
-                window.location.reload();
-                // this.forceUpdate();
             }).catch(error => {
                 console.log("OH, something went wrong", error.message)
             })

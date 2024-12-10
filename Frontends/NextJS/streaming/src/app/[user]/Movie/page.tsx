@@ -113,7 +113,6 @@ export default function Movie({result} : {
             // reset list? 
             filter = []
         }
-        console.log("Current wtachlist", watchlist)
         setFilteredMovie(filter)
     },[selectedCategory, selectedYear, searchedTerm, currentEmail, currentUser,watchlist]);
     return (

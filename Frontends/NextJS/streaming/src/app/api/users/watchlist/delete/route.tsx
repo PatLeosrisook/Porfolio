@@ -25,7 +25,7 @@ export async function DELETE( req : NextRequest) {
         return NextResponse.json({message: `Unfavourite ${deleteWatchlist.title}`})
 
     } catch(err) {
-        console.log("ERR in DELETE", err.message, err)
+        // console.log("ERR in DELETE", err.message, err)
         return NextResponse.json({Message: "unable to delete watchlist"}, {status: 500})
     }
 }

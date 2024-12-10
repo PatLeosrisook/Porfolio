@@ -36,13 +36,10 @@ export default function Account_setting() {
     const handleSaveChange = async() => {
         const {NewPassword, ConfirmPassword} = password
         //TODO:: send current user name to update_profile too
-        console.log(":fjKDL", password)
         if(NewPassword === ConfirmPassword && NewPassword.length > 0) { 
-            console.log("new password and confirm password not empty")
             await axios.post('/api/users/update_profile', {oldPassword: password.OldPassword, newPassword: password.NewPassword, user})
         } 
         if(email.length > 0) {
-            console.log("email not empty")
             await axios.post('/api/users/update_profile', {email, user})
         }
     }

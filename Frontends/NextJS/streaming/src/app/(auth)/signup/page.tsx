@@ -137,7 +137,6 @@ export default function SignUp() {
                 },
               }).then(response => {
                 // push new email to db
-                console.log("return from signup", response)
                 email?.classList.remove("error_input")
                 setFormData(prevState => ({
                     ...prevState, 
@@ -154,7 +153,7 @@ export default function SignUp() {
                 return false;
               });
         } else {
-            console.log("not valid")
+            //TODO:: invaldie? 
         }
     }
     let handleChangeProfilePic = (e) => {
@@ -178,7 +177,6 @@ export default function SignUp() {
         }
     }
     useEffect(() => {
-        console.log('data sent from sign up', formData) 
     })
     return(
         <>

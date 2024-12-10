@@ -9,7 +9,8 @@ export default function WatchList() {
     const { currentUser, currentEmail } = useUser();
     const [currentCategory, setCurrentCategory] = useState("cate-movie");
     const [list, setList] = useState<Array>([])
-
+    const [savedMovie, setSavedMovie] = useState<Array>([])
+    const [savedShows, setSavedShows] = useState<Array>([])
     function handleCategoryChange(e : Event) {
         let current = e.target.getAttribute('class'); 
         setCurrentCategory(current.split(" ")[0])
@@ -21,17 +22,18 @@ export default function WatchList() {
             email: currentEmail
         }
     }).then(response => {
-        // let shows = response.data.watchlist.filter(tv => tv.type == '')
-        console.log(response.data.watchlist)
+        let shows = response.data.watchlist.filter(tv => tv.type == 'TV')
+        let movies = response.data.watchlist.filter(tv => tv.type == 'movie')
+        setSavedMovie(movies)
+        setSavedShows(shows)
         setList(response.data.watchlist)
        }).catch(error => {
         console.log("Error fetching watchlist")
        })
     }
-    function updateList(id) {
-    //    setList(prev=> {
-    //     prev.filter(item => item.id !== id)
-    //    })
+    function updateList(id : Number) {
+        let updatedList = list.filter(item => item.id !== id);
+        setList(updatedList);
     }
     useEffect(() => {
         let currentCate = document.querySelector(`.${currentCategory}`)
@@ -41,12 +43,12 @@ export default function WatchList() {
         } else {
             document.querySelector('.cate-movie')?.classList.remove('selected')
             currentCate?.classList.add('selected')
+
         }
         if(list.length == 0) {
 
             loadWatchlist() // load watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly  // TODO: fetch watchlist from API and set list state accordingly
         }
-        console.log("UDPATE LIST", list)
     },[currentCategory, currentEmail])
     return(
         <section id="watchlist">
@@ -69,32 +71,59 @@ export default function WatchList() {
             <section className="content-body">
                 <section className="content-wrapper">
                     {
-
-                        (list.length > 0) ? list.map(item => {
-        
-                            return <RecommendedMedia
-                                Title={item.title}
-                                Year={item.year}
-                                Overview={item.overview}
-                                isAdult={item.adult}
-                                updateWatchlist={updateList}
-                                Type={item.type}
-                                userEmail={currentEmail}
-                                id={item.id}
-                                src={item.src}
-                                presetBookmarked={item.isBooked}
-                                key={item.id}
-                                Genre={item.genre}
-                            />
-                        }) : 
-                        <EmptyState
-                            src={"No_fav.svg"}
-                            alt="Empty watch list icon"
-                            width={120}
-                            height={120}
-                            title={"You haven't saved any thing :("}
-                            description={"Try browsing something then all your saved will appear here."}
-                        />        
+                        (currentCategory == 'cate-movie') ? 
+                            (savedMovie.length > 0) ? savedMovie.map(item => {
+            
+                                return <RecommendedMedia
+                                    Title={item.title}
+                                    Year={item.year}
+                                    Overview={item.overview}
+                                    isAdult={item.adult}
+                                    updateWatchlist={updateList}
+                                    Type={item.type}
+                                    userEmail={currentEmail}
+                                    id={item.id}
+                                    src={item.src}
+                                    presetBookmarked={item.isBooked}
+                                    key={item.id}
+                                    Genre={item.genre}
+                                />
+                            }) : 
+                            <EmptyState
+                                src={"No_fav.svg"}
+                                alt="Empty watch list icon"
+                                width={120}
+                                height={120}
+                                title={"You haven't saved any thing :("}
+                                description={"Try browsing something then all your saved will appear here."}
+                            />      
+                            :
+                            (savedShows.length > 0) ? savedShows.map(item => {
+            
+                                return <RecommendedMedia
+                                    Title={item.title}
+                                    Year={item.year}
+                                    Overview={item.overview}
+                                    isAdult={item.adult}
+                                    updateWatchlist={updateList}
+                                    Type={item.type}
+                                    userEmail={currentEmail}
+                                    id={item.id}
+                                    src={item.src}
+                                    presetBookmarked={item.isBooked}
+                                    key={item.id}
+                                    Genre={item.genre}
+                                />
+                            })
+                            : 
+                            <EmptyState
+                                src={"No_fav.svg"}
+                                alt="Empty watch list icon"
+                                width={120}
+                                height={120}
+                                title={"You haven't saved any thing :("}
+                                description={"Try browsing something then all your saved will appear here."}
+                            />   
                     }
                 </section>
             </section>

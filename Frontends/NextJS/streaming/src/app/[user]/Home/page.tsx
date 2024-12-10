@@ -26,11 +26,9 @@ export default function Home() {
           options.url = 'https://api.themoviedb.org/3/trending/all/day?language=en-US'
           axios.request(options)
             .then(function (response) {
-            //   console.log(response.data);
                 return response.data.results
             }).then(result => {
                 result = result.slice(0, 5)
-                console.log("Trending result: " ,result)
                 let lists : ListItem[] = []
                 lists = result.map(r => {
                     return {
@@ -56,7 +54,6 @@ export default function Home() {
         }).then(result=> {
             result = result.filter(media => media['release_date'].split("-")[0] >= 2000)
             result = result.slice(0, 5)
-            console.log(result)
             let list : ReactNode[] = []
             list = result.map((media) => {
                 return <RecommendedMedia
@@ -123,12 +120,11 @@ export default function Home() {
     }
     useEffect(  () => {
         if(popularList.length == 0 && recommendedList.length == 0 && recommendedSeries.length == 0) {
-            console.log("init...")
             loadTrending()
             loadRecommend()
             loadRecommendedTV()
             setUser()
-            console.log("afterr load", currentUser)
+
         }
 
     })

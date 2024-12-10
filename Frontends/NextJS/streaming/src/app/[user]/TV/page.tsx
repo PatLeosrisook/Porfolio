@@ -91,7 +91,6 @@ export default function TV() {
                     src: tv["poster_path"]
                 }
             })
-            console.log(list, min, max)
             setTrendingTv(list)
             setMinYear(min)
             setMaxYear(max)
@@ -115,7 +114,6 @@ export default function TV() {
                     src: tv["poster_path"]
                 }
             })
-            console.log(list, "Re")
             setTV(list)
         })
     }
@@ -154,7 +152,6 @@ export default function TV() {
                 // reset list? 
                 filter = []
             }
-            console.log("Filtered", filter, FilteredMovie)
             setFilteredMovie(filter)
         }
     },[selectedCategory, selectedYear, searchedTerm])

@@ -34,7 +34,7 @@ export default function Account() {
     let handleUpdate = () => {
         if(user !== "") {
             axios.post('/api/users/update_profile', {user, name}).then(response => {
-                console.log("Return from update profile", response)
+
             }).catch(err => {
                 console.log("Error", err)
             })
