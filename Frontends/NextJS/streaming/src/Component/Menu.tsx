@@ -6,15 +6,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { faGear, faTicket, faTv, faHome, faBookmark, faSignOut} from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import { useUser } from "@/helper/userContext";
 import {useRouter} from 'next/navigation';
-export default function Menu({handleOpenMenu} : {handleOpenMenu: Function}) {
-    const searchParams = useSearchParams()
+export default function Menu({handleOpenMenu, currentPage, setCurrentPage, setPreviousSelectedPage} : {handleOpenMenu: Function, currentPage: String,  setCurrentPage: Function, setPreviousSelectedPage: Function}) {
     const router = useRouter();
-    const [currentUser, setCurrentUser] = useState<String>("") // if user going to select a link, that mean it is already toggled.
-    const user = searchParams?.get('user:') //TODO:: find way to remember this 
-    let handleSelect = () => {
+    
+    const [currentUser , setCurrentUser] = useState<String>("") // if user going to select a link, that mean it is already toggled.
+    let handleSelect = (e : Event) => {
         handleOpenMenu(false)
-        
+        let page = e.target.textContent
+        setPreviousSelectedPage(currentPage) // store what was the last page so we can remove the active style
+        setCurrentPage(page)
     }
     let logout = async () => {
         handleOpenMenu(false)
@@ -35,27 +37,27 @@ export default function Menu({handleOpenMenu} : {handleOpenMenu: Function}) {
               <ul>
                   
                     <li>
-                        <Link onClick={handleSelect} className="active"  href={`/${currentUser}/Movie`}>
+                        <Link onClick={e=>handleSelect(e)}  href={`/${currentUser}/Movie`}>
                             <FontAwesomeIcon icon={faTicket} />
-                            <p>Movies</p>
+                            <p className="active">Movies</p>
                         </Link>
                     </li>
                     <li>
-                        <Link onClick={handleSelect}  href={`/${currentUser}/TV`}>
+                        <Link onClick={e=>handleSelect(e)}   href={`/${currentUser}/TV`}>
                             <FontAwesomeIcon icon={faTv} />
-                            <p>TVs</p>
+                            <p>TV Shows</p>
                         </Link>
                     </li>
                     <li>
-                        <Link onClick={handleSelect}  href={`/${currentUser}/watchlist`}>
+                        <Link onClick={e=>handleSelect(e)}  href={`/${currentUser}/watchlist`}>
                             <FontAwesomeIcon icon={faBookmark} />
-                            <p>Saved</p>
+                            <p>Watchlist</p>
                         </Link>
                     </li>
                     <li>
-                        <Link onClick={handleSelect}  href={`/${currentUser}/Account/profile_setting`}>
+                        <Link onClick={e=>handleSelect(e)}  href={`/${currentUser}/Account/profile_setting`}>
                             <FontAwesomeIcon icon={faGear} />
-                            <p>Account</p>
+                            <p >Account</p>
                         </Link>
                     </li>
                     <li>
