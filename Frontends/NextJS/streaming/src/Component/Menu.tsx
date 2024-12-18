@@ -45,19 +45,19 @@ export default function Menu({handleOpenMenu, currentPage, setCurrentPage, setPr
                     <li>
                         <Link onClick={e=>handleSelect(e)}   href={`/${currentUser}/TV`}>
                             <FontAwesomeIcon icon={faTv} />
-                            <p>TV Shows</p>
+                            <p className="Shows">TV Shows</p>
                         </Link>
                     </li>
                     <li>
                         <Link onClick={e=>handleSelect(e)}  href={`/${currentUser}/watchlist`}>
                             <FontAwesomeIcon icon={faBookmark} />
-                            <p>Watchlist</p>
+                            <p className="Watchlist">Watchlist</p>
                         </Link>
                     </li>
                     <li>
                         <Link onClick={e=>handleSelect(e)}  href={`/${currentUser}/Account/profile_setting`}>
                             <FontAwesomeIcon icon={faGear} />
-                            <p >Account</p>
+                            <p className="Account" >Account</p>
                         </Link>
                     </li>
                     <li>

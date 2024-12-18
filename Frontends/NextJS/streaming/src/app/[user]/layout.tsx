@@ -29,11 +29,18 @@ export default function DashboardLayout({children} : {
         }
     }
     let changeActiveLink = () => {
-        
+        let thisPage = (currentPage.split(" ").length > 1) ? currentPage.split(" ")[1] : currentPage
+        let lastPage = (previousSelectedPage.split(" ").length > 1) ? previousSelectedPage.split(" ")[1] : previousSelectedPage
+        console.log("THIS PG", thisPage,currentPage, "PR", lastPage, previousSelectedPage)
+        document.querySelector(`.${thisPage}`)?.classList.add('active')
+        //BUG: CANT SELECT LAST PAGE
+        // console.log(l)
+    
     }
    useEffect(() => {
     toggleMenu()
-   })
+    changeActiveLink()
+   },[isToggled, currentPage, previousSelectedPage])
     return (
     <UserProvider >
         <section id="Dashboard">
