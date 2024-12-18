@@ -6,16 +6,26 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { faGear, faTicket, faTv, faHome, faBookmark, faSignOut} from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
-import { useUser } from "@/helper/userContext";
+import { usePathname } from "next/navigation";
+import {useSelector} from 'react-redux'
+
 import {useRouter} from 'next/navigation';
-export default function Menu({handleOpenMenu, currentPage, setCurrentPage, setPreviousSelectedPage} : {handleOpenMenu: Function, currentPage: String,  setCurrentPage: Function, setPreviousSelectedPage: Function}) {
+export default function Menu({handleOpenMenu, currentPage, setCurrentPage, setPreviousSelectedPage, previousPage} : 
+    {handleOpenMenu: Function, 
+        currentPage: String,  
+        setCurrentPage: Function, 
+        setPreviousSelectedPage: Function, 
+        previousPage: String}) {
+            // Access the previous route from the Redux store
+
+
     const router = useRouter();
-    
+    const currentPath = usePathname();
     const [currentUser , setCurrentUser] = useState<String>("") // if user going to select a link, that mean it is already toggled.
     let handleSelect = (e : Event) => {
         handleOpenMenu(false)
         let page = e.target.textContent
-        setPreviousSelectedPage(currentPage) // store what was the last page so we can remove the active style
+        // setPreviousSelectedPage(currentPage) // store what was the last page so we can remove the active style
         setCurrentPage(page)
     }
     let logout = async () => {
@@ -26,11 +36,24 @@ export default function Menu({handleOpenMenu, currentPage, setCurrentPage, setPr
     
     let getUser = async () => {
         let user = await axios.get('/api/users/me')
-        console.log("user id", user.data.data.username)
         setCurrentUser(user.data.data.username)
     }
     useEffect(() => {
         getUser();
+        let path = currentPath?.split("/")[currentPath.split("/").length - 1]
+        console.log("Menu run", currentPath, "current page: "  , path, "prev route", previousPage, currentPath?.split("/"))
+        console.log(document.referrer)
+        // if(currentPath?.split("/").length > 3) {
+        //     console.log("Account")
+        //     path = currentPath?.split("/")[3]
+        // }
+        document.querySelector(`.${path}`)?.classList.add('active')
+
+        // document.querySelector(`.${previousPage}`)?.classList.remove('active')
+        if(previousPage !== path) {
+            console.log("NOT", previousPage, path)
+            setPreviousSelectedPage(path)
+        }
     })
     return (
         <section id="Menu"> 
@@ -39,19 +62,19 @@ export default function Menu({handleOpenMenu, currentPage, setCurrentPage, setPr
                     <li>
                         <Link onClick={e=>handleSelect(e)}  href={`/${currentUser}/Movie`}>
                             <FontAwesomeIcon icon={faTicket} />
-                            <p className="active">Movies</p>
+                            <p className="Movie">Movies</p>
                         </Link>
                     </li>
                     <li>
                         <Link onClick={e=>handleSelect(e)}   href={`/${currentUser}/TV`}>
                             <FontAwesomeIcon icon={faTv} />
-                            <p className="Shows">TV Shows</p>
+                            <p className="TV">TV Shows</p>
                         </Link>
                     </li>
                     <li>
                         <Link onClick={e=>handleSelect(e)}  href={`/${currentUser}/watchlist`}>
                             <FontAwesomeIcon icon={faBookmark} />
-                            <p className="Watchlist">Watchlist</p>
+                            <p className="watchlist">Watchlist</p>
                         </Link>
                     </li>
                     <li>

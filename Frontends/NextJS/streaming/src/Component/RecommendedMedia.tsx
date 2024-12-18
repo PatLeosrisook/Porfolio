@@ -63,7 +63,7 @@ export default class RecommendedMedia extends React.Component<RecommendedMediaPr
         } = this.props;
       
         if(this.state.booked) {
-
+            console.log("IN DELETE")
             let movie = {
                 id: id, 
                 title: Title, 
@@ -112,7 +112,7 @@ export default class RecommendedMedia extends React.Component<RecommendedMediaPr
             }).then(response => {
                 
                 toast(`Media removed from watchlist`)
-                this.props.updateWatchlist(id)
+                this.props.updateWatchlist(id, Type)
             }).catch(error => {
                 console.log("OH, something went wrong", error.message)
             })

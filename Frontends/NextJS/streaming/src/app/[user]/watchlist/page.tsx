@@ -31,9 +31,18 @@ export default function WatchList() {
         console.log("Error fetching watchlist")
        })
     }
-    function updateList(id : Number) {
-        let updatedList = list.filter(item => item.id !== id);
-        setList(updatedList);
+    function updateList(id : Number, type : string) {
+        let newList = [];
+        if(type=='movie') {
+            //update movie list
+            newList = savedMovie.filter(movie => movie.id !== id)
+            setSavedMovie(newList)
+        } else {
+            //update TV list
+            newList = savedShows.filter(tv => tv.id !== id)
+            setSavedShows(newList)
+        }
+        
     }
     useEffect(() => {
         let currentCate = document.querySelector(`.${currentCategory}`)

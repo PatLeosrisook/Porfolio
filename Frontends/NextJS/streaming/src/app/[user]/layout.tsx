@@ -8,9 +8,11 @@ import Menu from "@/Component/Menu";
 import { useEffect, useState } from "react";
 import { useUser } from "@/helper/userContext";
 import  {UserProvider} from '@/helper/userContext'
+import { useSelector } from'react-redux'
 export default function DashboardLayout({children} : {
     children : React.ReactNode 
 }) {
+    const prevRoute = useSelector((state) => state.route.prevRoute);
     const [previousSelectedPage, setPreviousSelectedPage] = useState("")
     const[currentPage, setCurrentPage] = useState("Movie")
     const { currentUser, currentEmail } = useUser();
@@ -44,7 +46,7 @@ export default function DashboardLayout({children} : {
     return (
     <UserProvider >
         <section id="Dashboard">
-            <Menu handleOpenMenu={handleOpenMenu} currentPage={currentPage} setCurrentPage={setCurrentPage} setPreviousSelectedPage={setPreviousSelectedPage} />
+            <Menu handleOpenMenu={handleOpenMenu} currentPage={currentPage} setCurrentPage={setCurrentPage} setPreviousSelectedPage={setPreviousSelectedPage} previousPage={prevRoute}/>
             <header>
                 <Image src={'/icons/Logo.svg'} width={20} height={20} alt="Logo"/>
                 <Hamburger color="white" toggle={setIsTogged} toggled={isToggled}  onToggle={handleOpenMenu} />
