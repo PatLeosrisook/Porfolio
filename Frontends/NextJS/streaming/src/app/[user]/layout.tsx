@@ -35,8 +35,6 @@ export default function DashboardLayout({children} : {
         let lastPage = (previousSelectedPage.split(" ").length > 1) ? previousSelectedPage.split(" ")[1] : previousSelectedPage
         console.log("THIS PG", thisPage,currentPage, "PR", lastPage, previousSelectedPage)
         document.querySelector(`.${thisPage}`)?.classList.add('active')
-        //BUG: CANT SELECT LAST PAGE
-        // console.log(l)
     
     }
    useEffect(() => {
