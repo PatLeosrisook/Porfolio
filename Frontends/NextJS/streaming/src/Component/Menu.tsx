@@ -42,13 +42,30 @@ export default function Menu({handleOpenMenu, currentPage, setCurrentPage, setPr
             useEffect(() => {
                 getUser();
                 //TODO: TEST TRACK ROUTE
-                console.log("Path name", pathname)
+                console.log("Path name", previousPath)
                 // Update previous route whenever the current route changes
                 const handleRouteChange = () => {
                     setPreviousPath(currentPath); // Store the current path as previous before it changes
                 };
-            
+                
                 handleRouteChange(); // Update previous path when the component mounts
+                if(currentPath !== previousPath) {
+                    let prevPath = previousPath.split("/")
+                    let curPath = currentPath.split("/")
+                    if(prevPath.length > 3) {
+                        //account paht which is like /user/Account/profile_setting
+                        document.querySelector(`.${prevPath[3]}`)?.classList.remove('active')
+                    } else {
+                        document.querySelector(`.${prevPath[prevPath.length - 1]}`)?.classList.remove('active')
+                    }
+                    if(curPath.length > 3) {
+                        document.querySelector(`.${curPath[3]}`)?.classList.add('active')
+                        
+                    } else {
+                        document.querySelector(`.${curPath[curPath.length - 1]}`)?.classList.add('active')
+
+                    }
+                }
             },[currentPath])
             return (
                 <section id="Menu"> 
