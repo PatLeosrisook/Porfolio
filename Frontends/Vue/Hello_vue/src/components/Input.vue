@@ -1,5 +1,6 @@
 <script setup>
-
+import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
+import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 </script>
 <template>
     <section id="Input">
@@ -7,7 +8,9 @@
             <h1>Todo Lists.</h1>
             <div id="input-wrapper">
                 <input type="text" v-model="newTodo" placeholder="Add new todo..." />
-                <button id="addBtn">></button>
+                <button id="addBtn">
+                    <FontAwesomeIcon :icon="faPaperPlane" />
+                </button>
             </div>
         </section>
     </section>
@@ -40,6 +43,9 @@ input:focus {
     border-radius: 100%;
     height: 40px;
     width:40px;
+}
+#addBtn svg {
+    color:white;
 }
 .wrapper {
     display: flex;
