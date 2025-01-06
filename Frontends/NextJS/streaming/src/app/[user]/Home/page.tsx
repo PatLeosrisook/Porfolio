@@ -66,7 +66,6 @@ export default function Home() {
                 />
                
             })
-            // list.push({view : 'more'})
             setRecommendedList(list)
             
         }).catch(e=> {
