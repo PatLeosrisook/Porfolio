@@ -1,27 +1,23 @@
 'use client';
 import { getUser } from '@/lib/getUser'
 import axios from 'axios';
+import { useUser } from '@/helper/userContext';
 import { useEffect, useState } from 'react'
 export default function Account_setting() {
+    const {currentUser, currentEmail} = useUser();
     const [user, setUser] = useState("")
-    const currentUser = async() => {
-        return await getUser()
-    }
+    // const currentUser = async() => {
+    //     return await getUser()
+    // }
     const [email, setEmail] = useState("")
-    const [currentEmail, setCurrentEmail] = useState("")
+    // const [currentEmail, setCurrentEmail] = useState("")
     const [password, setPassword] = useState({
         OldPassword: "",
         NewPassword: "",
         ConfirmPassword: ""
     })
     
-    useEffect( () => {
-        currentUser().then((user) => {
-            setUser(user.currentUser)
-            setCurrentEmail(user.currentEmail)
-        })
-       
-    })
+  
     const handleChange = (e) => {
         let name = e.target.name
         
@@ -37,17 +33,17 @@ export default function Account_setting() {
         const {NewPassword, ConfirmPassword} = password
         //TODO:: send current user name to update_profile too
         if(NewPassword === ConfirmPassword && NewPassword.length > 0) { 
-            await axios.post('/api/users/update_profile', {oldPassword: password.OldPassword, newPassword: password.NewPassword, user})
+            await axios.post('/api/users/update_profile', {oldPassword: password.OldPassword, newPassword: password.NewPassword, currentUser})
         } 
         if(email.length > 0) {
-            await axios.post('/api/users/update_profile', {email, user})
+            await axios.post('/api/users/update_profile', {email, currentUser})
         }
     }
     useEffect(() => {
-        currentUser().then((email) => {
-            setUser(email.currentUser)
-            setCurrentEmail(email.currentEmail)
-        })
+        // currentUser().then((email) => {
+        //     setUser(email.currentUser)
+        //     setCurrentEmail(email.currentEmail)
+        // })
     },[])
     return ( 
         <section id="Account_setting">
