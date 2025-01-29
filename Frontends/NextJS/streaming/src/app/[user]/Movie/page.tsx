@@ -3,7 +3,6 @@ import { useEffect, useState,useContext, createContext } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import CarouselsContent from '../../../Component/carouselContent';
 import RecommendedMedia from '@/Component/RecommendedMedia';
-import getGenre from '@/helper/getMovieGenre'
 import MovieContext from '@/helper/movieContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -25,7 +24,7 @@ export default function Movie({result} : {
     result : ResultType
 }) {
     const { currentUser, currentEmail } = useUser();
-    const [genreComponents, Movie, trendingMovie, genres] = useContext(MovieContext)
+    const [ Movie, trendingMovie, genres] = useContext(MovieContext)
     const [FilteredMovie, setFilteredMovie] = useState<Array<ListItem>>([])
     const [selectedCategory, setSelectedCategory] = useState(null)
     const [selectedYear, setSelectedYear] = useState(null)
@@ -165,14 +164,14 @@ export default function Movie({result} : {
                         </div>
                     </section>
                     <section className='content-advance-filter'>
-                        <select onChange={e => handleSelectCategory(e)}  name="category" aria-placeholder='Genre'>
+                        <select onChange={e => handleSelectCategory(e)}  name="category" >
                             <option value="" disabled>Select genre</option>
                             <option value="All">All</option>
-                            {
+                            {/* {
                                 genres.map(genre => {
                                     return <option key={genre.id} value={genre.name}>{genre.name}</option>
                                 })
-                            }
+                            } */}
                         </select>
                         <select onChange={e => handleSelectYear(e)} name="year">
                             <option value="" disabled>Select year</option>

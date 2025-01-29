@@ -4,7 +4,10 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
-interface FormData {
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+//change v
+type FormData =  {
     Email: string, 
     Password: string, 
 }
@@ -59,6 +62,7 @@ export default function Login() {
     
             await axios.post('/api/users/login', data).then(response => {
                 axios.get('/api/users/me').then(response => {
+                    toast("Logging in! Welcome back!")
                     router.push(`/${response.data.data.username}/Movie`)
                 }).catch(err => {
                     console.log("Fetching username failed", err)
@@ -71,7 +75,8 @@ export default function Login() {
     useEffect(() => {
     })
     return (
-        <>
+        <>  
+             
             <h2 className="card_title">Login</h2>
             <div className="form_group">
                 <input onChange={e => handleChange(e)} name="Email" type="email" placeholder="Email address" required/>

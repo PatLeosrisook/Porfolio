@@ -8,7 +8,8 @@ import Carousel from 'react-bootstrap/Carousel';
 import CarouselsContent from '../../../Component/carouselContent';
 import ViewMore from '@/app/[user]/Home/ViewMore';
 import { getUser } from '@/lib/getUser';
-interface ListItem { 
+//change v
+type ListItem = { 
     Id: number,
     Title : string,
     src : string, 
@@ -55,8 +56,9 @@ export default function Home() {
             result = result.filter(media => media['release_date'].split("-")[0] >= 2000)
             result = result.slice(0, 5)
             let list : ReactNode[] = []
-            list = result.map((media) => {
+            list = result.map((media, index) => {
                 return <RecommendedMedia
+                    key={index}
                     Title={media['original_title']}
                     Overview={media['overview']}
                     Year={media['release_date'].split("-")[0]}
@@ -97,8 +99,9 @@ export default function Home() {
                 list.set(media['id'], item )
             })
             let uniqueList = Array.from(list.values())
-            let listComponent = uniqueList.map(list => {
+            let listComponent = uniqueList.map((list, index) => {
                 return <RecommendedMedia
+                        
                         Title={list.Title}
                         Overview={list.Overview}
                         Year={list.year}
@@ -131,16 +134,12 @@ export default function Home() {
         <section id="Home">
             <section id="trending">
                 <Carousel  id="Carousel">
-                    {
-                        
+                    {  
                         popularList.map((list , index) => {
-                            {if(index == popularList.length - 1) {
-
-                            }}
-                            return <Carousel.Item >
+                           
+                            return <Carousel.Item key={index}>
                                         <CarouselsContent 
-                                            Title={list.Title}
-                                            
+                                            Title={list.Title}                      
                                             Year={list.year}
                                             IsAdult={list.adult}
                                             Type={list.Type}

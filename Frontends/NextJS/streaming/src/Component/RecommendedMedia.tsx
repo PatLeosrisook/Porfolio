@@ -4,7 +4,6 @@ import { faBookmark as Bookedmarked, faPlay } from "@fortawesome/free-solid-svg-
 import { faBookmark as unBookedmark } from "@fortawesome/free-regular-svg-icons"
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import GetUser from "@/helper/getUser";
 import { options } from "../../public/API";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

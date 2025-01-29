@@ -60,6 +60,12 @@ export default function Menu({handleOpenMenu} :
                                 </Link>
                             </li>
                             <li>
+                                <Link onClick={e=>handleSelect(e)} className={isActive(`/${currentUser}/LoadingMock`) ? 'active' : ''} href={`/${currentUser}/LoadingMock`}>
+                                    <FontAwesomeIcon icon={faGear} />
+                                    <p className="LoadMock" >LoadMock</p>
+                                </Link>
+                            </li>
+                            <li>
                                 <Link onClick={logout}  href="">
                                     <FontAwesomeIcon icon={faSignOut} />
                                     <p>logout</p>

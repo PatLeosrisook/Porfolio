@@ -1,6 +1,20 @@
 <script setup>
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
+import TodoCard from './TodoCard.vue'
+import {ref} from 'vue'
+const cardId = ref("animatedCard")
+let newTodo = ref("");
+const emit = defineEmits(['addTodo'])
+function addTodo() {
+    console.log("EMITTING", newTodo.value);
+    emit("addTodo", newTodo.value)
+    document.querySelector('#animatedCard').classList.add("slide-down");
+    setTimeout(() => {
+        document.querySelector('#animatedCard').classList.remove("slide-down");
+        newTodo.value = ""
+    }, 900)
+}
 </script>
 <template>
     <section id="Input">
@@ -8,10 +22,11 @@ import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
             <h1>Todo Lists.</h1>
             <div id="input-wrapper">
                 <input type="text" v-model="newTodo" placeholder="Add new todo..." />
-                <button id="addBtn">
+                <button @click="addTodo" id="addBtn">
                     <FontAwesomeIcon :icon="faPaperPlane" />
                 </button>
             </div>
+            <TodoCard :todo="newTodo" :id="cardId"/>
         </section>
     </section>
 </template>
@@ -19,6 +34,8 @@ import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 #Input {
     width: 100vw;
     height: 100vh;
+    position: relative;
+    z-index: 1;
     display:flex;
     justify-content: center;;
     align-items: center;;

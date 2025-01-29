@@ -2,9 +2,9 @@
 import axios, { all } from 'axios'
 import { useEffect, useState,useContext, createContext } from 'react';
 import {options} from '../../public/API'
-import GenreOverview from '@/Component/GenreOverview'
 import { useUser } from '@/helper/userContext';;
-interface ListItem { 
+//change v
+type ListItem = { 
     id: number,
     Title : string,
     src : string, 
@@ -20,7 +20,6 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
     const [Movie,setMovie] = useState<Array<ListItem>>([])
     const [trendingMovie, setTrendingMovie] = useState<Array<ListItem>>([])
     const [genres, setGenres] = useState([])
-    const [genreComponents, setGenreComponents] = useState<Array<React.ReactNode>>([]);
     const [watchlist, setWatchlist] = useState<Array<ListItem>>([])
     const apiEndpoints = [
         "https://api.themoviedb.org/3/trending/movie/day?language=en-US",
@@ -78,7 +77,6 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
                     adult: movie.adult
                 }
             })
-            console.log("Movie 1 : " , movies)
             setMovie(movies);
         })
        options.url = baseUrl + '2'
@@ -115,43 +113,19 @@ export const MovieContextProvider = ({children} : {children : React.ReactNode}) 
         setMovie(prev => (prev.concat(movies)))
        })
     }
-    let loadGenres = () => {
-        
-        let genresComponents = genres.map(genre => {
-            let movie = Movie.filter(movie => movie.genre === genre.id)
-            if(movie.length >= 5) {
-                movie = movie.slice(0, 5)
-                return (
-                    <GenreOverview key={genre.id} lists={movie} fullList={movie}link={`/${currentUser}/Movie/${genre.name}`} Genre={genre.name}/>
-                )
-            }
-        })
-        // console.log("LFJIDJF", genresComponents)
-        setGenreComponents(genresComponents) // send this through context 
-    }
+ 
     useEffect(() => {
 
         if(Movie.length == 0) {
             
             init();
             loadMovie();
-        } if(genreComponents.length == 0 ) {
-
-            loadGenres()
-        }else {
-            // if(searched !== "") {
-                //     // find the search input
-                //     let filteredResult = Movie.filter(movie => movie.Title.toLowerCase().startsWith(searched.toLowerCase()))
-                //     setFilteredList(filteredResult)
-                // } else {
-                    //     setMovie(Movie)
-                    // }
-        }
+        } 
 
     },[]);
 
     return (
-        <MovieContext.Provider value={[genreComponents, Movie,trendingMovie, genres]}>
+        <MovieContext.Provider value={[ Movie,trendingMovie, genres]}>
             {children}
         </MovieContext.Provider>
     )

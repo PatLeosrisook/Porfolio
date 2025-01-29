@@ -81,11 +81,12 @@ html {
 
 
 
-#Loading_screen,.Loading_screen{
+.Loading_screen{
+    @include style.flex();
     height: 100vh;
     width:100vw;
     color:white;
-    background-color: #B556FF
+    background: #192645;
 }
 #Dashboard {
     @include style.flex();
@@ -119,7 +120,7 @@ html {
     }
     #Content {
         @include style.flex(column,center, flex-start);
-        height: 90vh;
+        height: 100vh;
         width: 90vw;
         // padding: 0 20px;;
        
