@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@mixin flex($dir: column, $justify: center, $align : center) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $justify;
+    align-items: $align;
+}
+$Primary: #181919;
+$accent-red: #FF6C6F;
+$accent-blue: #62AEFF;
+$accent-purple:#8C6CFF;
+body, html {
+    margin:0 ;
+    padding: 0;
+}
+* {
+    box-sizing: border-box;
+    font-family: 'Inter';
+    font-weight: 300;
+}
+body{
+    background-color: $Primary;
+    color:white;
+}
+#Login , .registration{
+    @include flex();
+    height:100vh;
+    width:100vw;
+    .wrapper {
+        width: 222px;
+    }
+    .form_group {
+        @include flex(column, center, flex-start);
+        margin-bottom: 15px;
+    }
+    label {
+        font-size: 12px;
+    }
+    button {
+        background: white;
+        border:none;
+        width:100%;
+        height: 43px;
+        border-radius: 10px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    input {
+        border:none;
+        background-color: #4d4d4d;
+        width: 100%;
+        border-radius: 8px;
+        height: 42px;
+        color:white;
+        &:focus {
+            outline: none;
+            border: 1px solid white;;
+        }
+            
+    }
+    p {
+        font-size: 14px;
+        font-weight: 600;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+.signup {
+   .password-wrap {
+    background-color: #4d4d4d;
+    @include flex(row ,center,center);
+    width:100%;
+    height:fit-content;
+    border-radius:10px ;
+    padding-right:5px;
+   }
+   #password-best-practice {
+    ul {
+        list-style: none;
+
+    }
+    li {
+        @include flex(row, flex-start,center);
+        gap:5px;
+    }
+   }
+}
+#Home {
+    h2 {
+        align-self: flex-end;
+        font-weight: 600;
+    }
+    height:100vh;
+    width:100vw;
+    overflow-y: scroll ;
+    @include flex(column, flex-start, center);
+}
+h3 {
+    font-size: 34px;
+    font-weight: 700;
+}
+.Card {
+    background-color: white;
+    color:black;
+    position: relative;
+    @include flex(row, center, center);
+    width:347px;
+    height: 198px;
+    border-radius: 10px;
+    padding:10px;
+    .card-text-area {
+        width: 70%;
+        height:100%;
+        border-radius: 5px;
+    }
+
+    .card-side-bar {
+        @include flex(column, space-between, center);
+        width: 30%;
+        height: 100%;
+    }
+    textarea {
+        width: 100%;
+        height: 100%;
+        border:none;
+        background-color: transparent;
+        display:none;
+        &:focus {
+            outline:none;
+        }
+    }
+    .visible {
+        display: block !important;
+    }
+    // .visible-content
+    .focus-textarea {
+        background-color: #d4d4d857;
+    }
+    .card-save-btn {
+        display: none;
+    }
+    
+    .toast{
+        @include flex();
+        height: 30px;
+        width: 52px;
+        border-radius: 16px;
+        padding:17px;
+        color:white;
+        font-size: 12px;;
+    }
+    .admin-toast{
+        
+        background-color: $accent-red
+    }
+    .user-toast {
+        background-color: $accent-blue;
+    }
+}
+.place-holder {
+    background-color: rgb(255, 255, 255, 0.7)
+}
+#container, #Cards_wrapper {
+    @include flex();
+    gap:10px;
+}
+#container {
+    width: 100%;;
+    
+}
+#Cards_wrapper {
+    width: fit-content;
+    
+}
+#Cards_wrapper > .Card:not(.place-holder):first-child::after {
+    content: "New";
+    position: absolute;
+    background-color: $accent-purple;
+    width: 56px;
+    height: 34px;
+    top: -10px;
+    left: 300px;
+    border-radius: 15px;
+    color:white;
+    @include flex();
+}
+@media(min-width: 1440px) {
+    #Cards_wrapper{
+        @include flex(row, flex-start,center);
+        flex-wrap:wrap;
+        width: 1077px;
+    }
+    #container {
+        height:100%;
+        padding:30px;
+    }
+    #Login,.registration {
+        h1 {
+            font-size: 32px;
+        }
+        .form_group {
+            gap:10px;
+        }
+        label {
+            font-size: 18px;;
+        }
+    }
+    .Card {
+        .card-save-btn {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+    .place-holder {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

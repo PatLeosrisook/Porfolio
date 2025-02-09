@@ -1,0 +1,24 @@
+import { useState } from "react"
+
+export default function Card({id, role, content, count, editCard, saveCard, editingCardId}) {
+    const [cardContent, setCardContent] = useState("")
+    function handleCardContent(e) {
+        setCardContent(e.target.value)
+    }
+    return(
+        <article onClick={() => console.log("PPPP",id,editingCardId)} className="Card">
+            <div className="card-side-bar">
+                <div className="card-identity">
+                    <p>{(role == 'admin') ? "ADMIN" : "MEMO"}-{count}</p>
+                    <div className={`toast ${role}-toast`}>
+                       <p>{role}</p> 
+                    </div>
+                </div>
+                <p onClick={(e) => saveCard(role, id, cardContent)} className={` ${(editingCardId == id) ? 'visible' : '' } card-save-btn`}>Save</p>
+            </div>
+            <div onClick={(e) => editCard( id)} className={`${(editingCardId == id) ? 'focus-textarea' : '' } card-text-area`}>
+                <textarea value={(content.length > 0) ? content : cardContent} onChange={e => handleCardContent(e)} className={(editingCardId == id) ? 'visible' : (content.length > 0) ? 'visible' : ''}/>
+            </div>
+        </article>
+    )
+}

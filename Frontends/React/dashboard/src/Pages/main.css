@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Inter";
+  font-weight: 300;
+}
+
+body {
+  background-color: #181919;
+  color: white;
+}
+
+#Login, .registration {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+#Login .wrapper, .registration .wrapper {
+  width: 222px;
+}
+#Login .form_group, .registration .form_group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+#Login label, .registration label {
+  font-size: 12px;
+}
+#Login button, .registration button {
+  background: white;
+  border: none;
+  width: 100%;
+  height: 43px;
+  border-radius: 10px;
+}
+#Login button:hover, .registration button:hover {
+  cursor: pointer;
+}
+#Login input, .registration input {
+  border: none;
+  background-color: #4d4d4d;
+  width: 100%;
+  border-radius: 8px;
+  height: 42px;
+  color: white;
+}
+#Login input:focus, .registration input:focus {
+  outline: none;
+  border: 1px solid white;
+}
+#Login p, .registration p {
+  font-size: 14px;
+  font-weight: 600;
+}
+#Login p:hover, .registration p:hover {
+  cursor: pointer;
+}
+
+.signup .password-wrap {
+  background-color: #4d4d4d;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  border-radius: 10px;
+  padding-right: 5px;
+}
+.signup #password-best-practice ul {
+  list-style: none;
+}
+.signup #password-best-practice li {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+}
+
+#Home {
+  height: 100vh;
+  width: 100vw;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+#Home h2 {
+  align-self: flex-end;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.Card {
+  background-color: white;
+  color: black;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 347px;
+  height: 198px;
+  border-radius: 10px;
+  padding: 10px;
+}
+.Card .card-text-area {
+  width: 70%;
+  height: 100%;
+  border-radius: 5px;
+}
+.Card .card-side-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 30%;
+  height: 100%;
+}
+.Card textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+  display: none;
+}
+.Card textarea:focus {
+  outline: none;
+}
+.Card .visible {
+  display: block !important;
+}
+.Card .focus-textarea {
+  background-color: rgba(212, 212, 216, 0.3411764706);
+}
+.Card .card-save-btn {
+  display: none;
+}
+.Card .toast {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 52px;
+  border-radius: 16px;
+  padding: 17px;
+  color: white;
+  font-size: 12px;
+}
+.Card .admin-toast {
+  background-color: #FF6C6F;
+}
+.Card .user-toast {
+  background-color: #62AEFF;
+}
+
+.place-holder {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+#container, #Cards_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#container {
+  width: 100%;
+}
+
+#Cards_wrapper {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+#Cards_wrapper > .Card:not(.place-holder):first-child::after {
+  content: "New";
+  position: absolute;
+  background-color: #8C6CFF;
+  width: 56px;
+  height: 34px;
+  top: -10px;
+  left: 300px;
+  border-radius: 15px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 1440px) {
+  #Cards_wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 1077px;
+  }
+  #container {
+    height: 100%;
+    padding: 30px;
+  }
+  #Login h1, .registration h1 {
+    font-size: 32px;
+  }
+  #Login .form_group, .registration .form_group {
+    gap: 10px;
+  }
+  #Login label, .registration label {
+    font-size: 18px;
+  }
+  .Card .card-save-btn:hover {
+    cursor: pointer;
+  }
+  .place-holder:hover {
+    cursor: pointer;
+  }
+}/*# sourceMappingURL=main.css.map */
