@@ -50,12 +50,14 @@ export default function Login() {
     function navigateToSignup() {
         navigate('/auth/signup')
     }
+    //Function to highlight password input
     function inputFocus() {
         setIsFocus(true)
     }
     function inputBlur() {
         setIsFocus(false)
     }
+    
     function handleTogglePassword() {
         setIsPasswordVisible(!isPasswordVisible)
     }
