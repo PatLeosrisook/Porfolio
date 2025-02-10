@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react"
 import {useNavigate} from 'react-router'
 import {MockLogin} from "../helper/MockAuthentication"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faEyeSlash, faEye} from "@fortawesome/free-solid-svg-icons"
 export default function Login() {
     let navigate = useNavigate();
     const [loginData, setLoginData] = useState({
         username: "",
         password: "",
     })
-    const [errorMessage, setErrorMessage] = useState({
-        usernameError : "",
-        passwordError: "",
-        credientialsError:""
-    })
+    const [isPasswordVisible, setIsPasswordVisible] = useState(false)
+    const [errorMessage, setErrorMessage] = useState("")
+    const [isFocused, setIsFocus] = useState(false)
     function validateLogin() {
         
         if(loginData.username.length == 0) {
@@ -37,7 +37,7 @@ export default function Login() {
             localStorage.setItem(response.data.email, JSON.stringify(response.data))
             localStorage.setItem('isLoggedIn', 'true'); //remember that you are logged in
         }).catch(error => {
-            console.log(error)
+            setErrorMessage(error.error)
         })
     }
     function handleInputChange(e) {
@@ -50,6 +50,15 @@ export default function Login() {
     function navigateToSignup() {
         navigate('/auth/signup')
     }
+    function inputFocus() {
+        setIsFocus(true)
+    }
+    function inputBlur() {
+        setIsFocus(false)
+    }
+    function handleTogglePassword() {
+        setIsPasswordVisible(!isPasswordVisible)
+    }
     return(
         <section id="Login" className="registration">
             <section className="wrapper">
@@ -58,11 +67,15 @@ export default function Login() {
                     <div className="form_group">
                         <label for="username">บัญชีพนักงาน</label>
                         <input onChange={e=>handleInputChange(e)} name="username" />
-                        {(errorMessage.usernameError.length > 0) ? <p>{errorMessage.usernameError}</p> : ""}
+                        
                     </div>
-                    <div className="form_group">
+                    <div  className={`form_group password`}>
                         <label for="password">รหัสผ่าน</label>
-                        <input onChange={e=>handleInputChange(e)} name="password" type="password" />
+                        <div className={`password-wrap ${(isFocused) ? 'form-highlight' : '' }`}>
+                            <input onChange={e => handleInputChange(e)} onFocus={inputFocus} onBlur={inputBlur} name="password" type={(isPasswordVisible) ? 'text': 'password'} />
+                            <FontAwesomeIcon onClick={handleTogglePassword} icon={(isPasswordVisible) ? faEye: faEyeSlash} />
+                        </div>
+                        {(errorMessage.length > 0) ? <p className="error-message">{errorMessage}</p> : ""}
                     </div>
                     <p onClick={navigateToSignup}>No account? Sign up here!</p>
                     <button onClick={e=>handleLogin(e)} type="submit">ค้นหา</button>

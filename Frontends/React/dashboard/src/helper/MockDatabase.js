@@ -5,8 +5,8 @@ class MockDatabase {
         this.admin = JSON.parse(localStorage.getItem('ADMIN-cards')) || [];
         this.user = JSON.parse(localStorage.getItem("USER-cards")) || [];
 
-        this.admin_order = localStorage.getItem("ADMIN-order")
-        this.user_order = localStorage.getItem("USER-order")
+        this.admin_order = localStorage.getItem("ADMIN-order") || 0
+        this.user_order = localStorage.getItem("USER-order") || 0
     }
   
     getAdminCard() {
@@ -15,8 +15,41 @@ class MockDatabase {
     getUserCard() {
         return this.user
     }
+    getAllCards() {
+        return [...this.admin].concat([...this.user]).sort((a,b) => {
+            if(a.created < b.created) {
+                return 1
+            } 
+            return -1 
+        })
+    }
     generateNewId() {
         return Math.floor(Math.random() * 200);
+    }
+    getAdminOrder() {
+        return this.admin_order
+    }
+    getUserOrder() {
+        return this.user_order
+    }
+    addCard(role, content) {
+        let newCard = {
+            id: this.generateNewId(),
+            role: role,
+            content: content,
+            created: new Date().toLocaleTimeString(),
+            order: (role.toLowerCase() == 'admin') ? Number(this.admin_order) + 1 : Number(this.user_order) + 1
+        }
+        console.log('new' , newCard, newCard.order)
+        if(role.toLowerCase() == 'admin') {
+            this.admin_order ++ 
+            this.admin.push(newCard)
+
+        } else {
+            this.user_order++
+            this.user.push(newCard)
+        }
+        this.syncUpdateToCloud()
     }
     AddToAdmin() {
         let newCard = {
@@ -27,7 +60,7 @@ class MockDatabase {
             order : this.admin_order + 1
         }
         this.admin_order ++
-        this.admin.push(newCard) //newest card will be on top.
+        this.admin.push(newCard) 
         this.syncUpdateToCloud()
         return newCard.id //mark which one will user be editing the content 
     }
@@ -44,17 +77,31 @@ class MockDatabase {
         this.syncUpdateToCloud()
         return newCard.id
     }
+    findAdminCard(id) {
+        let searchedId = this.admin.findIndex(card => card.id == id) 
+        if(searchedId) {
+            return searchedId
+        }
+        return -1 
+    }
     editCardContent(id, role,content) {
-        console.log("EDITING", id, role, content)
+        // this should be use to edit the existing card. 
+        console.log('editing', id, role, content)
         var searchedItemIndex = null ;
-        if(role == "admin") {
+        if(role.toLowerCase() == "admin") {
             searchedItemIndex = this.getAdminCard().findIndex((card) => card.id == id)
-            this.admin[searchedItemIndex].content = content // if we're editing the latest one, then ..
+            if(searchedItemIndex == -1) {
+                console.log("NOT FOUND", this.admin)
+            } else {
+
+                this.admin[searchedItemIndex].content = content // if we're editing the latest one, then ..
+            }
             
         } else {
             searchedItemIndex = this.getUserCard().findIndex((card) => card.id == id)
             this.user[searchedItemIndex].content = content
         }
+        this.syncUpdateToCloud()
         
     }
     getNumberOfUserCards() {
@@ -64,7 +111,7 @@ class MockDatabase {
         return this.user.length + this.admin.length
     }
     syncUpdateToCloud() {
-        console.log("SYNC...")
+        console.log("Saving", this.admin, this.user, this.admin_order,this.user_order)
         //in this case, to local storage. Only admin will be able to access both.
         localStorage.setItem('ADMIN-cards', JSON.stringify(this.admin))
         localStorage.setItem('USER-cards', JSON.stringify(this.user))

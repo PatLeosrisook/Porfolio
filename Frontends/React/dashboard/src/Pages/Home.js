@@ -18,62 +18,40 @@ export default function Home() {
     const [editingCardId, setEditingCardId] = useState(null)
     const [initialized, setInitialized] = useState(false)
     function handleAddCard() {
-        //This just add blank card to dashboard so user can edit content later.
-        if (currentUser.role === "ADMIN") {
-            let newId = database.AddToAdmin(); // Add the card to the admin list
-            updateCards("ADMIN");         // Refresh cards after adding
-            setEditingCardId(newId)
-        } else {
-            let newId = database.AddToUser();
-            updateCards("USER");
-            setEditingCardId(newId)
-        }
-    }
-    function updateCards(role) {
-        if (role.toLowerCase() === "admin") {
-            //sort card based on date created. For admin is newest first.
-            let sortedCard = [...database.getAdminCard()].concat([...database.getUserCard()]).sort((a,b) => {
-                if(a.created < b.created) {
-                    return 1
-                } 
-                return -1 
-            })
-        setCards([...sortedCard])
-        } else {
-            setCards([...database.getUserCard()]); //user already oldest first on how card is added to the stack.
-        }
-        if(initialized) {
-
-            setRefresh(prev => !prev)
-        }
+        setEditingCardId(404) // dummie id
     }
     function handleEditCard(id) {
         //which card is being edit at the moment.
         setEditingCardId(id)
     }
     function handleSaveCard(role, id,content) {
-        database.editCardContent(id,role,content)
+        if(id == 404) {
+            //newly add card
+            database.addCard(role.toLowerCase(), content)
+        } else {
+            //for editing existing cards
+            database.editCardContent(id,role,content)
+        }
         setEditingCardId(null)
         updateCards(role)
     }
+    function updateCards(role) {
+        if (role.toLowerCase() === "admin") {
+            setCards([...database.getAllCards()])
+        } else {
+            setCards([...database.getUserCard()]); //user already oldest first on how card is added to the stack.
+        }
+        setInitialized(!initialized)
+        setRefresh(prev => !prev)
+        
+    }
+   
+    
     function handleLogout() {
         localStorage.removeItem('isLoggedIn')
         navigate('/auth/login')
     }
-    function init(role) {
-        if(role.toLowerCase() == "admin") {
-            let sortedCard = [...database.getAdminCard()].concat([...database.getUserCard()]).sort((a,b) => {
-                    if(a.created < b.created) {
-                        return 1
-                    } 
-                    return -1 
-                })
-            setCards([...sortedCard])
-        } else {
-            setCards([...database.getUserCard()])
-        }
-        setInitialized(!initialized)
-    } 
+
     useEffect(() => {
        const retrievedObj =  localStorage.getItem(state.user)
        const {name, email, role} = JSON.parse(retrievedObj)
@@ -83,20 +61,21 @@ export default function Home() {
             role: role
        })
        if(initialized == false) {
-           init(role)
-       }
-    },[state.user, refresh])
+            //loading all cards
+            updateCards(role)
+        }
+    },[refresh])
     return (
         <section id="Home">
             
             <h2 onClick={handleLogout} >{currentUser.email} <span><FontAwesomeIcon icon={faArrowRightFromBracket} /></span></h2>
             <section id="container">
-                <h3>Memo cards <span>{(editingCardId) ? `(${cards.length - 1} + 1)` : `(${cards.length})`}</span></h3>
+                <h3>Memo cards <span>{(editingCardId) ? `(${cards.length} + 1)` : `(${cards.length})`}</span></h3>
                 <div id="Cards_wrapper">
                     {
-                        cards.map(card => {
+                        cards.map((card,index) => {
                             return <Card
-                                // key={`${currentUser.role}-${card.id}`}
+                                key={`${currentUser.role}-${card.id}-${index}`}
                                 id={card.id}
                                 role={card.role}
                                 content={card.content}
@@ -108,7 +87,15 @@ export default function Home() {
                         })
                     }
                     {
-                        (editingCardId) ? "" : <div onClick={handleAddCard} className="Card place-holder">
+                        (editingCardId === 404) ? <Card 
+                                id={editingCardId} 
+                                content={""} 
+                                role={currentUser.role} 
+                                count={(currentUser.role == "ADMIN") ? database.getAdminOrder() + 1 : database.getUserOrder() + 1}
+                                editCard={handleEditCard}
+                                saveCard={handleSaveCard}
+                                editingCardId={editingCardId} /> 
+                                : <div onClick={handleAddCard} className="Card place-holder">
                         <FontAwesomeIcon icon={faPlus} />
                     </div>
                     }

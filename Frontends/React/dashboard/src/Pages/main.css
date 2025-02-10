@@ -23,8 +23,11 @@ body {
   height: 100vh;
   width: 100vw;
 }
+#Login .error-message, .registration .error-message {
+  color: #FF6C6F;
+}
 #Login .wrapper, .registration .wrapper {
-  width: 222px;
+  width: 272px;
 }
 #Login .form_group, .registration .form_group {
   display: flex;
@@ -54,8 +57,13 @@ body {
   height: 42px;
   color: white;
 }
+#Login input:not(input[name=password]):focus, .registration input:not(input[name=password]):focus {
+  border: 1px solid white;
+}
 #Login input:focus, .registration input:focus {
   outline: none;
+}
+#Login .form-highlight, .registration .form-highlight {
   border: 1px solid white;
 }
 #Login p, .registration p {
@@ -64,6 +72,18 @@ body {
 }
 #Login p:hover, .registration p:hover {
   cursor: pointer;
+}
+#Login .password-wrap, .registration .password-wrap {
+  background-color: #4d4d4d;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  border-radius: 10px;
+  padding-right: 5px;
 }
 
 .signup .password-wrap {
@@ -102,9 +122,17 @@ body {
   align-self: flex-end;
   font-weight: 600;
 }
+#Home h2:hover {
+  cursor: pointer;
+}
 
 h3 {
   font-size: 34px;
+  font-weight: 700;
+}
+
+span {
+  font-size: 15px;
   font-weight: 700;
 }
 
@@ -191,6 +219,13 @@ h3 {
 #Cards_wrapper {
   width: -moz-fit-content;
   width: fit-content;
+  overflow-y: scroll;
+  padding-top: 30px;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none;
+}
+#Cards_wrapper::-webkit-scrollbar {
+  display: none;
 }
 
 #Cards_wrapper > .Card:not(.place-holder):first-child::after {
