@@ -22,6 +22,33 @@ import bcrypt from 'bcryptjs'
         })
     })
 }
+function MockSignup(name, email, password) {
+    return new Promise((resolve, reject) => {
+        let user = {
+            name: name,
+            email: email, 
+            pass: bcrypt.hashSync(password,10), 
+            role: 'USER'
+        }
+        if(email == 'user.email@gmail.com') {
+            //return user1 jwt token
+            let userObj = {...jwtDecode(process.env.REACT_APP_USER_JWT) , password: bcrypt.hashSync(password, 10)}
+            console.log(userObj)
+            localStorage.setItem(email, JSON.stringify(userObj))
+            return resolve({
+                status: 200,
+                data: userObj
+            })
+        } else {
+            //give back the user obj
+            localStorage.setItem(email, JSON.stringify(user))
+            return resolve({
+                status: 200,
+                data: user
+            })
+        }
 
+    })
+}
 
-export {MockLogin}
+export {MockLogin, MockSignup}

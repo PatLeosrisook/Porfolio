@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEyeSlash, faEye, faXmark, faCheck } from "@fortawesome/free-solid-svg-icons"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router"
+import { MockSignup } from "../helper/MockAuthentication";
 export default function Signup() {
     let navigate = useNavigate();
     const [isPasswordVisible, setIsPasswordVisible] = useState(false)
@@ -62,6 +63,13 @@ export default function Signup() {
         e.preventDefault();
         if(validation()) {
             // localStorage.setItem(userData.email)
+            MockSignup(userData.username, userData.email, userData.password).then(response => {
+                console.log("Sign up", response.data)
+                navigate('/', { state: { user: response.data.email } }); // sent email so we can retrieve it afterward.
+                localStorage.setItem('isLoggedIn', true)
+            }).catch(error =>{
+                console.log(error)
+            })
         }
 
     }
@@ -121,6 +129,9 @@ export default function Signup() {
                     </li>
                 </ul>
             </section>
+            <footer>
+                {/* <p>Please note: register with the same email inside JWT token given in the brief will allow </p> */}
+            </footer>
         </section>
     )
 }
