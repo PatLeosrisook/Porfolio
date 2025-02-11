@@ -39,6 +39,7 @@ body{
     label {
         font-size: 12px;
     }
+
     button {
         background: white;
         border:none;
@@ -70,6 +71,10 @@ body{
     p {
         font-size: 14px;
         font-weight: 600;
+        
+    }
+    .registration-redirect {
+        text-decoration: underline;
         &:hover {
             cursor: pointer;
         }
@@ -194,7 +199,7 @@ span {
     
 }
 #Cards_wrapper {
-    width: fit-content;
+    width: 720px;
     overflow-y: scroll;
     padding-top:30px;
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
@@ -215,6 +220,10 @@ span {
     color:white;
     
     @include flex();
+}
+footer {
+    border: 1px dashed $accent-purple;
+    padding: 4px;
 }
 @media(min-width: 1440px) {
     #Cards_wrapper{

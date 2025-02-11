@@ -1,13 +1,12 @@
 class MockDatabase {
     constructor() {
-        // this.admin = [];
-        // this.user = []
-        this.admin = JSON.parse(localStorage.getItem('ADMIN-cards')) || [];
+        this.admin = JSON.parse(localStorage.getItem("ADMIN-cards")) || [];
         this.user = JSON.parse(localStorage.getItem("USER-cards")) || [];
 
         this.admin_order = localStorage.getItem("ADMIN-order") || 0
         this.user_order = localStorage.getItem("USER-order") || 0
     }
+ 
   
     getAdminCard() {
         return this.admin
@@ -16,6 +15,7 @@ class MockDatabase {
         return this.user
     }
     getAllCards() {
+        //return sorted card (from newest to oldest)
         return [...this.admin].concat([...this.user]).sort((a,b) => {
             if(a.created < b.created) {
                 return 1
@@ -48,7 +48,7 @@ class MockDatabase {
             this.user_order++
             this.user.push(newCard)
         }
-        this.syncUpdateToCloud()
+        this.syncUpdate()
     }
     AddToAdmin() {
         let newCard = {
@@ -60,7 +60,7 @@ class MockDatabase {
         }
         this.admin_order ++
         this.admin.push(newCard) 
-        this.syncUpdateToCloud()
+        this.syncUpdate()
         return newCard.id //mark which one will user be editing the content 
     }
     AddToUser() {
@@ -73,7 +73,7 @@ class MockDatabase {
         }
         this.user_order++
         this.user.push(newCard)
-        this.syncUpdateToCloud()
+        this.syncUpdate()
         return newCard.id
     }
     findAdminCard(id) {
@@ -97,7 +97,7 @@ class MockDatabase {
             searchedItemIndex = this.getUserCard().findIndex((card) => card.id == id)
             this.user[searchedItemIndex].content = content
         }
-        this.syncUpdateToCloud()
+        this.syncUpdate()
         
     }
     getNumberOfUserCards() {
@@ -106,12 +106,12 @@ class MockDatabase {
     getNumberOfAllCards() {
         return this.user.length + this.admin.length
     }
-    syncUpdateToCloud() {
+    syncUpdate() {
         //in this case, to local storage. Only admin will be able to access both.
-        localStorage.setItem('ADMIN-cards', JSON.stringify(this.admin))
-        localStorage.setItem('USER-cards', JSON.stringify(this.user))
-        localStorage.setItem('ADMIN-order', this.admin_order)
-        localStorage.setItem('USER-order', this.user_order)
+        localStorage.setItem("ADMIN-cards", JSON.stringify(this.admin))
+        localStorage.setItem("USER-cards", JSON.stringify(this.user))
+        localStorage.setItem("ADMIN-order", this.admin_order)
+        localStorage.setItem("USER-order", this.user_order)
 
     }
 }

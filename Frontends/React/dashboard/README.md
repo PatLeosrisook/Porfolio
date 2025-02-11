@@ -26,4 +26,7 @@ Either download the project to your local machine or clone the repository to you
 ## NOTE
 I have stored some data that the program will required to run properly inside `.env` file. However, this file will not be included when you cloned the project. So before you run the program, Please create a new `.env` file and use the same variable names inside `.env.example` file.
 
+### NOTE 2
+Kindly note that,for the time being, any new user created in sign up page will be assigned the same token as User1.
+
 Thank you :) 

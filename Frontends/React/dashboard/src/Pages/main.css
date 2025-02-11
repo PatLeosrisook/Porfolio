@@ -70,7 +70,10 @@ body {
   font-size: 14px;
   font-weight: 600;
 }
-#Login p:hover, .registration p:hover {
+#Login .registration-redirect, .registration .registration-redirect {
+  text-decoration: underline;
+}
+#Login .registration-redirect:hover, .registration .registration-redirect:hover {
   cursor: pointer;
 }
 #Login .password-wrap, .registration .password-wrap {
@@ -217,8 +220,7 @@ span {
 }
 
 #Cards_wrapper {
-  width: -moz-fit-content;
-  width: fit-content;
+  width: 720px;
   overflow-y: scroll;
   padding-top: 30px;
   -ms-overflow-style: none; /* Internet Explorer 10+ */
@@ -242,6 +244,11 @@ span {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+footer {
+  border: 1px dashed #8C6CFF;
+  padding: 4px;
 }
 
 @media (min-width: 1440px) {

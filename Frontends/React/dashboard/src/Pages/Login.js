@@ -13,32 +13,40 @@ export default function Login() {
     const [errorMessage, setErrorMessage] = useState("")
     const [isFocused, setIsFocus] = useState(false)
     function validateLogin() {
-        
+        let isAllClear = false
         if(loginData.username.length == 0) {
-            setErrorMessage(prev => ({
-                ...prev,
-                usernameError: "Please enter your username"
-            }))
+            setErrorMessage("กรุณากรอกข้อมูลบัญชีพนักงาน")
+            isAllClear = false 
+            return;
+        } else {
+            setErrorMessage("")
+            isAllClear = true
         }
         if(loginData.password.length == 0) {
-            setErrorMessage(prev => ({
-                ...prev,
-                passwordError: "Please enter your password."
-            }))
+            setErrorMessage("กรุณากรอกรหัสผ่าน")
+            isAllClear = false 
+            return;
+        } else {
+            setErrorMessage("")
+            isAllClear = true
         }
-        
+        if(isAllClear) {
+            return true
+        }
 
     }
     function handleLogin(e) {
         e.preventDefault();
-        validateLogin();
-        MockLogin(loginData.username, loginData.password).then(response => {
-            navigate('/', { state: { user: response.data.email } }); // sent email so we can retrieve it afterward.
-            localStorage.setItem(response.data.email, JSON.stringify(response.data))
-            localStorage.setItem('isLoggedIn', 'true'); //remember that you are logged in
-        }).catch(error => {
-            setErrorMessage(error.error)
-        })
+        if(validateLogin()) {
+            MockLogin(loginData.username, loginData.password).then(response => {
+                navigate('/', { state: { user: response.data.email } }); // sent email so we can retrieve it afterward.
+                localStorage.setItem(response.data.email, JSON.stringify(response.data))
+                localStorage.setItem('isLoggedIn', 'true'); //remember that you are logged in
+            }).catch(error => {
+                setErrorMessage(error.error)
+            })
+
+        }
     }
     function handleInputChange(e) {
         let name = e.target.name
@@ -79,7 +87,7 @@ export default function Login() {
                         </div>
                         {(errorMessage.length > 0) ? <p className="error-message">{errorMessage}</p> : ""}
                     </div>
-                    <p onClick={navigateToSignup}>No account? Sign up here!</p>
+                    <p className="registration-redirect" onClick={navigateToSignup}>สมัครสมาชิคที่นี้!</p>
                     <button onClick={e=>handleLogin(e)} type="submit">ค้นหา</button>
                 </form>
             </section>

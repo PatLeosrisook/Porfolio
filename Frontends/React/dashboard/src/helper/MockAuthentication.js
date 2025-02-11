@@ -16,7 +16,7 @@ import bcrypt from 'bcryptjs'
             } else {
                 reject({
                     status: 404,
-                    error: "Password or username is incorrect."
+                    error: "บัญชีพนักงานหรือรหัสผ่านไม่ถูกต้อง"
                 })
             }
         })

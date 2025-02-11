@@ -19,28 +19,42 @@ export default function Signup() {
     })
     const [errorMessage, setErrorMessage] = useState("")
     function validation() {
+        let isAllClear = false;
+        if(localStorage.getItem(userData.email)) {
+            setErrorMessage("User existed, redirecting you to login")
+            
+            setTimeout(() => {
+                setErrorMessage("")
+                navigate('/auth/login')
+            }, 1000)
+            return;
+        }
         if(userData.email.length == 0 || userData.username == 0 || userData.password.length == 0) {
             setErrorMessage("Please fill all the blanks")
+            isAllClear = false 
             return; 
         } else {
             setErrorMessage("")
+            isAllClear = true
         }
         if(!userData.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
             setErrorMessage("Please enter a valid email address.")
+            isAllClear = false 
             return;
         } else {
             setErrorMessage("")
+            isAllClear = true
         }
         
-        for(let [key, value] in passwordValidity) {
-            if(value == false) {
-                setErrorMessage("Please make sure your password follow the guideline below.")
-                return; 
-            } else {
-                setErrorMessage("")
-            }
+        if(!(userData.password.length >= 8 && userData.password.match(/[A-Z]/) && userData.password.match(/^(?=.*[!@#$%^&*]).+$/))) {
+            setErrorMessage("Please make sure your password follow the guideline below.")
+            isAllClear = false 
+            return;
+        } else {
+            setErrorMessage("")
+            isAllClear = true
         }
-        if(errorMessage.length == 0) {
+        if(isAllClear) {
             return true;
         }
     }
@@ -102,7 +116,8 @@ export default function Signup() {
                             <FontAwesomeIcon onClick={handleTogglePassword} icon={(isPasswordVisible) ? faEye: faEyeSlash} />
                         </div>
                     </div>
-                    <p onClick={navigateToLogin}>เป็นสมาชิคอยู่แล้ว</p>
+                    {(errorMessage) ? <p className="error-message">{errorMessage}</p> : ""}
+                    <p className="registration-redirect" onClick={navigateToLogin}>เป็นสมาชิคอยู่แล้ว</p>
                     <button onClick={e => handleCreateAccount(e)} type="submit">สมัคร</button>
                 </form>
             </section>
@@ -113,25 +128,22 @@ export default function Signup() {
                             (passwordValidity.characterLength) ? <FontAwesomeIcon icon={faCheck} /> : <FontAwesomeIcon icon={faXmark} />
                         }
                         
-                        <p>Password must be at least 8 characters long.</p>
+                        <p>รหัสผ่านต้องมีความยาวอย่างน้อย 8 ตัวอักษร</p>
                     </li>
                     <li>
                         {
                             (passwordValidity.specialChars) ? <FontAwesomeIcon icon={faCheck} /> : <FontAwesomeIcon icon={faXmark} />
                         }
-                        <p>Password must be contains at least one special character (e.g., !, @, #, $, %, ^, &).</p>
+                        <p>รหัสผ่านต้องมีอักขระพิเศษอย่างน้อยหนึ่งตัว (เช่น !, @, #, $, %, ^, &)</p>
                     </li>
                     <li>
                         {
                             (passwordValidity.capitalLetter) ? <FontAwesomeIcon icon={faCheck} /> : <FontAwesomeIcon icon={faXmark} />
                         }
-                        <p>Password must be contains at least one captial letter.</p>
+                        <p>รหัสผ่านต้องมีตัวอักษรตัวใหญ่ (ตัวพิมพ์ใหญ่) อย่างน้อยหนึ่งตัว</p>
                     </li>
                 </ul>
             </section>
-            <footer>
-                {/* <p>Please note: register with the same email inside JWT token given in the brief will allow </p> */}
-            </footer>
         </section>
     )
 }
