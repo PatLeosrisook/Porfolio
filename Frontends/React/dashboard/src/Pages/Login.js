@@ -52,7 +52,7 @@ export default function Login() {
         let name = e.target.name
         setLoginData(prev => ({
             ...prev, 
-            [name] : e.target.value
+            [name] : e.target.value.trim()
         }))
     }
     function navigateToSignup() {

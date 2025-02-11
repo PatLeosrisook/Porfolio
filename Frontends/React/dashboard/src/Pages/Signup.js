@@ -30,7 +30,7 @@ export default function Signup() {
             return;
         }
         if(userData.email.length == 0 || userData.username == 0 || userData.password.length == 0) {
-            setErrorMessage("Please fill all the blanks")
+            setErrorMessage("กรุณากรอกข้อมูลให้ครบ")
             isAllClear = false 
             return; 
         } else {
@@ -38,7 +38,7 @@ export default function Signup() {
             isAllClear = true
         }
         if(!userData.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-            setErrorMessage("Please enter a valid email address.")
+            setErrorMessage("กรุณากรอกอีเมลล์ที่ถูกต้อง")
             isAllClear = false 
             return;
         } else {
@@ -47,7 +47,7 @@ export default function Signup() {
         }
         
         if(!(userData.password.length >= 8 && userData.password.match(/[A-Z]/) && userData.password.match(/^(?=.*[!@#$%^&*]).+$/))) {
-            setErrorMessage("Please make sure your password follow the guideline below.")
+            setErrorMessage("กรุณาตรวจสอบให้แน่ใจว่ารหัสผ่านของคุณทำตามกฎข้างล่างนี้")
             isAllClear = false 
             return;
         } else {
@@ -78,7 +78,6 @@ export default function Signup() {
         if(validation()) {
             // localStorage.setItem(userData.email)
             MockSignup(userData.username, userData.email, userData.password).then(response => {
-                console.log("Sign up", response.data)
                 navigate('/', { state: { user: response.data.email } }); // sent email so we can retrieve it afterward.
                 localStorage.setItem('isLoggedIn', true)
             }).catch(error =>{
