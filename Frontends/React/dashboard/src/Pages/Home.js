@@ -1,4 +1,4 @@
-import { data, useLocation } from "react-router"
+import { useLocation } from "react-router"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPlus,faArrowRightFromBracket} from '@fortawesome/free-solid-svg-icons'
 import Card from "../Component/Card";
@@ -25,7 +25,7 @@ export default function Home() {
         setEditingCardId(id)
     }
     function handleSaveCard(role, id,content) {
-        if(id == 404) {
+        if(id === 404) {
             //newly add card
             database.addCard(role.toLowerCase(), content)
         } else {
@@ -60,7 +60,7 @@ export default function Home() {
             email: email,
             role: role
        })
-       if(initialized == false) {
+       if(initialized === false) {
             //loading all cards
             updateCards(role)
         }

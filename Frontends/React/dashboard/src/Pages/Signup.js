@@ -61,7 +61,7 @@ export default function Signup() {
     function handleInputChange(e){
         let name = e.target.name
         let value = e.target.value
-        if(name == "password") {
+        if(name === "password") {
             setPasswordValidity({
                 characterLength: (value.length >= 8) ? true : false, 
                 capitalLetter : (value.match(/[A-Z]/)) ? true : false ,
@@ -78,7 +78,7 @@ export default function Signup() {
         if(validation()) {
             // localStorage.setItem(userData.email)
             MockSignup(userData.username, userData.email, userData.password).then(response => {
-                navigate('/', { state: { user: response.data.email } }); // sent email so we can retrieve it afterward.
+                navigate('/', { state: { user: response.data.name } }); // sent email so we can retrieve it afterward.
                 localStorage.setItem('isLoggedIn', true)
             }).catch(error =>{
                 console.log(error)

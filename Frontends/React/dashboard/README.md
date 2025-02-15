@@ -26,6 +26,7 @@ Download the project to your local machine or clone the repository, then navigat
 ### On docker
 I've also pushed this project onto [docker](https://hub.docker.com/r/patkleo/dashboard/tags) as well.
 
+Once the program is running, you can log in with admin1 and user1 with the password you set inside `.env` file. 
 
 ## NOTE
 The program requires some data stored in a `.env` file to run properly. However, this file will not be included when you clone the project. Before running the program, please create a new `.env` file and use the same variable names as in the `.env.example` file.

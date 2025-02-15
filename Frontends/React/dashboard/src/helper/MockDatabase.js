@@ -38,9 +38,9 @@ class MockDatabase {
             role: role,
             content: content,
             created: new Date().toLocaleTimeString(),
-            order: (role.toLowerCase() == 'admin') ? Number(this.admin_order) + 1 : Number(this.user_order) + 1
+            order: (role.toLowerCase() === 'admin') ? Number(this.admin_order) + 1 : Number(this.user_order) + 1
         }
-        if(role.toLowerCase() == 'admin') {
+        if(role.toLowerCase() === 'admin') {
             this.admin_order ++ 
             this.admin.push(newCard)
 
@@ -77,7 +77,7 @@ class MockDatabase {
         return newCard.id
     }
     findAdminCard(id) {
-        let searchedId = this.admin.findIndex(card => card.id == id) 
+        let searchedId = this.admin.findIndex(card => card.id === id) 
         if(searchedId) {
             return searchedId
         }
@@ -86,15 +86,15 @@ class MockDatabase {
     editCardContent(id, role,content) {
         // this should be use to edit the existing card. 
         var searchedItemIndex = null ;
-        if(role.toLowerCase() == "admin") {
-            searchedItemIndex = this.getAdminCard().findIndex((card) => card.id == id)
+        if(role.toLowerCase() === "admin") {
+            searchedItemIndex = this.getAdminCard().findIndex((card) => card.id === id)
             if(searchedItemIndex !==  -1) {
                 
                 this.admin[searchedItemIndex].content = content // if we're editing the latest one, then ..
             } 
             
         } else {
-            searchedItemIndex = this.getUserCard().findIndex((card) => card.id == id)
+            searchedItemIndex = this.getUserCard().findIndex((card) => card.id === id)
             this.user[searchedItemIndex].content = content
         }
         this.syncUpdate()

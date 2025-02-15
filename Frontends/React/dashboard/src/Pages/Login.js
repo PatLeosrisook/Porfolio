@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import {useNavigate} from 'react-router'
 import {MockLogin} from "../helper/MockAuthentication"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -14,7 +14,7 @@ export default function Login() {
     const [isFocused, setIsFocus] = useState(false)
     function validateLogin() {
         let isAllClear = false
-        if(loginData.username.length == 0) {
+        if(loginData.username.length === 0) {
             setErrorMessage("กรุณากรอกข้อมูลบัญชีพนักงาน")
             isAllClear = false 
             return;
@@ -22,7 +22,7 @@ export default function Login() {
             setErrorMessage("")
             isAllClear = true
         }
-        if(loginData.password.length == 0) {
+        if(loginData.password.length === 0) {
             setErrorMessage("กรุณากรอกรหัสผ่าน")
             isAllClear = false 
             return;
@@ -39,11 +39,13 @@ export default function Login() {
         e.preventDefault();
         if(validateLogin()) {
             MockLogin(loginData.username, loginData.password).then(response => {
-                navigate('/', { state: { user: response.data.email } }); // sent email so we can retrieve it afterward.
-                localStorage.setItem(response.data.email, JSON.stringify(response.data))
+                let responseObj = JSON.parse(response.data)
+                navigate('/', { state: { user: responseObj.name } }); // sent email so we can retrieve it afterward. (MAYBE CHANGE TO USER?)
+                localStorage.setItem(responseObj.name, response.data)
                 localStorage.setItem('isLoggedIn', 'true'); //remember that you are logged in
             }).catch(error => {
                 setErrorMessage(error.error)
+                
             })
 
         }
@@ -85,7 +87,7 @@ export default function Login() {
                             <input onChange={e => handleInputChange(e)} onFocus={inputFocus} onBlur={inputBlur} name="password" type={(isPasswordVisible) ? 'text': 'password'} />
                             <FontAwesomeIcon onClick={handleTogglePassword} icon={(isPasswordVisible) ? faEye: faEyeSlash} />
                         </div>
-                        {(errorMessage.length > 0) ? <p className="error-message">{errorMessage}</p> : ""}
+                        {(errorMessage) ? <p className="error-message">{errorMessage}</p> : ""}
                     </div>
                     <p className="registration-redirect" onClick={navigateToSignup}>สมัครสมาชิคที่นี้!</p>
                     <button onClick={e=>handleLogin(e)} type="submit">ค้นหา</button>
