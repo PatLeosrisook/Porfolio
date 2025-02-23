@@ -2,11 +2,11 @@ import { useLocation } from "react-router"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPlus,faArrowRightFromBracket} from '@fortawesome/free-solid-svg-icons'
 import Card from "../Component/Card";
-import { database } from "../helper/MockDatabase";
+import { database } from "../helper/mockDatabase";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 export default function Home() {
-    const  navigate = useNavigate()
+    const navigate = useNavigate()
     const {state} = useLocation();
     const[currentUser, setCurrentUser] = useState({
         user: "",
@@ -27,19 +27,19 @@ export default function Home() {
     function handleSaveCard(role, id,content) {
         if(id === 404) {
             //newly add card
-            database.addCard(role.toLowerCase(), content)
+            database.AddCard(role.toLowerCase(), content)
         } else {
             //for editing existing cards
-            database.editCardContent(id,role,content)
+            database.EditCardContent(id,role,content)
         }
         setEditingCardId(null)
         updateCards(role)
     }
     function updateCards(role) {
         if (role.toLowerCase() === "admin") {
-            setCards([...database.getAllCards()])
+            setCards([...database.AllCards()])
         } else {
-            setCards([...database.getUserCard()]); //user already oldest first on how card is added to the stack.
+            setCards([...database.UserCard()]); //user already oldest first on how card is added to the stack.
         }
         setInitialized(!initialized)
         setRefresh(prev => !prev)
@@ -91,7 +91,7 @@ export default function Home() {
                                 id={editingCardId} 
                                 content={""} 
                                 role={currentUser.role} 
-                                count={(currentUser.role == "ADMIN") ? database.getAdminOrder() + 1 : database.getUserOrder() + 1}
+                                count={(currentUser.role === "ADMIN") ? database.AdminOrder() + 1 : database.UserOrder() + 1}
                                 editCard={handleEditCard}
                                 saveCard={handleSaveCard}
                                 editingCardId={editingCardId} /> 

@@ -1,20 +1,19 @@
-class MockDatabase {
-    constructor() {
-        this.admin = JSON.parse(localStorage.getItem("ADMIN-cards")) || [];
-        this.user = JSON.parse(localStorage.getItem("USER-cards")) || [];
 
-        this.admin_order = localStorage.getItem("ADMIN-order") || 0
-        this.user_order = localStorage.getItem("USER-order") || 0
-    }
- 
-  
-    getAdminCard() {
+function Database () {
+    this.admin = JSON.parse(localStorage.getItem("ADMIN-cards")) || []
+    this.user = JSON.parse(localStorage.getItem("USER-cards")) || []
+    this.admin_order = JSON.parse(localStorage.getItem("ADMIN-order")) || 0
+    this.user_order = JSON.parse(localStorage.getItem("USER-order")) || 0
+
+      
+    this.AdminCard = function() {
         return this.admin
     }
-    getUserCard() {
+    this.UserCard = function() {
+        console.log(this.user)
         return this.user
     }
-    getAllCards() {
+    this.AllCards = function() {
         //return sorted card (from newest to oldest)
         return [...this.admin].concat([...this.user]).sort((a,b) => {
             if(a.created < b.created) {
@@ -23,18 +22,18 @@ class MockDatabase {
             return -1 
         })
     }
-    generateNewId() {
+    this.GenerateNewId = function() {
         return Math.floor(Math.random() * 200);
     }
-    getAdminOrder() {
+    this.AdminOrder = function() {
         return this.admin_order
     }
-    getUserOrder() {
+    this.UserOrder = function() {
         return this.user_order
     }
-    addCard(role, content) {
+    this.AddCard = function(role, content) {
         let newCard = {
-            id: this.generateNewId(),
+            id: this.GenerateNewId(),
             role: role,
             content: content,
             created: new Date().toLocaleTimeString(),
@@ -48,42 +47,17 @@ class MockDatabase {
             this.user_order++
             this.user.push(newCard)
         }
-        this.syncUpdate()
+        this.SyncUpdate()
     }
-    AddToAdmin() {
-        let newCard = {
-            id: this.generateNewId(),
-            role: 'admin',
-            content: "",
-            created: new Date(),
-            order : this.admin_order + 1
-        }
-        this.admin_order ++
-        this.admin.push(newCard) 
-        this.syncUpdate()
-        return newCard.id //mark which one will user be editing the content 
-    }
-    AddToUser() {
-        let newCard = {
-            id:this.generateNewId(),
-            role: 'user', 
-            content: "",
-            created: new Date(),
-            order: this.user_order + 1
-        }
-        this.user_order++
-        this.user.push(newCard)
-        this.syncUpdate()
-        return newCard.id
-    }
-    findAdminCard(id) {
+
+    this.FindAdminCard = function(id) {
         let searchedId = this.admin.findIndex(card => card.id === id) 
         if(searchedId) {
             return searchedId
         }
         return -1 
     }
-    editCardContent(id, role,content) {
+    this.EditCardContent = function(id, role,content) {
         // this should be use to edit the existing card. 
         var searchedItemIndex = null ;
         if(role.toLowerCase() === "admin") {
@@ -97,16 +71,16 @@ class MockDatabase {
             searchedItemIndex = this.getUserCard().findIndex((card) => card.id === id)
             this.user[searchedItemIndex].content = content
         }
-        this.syncUpdate()
+        this.SyncUpdate()
         
     }
-    getNumberOfUserCards() {
+    this.NumberOfUserCards = function() {
         return this.user.length
     }
-    getNumberOfAllCards() {
+    this.NumberOfAllCards = function() {
         return this.user.length + this.admin.length
     }
-    syncUpdate() {
+    this.SyncUpdate = function() {
         //in this case, to local storage. Only admin will be able to access both.
         localStorage.setItem("ADMIN-cards", JSON.stringify(this.admin))
         localStorage.setItem("USER-cards", JSON.stringify(this.user))
@@ -115,4 +89,4 @@ class MockDatabase {
 
     }
 }
-export const database = new MockDatabase()
+export const database = new Database()

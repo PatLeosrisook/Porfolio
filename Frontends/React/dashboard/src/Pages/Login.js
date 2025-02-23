@@ -1,6 +1,6 @@
 import { useState } from "react"
 import {useNavigate} from 'react-router'
-import {MockLogin} from "../helper/MockAuthentication"
+import {MockLogin} from "../helper/mockAuthentication"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEyeSlash, faEye} from "@fortawesome/free-solid-svg-icons"
 export default function Login() {
@@ -11,28 +11,18 @@ export default function Login() {
     })
     const [isPasswordVisible, setIsPasswordVisible] = useState(false)
     const [errorMessage, setErrorMessage] = useState("")
-    const [isFocused, setIsFocus] = useState(false)
+    const [isFocused, setIsFocused] = useState(false)
     function validateLogin() {
-        let isAllClear = false
         if(loginData.username.length === 0) {
             setErrorMessage("กรุณากรอกข้อมูลบัญชีพนักงาน")
-            isAllClear = false 
-            return;
-        } else {
-            setErrorMessage("")
-            isAllClear = true
+            return false;
         }
         if(loginData.password.length === 0) {
             setErrorMessage("กรุณากรอกรหัสผ่าน")
-            isAllClear = false 
-            return;
-        } else {
-            setErrorMessage("")
-            isAllClear = true
-        }
-        if(isAllClear) {
-            return true
-        }
+            return false;
+        } 
+        setErrorMessage("")
+        return true
 
     }
     function handleLogin(e) {
@@ -62,10 +52,10 @@ export default function Login() {
     }
     //Function to highlight password input
     function inputFocus() {
-        setIsFocus(true)
+        setIsFocused(true)
     }
     function inputBlur() {
-        setIsFocus(false)
+        setIsFocused(false)
     }
     
     function handleTogglePassword() {
@@ -90,7 +80,7 @@ export default function Login() {
                         {(errorMessage) ? <p className="error-message">{errorMessage}</p> : ""}
                     </div>
                     <p className="registration-redirect" onClick={navigateToSignup}>สมัครสมาชิคที่นี้!</p>
-                    <button onClick={e=>handleLogin(e)} type="submit">ค้นหา</button>
+                    <button onClick={handleLogin} type="submit">ค้นหา</button>
                 </form>
             </section>
         </section>
