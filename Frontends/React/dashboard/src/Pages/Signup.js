@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEyeSlash, faEye, faXmark, faCheck } from "@fortawesome/free-solid-svg-icons"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router"
-import { MockSignup } from "../helper/MockAuthentication";
+import { MockSignup } from "../helper/mockAuthentication";
 export default function Signup() {
     let navigate = useNavigate();
     const [isPasswordVisible, setIsPasswordVisible] = useState(false)
@@ -19,7 +19,6 @@ export default function Signup() {
     })
     const [errorMessage, setErrorMessage] = useState("")
     function validation() {
-        let isAllClear = false;
         if(localStorage.getItem(userData.email)) {
             setErrorMessage("User existed, redirecting you to login")
             
@@ -29,34 +28,21 @@ export default function Signup() {
             }, 1000)
             return;
         }
-        if(userData.email.length == 0 || userData.username == 0 || userData.password.length == 0) {
+        if(userData.email.length === 0 || userData.username === 0 || userData.password.length === 0) {
             setErrorMessage("กรุณากรอกข้อมูลให้ครบ")
-            isAllClear = false 
-            return; 
-        } else {
-            setErrorMessage("")
-            isAllClear = true
-        }
+            return false ; 
+        } 
         if(!userData.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
             setErrorMessage("กรุณากรอกอีเมลล์ที่ถูกต้อง")
-            isAllClear = false 
-            return;
-        } else {
-            setErrorMessage("")
-            isAllClear = true
+            return false;
         }
         
         if(!(userData.password.length >= 8 && userData.password.match(/[A-Z]/) && userData.password.match(/^(?=.*[!@#$%^&*]).+$/))) {
             setErrorMessage("กรุณาตรวจสอบให้แน่ใจว่ารหัสผ่านของคุณทำตามกฎข้างล่างนี้")
-            isAllClear = false 
-            return;
-        } else {
-            setErrorMessage("")
-            isAllClear = true
-        }
-        if(isAllClear) {
-            return true;
-        }
+            return false;
+        } 
+        setErrorMessage("")
+        return true;
     }
     function handleInputChange(e){
         let name = e.target.name
@@ -92,9 +78,6 @@ export default function Signup() {
     function navigateToLogin() {
         navigate('/auth/login')
     }
-    useEffect(() => {
-
-    },[passwordValidity])
     return(
         <section className="registration signup">
             <h1>สมัครสมาชิค</h1>
