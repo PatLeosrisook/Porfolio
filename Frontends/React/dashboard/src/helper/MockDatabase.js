@@ -76,6 +76,13 @@ class MockDatabase {
         this.syncUpdate()
         return newCard.id
     }
+    deleteCard(role,id) {
+        if(role === 'admin') {
+            this.admin = this.admin.filter(card => card.id !== id)
+        } else {
+            this.user = this.user.filter(card => card.id !== id)
+        }
+    }
     findAdminCard(id) {
         let searchedId = this.admin.findIndex(card => card.id === id) 
         if(searchedId) {

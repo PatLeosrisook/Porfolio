@@ -51,7 +51,10 @@ export default function Home() {
         localStorage.removeItem('isLoggedIn')
         navigate('/auth/login')
     }
-
+    function deleteCard(role, id) {
+        database.deleteCard(role, id)
+        updateCards(role)
+    }
     useEffect(() => {
        const retrievedObj =  localStorage.getItem(state.user)
        const {name, email, role} = JSON.parse(retrievedObj)
@@ -83,6 +86,7 @@ export default function Home() {
                                 editCard={handleEditCard}
                                 saveCard={handleSaveCard}
                                 editingCardId={editingCardId}
+                                deleteCard={deleteCard}
                             />
                         })
                     }
